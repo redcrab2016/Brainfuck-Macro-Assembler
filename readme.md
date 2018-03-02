@@ -463,7 +463,7 @@ Duplicate head of stack value
 ***
 ### EQUAL
 
-Does two values in stack are different
+Does two values in stack are equal
 
 #### With stack
 
