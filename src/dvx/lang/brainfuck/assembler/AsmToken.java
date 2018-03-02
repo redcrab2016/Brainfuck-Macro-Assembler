@@ -1,0 +1,43 @@
+package dvx.lang.brainfuck.assembler;
+
+public enum AsmToken {
+	UNKNOWN,
+	EMPTY_LINE,
+	COMMENT,
+	VARIABLE,
+	BF,
+	IN,  
+	OUT,
+	INC,
+	DEC,
+	RESET,
+	SET,
+	ADD,
+	SUB,
+	MUL,
+	DIV,
+	BOOL,
+	NOT,
+	OR,
+	AND,
+	EQUAL,
+	DIFF,
+	SUP,
+	INF,
+	LOOP,
+	WHILE,
+	IF,
+	ELSE,
+	AT,
+	ENDSCOPE,
+	SBM, // stack bookmark
+	DUP,
+	PUSH,
+	POP,
+	DROP,
+	SWAP,
+	AROTL,
+	AROTR,
+	ARESET,// TODO : 
+	ASET   // TODO : 
+}
