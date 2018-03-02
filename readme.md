@@ -72,7 +72,7 @@ To compile and run a BF Assembler file
     
 To only compile and keep building files
 
-    java -jar bf.jar -c -k sample.asm
+    java -jar bf.jar -d -c -k sample.asm
     
 then by keeping the building file there are the following files 
 
