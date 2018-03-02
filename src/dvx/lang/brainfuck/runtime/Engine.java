@@ -218,21 +218,7 @@ public class Engine {
 			case BF_OUTPUT:
 				try {
 					output.write(data[indexData]);
-			/*		if (data[indexData]>31) {
-						System.out.print(
-							"['" +
-							(char)data[indexData] +
-							"'" + data[indexData] +
-							"]"
-						);
-					} else {
-						System.out.print(
-								"[" +
-								data[indexData] +
-								"]"
-							);
-					}
-					*/
+					output.flush();
 					indexCode++;
 				} catch (IOException e) {
 					currentStatus = EngineStatus.OUTPUTERROR;
