@@ -953,8 +953,8 @@ Do a subtraction
 
 #### With stack
 
-    ADD
-    
+    SUB
+   
 ##### Peudo code
         
     [mp] = [mp-1] - [mp] ; mp--
