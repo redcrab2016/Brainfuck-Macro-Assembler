@@ -22,7 +22,7 @@ import dvx.lang.brainfuck.runtime.Engine;
 import dvx.lang.brainfuck.runtime.EngineStatus;
 
 /**
- * @author devauem
+ * @author ysm
  *
  */
 public class Main {
@@ -83,7 +83,7 @@ public class Main {
 	public static void main(String[] args) throws FileNotFoundException {
 
 		// declare with default assignment
-		String mainFileName="/home/devauem/projects/DCTSC-api/dev/workspace/BF/BFinBF.asm";
+		String mainFileName="UnknownFile";
 		String rootFileName=null;
 		String buildFolder=null;
 		String include=null;
@@ -101,6 +101,7 @@ public class Main {
 		// treat parameters
 		List<String> _args = new ArrayList<String>();
 		Pattern p = Pattern.compile("^(--[_A-Za-z\\-0-9]+)=(.+)$");
+		Pattern p2 = Pattern.compile("^(-[_A-Za-z0-9]{2,})$");
 		
 		for (int idx=0; idx < args.length; idx++) {
 			Matcher m = p.matcher(args[idx]);
@@ -108,9 +109,15 @@ public class Main {
 				_args.add(m.group(1));
 				_args.add(m.group(2));
 			} else {
-				_args.add(args[idx]);
+				m = p2.matcher(args[idx]);
+				if (m.matches()) {
+					for (int idx2 = 1; idx2 < args[idx].length(); idx2++) {
+						_args.add("-"+ args[idx].charAt(idx2));
+					}
+				} else {
+					_args.add(args[idx]);
+				}
 			}
-			
 		}
 		
 		for (int idx=0; idx < _args.size(); idx++) {

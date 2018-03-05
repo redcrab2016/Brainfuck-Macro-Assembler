@@ -72,14 +72,25 @@ To compile and run a BF Assembler file
     
 To only compile and keep building files
 
-    java -jar bf.jar -d -c -k sample.asm
+    java -jar bf.jar -cdk sample.asm
     
-then by keeping the building file there are the following files 
+then by keeping the building files, we have got the following files 
 
 - **sample.js** : javascript (macro) that do generate sample.pc.asm
 - **sample.pc.asm** : result of macro execution (pre-compilation result)
 - **sample.deb.bf** : result with comments, of the compilation of sample.pc.asm 
 - **sample.bf** : result without comment of the compilation of sample.pc.asm
+
+The compilation process is :
+
+From **sample.asm** it generates **sample.js** : Produce the precompiler javascript program
+
+By evaluating **sample.js** it generates **sample.pc.asm** : The file to compile into BF
+
+By compiling **sample.pc.asm** it generates **sample.deb.bf** : final BF code with comments 
+
+By **sample.deb.bf** it generate sample.bf : final BF code without comment
+
 
 If you have compilation error you may investigate
 
@@ -124,7 +135,6 @@ For instance [this one](https://www.iamcal.com/misc/bf_debug/) is a good one.
 |  ,   | [mp] = read() ; ip++             | read byte input and store it at memory mp         |
 |  [   | ip = [mp]>0?ip+1:ip(matched)] +1 | if byte at memory mp is zero go to matching ]     |
 |  ]   | ip = [mp]==0?ip+1:ip(matched)[   | if byte at memory mp is not zero go to matching [ |
-
 
 ## BF Assembler
 
@@ -954,8 +964,8 @@ Do a subtraction
 
 #### With stack
 
-    SUB
-   
+    SUB
+   
 ##### Peudo code
         
     [mp] = [mp-1] - [mp] ; mp--
@@ -1183,4 +1193,3 @@ Content of file *main.asm*
     PUSH    {(idx*10)}
     POP     Var{idx}
     JS  }
-

@@ -1,5 +1,18 @@
-/**
- * 
+/***
+ *      ____            _        __            _         
+ *     | __ ) _ __ __ _(_)_ __  / _|_   _  ___| | __     
+ *     |  _ \| '__/ _` | | '_ \| |_| | | |/ __| |/ /     
+ *     | |_) | | | (_| | | | | |  _| |_| | (__|   <      
+ *     |____/|_|  \__,_|_|_| |_|_|  \__,_|\___|_|\_\     
+ *     |  \/  | __ _  ___ _ __ ___                       
+ *     | |\/| |/ _` |/ __| '__/ _ \                      
+ *     | |  | | (_| | (__| | | (_) |                     
+ *     |_| _|_|\__,_|\___|_|  \___/    _     _           
+ *        / \   ___ ___  ___ _ __ ___ | |__ | | ___ _ __ 
+ *       / _ \ / __/ __|/ _ \ '_ ` _ \| '_ \| |/ _ \ '__|
+ *      / ___ \\__ \__ \  __/ | | | | | |_) | |  __/ |   
+ *     /_/   \_\___/___/\___|_| |_| |_|_.__/|_|\___|_|   
+ *                                                       
  */
 package dvx.lang.brainfuck.assembler;
 
@@ -28,7 +41,7 @@ import javax.script.ScriptException;
 import dvx.lang.brainfuck.runtime.Engine;
 
 /**
- * @author devauem
+ * @author ysm
  *
  */
 public class Assembler {
@@ -680,8 +693,7 @@ public class Assembler {
 				lOpe.add(op);
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		}
 		// check not used variable
 		for (Variable var: mVariables.values()) {
@@ -964,7 +976,8 @@ public class Assembler {
 		}
 		return result;
 	}
-	
+
+	/*
 	private int getOffset(String bf) {
 		int result = 0;
 		for (int i = 0; i < bf.length() ; i++) {
@@ -974,7 +987,7 @@ public class Assembler {
 		}
 		return result;
 	}
-	
+	*/
 	
 	private List<Operation> reduce(List<Operation> oriList) {
 		List<Operation> result = new ArrayList<Operation>();
@@ -1110,7 +1123,7 @@ public class Assembler {
 					break;
 				case BF:
 					ope.BF = ope.asmOpeValue;
-					offset+= getOffset(ope.BF);
+					//offset+= getOffset(ope.BF);
 					break;
 				case SBM:
 					if (!sbm.addBookmark(ope.asmOpeValue,offset)) {
@@ -1663,10 +1676,10 @@ public class Assembler {
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
 
-
-		InputStream in= new FileInputStream(new File("/home/devauem/projects/DCTSC-api/dev/workspace/BF/src/test.asm"));//new ByteArrayInputStream(sampleCode.getBytes());
+		if (args.length < 3 ) return;
+		InputStream in= new FileInputStream(new File(args[0]));
 		try {
-			Assembler asm = new Assembler(in,"/home/devauem/projects/DCTSC-api/dev/workspace/BF/src/");
+			Assembler asm = new Assembler(in,args[1]);
 			if (asm.hasError()) {
 				List<String> el = asm.getErrorList();
 				System.out.println("Compilation Error");
@@ -1678,15 +1691,10 @@ public class Assembler {
 				PrintStream ps = new PrintStream(BFout);
 				asm.getBFCode(ps);
 				String code = BFout.toString();
-				//System.out.println(code);
-				// take 2 inputs, if equal then output 1 , 0 otherwise 
-//				String input = ",>,[<->-][-]<[>+<[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>-]<.!AA";
-				String input = ",[.-]!a";
+				String input = args[2];
 				Engine eng= new Engine(code,new ByteArrayInputStream(input.getBytes()) ,null);
 				eng.run();
 				OutputStream out = eng.getOutput();
-				//System.out.println("rawOptimze:\n" + asm.getBFOnly(true,80));
-
 				System.out.println("status:"+eng.getStatus().toString());
 				System.out.println("output:" + out.toString());
 			}
