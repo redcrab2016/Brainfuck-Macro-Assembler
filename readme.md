@@ -114,16 +114,17 @@ For instance [this one](https://www.iamcal.com/misc/bf_debug/) is a good one.
 
 ### 8 intructions  
 
-    | Code | Pseudo code                      | Description                                       |
-    | ---- | -------------------------------- | ------------------------------------------------- |
-    |  +   | [mp]++ ; ip++                    | increment current data at mp                      |
-    |  -   | [mp]-- ; ip++                    | decrement current data at mp                      |
-    |  >   |  mp++ ; ip++                     | move data pointer right                           |
-    |  <   |  mp-- ; ip++                     | move data pointer left                            |
-    |  .   | write( [mp] ); ip++              | write output with byte at memory mp               |
-    |  ,   | [mp] = read() ; ip++             | read byte input and store it at memory mp         |
-    |  [   | ip = [mp]>0?ip+1:ip(matched)] +1 | if byte at memory mp is zero go to matching ]     |
-    |  ]   | ip = [mp]==0?ip+1:ip(matched)[   | if byte at memory mp is not zero go to matching [ |
+| Code | Pseudo code                      | Description                                       |
+|------|----------------------------------|---------------------------------------------------|
+|  +   | [mp]++ ; ip++                    | increment current data at mp                      |
+|  -   | [mp]-- ; ip++                    | decrement current data at mp                      |
+|  >   |  mp++ ; ip++                     | move data pointer right                           |
+|  <   |  mp-- ; ip++                     | move data pointer left                            |
+|  .   | write( [mp] ); ip++              | write output with byte at memory mp               |
+|  ,   | [mp] = read() ; ip++             | read byte input and store it at memory mp         |
+|  [   | ip = [mp]>0?ip+1:ip(matched)] +1 | if byte at memory mp is zero go to matching ]     |
+|  ]   | ip = [mp]==0?ip+1:ip(matched)[   | if byte at memory mp is not zero go to matching [ |
+
 
 ## BF Assembler
 
