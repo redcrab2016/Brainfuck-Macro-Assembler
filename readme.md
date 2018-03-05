@@ -718,6 +718,7 @@ Consume the stack head and place the value elsewhere in the stack.
 - relative to the stack expressed by an immediate  negative integer
 - To a named stack book mark
 - To a global variable name
+- From stack to output
 
 #### With a negative immediate
 
@@ -780,6 +781,20 @@ Consume the stack head and place the value elsewhere in the stack.
     # before in stack we've got  40,30,20,10
     POP     var1    # [STACKBM(sbm1)] = [mp] ; mp--
     # after in stack we've got 30,20,10, and var1 == 40 (before 100)
+
+#### With output
+
+    POP     OUT
+    
+##### Pseudo code
+
+    write([mp]) ; mp--
+
+#### Example
+
+    PUSH    IN      # mp++ ; [mp] = readbyte
+    INC             # [mp]++
+    POP     OUT     # write([mp]) ; mp--;
        
 ***
 ### PUSH
@@ -791,6 +806,7 @@ push a value onto the stack, from an immediate or somewhere else value in the st
 - relative to the stack expressed by an immediate  negative integer
 - To a named stack book mark
 - To a global variable name
+- From input to stack
 
 #### With an immediate
 
@@ -867,6 +883,20 @@ push a value onto the stack, from an immediate or somewhere else value in the st
     # before in stack we've got  40,30,20,10
     PUSH     var1    # [STACKBM(sbm1)] = [mp] ; mp--
     # after in stack we've got 100,40,30,20,10 and not 20,40,30,20,10
+
+####  With input
+
+    PUSH   IN
+
+##### Pseudo code
+
+    mp++ ; [mp] = readbyte
+    
+##### Example
+
+    PUSH    IN      # mp++ ; [mp] = readbyte
+    INC             # [mp]++
+    POP     OUT     # write([mp]) ; mp--;
 
 ***
 ### RESET
