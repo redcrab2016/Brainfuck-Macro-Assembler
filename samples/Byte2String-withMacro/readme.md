@@ -10,6 +10,6 @@ typical usage is
 
     [Byte2String]$ echo "Hello" | java -jar ../../bf.jar Byte2String.asm 
     Compilation Success
-    072,101,108,108,111,010  
+    72,101,108,108,111,10  
 
   
