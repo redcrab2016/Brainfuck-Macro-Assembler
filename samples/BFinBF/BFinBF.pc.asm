@@ -6,7 +6,7 @@
 #                                        
 # bf in bf : by using bf assembler language
 
-#(begin include)macro.inc
+#(begin include)../include/macro.inc
 # Common macros
 # scope variables
 #(js) var __scope;
@@ -51,7 +51,9 @@
 # macro at_set(a,b) : a = b (immediate)
 
 
-#(end include)macro.inc
+
+
+#(end include)../include/macro.inc
 
 # declare global variables
 var bfData*255
@@ -100,8 +102,8 @@ wend # loop for each input bf code
 
 # rewind bfCode
 #(begin macro)if_sup(MIDCODE,"bfCode.pos")   # reverse rot to zero
-    push bfCode.pos
     push 127
+    push bfCode.pos
     sup
     if
 #(end macro)if_sup(MIDCODE,"bfCode.pos")   # reverse rot to zero

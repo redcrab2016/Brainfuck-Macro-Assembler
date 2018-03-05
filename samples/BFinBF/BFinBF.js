@@ -21,7 +21,7 @@ var BF_OUT;BF_OUT='4';
 var BF_OBRACKET;BF_OBRACKET='49';
 var BF_CBRACKET;BF_CBRACKET='51';
 _str_main+='' + '\n';
-_str_main+='#(begin include)macro.inc' + '\n';
+_str_main+='#(begin include)../include/macro.inc' + '\n';
 _str_main+='# Common macros' + '\n';
 _str_main+='# scope variables' + '\n';
 _str_main+='#(js) var __scope;' + '\n';
@@ -89,8 +89,8 @@ _str_main+='# macro if_sup(a,b) : if (a > b) {' + '\n';
 var if_sup = function(a,b){
 var _strif_sup;
 _strif_sup='';
-_strif_sup+='    push ' + b + '' + '\n';
 _strif_sup+='    push ' + a + '' + '\n';
+_strif_sup+='    push ' + b + '' + '\n';
 _strif_sup+='    sup' + '\n';
 _strif_sup+='    if' + '\n';
 return _strif_sup;
@@ -100,35 +100,35 @@ _str_main+='# macro if_inf(a,b) : if (a < b) {' + '\n';
 var if_inf = function(a,b){
 var _strif_inf;
 _strif_inf='';
-_strif_inf+='    push ' + b + '' + '\n';
 _strif_inf+='    push ' + a + '' + '\n';
+_strif_inf+='    push ' + b + '' + '\n';
 _strif_inf+='    inf' + '\n';
 _strif_inf+='    if' + '\n';
 return _strif_inf;
 }
 _str_main+='' + '\n';
 _str_main+='# macro if_supequal(a,b) : if (a >= b) {' + '\n';
-var if_inf = function(a,b){
-var _strif_inf;
-_strif_inf='';
-_strif_inf+='    push ' + b + '' + '\n';
-_strif_inf+='    push ' + a + '' + '\n';
-_strif_inf+='    inf' + '\n';
-_strif_inf+='    not' + '\n';
-_strif_inf+='    if' + '\n';
-return _strif_inf;
+var if_supequal = function(a,b){
+var _strif_supequal;
+_strif_supequal='';
+_strif_supequal+='    push ' + a + '' + '\n';
+_strif_supequal+='    push ' + b + '' + '\n';
+_strif_supequal+='    inf' + '\n';
+_strif_supequal+='    not' + '\n';
+_strif_supequal+='    if' + '\n';
+return _strif_supequal;
 }
 _str_main+='' + '\n';
 _str_main+='# macro if_infequal(a,b) : if (a <= b) {' + '\n';
-var if_inf = function(a,b){
-var _strif_inf;
-_strif_inf='';
-_strif_inf+='    push ' + b + '' + '\n';
-_strif_inf+='    push ' + a + '' + '\n';
-_strif_inf+='    sup' + '\n';
-_strif_inf+='    not' + '\n';
-_strif_inf+='    if' + '\n';
-return _strif_inf;
+var if_infequal = function(a,b){
+var _strif_infequal;
+_strif_infequal='';
+_strif_infequal+='    push ' + a + '' + '\n';
+_strif_infequal+='    push ' + ba + '' + '\n';
+_strif_infequal+='    sup' + '\n';
+_strif_infequal+='    not' + '\n';
+_strif_infequal+='    if' + '\n';
+return _strif_infequal;
 }
 _str_main+='' + '\n';
 _str_main+='# macro at_2' + '\n';
@@ -231,6 +231,25 @@ _strat_set+='#(end macro)    at_2("set",a,b)' + '\n';
 return _strat_set;
 }
 _str_main+='' + '\n';
+var write = function(a){
+var _strwrite;
+_strwrite='';
+_strwrite+='    push    ' + a + '' + '\n';
+_strwrite+='    pop     out' + '\n';
+return _strwrite;
+}
+_str_main+='' + '\n';
+var divide = function(a,b,d,r){
+var _strdivide;
+_strdivide='';
+_strdivide+='    push ' + a + '' + '\n';
+_strdivide+='    push ' + b + '' + '\n';
+_strdivide+='    div' + '\n';
+_strdivide+='    pop ' + d + '' + '\n';
+_strdivide+='    pop ' + r + '' + '\n';
+return _strdivide;
+}
+_str_main+='' + '\n';
 var left_rewind = function(array){
 var _strleft_rewind;
 _strleft_rewind='';
@@ -259,7 +278,7 @@ _strright_rewind+='        arotr ' + array + '' + '\n';
 _strright_rewind+='    endloop' + '\n';
 return _strright_rewind;
 }
-_str_main+='#(end include)macro.inc' + '\n';
+_str_main+='#(end include)../include/macro.inc' + '\n';
 _str_main+='' + '\n';
 _str_main+='# declare global variables' + '\n';
 _str_main+='var bfData*' + MAXDATA + '' + '\n';

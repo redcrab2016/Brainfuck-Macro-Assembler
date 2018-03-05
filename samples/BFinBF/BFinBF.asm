@@ -18,7 +18,7 @@ define BF_OUT       4
 define BF_OBRACKET  49
 define BF_CBRACKET  51
 
-include macro.inc
+include ../include/macro.inc
 
 # declare global variables
 var bfData*{MAXDATA}

@@ -8,7 +8,7 @@
 # this sample do use macro
 # this version does not keep '0' prefix
 
-#(begin include)macro.inc
+#(begin include)../include/macro.inc
 # Common macros
 # scope variables
 #(js) var __scope;
@@ -55,7 +55,7 @@
 
 
 
-#(end include)macro.inc
+#(end include)../include/macro.inc
 
 
 
@@ -118,8 +118,8 @@ while
         loop
             arotr output
 #(begin macro)            if_sup("cnt",1)   # cnt == 3 or cnt == 2
-    push 1
     push cnt
+    push 1
     sup
     if
 #(end macro)            if_sup("cnt",1)   # cnt == 3 or cnt == 2

@@ -278,6 +278,7 @@ The valid single operations are
 - SET   /immediate/
 - ADD   /immediate/
 - SUB   /immediate/
+- BF    /BFCode/  !! Use with caution
 
 Doing
 
@@ -580,7 +581,7 @@ Does head of stack value is less than previous stack value
     
 ##### Pseudo code
 
-    [mp-1] = [mp] < [mp-1] ; mp--
+    [mp-1] = [mp-1] < [mp] ; mp--
 
 ##### Example
     
@@ -604,14 +605,14 @@ Basically repeat "head of stack value" times a set of code
 
 ##### Pseudo code
 
-    while [mp]>0 { /code/+ ; [mp]-- }
+    while [mp]>0 { /code/+ ; [mp]-- } mp--
 
 ##### Example
 
     PUSH    10      # mp++ ; [mp] = 10
     LOOP            # while [mp]>0 {
         OUT         #   write([mp]) ; will write 10,9,8 ... 1
-    ENDLOOP         # [mp]-- }
+    ENDLOOP         # [mp]-- } mp--
 
 ***
 ### MUL
@@ -1017,7 +1018,7 @@ Does head of stack value is greater than previous stack value
     
 ##### Pseudo code
 
-    [mp-1] = [mp] > [mp-1] ; mp--
+    [mp-1] = [mp-1] > [mp] ; mp--
 
 ##### Example
     
@@ -1107,7 +1108,7 @@ Basically repeat a set of code as long as "head of stack value" is not zero
 
 ##### Pseudo code
 
-    while [mp]>0 { /code/+ }
+    while [mp]>0 { /code/+ } mp--
 
 ##### Example
 

@@ -8,7 +8,7 @@
 # this sample do use macro
 # this version does not keep '0' prefix
 
-include macro.inc
+include ../include/macro.inc
 
 macro writeDigit(a)
     push    {a}
