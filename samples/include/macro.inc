@@ -68,7 +68,7 @@ endmacro
 # macro if_infequal(a,b) : if (a <= b) {
 macro if_infequal(a,b)
     push {a}
-    push {ba}
+    push {b}
     sup
     not
     if
