@@ -30,7 +30,8 @@ public class Main {
 	private static EngineStatus doRun(String fileName,
 							  InputStream input,
 							  OutputStream output,
-							  boolean doDebug) throws IOException {
+							  boolean doDebug,
+							  boolean optimize) throws IOException {
 		ByteArrayOutputStream BFCodeOutput = new ByteArrayOutputStream();
 		FileInputStream BFCodeInput = new FileInputStream(fileName);
 		byte[] buffer = new byte[1024];
@@ -39,7 +40,7 @@ public class Main {
 			BFCodeOutput.write(buffer, 0, n);
 		}
 		BFCodeInput.close();
-		Engine eng = new Engine(BFCodeOutput.toString(),input,output);
+		Engine eng = new Engine(BFCodeOutput.toString(),input,output,optimize);
 		eng.run();
 		return eng.getStatus();
 	}
@@ -67,16 +68,19 @@ public class Main {
 "                                   by default there are located in folder containing\n" +
 "                                   FILE or under FOLDER specified by option -b\n" +
 "  -K, --delete-build-file        (default) do not keep build files.\n" +
+"      --check-unused-variable    No compile error if variable not used.\n" +
 "  -o, --outputbf=FILE            instead of STDOUT, use FILE as output for\n" +
 "                                   BF execution\n" +
 "  -s, --bf-line-size=SIZE        generated BF file is limited by SIZE characters\n" +
 "                                   for each line (default 80)\n" +
 "  -z, --disable-optimize-compile do not optimize generated bf\n" +
 "  -Z, --enable-optimize-compile  (default) optimzed generated bf result\n" +
+"  -r, --disable-optimize-run     do not optimize bf run\n" +
+"  -R, --enable-optimize-run      (default) optimze bf run\n" +
 ""
 				   );
 	}
-
+	
 	/**
 	 * @param args
 	 */
@@ -87,7 +91,9 @@ public class Main {
 		String rootFileName=null;
 		String buildFolder=null;
 		String include=null;
+		boolean checkUnusedVar = false;
 		boolean bfOptimized = true;
+		boolean bfOptimizedRun = true;
 		boolean doCompile = false;
 		int bfLineSize = 80;
 		boolean bfRun = true;
@@ -182,10 +188,27 @@ public class Main {
 				case "--enable-optimize-compile":
 					bfOptimized = false;
 					break;
+				case "-r":
+				case "--disable-optimize-run":
+					bfOptimizedRun = false;
+					break;
+				case "-R":
+				case "--enable-optimize-run":
+					bfOptimizedRun = true;
+					break;
 				case "-s":
 				case "--bf-line-size":
 					bfLineSize = Integer.parseInt(argVal);
 					idx++;
+					break;
+				case "--check-unused-variable":
+					checkUnusedVar = true;
+					break;
+				default:
+					if (arg.charAt(0) == '-') {
+						System.err.println("Unknown parameter '" + arg +"'");
+						return;
+					}
 					break;
 			}
 		}
@@ -270,7 +293,7 @@ public class Main {
 				}
 	
 				in = new FileInputStream(tstFile);
-				Assembler asm = new Assembler(in,include);
+				Assembler asm = new Assembler(in,include,checkUnusedVar);
 				
 				
 				PrintStream ps_preComJS = new PrintStream(preComJS);
@@ -339,7 +362,7 @@ public class Main {
 			}
 			EngineStatus engStatus;
 			try {
-				engStatus = doRun(BFfilename, bfinput, bfoutput, bfRunDebug);
+				engStatus = doRun(BFfilename, bfinput, bfoutput, bfRunDebug, bfOptimizedRun);
 				if (bfRunDebug) 
 					System.err.println("BF runtime exit with status "+ engStatus);
 			} catch (IOException e) {

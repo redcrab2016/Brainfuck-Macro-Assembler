@@ -1,7 +1,8 @@
 # Common macros
 # scope variables
-js var __scope;
-js __scope=[0];
+js var __scope; var __idx;
+js __scope=[0]; __idx = 0;
+
 
 # macro scope_begin : start a new scope for local variable (usage of macro lvar)
 macro scope_begin()
@@ -155,4 +156,49 @@ macro right_rewind(array)
     loop
         arotr {array}
     endloop
+endmacro
+
+# macro popouthexa() : from head of stack value (from 0 to 15) write out hexa (from 0 to 9 and A to F)
+macro popouthexa()
+js  __idx++;
+    sbm _input{__idx}
+    if_sup("_input" + __idx,9)
+        at_add("_input" + __idx, "'7'")
+    else
+        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+endmacro
+
+# macro popout8hexa() : from head of stack the 8 bit value is write out in hexa
+macro popout8hexa()
+    push    16
+    div
+    popouthexa() # output most significant hexa character from head of stack value, then drop
+    popouthexa() # output less significant hexa character from head of stack value, then drop
+endmacro
+
+# macro print(aString) : print out a string
+macro print(aString)
+    push    0
+    js var __prev; __prev = 0;
+    js for (var istr=0; istr < aString.length ; istr++) {
+    js var __ascii; __ascii = aString[istr].charCodeAt(0);
+    js var __move; __move = __ascii - __prev;
+    js var __dist ; __dist = (__move > 0)?__move:-__move;
+    js if (__dist < __ascii) { // shorter to move
+    js      if (__move > 0 ) {
+    add     {__dist}   
+    js      } else {
+    js         if (__dist != 0) {
+    sub     {__dist}   
+    js          }
+    js      }
+    js } else {
+    set     {__ascii}    
+    js}
+    out             # {(aString[istr].charCodeAt(0)>31?("'"+aString[istr]+"'"):"")}
+    js __prev  = __ascii;
+    js }
+    drop
 endmacro

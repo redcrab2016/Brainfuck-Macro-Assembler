@@ -664,7 +664,7 @@ public class Assembler {
 	private String preCompiledjs;
 	private String include;
 	
-	public Assembler(InputStream isAsmSource, String include)  {
+	public Assembler(InputStream isAsmSource, String include, boolean checkUnusedVar)  {
 		sbm = new StackBookmark();
 		this.include = include;
 		lOpe = new ArrayList<Operation>();
@@ -697,9 +697,11 @@ public class Assembler {
 			e.printStackTrace(System.err);
 		}
 		// check not used variable
-		for (Variable var: mVariables.values()) {
-			if (!var.isUsed()) {
-				var.getOperation().errorMsg += "Unused variable; ";
+		if (checkUnusedVar) {
+			for (Variable var: mVariables.values()) {
+				if (!var.isUsed()) {
+					var.getOperation().errorMsg += "Unused variable; ";
+				}
 			}
 		}
 		// structure the program
@@ -893,7 +895,7 @@ public class Assembler {
 		int lengthbefore;
 		do {
 			lengthbefore = bfcode.length();
-			bfcode.replace("+-", "")
+			bfcode = bfcode.replace("+-", "")
 				  .replace("-+", "")
 				  .replace("<>", "")
 				  .replace("><", "");
@@ -934,10 +936,11 @@ public class Assembler {
 					operand = operand.replace('.', '~');
 					ps.println(prolog + token + operand + comment);
 				}
-				ps.println(lineBreaker(ope.BF,32));
+				ps.println(lineBreaker(optimizeBF(ope.BF),32));
 			}
 			printCode(ope.opeList,ps);
-			if (ope.BF_post.length() >0) ps.println(lineBreaker(ope.BF_post,32));
+			if (ope.BF_post.length() >0) 
+				ps.println(lineBreaker(optimizeBF(ope.BF_post),32));
 		}
 	}
 	
@@ -1093,11 +1096,22 @@ public class Assembler {
 					ope.BF = BF_NOT;
 					break;
 				case OR:
-					ope.BF = "<" + BF_BOOL + ">" + BF_BOOL  + BF_ADD + BF_BOOL;
+					ope.BF = 	BF_BOOL +
+								"[>[-]+<-]< " +
+								BF_BOOL +
+								">>[<+>-]<"  +
+								BF_ADD +
+								BF_BOOL;
+					ope.BF = optimizeBF(ope.BF);
 					offset--;
 					break;
 				case AND:
-					ope.BF = "<" + BF_BOOL + ">" + BF_BOOL + BF_MUL;
+					ope.BF =	BF_BOOL +
+								"[>[-]+<-]< " +
+								BF_BOOL +
+								">>[<+>-]<"  +
+								BF_MUL;
+					ope.BF = optimizeBF(ope.BF);
 					offset--;
 					break;
 				case EQUAL:
@@ -1678,7 +1692,7 @@ public class Assembler {
 		if (args.length < 3 ) return;
 		InputStream in= new FileInputStream(new File(args[0]));
 		try {
-			Assembler asm = new Assembler(in,args[1]);
+			Assembler asm = new Assembler(in,args[1],true);
 			if (asm.hasError()) {
 				List<String> el = asm.getErrorList();
 				System.out.println("Compilation Error");

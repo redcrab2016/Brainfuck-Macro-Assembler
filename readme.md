@@ -54,12 +54,15 @@ It will show the usage
                                        by default there are located in folder containing
                                        FILE or under FOLDER specified by option -b
       -K, --delete-build-file        (default) do not keep build files.
+          --check-unused-variable    No compile error if variable not used.
       -o, --outputbf=FILE            instead of STDOUT, use FILE as output for
                                        BF execution
       -s, --bf-line-size=SIZE        generated BF file is limited by SIZE characters
                                        for each line (default 80)
       -z, --disable-optimize-compile do not optimize generated bf
       -Z, --enable-optimize-compile  (default) optimzed generated bf result
+      -r, --disable-optimize-run     do not optimize bf run
+      -R, --enable-optimize-run      (default) optimze bf run
      
 
 To launch a BF file named sample.bf
