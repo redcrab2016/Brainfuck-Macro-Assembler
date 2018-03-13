@@ -230,7 +230,7 @@ print("\n")
 print(" 8 < 10 : 01 == ")
 push 8
 push 10
-equal
+inf
 popout8hexa()
 print("\n")
 
