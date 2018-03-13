@@ -122,9 +122,10 @@ public class Engine {
 		
 		for (int i = 0 ; i< code.length() ; i++) {
 			char aCode = code.charAt(i);
-			if (i == 0) {
+			if (validCode.indexOf(aCode) == -1) continue; // not valid code go  to next code
+			if (prevCode == 0) {
 				prevCode = aCode;
-				idx = 0;
+				idx = i;
 				count++;
 			} else 	if (prevCode != aCode ||
 					    prevCode == BF_OPENBRACKET ||
@@ -493,23 +494,28 @@ public class Engine {
 					data[indexData] = 0;
 					indexCode+=6;
 				} else if ((instr2 == BF_MINUS && n2 == 1 &&
-						    instr3 == BF_RIGHT && n3 == 1 &&
+						    instr3 == BF_RIGHT && 
 						    instr4 == BF_PLUS && n4 == 1 &&
 						    instr5 == BF_RIGHT && n5 == 1 &&
 						    instr6 == BF_PLUS && n6 == 1 &&
-						    instr7 == BF_LEFT && n7 == 2 &&
+						    instr7 == BF_LEFT && n7 == (n3+1) &&
 						    instr8 == BF_CLOSEBRACKET 
 						    ) || // [->+>+<<]
-						(instr2 == BF_RIGHT && n2 == 1 &&
+						(instr2 == BF_RIGHT &&
 						 instr3 == BF_PLUS && n3 == 1 &&
 						 instr4 == BF_RIGHT && n4 == 1 &&
 						 instr5 == BF_PLUS && n5 == 1 &&
-						 instr6 == BF_LEFT && n6 == 2 &&
+						 instr6 == BF_LEFT && n6 == (n2+1) &&
 						 instr7 == BF_MINUS && n7 == 1 &&
 						 instr8 == BF_CLOSEBRACKET 
 						 )) { // [>+>+<<-]
-					data[indexData+1] += data[indexData];
-					data[indexData+2] += data[indexData];
+					if (instr2  ==  BF_RIGHT) {
+						data[indexData+n2] += data[indexData];
+						data[indexData+n2+1] += data[indexData];
+					} else {
+						data[indexData+n3] += data[indexData];
+						data[indexData+n3+1] += data[indexData];
+					}
 					data[indexData] = 0;
 					indexCode+=8;
 				} else {

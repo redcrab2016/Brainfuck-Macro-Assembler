@@ -931,11 +931,11 @@ Stack Book Mark : keep the stack position by a name
 
 #### With Stack Bookmark name
 
-    SBM     /SBMName/
+    SBM     /SBMName/ [- offset]
     
 ##### Pseudo code
 
-    STACKBM(/SBMName/) = mp
+    STACKBM(/SBMName/) = mp - offset
     
 ##### Example
 
@@ -946,7 +946,7 @@ Stack Book Mark : keep the stack position by a name
 
 
     PUSH    'A'     # mp++ ; [mp] = 65  (same as 'A')
-    SBM     var1    # STACKBM(var1) = mp
+    SBM     var1 -0 # STACKBM(var1) = mp
     PUSH    'B'     # mp++ ; [mp] = 66 ( same as 'B')
     SBM     var2    # STACKBM(var2) = mp
     AT      var1    # tmp = mp ; mp = STACKBM(var1)

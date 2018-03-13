@@ -56,10 +56,19 @@ public class Assembler {
 		}
 		
 		public boolean addBookmark(String name, int offset) {
+			Pattern p = Pattern.compile("^([A-Za-z_][A-Za-z_0-9]*)\\s*-\\s*([0-9]+)\\s*$");
+			Matcher m = p.matcher(name);
+			int backward = 0;
+			if (m.matches()) {
+				backward  =  Integer.parseInt(m.group(2));
+				name = m.group(1);
+			}
 			if (existBookmark(name)) {
 				return false;
 			}
-			sbm.get(sbm.size()-1).put(name,offset);
+			int position = offset-backward;
+			if (position<0) position = 0;
+			sbm.get(sbm.size()-1).put(name,position);
 			return true;
 		}
 		
@@ -95,6 +104,17 @@ public class Assembler {
 				}
 			}
 			return false;
+		}
+		public String toString() {
+			StringBuffer sb = new StringBuffer();
+			int i = 0;
+			for (Map<String,Integer> map: sbm) {
+				for (String sbmName: map.keySet()) {
+					sb.append("    sbm("+i +":'"+sbmName+ "'=" + sbm.get(i).get(sbmName) + "); ");
+				}
+				i++;
+			}
+			return sb.toString();
 		}
 	}
 	
@@ -399,7 +419,7 @@ public class Assembler {
 								boolean b = asm.useVar(operand);
 								if (!b) { // not declared variable
 									if (asm.sbm.getBookmark(operand) == -1) {
-										throw new Exception("Unknown variable/stack bookmark '"+operand+"'");
+										throw new Exception("Unknown variable/stack bookmark '"+operand+"'; "+ asm.sbm.toString());
 									} else {
 										asmOpeType =  AsmOpeType.FROMSTACKBM;
 									}
@@ -451,7 +471,7 @@ public class Assembler {
 								boolean b = asm.useVar(operand);
 								if (!b) { // not declared variable
 									if (asm.sbm.getBookmark(operand) == -1) {
-										throw new Exception("Unknown variable/stack bookmark '"+operand+"'");
+										throw new Exception("Unknown variable/stack bookmark '"+operand+"'; "+ asm.sbm.toString());
 									} else {
 										asmOpeType =  AsmOpeType.FROMSTACKBM;
 									}
@@ -492,7 +512,7 @@ public class Assembler {
 								boolean b = asm.useVar(operand);
 								if (!b) { // not declared variable
 									if (asm.sbm.getBookmark(operand) == -1) {
-										throw new Exception("Unknown variable/stack bookmark '"+operand+"'");
+										throw new Exception("Unknown variable/stack bookmark '"+operand+"';"+ asm.sbm.toString());
 									} else {
 										asmOpeType =  AsmOpeType.FROMSTACKBM;
 									}
@@ -663,6 +683,7 @@ public class Assembler {
 	private String preCompiled;
 	private String preCompiledjs;
 	private String include;
+	private Map<String,Object> includedFile;
 	
 	public Assembler(InputStream isAsmSource, String include, boolean checkUnusedVar)  {
 		sbm = new StackBookmark();
@@ -674,6 +695,7 @@ public class Assembler {
 		// construct error list
 		errorList = new ArrayList<String>();
 		try {
+			includedFile = new HashMap<String,Object>();
 			strAsmSource = preCompile(isAsmSource);
 		} catch (IOException | ScriptException e) {
 			errorList.add(e.getMessage());
@@ -750,13 +772,30 @@ public class Assembler {
 		StringBuffer result = new StringBuffer();
 		if (!isInclude) {
 			result.append("var " + macroName +" = function("+macroParams+"){\n");
-			result.append("var _str"+macroName +";\n");
+			result.append("var _str"+macroName +"; \n");
 			result.append("_str"+macroName +"='';\n");
+			String[] mps = macroParams.split(",");
+			
+			for (String amp: mps) {
+				amp = amp.trim();
+				if (amp.length() > 0) {
+					result.append("if (typeof "+ amp + " == 'undefined') ");
+					result.append("throw 'Parameter " + amp +
+									" is undefined in call of  macro "+
+									macroName + "("+macroParams+")[' + ["+macroParams+"] +']';\n");
+				}
+			}
+			int nbmp = mps.length;
+			if (nbmp == 1 && mps[0].trim().length() == 0) nbmp = 0;
+			result.append("if (arguments.length != " +
+								nbmp +
+								") throw 'Too much arguments provided to macro "+
+								macroName + "("+macroParams+")[' + ["+macroParams+"] +']';\n");
 		}
 		String line;
 		Pattern p_beginmacro = Pattern.compile("^\\s*(macro|MACRO)\\s+([_A-Za-z][_A-Za-z0-9]*)\\s*(\\(([^)]*)\\)).*$");
 		Pattern p_endmacro = Pattern.compile("^\\s*(endmacro|ENDMACRO)\\s*$");
-		Pattern p_instr = Pattern.compile("^\\s*([_A-Za-z][_A-Za-z0-9]*)\\s*(\\([^)]*\\)).*$");
+		Pattern p_instr = Pattern.compile("^\\s*([_A-Za-z][_A-Za-z0-9]*)\\s*(\\([^)]*\\))\\s*(#.*)?$");
 		Pattern p_define = Pattern.compile("^\\s*(define|DEFINE)\\s+([_A-Za-z][_A-Za-z0-9]*)\\s+(\\S.*)$");
 		Pattern p_include = Pattern.compile("^\\s*(include|INCLUDE)\\s+(\\S+)\\s*$");
 		Pattern p_js = Pattern.compile("^\\s*js\\s*(.+)$");
@@ -799,7 +838,9 @@ public class Assembler {
 			} else if (m_define.matches()) {
 				result.append("var " + m_define.group(2) + ";" +
 						m_define.group(2) + "=" +
-						toJSstring(m_define.group(3))+";\n");
+						toJSstring(m_define.group(3))+"; " +
+						m_define.group(2) +	"=(isNaN(" + m_define.group(2) + "*1))?"+
+						"(" + m_define.group(2) +  "):(" + m_define.group(2) + "*1); \n");
 			} else if (m_include.matches()) {
 				result.append("_str"+macroName+"+=" +
 						toJSstring("#(begin include)" + m_include.group(2))+" + '\\n';\n");
@@ -810,9 +851,23 @@ public class Assembler {
 														)
 													)
 												);
-				result.append( genMacro(in_include, macroName,"",true));
-				result.append("_str"+macroName+"+=" +
-						toJSstring("#(end include)" + m_include.group(2))+" + '\\n';\n");
+				String oldInclude = include;
+				File finc = new File(include + m_include.group(2));
+				String canonicalFilePath  = finc.getCanonicalPath();
+				if ( ! includedFile.containsKey(canonicalFilePath)) { // does include only file that is not yet included
+					includedFile.put(canonicalFilePath, macroName);
+					include = finc.getParent();
+					include += "/";
+					result.append( genMacro(in_include, macroName,"",true));
+					include = oldInclude;
+					result.append("_str"+macroName+"+=" +
+							toJSstring("#(end include)" + m_include.group(2))+" + '\\n';\n");
+				} else {
+					result.append("_str"+macroName+"+=" +
+							toJSstring("#(already included)" + m_include.group(2))+" + '\\n';\n");
+					result.append("_str"+macroName+"+=" +
+							toJSstring("#(end include)" + m_include.group(2))+" + '\\n';\n");
+				}
 			} else {
 				result.append("_str"+macroName+"+=" +
 							toJSstring(line)+" + '\\n';\n");
@@ -933,7 +988,9 @@ public class Assembler {
 							token = String.format("%-9s","WEND");
 						}
 					}
-					operand = operand.replace('.', '~');
+					operand = operand.replace('.', '~')
+									 .replace('-', '~');
+					
 					ps.println(prolog + token + operand + comment);
 				}
 				ps.println(lineBreaker(optimizeBF(ope.BF),32));
@@ -1150,7 +1207,7 @@ public class Assembler {
 						case FROMSTACKBM:
 							nb = sbm.getBookmark(ope.asmOpeValue);
 							if (nb == -1) {
-								ope.errorMsg += "Unknown stack bookmark name '" +  ope.asmOpeValue + "'; ";
+								ope.errorMsg += "Unknown stack bookmark name '" +  ope.asmOpeValue + "'; "+ sbm.toString();
 							} else {
 								nb = offset-nb;
 								if (nb>=0) {
@@ -1168,7 +1225,7 @@ public class Assembler {
 											repeat(">",nb) + 
 											">-]>[<+>-]<";
 								} else {
-									ope.errorMsg += "Out of scope stack bookmark '" +  ope.asmOpeValue + "'; ";
+									ope.errorMsg += "Out of scope stack bookmark '" +  ope.asmOpeValue + "', offset="+ nb + "; ";
 								}
 							}
 							offset++;
@@ -1241,7 +1298,7 @@ public class Assembler {
 						case FROMSTACKBM:
 						nb = sbm.getBookmark(ope.asmOpeValue);
 						if (nb == -1) {
-							ope.errorMsg += "Unknown stack bookmark name '" +  ope.asmOpeValue + "'; ";
+							ope.errorMsg += "Unknown stack bookmark name '" +  ope.asmOpeValue + "'; "+ sbm.toString();
 						} else {
 							nb = offset-nb;
 							if (nb>=0) {
@@ -1432,7 +1489,7 @@ public class Assembler {
 					case FROMSTACKBM:
 						nb = sbm.getBookmark(ope.asmOpeValue);
 						if (nb == -1) {
-							ope.errorMsg += "Unknown stack bookmark name '" +  ope.asmOpeValue + "'; ";
+							ope.errorMsg += "Unknown stack bookmark name '" +  ope.asmOpeValue + "'; "+ sbm.toString();
 						} else {
 							nb = offset-nb;
 							if (nb>=0) {

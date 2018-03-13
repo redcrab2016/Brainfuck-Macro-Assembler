@@ -11,8 +11,9 @@
 #(begin include)../include/macro.inc
 # Common macros
 # scope variables
-#(js) var __scope;
-#(js) __scope=[0];
+#(js) var __scope; var __idx;
+#(js) __scope=[0]; __idx = 0;
+
 
 # macro scope_begin : start a new scope for local variable (usage of macro lvar)
 
@@ -55,6 +56,12 @@
 
 
 
+
+# macro popouthexa() : from head of stack value (from 0 to 15) write out hexa (from 0 to 9 and A to F)
+
+# macro popout8hexa() : from head of stack the 8 bit value is write out in hexa
+
+# macro print(aString) : print out a string
 #(end include)../include/macro.inc
 
 #(js) var whIdx; whIdx = 0;

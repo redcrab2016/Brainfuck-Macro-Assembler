@@ -2,6 +2,8 @@ var _main = function(){
 var _str_main; 
 _str_main='';
 if (arguments.length != 0) throw 'Too much arguments provided to macro _main()[' + [] +']';
+_str_main+='# ASCII Mandelbrot attempt' + '\n';
+_str_main+='# inspired by C code at https://stackoverflow.com/questions/16124127/improvement-to-my-mandelbrot-set-code' + '\n';
 _str_main+='#(begin include)../include/macro.inc' + '\n';
 _str_main+='# Common macros' + '\n';
 _str_main+='# scope variables' + '\n';
@@ -405,9 +407,8 @@ _strprint+='    drop' + '\n';
 return _strprint;
 }
 _str_main+='#(end include)../include/macro.inc' + '\n';
-_str_main+='#(begin include)../include/signedX16.inc' + '\n';
-_str_main+='# 16 bits signed integer ( 2 bytes)' + '\n';
-_str_main+='' + '\n';
+_str_main+='#(begin include)../include/fpnumber.inc' + '\n';
+_str_main+='# fix point number' + '\n';
 _str_main+='#(begin include)signedX.inc' + '\n';
 _str_main+='# X bytes : X*8 bits signed integer : ' + '\n';
 _str_main+='' + '\n';
@@ -1520,9 +1521,9 @@ _strsubX+='#(end macro)    popvX(X,"__tmp" + _xbits + "a__")' + '\n';
 _strsubX+='#(begin macro)    subvvvX(X,"__tmp" + _xbits + "c__", "__tmp" + _xbits + "a__", "__tmp" + _xbits + "b__")' + '\n';
 _strsubX+=subvvvX(X,"__tmp" + _xbits + "c__", "__tmp" + _xbits + "a__", "__tmp" + _xbits + "b__");
 _strsubX+='#(end macro)    subvvvX(X,"__tmp" + _xbits + "c__", "__tmp" + _xbits + "a__", "__tmp" + _xbits + "b__")' + '\n';
-_strsubX+='#(begin macro)    pushvX(X,"__tmp1" + _xbits + "c__")' + '\n';
-_strsubX+=pushvX(X,"__tmp1" + _xbits + "c__");
-_strsubX+='#(end macro)    pushvX(X,"__tmp1" + _xbits + "c__")' + '\n';
+_strsubX+='#(begin macro)    pushvX(X,"__tmp" + _xbits + "c__")' + '\n';
+_strsubX+=pushvX(X,"__tmp" + _xbits + "c__");
+_strsubX+='#(end macro)    pushvX(X,"__tmp" + _xbits + "c__")' + '\n';
 return _strsubX;
 }
 _str_main+='' + '\n';
@@ -2069,59 +2070,110 @@ if (typeof X2 == 'undefined') throw 'Parameter X2 is undefined in call of  macro
 if (arguments.length != 2) throw 'Too much arguments provided to macro castX(X1,X2)[' + [X1,X2] +']';
 _strcastX+='#(js) if (X1 != X2 && X1 > 0 && X2 > 0) {' + '\n';
 if (X1 != X2 && X1 > 0 && X2 > 0) {
+_strcastX+='#(js) _sv9++;' + '\n';
+_sv9++;
+_strcastX+='#(begin macro)    sbmX(X1,"_castXInput"+_sv9,0)' + '\n';
+_strcastX+=sbmX(X1,"_castXInput"+_sv9,0);
+_strcastX+='#(end macro)    sbmX(X1,"_castXInput"+_sv9,0)' + '\n';
+_strcastX+='#(begin macro)    varX(X2,"_castXoutput"+_sv9)' + '\n';
+_strcastX+=varX(X2,"_castXoutput"+_sv9);
+_strcastX+='#(end macro)    varX(X2,"_castXoutput"+_sv9)' + '\n';
 _strcastX+='#(begin macro)    scope_begin()' + '\n';
 _strcastX+=scope_begin();
 _strcastX+='#(end macro)    scope_begin()' + '\n';
-_strcastX+='        push    1' + '\n';
-_strcastX+='        if' + '\n';
-_strcastX+='#(begin macro)            lvarX(X1,"ori")' + '\n';
-_strcastX+=lvarX(X1,"ori");
-_strcastX+='#(end macro)            lvarX(X1,"ori")' + '\n';
-_strcastX+='#(begin macro)            lvarX(X2,"dest")' + '\n';
-_strcastX+=lvarX(X2,"dest");
-_strcastX+='#(end macro)            lvarX(X2,"dest")' + '\n';
-_strcastX+='            ' + '\n';
-_strcastX+='#(begin macro)            popvX(X1,"ori")' + '\n';
-_strcastX+=popvX(X1,"ori");
-_strcastX+='#(end macro)            popvX(X1,"ori")' + '\n';
-_strcastX+='            push    ori_s   ' + '\n';
-_strcastX+='            pop     dest_s  # keep sign' + '\n';
+_strcastX+='#(begin macro)        lvarX(X1,"ori" + _sv9)' + '\n';
+_strcastX+=lvarX(X1,"ori" + _sv9);
+_strcastX+='#(end macro)        lvarX(X1,"ori" + _sv9)' + '\n';
+_strcastX+='#(begin macro)        lvarX(X2,"dest" + _sv9)' + '\n';
+_strcastX+=lvarX(X2,"dest" + _sv9);
+_strcastX+='#(end macro)        lvarX(X2,"dest" + _sv9)' + '\n';
+_strcastX+='' + '\n';
+_strcastX+='#(begin macro)        pushvX(X1,"_castXInput"+_sv9)       ' + '\n';
+_strcastX+=pushvX(X1,"_castXInput"+_sv9);
+_strcastX+='#(end macro)        pushvX(X1,"_castXInput"+_sv9)       ' + '\n';
+_strcastX+='#(begin macro)        popvX(X1,"ori" + _sv9)' + '\n';
+_strcastX+=popvX(X1,"ori" + _sv9);
+_strcastX+='#(end macro)        popvX(X1,"ori" + _sv9)' + '\n';
+_strcastX+='        push    ori' + _sv9 + '_s   ' + '\n';
+_strcastX+='        pop     dest' + _sv9 + '_s  # keep sign' + '\n';
 _strcastX+='#(js) if (X1 < X2) {' + '\n';
 if (X1 < X2) {
 _strcastX+='#(js) for (var xx = 0 ; xx < X1; xx++) {' + '\n';
 for (var xx = 0 ; xx < X1; xx++) {
-_strcastX+='                    push    ori_' + xx + '' + '\n';
-_strcastX+='                    pop     dest_' + xx + '' + '\n';
+_strcastX+='                push    ori' + _sv9 + '_' + xx + '' + '\n';
+_strcastX+='                pop     dest' + _sv9 + '_' + xx + '' + '\n';
 _strcastX+='#(js) }' + '\n';
 }
 _strcastX+='#(js) for (var xx = X1; xx < X2 ; xx++ ) {' + '\n';
 for (var xx = X1; xx < X2 ; xx++ ) {
-_strcastX+='                    push    0' + '\n';
-_strcastX+='                    pop     dest_' + xx + '' + '\n';
+_strcastX+='                push    0' + '\n';
+_strcastX+='                pop     dest' + _sv9 + '_' + xx + '' + '\n';
 _strcastX+='#(js) } ' + '\n';
 } 
 _strcastX+='#(js) } else { // if X1 > X2' + '\n';
 } else { // if X1 > X2
 _strcastX+='#(js) for (var xx = 0 ; xx < X2; xx++) {' + '\n';
 for (var xx = 0 ; xx < X2; xx++) {
-_strcastX+='                    push    ori_' + xx + '' + '\n';
-_strcastX+='                    pop     dest_' + xx + '' + '\n';
+_strcastX+='                push    ori' + _sv9 + '_' + xx + '' + '\n';
+_strcastX+='                pop     dest' + _sv9 + '_' + xx + '' + '\n';
 _strcastX+='#(js) }' + '\n';
 }
-_strcastX+='                ' + '\n';
+_strcastX+='            ' + '\n';
 _strcastX+='#(js) }' + '\n';
 }
-_strcastX+='#(begin macro)            pushvX(X2,"dest")' + '\n';
-_strcastX+=pushvX(X2,"dest");
-_strcastX+='#(end macro)            pushvX(X2,"dest")' + '\n';
-_strcastX+='        fi' + '\n';
+_strcastX+='#(begin macro)        pushvX(X2,"dest"+_sv9)' + '\n';
+_strcastX+=pushvX(X2,"dest"+_sv9);
+_strcastX+='#(end macro)        pushvX(X2,"dest"+_sv9)' + '\n';
+_strcastX+='#(begin macro)        popvX(X2,"_castXoutput"+_sv9)' + '\n';
+_strcastX+=popvX(X2,"_castXoutput"+_sv9);
+_strcastX+='#(end macro)        popvX(X2,"_castXoutput"+_sv9)' + '\n';
 _strcastX+='#(begin macro)    scope_end()' + '\n';
 _strcastX+=scope_end();
 _strcastX+='#(end macro)    scope_end()' + '\n';
+_strcastX+='#(begin macro)    dropX(X1)' + '\n';
+_strcastX+=dropX(X1);
+_strcastX+='#(end macro)    dropX(X1)' + '\n';
+_strcastX+='#(begin macro)    pushvX(X2,"_castXoutput"+_sv9) ' + '\n';
+_strcastX+=pushvX(X2,"_castXoutput"+_sv9);
+_strcastX+='#(end macro)    pushvX(X2,"_castXoutput"+_sv9) ' + '\n';
 _strcastX+='#(js) }' + '\n';
 }
 return _strcastX;
 }
+_str_main+='' + '\n';
+_str_main+='# macro sbmX2(X,name,backward,offset) : sbm a X*8 bit head of stack - (backward X*8 bits value+ offset)' + '\n';
+var sbmX2 = function(X,name,backward,offset){
+var _strsbmX2; 
+_strsbmX2='';
+if (typeof X == 'undefined') throw 'Parameter X is undefined in call of  macro sbmX2(X,name,backward,offset)[' + [X,name,backward,offset] +']';
+if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro sbmX2(X,name,backward,offset)[' + [X,name,backward,offset] +']';
+if (typeof backward == 'undefined') throw 'Parameter backward is undefined in call of  macro sbmX2(X,name,backward,offset)[' + [X,name,backward,offset] +']';
+if (typeof offset == 'undefined') throw 'Parameter offset is undefined in call of  macro sbmX2(X,name,backward,offset)[' + [X,name,backward,offset] +']';
+if (arguments.length != 4) throw 'Too much arguments provided to macro sbmX2(X,name,backward,offset)[' + [X,name,backward,offset] +']';
+_strsbmX2+='#(js) for (var xx=0; xx <X ; xx++) {' + '\n';
+for (var xx=0; xx <X ; xx++) {
+_strsbmX2+='    sbm ' + name + '_' + xx + ' - ' + (backward*(X+2)+xx+offset) + '' + '\n';
+_strsbmX2+='#(js) }' + '\n';
+}
+_strsbmX2+='    sbm ' + name + '_s - ' + (backward*(X+2)+X+offset) + '' + '\n';
+_strsbmX2+='    sbm ' + name + '_c - ' + (backward*(X+2)+X+1+offset) + '' + '\n';
+return _strsbmX2;
+}
+_str_main+='' + '\n';
+_str_main+='# macro sbmX(X,name,backward) : sbm a X*8 bit head of stack - (backward X*8 bits value)' + '\n';
+var sbmX = function(X,name,backward){
+var _strsbmX; 
+_strsbmX='';
+if (typeof X == 'undefined') throw 'Parameter X is undefined in call of  macro sbmX(X,name,backward)[' + [X,name,backward] +']';
+if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro sbmX(X,name,backward)[' + [X,name,backward] +']';
+if (typeof backward == 'undefined') throw 'Parameter backward is undefined in call of  macro sbmX(X,name,backward)[' + [X,name,backward] +']';
+if (arguments.length != 3) throw 'Too much arguments provided to macro sbmX(X,name,backward)[' + [X,name,backward] +']';
+_strsbmX+='#(begin macro)    sbmX2(X,name,backward,0)' + '\n';
+_strsbmX+=sbmX2(X,name,backward,0);
+_strsbmX+='#(end macro)    sbmX2(X,name,backward,0)' + '\n';
+return _strsbmX;
+}
+_str_main+='' + '\n';
 _str_main+='' + '\n';
 _str_main+='# upcast macro' + '\n';
 var cast8to16 = function(){
@@ -2277,9 +2329,6 @@ _strwriteX+='#(begin macro)        lvarX(X,"writeX_AdivB"+_sv7)' + '\n';
 _strwriteX+=lvarX(X,"writeX_AdivB"+_sv7);
 _strwriteX+='#(end macro)        lvarX(X,"writeX_AdivB"+_sv7)' + '\n';
 _strwriteX+='' + '\n';
-_strwriteX+='        push 1' + '\n';
-_strwriteX+='        if' + '\n';
-_strwriteX+='                ' + '\n';
 _strwriteX+='#(begin macro)        pushvX(X,name)' + '\n';
 _strwriteX+=pushvX(X,name);
 _strwriteX+='#(end macro)        pushvX(X,name)' + '\n';
@@ -2293,8 +2342,6 @@ _strwriteX+='#(end macro)        pushX(X,10)' + '\n';
 _strwriteX+='#(begin macro)        popvX(X,"writeX_B"+_sv7)' + '\n';
 _strwriteX+=popvX(X,"writeX_B"+_sv7);
 _strwriteX+='#(end macro)        popvX(X,"writeX_B"+_sv7)' + '\n';
-_strwriteX+='        ' + '\n';
-_strwriteX+='        fi' + '\n';
 _strwriteX+='        ' + '\n';
 _strwriteX+='        push writeX_A' + _sv7 + '_s' + '\n';
 _strwriteX+='        if' + '\n';
@@ -2390,10 +2437,10 @@ return _strprinthexaX;
 }
 _str_main+='' + '\n';
 _str_main+='' + '\n';
-_str_main+='#(js) var _sv1; var _sv2; var _sv3; var _sv4; var _sv5; var _sv6; var _sv7;' + '\n';
-var _sv1; var _sv2; var _sv3; var _sv4; var _sv5; var _sv6; var _sv7;
-_str_main+='#(js) _sv1 = 0; _sv2=0; _sv3 = 0; _sv4 = 0; _sv5 = 0; _sv6 = 0; _sv7 = 0;' + '\n';
-_sv1 = 0; _sv2=0; _sv3 = 0; _sv4 = 0; _sv5 = 0; _sv6 = 0; _sv7 = 0;
+_str_main+='#(js) var _sv1; var _sv2; var _sv3; var _sv4; var _sv5; var _sv6; var _sv7; var _sv8; var _sv9;' + '\n';
+var _sv1; var _sv2; var _sv3; var _sv4; var _sv5; var _sv6; var _sv7; var _sv8; var _sv9;
+_str_main+='#(js) _sv1 = 0; _sv2=0; _sv3 = 0; _sv4 = 0; _sv5 = 0; _sv6 = 0; _sv7 = 0; _sv8 = 0; _sv9 = 0;' + '\n';
+_sv1 = 0; _sv2=0; _sv3 = 0; _sv4 = 0; _sv5 = 0; _sv6 = 0; _sv7 = 0; _sv8 = 0; _sv9 = 0;
 _str_main+='' + '\n';
 _str_main+='# declare temporary 16 bits value used for signed16.inc macros' + '\n';
 var declareTmpX = function(X){
@@ -2425,910 +2472,602 @@ return _strdeclareTmpX;
 }
 _str_main+='#(end include)signedX.inc' + '\n';
 _str_main+='' + '\n';
-_str_main+='# macro var16(name) :declare global 16 bits' + '\n';
-var var16 = function(name){
-var _strvar16; 
-_strvar16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro var16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro var16(name)[' + [name] +']';
-_strvar16+='#(begin macro)    varX(2,name)' + '\n';
-_strvar16+=varX(2,name);
-_strvar16+='#(end macro)    varX(2,name)' + '\n';
-return _strvar16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro lvar16(name) : declare local 16 bits' + '\n';
-var lvar16 = function(name){
-var _strlvar16; 
-_strlvar16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro lvar16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro lvar16(name)[' + [name] +']';
-_strlvar16+='#(begin macro)    lvarX(2,name)' + '\n';
-_strlvar16+=lvarX(2,name);
-_strlvar16+='#(end macro)    lvarX(2,name)' + '\n';
-return _strlvar16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro fixsv16(name) : be sure that name is positive if equal to zero' + '\n';
-var fixsv16 = function(name){
-var _strfixsv16; 
-_strfixsv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro fixsv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro fixsv16(name)[' + [name] +']';
-_strfixsv16+='#(begin macro)    fixsvX(2,name)' + '\n';
-_strfixsv16+=fixsvX(2,name);
-_strfixsv16+='#(end macro)    fixsvX(2,name)' + '\n';
-return _strfixsv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro pushv16(name) : push 16 bits name on stack' + '\n';
-var pushv16 = function(name){
-var _strpushv16; 
-_strpushv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro pushv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro pushv16(name)[' + [name] +']';
-_strpushv16+='#(begin macro)    pushvX(2,name)' + '\n';
-_strpushv16+=pushvX(2,name);
-_strpushv16+='#(end macro)    pushvX(2,name)' + '\n';
-return _strpushv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro push16(immValue) : push immediate16 bits value on the stack' + '\n';
-var push16 = function(immValue){
-var _strpush16; 
-_strpush16='';
-if (typeof immValue == 'undefined') throw 'Parameter immValue is undefined in call of  macro push16(immValue)[' + [immValue] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro push16(immValue)[' + [immValue] +']';
-_strpush16+='#(begin macro)    pushX(2, immValue) ' + '\n';
-_strpush16+=pushX(2, immValue);
-_strpush16+='#(end macro)    pushX(2, immValue) ' + '\n';
-return _strpush16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro dup16() : duplicate 16bits value on stack' + '\n';
-var dup16 = function(){
-var _strdup16; 
-_strdup16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro dup16()[' + [] +']';
-_strdup16+='#(begin macro)    dupX(2)' + '\n';
-_strdup16+=dupX(2);
-_strdup16+='#(end macro)    dupX(2)' + '\n';
-return _strdup16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro pushsv16(name) : push the sign of the 16 bits variable \'name\'' + '\n';
-var pushsv16 = function(name){
-var _strpushsv16; 
-_strpushsv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro pushsv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro pushsv16(name)[' + [name] +']';
-_strpushsv16+='#(begin macro)    pushsvX(2,name)' + '\n';
-_strpushsv16+=pushsvX(2,name);
-_strpushsv16+='#(end macro)    pushsvX(2,name)' + '\n';
-return _strpushsv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro pushcv16(name) : push the carry of the 16 bits variable \'name\'' + '\n';
-var pushcv16 = function(name){
-var _strpushcv16; 
-_strpushcv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro pushcv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro pushcv16(name)[' + [name] +']';
-_strpushcv16+='#(begin macro)    pushcvX(2,name)' + '\n';
-_strpushcv16+=pushcvX(2,name);
-_strpushcv16+='#(end macro)    pushcvX(2,name)' + '\n';
-return _strpushcv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro popv16(name) : pop the stack to the 16 bits variable \'name\'' + '\n';
-var popv16 = function(name){
-var _strpopv16; 
-_strpopv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro popv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro popv16(name)[' + [name] +']';
-_strpopv16+='#(begin macro)    popvX(2,name)' + '\n';
-_strpopv16+=popvX(2,name);
-_strpopv16+='#(end macro)    popvX(2,name)' + '\n';
-return _strpopv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro popsv16(name) : pop the sign(8 bits 0/1) to the 16 bits variable \'name\'' + '\n';
-var popsv16 = function(name){
-var _strpopsv16; 
-_strpopsv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro popsv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro popsv16(name)[' + [name] +']';
-_strpopsv16+='#(begin macro)    popsvX(2,name)' + '\n';
-_strpopsv16+=popsvX(2,name);
-_strpopsv16+='#(end macro)    popsvX(2,name)' + '\n';
-return _strpopsv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro popcv16(name) : pop the carry(8 bit 0/1) to the 16 bits variable \'name\'' + '\n';
-var popcv16 = function(name){
-var _strpopcv16; 
-_strpopcv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro popcv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro popcv16(name)[' + [name] +']';
-_strpopcv16+='#(begin macro)    popcvX(2,name)' + '\n';
-_strpopcv16+=popcvX(2,name);
-_strpopcv16+='#(end macro)    popcvX(2,name)' + '\n';
-return _strpopcv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro negv16(name) : name = -name' + '\n';
-var negv16 = function(name){
-var _strnegv16; 
-_strnegv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro negv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro negv16(name)[' + [name] +']';
-_strnegv16+='#(begin macro)    negvX(2,name)' + '\n';
-_strnegv16+=negvX(2,name);
-_strnegv16+='#(end macro)    negvX(2,name)' + '\n';
-return _strnegv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro absv16(name) : name = abs(name)' + '\n';
-var absv16 = function(name){
-var _strabsv16; 
-_strabsv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro absv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro absv16(name)[' + [name] +']';
-_strabsv16+='#(begin macro)    absvX(2,name)' + '\n';
-_strabsv16+=absvX(2,name);
-_strabsv16+='#(end macro)    absvX(2,name)' + '\n';
-return _strabsv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro abs16() : 16 bits head of stack = abs(16 bits head of stack)' + '\n';
-var abs16 = function(){
-var _strabs16; 
-_strabs16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro abs16()[' + [] +']';
-_strabs16+='#(begin macro)    absX(2)' + '\n';
-_strabs16+=absX(2);
-_strabs16+='#(end macro)    absX(2)' + '\n';
-return _strabs16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro neg16() : 16 bits head of stack = - (16 bits head of stack)    ' + '\n';
-var neg16 = function(){
-var _strneg16; 
-_strneg16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro neg16()[' + [] +']';
-_strneg16+='#(begin macro)    negX(2)' + '\n';
-_strneg16+=negX(2);
-_strneg16+='#(end macro)    negX(2)' + '\n';
-return _strneg16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro setc16() : set 1 to 16 bits head of stack carry' + '\n';
-var setc16 = function(){
-var _strsetc16; 
-_strsetc16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro setc16()[' + [] +']';
-_strsetc16+='#(begin macro)    setcX(2)' + '\n';
-_strsetc16+=setcX(2);
-_strsetc16+='#(end macro)    setcX(2)' + '\n';
-return _strsetc16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro setcv16(name) : set 1 to 16 bits variable \'name\' carry' + '\n';
-var setcv16 = function(name){
-var _strsetcv16; 
-_strsetcv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro setcv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro setcv16(name)[' + [name] +']';
-_strsetcv16+='#(begin macro)    setcvX(2,name)' + '\n';
-_strsetcv16+=setcvX(2,name);
-_strsetcv16+='#(end macro)    setcvX(2,name)' + '\n';
-return _strsetcv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro clearc16() : set 0 to 16 bits head of stack carry' + '\n';
-var clearc16 = function(){
-var _strclearc16; 
-_strclearc16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro clearc16()[' + [] +']';
-_strclearc16+='#(begin macro)    clearcX(2)' + '\n';
-_strclearc16+=clearcX(2);
-_strclearc16+='#(end macro)    clearcX(2)' + '\n';
-return _strclearc16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro clearcv16(name) : set 0 to 16 bits variable \'name\' carry' + '\n';
-var clearcv16 = function(name){
-var _strclearcv16; 
-_strclearcv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro clearcv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro clearcv16(name)[' + [name] +']';
-_strclearcv16+='#(begin macro)    clearcvX(2,name)' + '\n';
-_strclearcv16+=clearcvX(2,name);
-_strclearcv16+='#(end macro)    clearcvX(2,name)' + '\n';
-return _strclearcv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro drop16() : drop 16 bits value from stack' + '\n';
-var drop16 = function(){
-var _strdrop16; 
-_strdrop16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro drop16()[' + [] +']';
-_strdrop16+='#(begin macro)    dropX(2)' + '\n';
-_strdrop16+=dropX(2);
-_strdrop16+='#(end macro)    dropX(2)' + '\n';
-return _strdrop16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro reset16() : reset 16 bits value of the head of stack' + '\n';
-var reset16 = function(){
-var _strreset16; 
-_strreset16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro reset16()[' + [] +']';
-_strreset16+='#(begin macro)    resetX(2)' + '\n';
-_strreset16+=resetX(2);
-_strreset16+='#(end macro)    resetX(2)' + '\n';
-return _strreset16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro resetv16(name) : reset 16 bits variable \'name\'' + '\n';
-var resetv16 = function(name){
-var _strresetv16; 
-_strresetv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro resetv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro resetv16(name)[' + [name] +']';
-_strresetv16+='#(begin macro)    resetvX(2,name)' + '\n';
-_strresetv16+=resetvX(2,name);
-_strresetv16+='#(end macro)    resetvX(2,name)' + '\n';
-return _strresetv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro set16(immValue) : set 16 bits value on the head of stack' + '\n';
-var set16 = function(immValue){
-var _strset16; 
-_strset16='';
-if (typeof immValue == 'undefined') throw 'Parameter immValue is undefined in call of  macro set16(immValue)[' + [immValue] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro set16(immValue)[' + [immValue] +']';
-_strset16+='#(begin macro)    setX(2,immValue)' + '\n';
-_strset16+=setX(2,immValue);
-_strset16+='#(end macro)    setX(2,immValue)' + '\n';
-return _strset16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro setv16(name, immValue) : set 16 bits immediate value to a 16 bits variable \'name\' ' + '\n';
-var setv16 = function(name,immValue){
-var _strsetv16; 
-_strsetv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro setv16(name,immValue)[' + [name,immValue] +']';
-if (typeof immValue == 'undefined') throw 'Parameter immValue is undefined in call of  macro setv16(name,immValue)[' + [name,immValue] +']';
-if (arguments.length != 2) throw 'Too much arguments provided to macro setv16(name,immValue)[' + [name,immValue] +']';
-_strsetv16+='#(begin macro)    setvX(2,name, immValue)' + '\n';
-_strsetv16+=setvX(2,name, immValue);
-_strsetv16+='#(end macro)    setvX(2,name, immValue)' + '\n';
-return _strsetv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro fixsv16(name) : be sure to have sign to zero if 16 bits variable \'name\' is zero' + '\n';
-var fixsv16 = function(name){
-var _strfixsv16; 
-_strfixsv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro fixsv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro fixsv16(name)[' + [name] +']';
-_strfixsv16+='#(begin macro)    fixsvX(2,name)' + '\n';
-_strfixsv16+=fixsvX(2,name);
-_strfixsv16+='#(end macro)    fixsvX(2,name)' + '\n';
-return _strfixsv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro fixs16() : be sure to have sign to zero if 16 bits head of stack value is zero' + '\n';
-var fixs16 = function(){
-var _strfixs16; 
-_strfixs16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro fixs16()[' + [] +']';
-_strfixs16+='#(begin macro)    fixsX(2)' + '\n';
-_strfixs16+=fixsX(2);
-_strfixs16+='#(end macro)    fixsX(2)' + '\n';
-return _strfixs16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro bool16() : same as \'bool\' but with a 16 bits value on stack' + '\n';
-var bool16 = function(){
-var _strbool16; 
-_strbool16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro bool16()[' + [] +']';
-_strbool16+='#(begin macro)    boolX(2)' + '\n';
-_strbool16+=boolX(2);
-_strbool16+='#(end macro)    boolX(2)' + '\n';
-return _strbool16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro boolv16(name) : push on stack the bool(name) 16 bits ' + '\n';
-var boolv16 = function(name){
-var _strboolv16; 
-_strboolv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro boolv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro boolv16(name)[' + [name] +']';
-_strboolv16+='#(begin macro)    boolvX(2,name)' + '\n';
-_strboolv16+=boolvX(2,name);
-_strboolv16+='#(end macro)    boolvX(2,name)' + '\n';
-return _strboolv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro incv16(name) : name = name +1 (16 bits)' + '\n';
-var incv16 = function(name){
-var _strincv16; 
-_strincv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro incv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro incv16(name)[' + [name] +']';
-_strincv16+='#(begin macro)    incvX(2,name)' + '\n';
-_strincv16+=incvX(2,name);
-_strincv16+='#(end macro)    incvX(2,name)' + '\n';
-return _strincv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro inc16() : 16 bits head of stack value incremented' + '\n';
-var inc16 = function(){
-var _strinc16; 
-_strinc16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro inc16()[' + [] +']';
-_strinc16+='#(begin macro)    incX(2)' + '\n';
-_strinc16+=incX(2);
-_strinc16+='#(end macro)    incX(2)' + '\n';
-return _strinc16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro decv16(name) : name-- (16 bits)' + '\n';
-var decv16 = function(name){
-var _strdecv16; 
-_strdecv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro decv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro decv16(name)[' + [name] +']';
-_strdecv16+='#(begin macro)    decvX(2,name)' + '\n';
-_strdecv16+=decvX(2,name);
-_strdecv16+='#(end macro)    decvX(2,name)' + '\n';
-return _strdecv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro dec16() : 16 bits head of stack value decrement' + '\n';
-var dec16 = function(){
-var _strdec16; 
-_strdec16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro dec16()[' + [] +']';
-_strdec16+='#(begin macro)    decX(2)' + '\n';
-_strdec16+=decX(2);
-_strdec16+='#(end macro)    decX(2)' + '\n';
-return _strdec16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro addvi16(name, immValue) : name += immediate value' + '\n';
-var addvi16 = function(name,immValue){
-var _straddvi16; 
-_straddvi16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro addvi16(name,immValue)[' + [name,immValue] +']';
-if (typeof immValue == 'undefined') throw 'Parameter immValue is undefined in call of  macro addvi16(name,immValue)[' + [name,immValue] +']';
-if (arguments.length != 2) throw 'Too much arguments provided to macro addvi16(name,immValue)[' + [name,immValue] +']';
-_straddvi16+='#(begin macro)    addviX(2,name,immValue)' + '\n';
-_straddvi16+=addviX(2,name,immValue);
-_straddvi16+='#(end macro)    addviX(2,name,immValue)' + '\n';
-return _straddvi16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro addi16(immValue) : 16 bits head of stack value += immediate value' + '\n';
-var addi16 = function(immValue){
-var _straddi16; 
-_straddi16='';
-if (typeof immValue == 'undefined') throw 'Parameter immValue is undefined in call of  macro addi16(immValue)[' + [immValue] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro addi16(immValue)[' + [immValue] +']';
-_straddi16+='#(begin macro)    addiX(2,immValue)' + '\n';
-_straddi16+=addiX(2,immValue);
-_straddi16+='#(end macro)    addiX(2,immValue)' + '\n';
-return _straddi16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro subvi16(name, immValue) : name -= immediate value' + '\n';
-var subvi16 = function(name,immValue){
-var _strsubvi16; 
-_strsubvi16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro subvi16(name,immValue)[' + [name,immValue] +']';
-if (typeof immValue == 'undefined') throw 'Parameter immValue is undefined in call of  macro subvi16(name,immValue)[' + [name,immValue] +']';
-if (arguments.length != 2) throw 'Too much arguments provided to macro subvi16(name,immValue)[' + [name,immValue] +']';
-_strsubvi16+='#(begin macro)    subviX(2,name,immValue)' + '\n';
-_strsubvi16+=subviX(2,name,immValue);
-_strsubvi16+='#(end macro)    subviX(2,name,immValue)' + '\n';
-return _strsubvi16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro subi16(immValue) : 16 bits head of stack value -= immediate value' + '\n';
-var subi16 = function(immValue){
-var _strsubi16; 
-_strsubi16='';
-if (typeof immValue == 'undefined') throw 'Parameter immValue is undefined in call of  macro subi16(immValue)[' + [immValue] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro subi16(immValue)[' + [immValue] +']';
-_strsubi16+='#(begin macro)    subiX(2,immValue)' + '\n';
-_strsubi16+=subiX(2,immValue);
-_strsubi16+='#(end macro)    subiX(2,immValue)' + '\n';
-return _strsubi16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro addvvv16(name, nameA, nameB) : name = nameA + nameB' + '\n';
-var addvvv16 = function(name, nameA, nameB){
-var _straddvvv16; 
-_straddvvv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro addvvv16(name, nameA, nameB)[' + [name, nameA, nameB] +']';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro addvvv16(name, nameA, nameB)[' + [name, nameA, nameB] +']';
-if (typeof nameB == 'undefined') throw 'Parameter nameB is undefined in call of  macro addvvv16(name, nameA, nameB)[' + [name, nameA, nameB] +']';
-if (arguments.length != 3) throw 'Too much arguments provided to macro addvvv16(name, nameA, nameB)[' + [name, nameA, nameB] +']';
-_straddvvv16+='#(begin macro)    addvvvX(2,name,nameA,nameB)' + '\n';
-_straddvvv16+=addvvvX(2,name,nameA,nameB);
-_straddvvv16+='#(end macro)    addvvvX(2,name,nameA,nameB)' + '\n';
-return _straddvvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro addvv16(name, nameA) : name += nameA' + '\n';
-var addvv16 = function(name, nameA){
-var _straddvv16; 
-_straddvv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro addvv16(name, nameA)[' + [name, nameA] +']';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro addvv16(name, nameA)[' + [name, nameA] +']';
-if (arguments.length != 2) throw 'Too much arguments provided to macro addvv16(name, nameA)[' + [name, nameA] +']';
-_straddvv16+='#(begin macro)    addvvX(2,name,nameA)' + '\n';
-_straddvv16+=addvvX(2,name,nameA);
-_straddvv16+='#(end macro)    addvvX(2,name,nameA)' + '\n';
-return _straddvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro addv16(nameA) : head stack += nameA' + '\n';
-var addv16 = function(nameA){
-var _straddv16; 
-_straddv16='';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro addv16(nameA)[' + [nameA] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro addv16(nameA)[' + [nameA] +']';
-_straddv16+='#(begin macro)    addvX(2,nameA)' + '\n';
-_straddv16+=addvX(2,nameA);
-_straddv16+='#(end macro)    addvX(2,nameA)' + '\n';
-return _straddv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro add16() : stack-1 = stack-1 + stack ; stack--' + '\n';
-var add16 = function(){
-var _stradd16; 
-_stradd16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro add16()[' + [] +']';
-_stradd16+='#(begin macro)    addX(2)' + '\n';
-_stradd16+=addX(2);
-_stradd16+='#(end macro)    addX(2)' + '\n';
-return _stradd16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro subvvv16(name, nameA, nameB) : name = nameA - nameB' + '\n';
-var subvvv16 = function(name, nameA, nameB){
-var _strsubvvv16; 
-_strsubvvv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro subvvv16(name, nameA, nameB)[' + [name, nameA, nameB] +']';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro subvvv16(name, nameA, nameB)[' + [name, nameA, nameB] +']';
-if (typeof nameB == 'undefined') throw 'Parameter nameB is undefined in call of  macro subvvv16(name, nameA, nameB)[' + [name, nameA, nameB] +']';
-if (arguments.length != 3) throw 'Too much arguments provided to macro subvvv16(name, nameA, nameB)[' + [name, nameA, nameB] +']';
-_strsubvvv16+='#(begin macro)    subvvvX(2,name,nameA,nameB)' + '\n';
-_strsubvvv16+=subvvvX(2,name,nameA,nameB);
-_strsubvvv16+='#(end macro)    subvvvX(2,name,nameA,nameB)' + '\n';
-return _strsubvvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro subvv16(name, nameA) : name -= nameA ' + '\n';
-var subvv16 = function(name, nameA){
-var _strsubvv16; 
-_strsubvv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro subvv16(name, nameA)[' + [name, nameA] +']';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro subvv16(name, nameA)[' + [name, nameA] +']';
-if (arguments.length != 2) throw 'Too much arguments provided to macro subvv16(name, nameA)[' + [name, nameA] +']';
-_strsubvv16+='#(begin macro)    subvvX(2,name,nameA)' + '\n';
-_strsubvv16+=subvvX(2,name,nameA);
-_strsubvv16+='#(end macro)    subvvX(2,name,nameA)' + '\n';
-return _strsubvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro subv16(nameA) : head stack -= nameA' + '\n';
-var addv16 = function(nameA){
-var _straddv16; 
-_straddv16='';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro addv16(nameA)[' + [nameA] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro addv16(nameA)[' + [nameA] +']';
-_straddv16+='#(begin macro)    addvX(2,nameA)' + '\n';
-_straddv16+=addvX(2,nameA);
-_straddv16+='#(end macro)    addvX(2,nameA)' + '\n';
-return _straddv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro sub16() : stack-1 = stack-1 - stack ; stack--' + '\n';
-var sub16 = function(){
-var _strsub16; 
-_strsub16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro sub16()[' + [] +']';
-_strsub16+='#(begin macro)    subX(2)' + '\n';
-_strsub16+=subX(2);
-_strsub16+='#(end macro)    subX(2)' + '\n';
-return _strsub16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro mulvvv16(name, nameA, nameB) : name = nameA * nameB ' + '\n';
-var mulvvv16 = function(name, nameA, nameB){
-var _strmulvvv16; 
-_strmulvvv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro mulvvv16(name, nameA, nameB)[' + [name, nameA, nameB] +']';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro mulvvv16(name, nameA, nameB)[' + [name, nameA, nameB] +']';
-if (typeof nameB == 'undefined') throw 'Parameter nameB is undefined in call of  macro mulvvv16(name, nameA, nameB)[' + [name, nameA, nameB] +']';
-if (arguments.length != 3) throw 'Too much arguments provided to macro mulvvv16(name, nameA, nameB)[' + [name, nameA, nameB] +']';
-_strmulvvv16+='#(begin macro)    mulvvvX(2, name, nameA, nameB)' + '\n';
-_strmulvvv16+=mulvvvX(2, name, nameA, nameB);
-_strmulvvv16+='#(end macro)    mulvvvX(2, name, nameA, nameB)' + '\n';
-return _strmulvvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro mulvv16(name, nameA) : name *= nameA' + '\n';
-var mulvv16 = function(name, nameA){
-var _strmulvv16; 
-_strmulvv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro mulvv16(name, nameA)[' + [name, nameA] +']';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro mulvv16(name, nameA)[' + [name, nameA] +']';
-if (arguments.length != 2) throw 'Too much arguments provided to macro mulvv16(name, nameA)[' + [name, nameA] +']';
-_strmulvv16+='#(begin macro)    mulvvX(2,name,nameA)' + '\n';
-_strmulvv16+=mulvvX(2,name,nameA);
-_strmulvv16+='#(end macro)    mulvvX(2,name,nameA)' + '\n';
-return _strmulvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro mulv16(name) : head of stack *= name' + '\n';
-var mulv16 = function(name){
-var _strmulv16; 
-_strmulv16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro mulv16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro mulv16(name)[' + [name] +']';
-_strmulv16+='#(begin macro)    mulvX(2,name)' + '\n';
-_strmulv16+=mulvX(2,name);
-_strmulv16+='#(end macro)    mulvX(2,name)' + '\n';
-return _strmulv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro mul16() : stack-1 = stack-1 * stack : stack--' + '\n';
-var mul16 = function(){
-var _strmul16; 
-_strmul16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro mul16()[' + [] +']';
-_strmul16+='#(begin macro)    mulX(2)' + '\n';
-_strmul16+=mulX(2);
-_strmul16+='#(end macro)    mulX(2)' + '\n';
-return _strmul16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro equalvv16(nameA, nameB) : push 1 if NameA == NameB , push 0 otherwise' + '\n';
-var equalvv16 = function(nameA, nameB){
-var _strequalvv16; 
-_strequalvv16='';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro equalvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (typeof nameB == 'undefined') throw 'Parameter nameB is undefined in call of  macro equalvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (arguments.length != 2) throw 'Too much arguments provided to macro equalvv16(nameA, nameB)[' + [nameA, nameB] +']';
-_strequalvv16+='#(begin macro)    equalvvX(2, nameA, nameB)' + '\n';
-_strequalvv16+=equalvvX(2, nameA, nameB);
-_strequalvv16+='#(end macro)    equalvvX(2, nameA, nameB)' + '\n';
-return _strequalvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro equal16() : same as "equal" but with 16 bits value in stack' + '\n';
-var equal16 = function(){
-var _strequal16; 
-_strequal16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro equal16()[' + [] +']';
-_strequal16+='#(begin macro)    equalX(2)' + '\n';
-_strequal16+=equalX(2);
-_strequal16+='#(end macro)    equalX(2)' + '\n';
-return _strequal16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro diffvv16(nameA, nameB) : push 1 if Name != NameB , push 0 otherwise' + '\n';
-var diffvv16 = function(nameA, nameB){
-var _strdiffvv16; 
-_strdiffvv16='';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro diffvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (typeof nameB == 'undefined') throw 'Parameter nameB is undefined in call of  macro diffvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (arguments.length != 2) throw 'Too much arguments provided to macro diffvv16(nameA, nameB)[' + [nameA, nameB] +']';
-_strdiffvv16+='#(begin macro)    diffvvX(2, nameA, nameB)' + '\n';
-_strdiffvv16+=diffvvX(2, nameA, nameB);
-_strdiffvv16+='#(end macro)    diffvvX(2, nameA, nameB)' + '\n';
-return _strdiffvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro diff16() : same as "diff" but with 16 bits value in stack' + '\n';
-var diff16 = function(){
-var _strdiff16; 
-_strdiff16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro diff16()[' + [] +']';
-return _strdiff16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro supequalvv16(nameA, nameB) : push 1 if nameA >= nameB push 0 otherwise' + '\n';
-var supequalvv16 = function(nameA, nameB){
-var _strsupequalvv16; 
-_strsupequalvv16='';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro supequalvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (typeof nameB == 'undefined') throw 'Parameter nameB is undefined in call of  macro supequalvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (arguments.length != 2) throw 'Too much arguments provided to macro supequalvv16(nameA, nameB)[' + [nameA, nameB] +']';
-_strsupequalvv16+='#(begin macro)    supequalvvX(2,nameA, nameB)' + '\n';
-_strsupequalvv16+=supequalvvX(2,nameA, nameB);
-_strsupequalvv16+='#(end macro)    supequalvvX(2,nameA, nameB)' + '\n';
-return _strsupequalvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro supequal16() : push 1 if stack-1 >= stack , push 0 otherwise : after dropped 2 16 bits value from stack' + '\n';
-var supequal16 = function(){
-var _strsupequal16; 
-_strsupequal16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro supequal16()[' + [] +']';
-_strsupequal16+='#(begin macro)    supequalX(2)' + '\n';
-_strsupequal16+=supequalX(2);
-_strsupequal16+='#(end macro)    supequalX(2)' + '\n';
-return _strsupequal16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro infvv16(nameA, nameB) : push 1 if nameA < nameB push 0 otherwise' + '\n';
-var infvv16 = function(nameA, nameB){
-var _strinfvv16; 
-_strinfvv16='';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro infvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (typeof nameB == 'undefined') throw 'Parameter nameB is undefined in call of  macro infvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (arguments.length != 2) throw 'Too much arguments provided to macro infvv16(nameA, nameB)[' + [nameA, nameB] +']';
-_strinfvv16+='#(begin macro)    infvvX(2, nameA, nameB)' + '\n';
-_strinfvv16+=infvvX(2, nameA, nameB);
-_strinfvv16+='#(end macro)    infvvX(2, nameA, nameB)' + '\n';
-return _strinfvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro inf16() : push 1 if stack-1 < stack, push 0 otherwise : after dropped 2 16 bits value from stack' + '\n';
-var inf16 = function(){
-var _strinf16; 
-_strinf16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro inf16()[' + [] +']';
-_strinf16+='#(begin macro)    infX(2)' + '\n';
-_strinf16+=infX(2);
-_strinf16+='#(end macro)    infX(2)' + '\n';
-return _strinf16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro infequalvv16(nameA, nameB) : push 1 if nameA <= nameB push 0 otherwise' + '\n';
-var infequalvv16 = function(nameA, nameB){
-var _strinfequalvv16; 
-_strinfequalvv16='';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro infequalvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (typeof nameB == 'undefined') throw 'Parameter nameB is undefined in call of  macro infequalvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (arguments.length != 2) throw 'Too much arguments provided to macro infequalvv16(nameA, nameB)[' + [nameA, nameB] +']';
-_strinfequalvv16+='#(begin macro)    infequalvvX(2,nameA,nameB)' + '\n';
-_strinfequalvv16+=infequalvvX(2,nameA,nameB);
-_strinfequalvv16+='#(end macro)    infequalvvX(2,nameA,nameB)' + '\n';
-return _strinfequalvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro infequal16() : push 1 if stack-1 <= stack, push 0 otherwise : after dropped 2 16 bits value from stack ' + '\n';
-var infequal16 = function(){
-var _strinfequal16; 
-_strinfequal16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro infequal16()[' + [] +']';
-_strinfequal16+='#(begin macro)    infequalX(2)' + '\n';
-_strinfequal16+=infequalX(2);
-_strinfequal16+='#(end macro)    infequalX(2)' + '\n';
-return _strinfequal16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro supvv16(nameA , nameB) : push 1 if nameA > nameB push 0 otherwise' + '\n';
-var supvv16 = function(nameA, nameB){
-var _strsupvv16; 
-_strsupvv16='';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro supvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (typeof nameB == 'undefined') throw 'Parameter nameB is undefined in call of  macro supvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (arguments.length != 2) throw 'Too much arguments provided to macro supvv16(nameA, nameB)[' + [nameA, nameB] +']';
-_strsupvv16+='#(begin macro)    supvvX(2,nameA,nameB)' + '\n';
-_strsupvv16+=supvvX(2,nameA,nameB);
-_strsupvv16+='#(end macro)    supvvX(2,nameA,nameB)' + '\n';
-return _strsupvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro sup16() : push 1 if stack-1 > stack, push 0 otherwise : after dropped 2 16 bits value from stack ' + '\n';
-var sup16 = function(){
-var _strsup16; 
-_strsup16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro sup16()[' + [] +']';
-_strsup16+='#(begin macro)    supX(2)' + '\n';
-_strsup16+=supX(2);
-_strsup16+='#(end macro)    supX(2)' + '\n';
-return _strsup16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro divvvvv16(nameAdivB, nameAmodB, nameA, nameB) : nameAdivB = nameA div nameB ; nameAmodB = nameA mod nameB' + '\n';
-var divvvvv16 = function(nameAdivB, nameAmodB, nameA, nameB){
-var _strdivvvvv16; 
-_strdivvvvv16='';
-if (typeof nameAdivB == 'undefined') throw 'Parameter nameAdivB is undefined in call of  macro divvvvv16(nameAdivB, nameAmodB, nameA, nameB)[' + [nameAdivB, nameAmodB, nameA, nameB] +']';
-if (typeof nameAmodB == 'undefined') throw 'Parameter nameAmodB is undefined in call of  macro divvvvv16(nameAdivB, nameAmodB, nameA, nameB)[' + [nameAdivB, nameAmodB, nameA, nameB] +']';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro divvvvv16(nameAdivB, nameAmodB, nameA, nameB)[' + [nameAdivB, nameAmodB, nameA, nameB] +']';
-if (typeof nameB == 'undefined') throw 'Parameter nameB is undefined in call of  macro divvvvv16(nameAdivB, nameAmodB, nameA, nameB)[' + [nameAdivB, nameAmodB, nameA, nameB] +']';
-if (arguments.length != 4) throw 'Too much arguments provided to macro divvvvv16(nameAdivB, nameAmodB, nameA, nameB)[' + [nameAdivB, nameAmodB, nameA, nameB] +']';
-_strdivvvvv16+='#(begin macro)    divvvvvX(2,nameAdivB, nameAmodB, nameA, nameB)' + '\n';
-_strdivvvvv16+=divvvvvX(2,nameAdivB, nameAmodB, nameA, nameB);
-_strdivvvvv16+='#(end macro)    divvvvvX(2,nameAdivB, nameAmodB, nameA, nameB)' + '\n';
-return _strdivvvvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro divvv16(nameA, nameB) : Push 2 16 bits values  : stack-1 = nameA mod nameB ; stack = nameA div nameB ' + '\n';
-var divvv16 = function(nameA, nameB){
-var _strdivvv16; 
-_strdivvv16='';
-if (typeof nameA == 'undefined') throw 'Parameter nameA is undefined in call of  macro divvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (typeof nameB == 'undefined') throw 'Parameter nameB is undefined in call of  macro divvv16(nameA, nameB)[' + [nameA, nameB] +']';
-if (arguments.length != 2) throw 'Too much arguments provided to macro divvv16(nameA, nameB)[' + [nameA, nameB] +']';
-_strdivvv16+='#(begin macro)    divvvX(2,nameA,nameB)' + '\n';
-_strdivvv16+=divvvX(2,nameA,nameB);
-_strdivvv16+='#(end macro)    divvvX(2,nameA,nameB)' + '\n';
-return _strdivvv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro div16() : stack-1 == A , stack == B ; stack-1 = A mod B , stack = A div B' + '\n';
-var div16 = function(){
-var _strdiv16; 
-_strdiv16='';
-if (arguments.length != 0) throw 'Too much arguments provided to macro div16()[' + [] +']';
-_strdiv16+='#(begin macro)    divX(2)' + '\n';
-_strdiv16+=divX(2);
-_strdiv16+='#(end macro)    divX(2)' + '\n';
-return _strdiv16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro write16(name) : print out the decimal value (signed)' + '\n';
-var write16 = function(name){
-var _strwrite16; 
-_strwrite16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro write16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro write16(name)[' + [name] +']';
-_strwrite16+='#(begin macro)    writeX(2,name)' + '\n';
-_strwrite16+=writeX(2,name);
-_strwrite16+='#(end macro)    writeX(2,name)' + '\n';
-return _strwrite16;
-}
-_str_main+='' + '\n';
-_str_main+='# macro printhexa16(name) : print the 16 bit variable in hexadecimal' + '\n';
-var printhexa16 = function(name){
-var _strprinthexa16; 
-_strprinthexa16='';
-if (typeof name == 'undefined') throw 'Parameter name is undefined in call of  macro printhexa16(name)[' + [name] +']';
-if (arguments.length != 1) throw 'Too much arguments provided to macro printhexa16(name)[' + [name] +']';
-_strprinthexa16+='#(begin macro)    printhexaX(2,name)' + '\n';
-_strprinthexa16+=printhexaX(2,name);
-_strprinthexa16+='#(end macro)    printhexaX(2,name)' + '\n';
-return _strprinthexa16;
-}
-_str_main+='' + '\n';
-_str_main+='#(begin macro)declareTmpX(2)' + '\n';
-_str_main+=declareTmpX(2);
-_str_main+='#(end macro)declareTmpX(2)' + '\n';
-_str_main+='' + '\n';
-_str_main+='#(end include)../include/signedX16.inc' + '\n';
-_str_main+='' + '\n';
-_str_main+='# display a number' + '\n';
-_str_main+='#(begin macro)var16("number1")' + '\n';
-_str_main+=var16("number1");
-_str_main+='#(end macro)var16("number1")' + '\n';
-_str_main+='' + '\n';
-_str_main+='push    0' + '\n';
-_str_main+='#(begin macro)setv16("number1", 10384)' + '\n';
-_str_main+=setv16("number1", 10384);
-_str_main+='#(end macro)setv16("number1", 10384)' + '\n';
-_str_main+='' + '\n';
-_str_main+='' + '\n';
-_str_main+='#(begin macro)scope_begin()' + '\n';
-_str_main+=scope_begin();
-_str_main+='#(end macro)scope_begin()' + '\n';
-_str_main+='#(begin macro)    lvar16("number2")' + '\n';
-_str_main+=lvar16("number2");
-_str_main+='#(end macro)    lvar16("number2")' + '\n';
-_str_main+='#(begin macro)    set16(-1024)' + '\n';
-_str_main+=set16(-1024);
-_str_main+='#(end macro)    set16(-1024)' + '\n';
-_str_main+='' + '\n';
-_str_main+='    ' + '\n';
-_str_main+='#(begin macro)    print("Hexa dump\\n")' + '\n';
-_str_main+=print("Hexa dump\n");
-_str_main+='#(end macro)    print("Hexa dump\\n")' + '\n';
-_str_main+='#(begin macro)    print("c : carry , overflow or underflow\\n")    ' + '\n';
-_str_main+=print("c : carry , overflow or underflow\n");
-_str_main+='#(end macro)    print("c : carry , overflow or underflow\\n")    ' + '\n';
-_str_main+='#(begin macro)    print("s : sign , 00 positive, 01 negative\\n")    ' + '\n';
-_str_main+=print("s : sign , 00 positive, 01 negative\n");
-_str_main+='#(end macro)    print("s : sign , 00 positive, 01 negative\\n")    ' + '\n';
-_str_main+='#(begin macro)    print("1 : most significant byte\\n")    ' + '\n';
-_str_main+=print("1 : most significant byte\n");
-_str_main+='#(end macro)    print("1 : most significant byte\\n")    ' + '\n';
-_str_main+='#(begin macro)    print("0 : less significant byte\\n")    ' + '\n';
-_str_main+=print("0 : less significant byte\n");
-_str_main+='#(end macro)    print("0 : less significant byte\\n")    ' + '\n';
-_str_main+='#(begin macro)    print("[number1]")' + '\n';
-_str_main+=print("[number1]");
-_str_main+='#(end macro)    print("[number1]")' + '\n';
-_str_main+='    ' + '\n';
-_str_main+='    push 1' + '\n';
-_str_main+='    if' + '\n';
-_str_main+='#(begin macro)    printhexa16("number1")' + '\n';
-_str_main+=printhexa16("number1");
-_str_main+='#(end macro)    printhexa16("number1")' + '\n';
-_str_main+='    fi' + '\n';
+_str_main+='# macro add 2 fixed point number (I+P)*8 bits in stack' + '\n';
+var addFP = function(I,P){
+var _straddFP; 
+_straddFP='';
+if (typeof I == 'undefined') throw 'Parameter I is undefined in call of  macro addFP(I,P)[' + [I,P] +']';
+if (typeof P == 'undefined') throw 'Parameter P is undefined in call of  macro addFP(I,P)[' + [I,P] +']';
+if (arguments.length != 2) throw 'Too much arguments provided to macro addFP(I,P)[' + [I,P] +']';
+_straddFP+='#(begin macro)    addX(I+P)' + '\n';
+_straddFP+=addX(I+P);
+_straddFP+='#(end macro)    addX(I+P)' + '\n';
+return _straddFP;
+}
+_str_main+='' + '\n';
+_str_main+='# macro sub 2 fixed point number (I+P)*8 bits in stack' + '\n';
+var subFP = function(I,P){
+var _strsubFP; 
+_strsubFP='';
+if (typeof I == 'undefined') throw 'Parameter I is undefined in call of  macro subFP(I,P)[' + [I,P] +']';
+if (typeof P == 'undefined') throw 'Parameter P is undefined in call of  macro subFP(I,P)[' + [I,P] +']';
+if (arguments.length != 2) throw 'Too much arguments provided to macro subFP(I,P)[' + [I,P] +']';
+_strsubFP+='#(begin macro)    subX(I+P)' + '\n';
+_strsubFP+=subX(I+P);
+_strsubFP+='#(end macro)    subX(I+P)' + '\n';
+return _strsubFP;
+}
+_str_main+='' + '\n';
+var incFP = function(I,P){
+var _strincFP; 
+_strincFP='';
+if (typeof I == 'undefined') throw 'Parameter I is undefined in call of  macro incFP(I,P)[' + [I,P] +']';
+if (typeof P == 'undefined') throw 'Parameter P is undefined in call of  macro incFP(I,P)[' + [I,P] +']';
+if (arguments.length != 2) throw 'Too much arguments provided to macro incFP(I,P)[' + [I,P] +']';
+_strincFP+='#(js) _fp2++;' + '\n';
+_fp2++;
+_strincFP+='#(begin macro)    sbmX2(I,"_incFPinput"+_fp2,0,P)' + '\n';
+_strincFP+=sbmX2(I,"_incFPinput"+_fp2,0,P);
+_strincFP+='#(end macro)    sbmX2(I,"_incFPinput"+_fp2,0,P)' + '\n';
+_strincFP+='#(begin macro)    incvX(I,"_incFPinput"+_fp2)' + '\n';
+_strincFP+=incvX(I,"_incFPinput"+_fp2);
+_strincFP+='#(end macro)    incvX(I,"_incFPinput"+_fp2)' + '\n';
+return _strincFP;
+}
+_str_main+='' + '\n';
+var decFP = function(I,P){
+var _strdecFP; 
+_strdecFP='';
+if (typeof I == 'undefined') throw 'Parameter I is undefined in call of  macro decFP(I,P)[' + [I,P] +']';
+if (typeof P == 'undefined') throw 'Parameter P is undefined in call of  macro decFP(I,P)[' + [I,P] +']';
+if (arguments.length != 2) throw 'Too much arguments provided to macro decFP(I,P)[' + [I,P] +']';
+_strdecFP+='#(js) _fp2++;' + '\n';
+_fp2++;
+_strdecFP+='#(begin macro)    sbmX2(I,"_incFPinput"+_fp2,0,P)' + '\n';
+_strdecFP+=sbmX2(I,"_incFPinput"+_fp2,0,P);
+_strdecFP+='#(end macro)    sbmX2(I,"_incFPinput"+_fp2,0,P)' + '\n';
+_strdecFP+='#(begin macro)    decvX(I,"_incFPinput"+_fp2)' + '\n';
+_strdecFP+=decvX(I,"_incFPinput"+_fp2);
+_strdecFP+='#(end macro)    decvX(I,"_incFPinput"+_fp2)' + '\n';
+return _strdecFP;
+}
+_str_main+='' + '\n';
+_str_main+='# macro setFP(I,P,immValue) : set fixed point head of stack I,P (I+P)*8 bits with immediate value ' + '\n';
+var setFP = function(I,P,immValue){
+var _strsetFP; 
+_strsetFP='';
+if (typeof I == 'undefined') throw 'Parameter I is undefined in call of  macro setFP(I,P,immValue)[' + [I,P,immValue] +']';
+if (typeof P == 'undefined') throw 'Parameter P is undefined in call of  macro setFP(I,P,immValue)[' + [I,P,immValue] +']';
+if (typeof immValue == 'undefined') throw 'Parameter immValue is undefined in call of  macro setFP(I,P,immValue)[' + [I,P,immValue] +']';
+if (arguments.length != 3) throw 'Too much arguments provided to macro setFP(I,P,immValue)[' + [I,P,immValue] +']';
+_strsetFP+='#(js) _sv8++; ' + '\n';
+_sv8++; 
+_strsetFP+='#(js) var IP; IP = I+P;' + '\n';
+var IP; IP = I+P;
+_strsetFP+='#(js) var _sign = immValue >=0?0:1;' + '\n';
+var _sign = immValue >=0?0:1;
+_strsetFP+='#(js) var _abs = immValue>=0?immValue:-immValue;' + '\n';
+var _abs = immValue>=0?immValue:-immValue;
+_strsetFP+='#(js) var _int; _int = _abs | 0;' + '\n';
+var _int; _int = _abs | 0;
+_strsetFP+='#(js) var _fra; _fra = ((_abs - _int) * Math.pow(256,P)) | 0;' + '\n';
+var _fra; _fra = ((_abs - _int) * Math.pow(256,P)) | 0;
+_strsetFP+='#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra; if (_sign ==1) _fp = -_fp;' + '\n';
+var _fp; _fp = _int * Math.pow(256,P) + _fra; if (_sign ==1) _fp = -_fp;
+_strsetFP+='#(begin macro)    sbmX(IP,"_instack"+_sv8,0)' + '\n';
+_strsetFP+=sbmX(IP,"_instack"+_sv8,0);
+_strsetFP+='#(end macro)    sbmX(IP,"_instack"+_sv8,0)' + '\n';
+_strsetFP+='#(begin macro)    setvX(IP,"_instack"+_sv8, _fp)' + '\n';
+_strsetFP+=setvX(IP,"_instack"+_sv8, _fp);
+_strsetFP+='#(end macro)    setvX(IP,"_instack"+_sv8, _fp)' + '\n';
+return _strsetFP;
+}
+_str_main+='' + '\n';
+_str_main+='# macro pushFP(I,P,immValue) : push immediate fixed point number onto the stack ' + '\n';
+var pushFP = function(I,P,immValue){
+var _strpushFP; 
+_strpushFP='';
+if (typeof I == 'undefined') throw 'Parameter I is undefined in call of  macro pushFP(I,P,immValue)[' + [I,P,immValue] +']';
+if (typeof P == 'undefined') throw 'Parameter P is undefined in call of  macro pushFP(I,P,immValue)[' + [I,P,immValue] +']';
+if (typeof immValue == 'undefined') throw 'Parameter immValue is undefined in call of  macro pushFP(I,P,immValue)[' + [I,P,immValue] +']';
+if (arguments.length != 3) throw 'Too much arguments provided to macro pushFP(I,P,immValue)[' + [I,P,immValue] +']';
+_strpushFP+='#(begin macro)    pushX(I*1+P*1,0)' + '\n';
+_strpushFP+=pushX(I*1+P*1,0);
+_strpushFP+='#(end macro)    pushX(I*1+P*1,0)' + '\n';
+_strpushFP+='#(begin macro)    setFP(I*1,P*1,immValue) ' + '\n';
+_strpushFP+=setFP(I*1,P*1,immValue);
+_strpushFP+='#(end macro)    setFP(I*1,P*1,immValue) ' + '\n';
+return _strpushFP;
+}
+_str_main+='' + '\n';
+_str_main+='# macro castFP(I1,P1,I2,P2) : transform head of Stack Fixed point number I1,P1 (I1+P1* 8 bits) into a Fixed point number I2,P2 (I2+P2*8 bits)' + '\n';
+var castFP = function(I1,P1,I2,P2){
+var _strcastFP; 
+_strcastFP='';
+if (typeof I1 == 'undefined') throw 'Parameter I1 is undefined in call of  macro castFP(I1,P1,I2,P2)[' + [I1,P1,I2,P2] +']';
+if (typeof P1 == 'undefined') throw 'Parameter P1 is undefined in call of  macro castFP(I1,P1,I2,P2)[' + [I1,P1,I2,P2] +']';
+if (typeof I2 == 'undefined') throw 'Parameter I2 is undefined in call of  macro castFP(I1,P1,I2,P2)[' + [I1,P1,I2,P2] +']';
+if (typeof P2 == 'undefined') throw 'Parameter P2 is undefined in call of  macro castFP(I1,P1,I2,P2)[' + [I1,P1,I2,P2] +']';
+if (arguments.length != 4) throw 'Too much arguments provided to macro castFP(I1,P1,I2,P2)[' + [I1,P1,I2,P2] +']';
+_strcastFP+='#(js) _sv8++; ' + '\n';
+_sv8++; 
+_strcastFP+='#(js) var I1P1; I1P1 = I1+P1;' + '\n';
+var I1P1; I1P1 = I1+P1;
+_strcastFP+='#(js) var I2P2; I2P2 = I2+P2;' + '\n';
+var I2P2; I2P2 = I2+P2;
+_strcastFP+='#(begin macro)    varX(I1P1,"_instack" +_sv8)' + '\n';
+_strcastFP+=varX(I1P1,"_instack" +_sv8);
+_strcastFP+='#(end macro)    varX(I1P1,"_instack" +_sv8)' + '\n';
+_strcastFP+='#(begin macro)    varX(I2P2,"_outstack" + _sv8)' + '\n';
+_strcastFP+=varX(I2P2,"_outstack" + _sv8);
+_strcastFP+='#(end macro)    varX(I2P2,"_outstack" + _sv8)' + '\n';
+_strcastFP+='    ' + '\n';
+_strcastFP+='#(begin macro)    popvX(I1P1,"_instack" + _sv8)' + '\n';
+_strcastFP+=popvX(I1P1,"_instack" + _sv8);
+_strcastFP+='#(end macro)    popvX(I1P1,"_instack" + _sv8)' + '\n';
+_strcastFP+='    # reset outstack' + '\n';
+_strcastFP+='#(begin macro)    setvX(I2P2, "_outstack" +_sv8, 0)' + '\n';
+_strcastFP+=setvX(I2P2, "_outstack" +_sv8, 0);
+_strcastFP+='#(end macro)    setvX(I2P2, "_outstack" +_sv8, 0)' + '\n';
+_strcastFP+='    # sign' + '\n';
+_strcastFP+='    push _instack' + _sv8 + '_s' + '\n';
+_strcastFP+='    pop _outstack' + _sv8 + '_s' + '\n';
+_strcastFP+='    # integer part' + '\n';
+_strcastFP+='#(js) if (I1 >= I2) {' + '\n';
+if (I1 >= I2) {
+_strcastFP+='#(js) for (var xx = 0 ; xx < I2; xx++) {' + '\n';
+for (var xx = 0 ; xx < I2; xx++) {
+_strcastFP+='            push _instack' + _sv8 + '_' + (xx + P1) + '' + '\n';
+_strcastFP+='            pop _outstack' + _sv8 + '_' + (xx + P2) + '' + '\n';
+_strcastFP+='#(js) }' + '\n';
+}
+_strcastFP+='#(js) } else { // I1 < I2' + '\n';
+} else { // I1 < I2
+_strcastFP+='#(js) for (var xx = 0 ; xx < I1; xx++) {' + '\n';
+for (var xx = 0 ; xx < I1; xx++) {
+_strcastFP+='            push _instack' + _sv8 + '_' + (xx + P1) + '' + '\n';
+_strcastFP+='            pop _outstack' + _sv8 + '_' + (xx + P2) + '' + '\n';
+_strcastFP+='#(js) }' + '\n';
+}
+_strcastFP+='#(js) }' + '\n';
+}
+_strcastFP+='    # fract part' + '\n';
+_strcastFP+='#(js) if (P1 >= P2) {' + '\n';
+if (P1 >= P2) {
+_strcastFP+='#(js) for (var xx = 0 ; xx <P2; xx++) {' + '\n';
+for (var xx = 0 ; xx <P2; xx++) {
+_strcastFP+='            push _instack' + _sv8 + '_' + (P1-xx-1) + '' + '\n';
+_strcastFP+='            pop _outstack' + _sv8 + '_' + (P2-xx-1) + '' + '\n';
+_strcastFP+='#(js) }' + '\n';
+}
+_strcastFP+='#(js) } else { // P1 < P2' + '\n';
+} else { // P1 < P2
+_strcastFP+='#(js) for (var xx = 0 ; xx < P1; xx++) {' + '\n';
+for (var xx = 0 ; xx < P1; xx++) {
+_strcastFP+='            push _instack' + _sv8 + '_' + (P1-xx-1) + '' + '\n';
+_strcastFP+='            pop _outstack' + _sv8 + '_' + (P2-xx-1) + '' + '\n';
+_strcastFP+='#(js) }' + '\n';
+}
+_strcastFP+='#(js) }' + '\n';
+}
+_strcastFP+='#(begin macro)    pushvX(I2P2,"_outstack" + _sv8)' + '\n';
+_strcastFP+=pushvX(I2P2,"_outstack" + _sv8);
+_strcastFP+='#(end macro)    pushvX(I2P2,"_outstack" + _sv8)' + '\n';
+return _strcastFP;
+}
+_str_main+='' + '\n';
+_str_main+='# macro integerFP(I,P) : transform head of stack fixed point number I,P (I+P)*8 bits , into a signed integer I*8bits' + '\n';
+var integerFP = function(I,P){
+var _strintegerFP; 
+_strintegerFP='';
+if (typeof I == 'undefined') throw 'Parameter I is undefined in call of  macro integerFP(I,P)[' + [I,P] +']';
+if (typeof P == 'undefined') throw 'Parameter P is undefined in call of  macro integerFP(I,P)[' + [I,P] +']';
+if (arguments.length != 2) throw 'Too much arguments provided to macro integerFP(I,P)[' + [I,P] +']';
+_strintegerFP+='#(begin macro)    castFP(I,P,I,0)' + '\n';
+_strintegerFP+=castFP(I,P,I,0);
+_strintegerFP+='#(end macro)    castFP(I,P,I,0)' + '\n';
+return _strintegerFP;
+}
+_str_main+='' + '\n';
+var fract = function(I,P){
+var _strfract; 
+_strfract='';
+if (typeof I == 'undefined') throw 'Parameter I is undefined in call of  macro fract(I,P)[' + [I,P] +']';
+if (typeof P == 'undefined') throw 'Parameter P is undefined in call of  macro fract(I,P)[' + [I,P] +']';
+if (arguments.length != 2) throw 'Too much arguments provided to macro fract(I,P)[' + [I,P] +']';
+_strfract+='#(begin macro)    castFP(I,P,0,P)' + '\n';
+_strfract+=castFP(I,P,0,P);
+_strfract+='#(end macro)    castFP(I,P,0,P)' + '\n';
+return _strfract;
+}
+_str_main+='' + '\n';
+_str_main+='' + '\n';
+_str_main+='# macro mul 2 fixed point number (I+P)*8 bits in stack' + '\n';
+var mulFP = function(I,P){
+var _strmulFP; 
+_strmulFP='';
+if (typeof I == 'undefined') throw 'Parameter I is undefined in call of  macro mulFP(I,P)[' + [I,P] +']';
+if (typeof P == 'undefined') throw 'Parameter P is undefined in call of  macro mulFP(I,P)[' + [I,P] +']';
+if (arguments.length != 2) throw 'Too much arguments provided to macro mulFP(I,P)[' + [I,P] +']';
+_strmulFP+='#(js) _fp1++;' + '\n';
+_fp1++;
+_strmulFP+='#(js) var IP ; IP = (I+P); ' + '\n';
+var IP ; IP = (I+P); 
+_strmulFP+='#(js) var IP2 ; IP2 = 2 * IP;' + '\n';
+var IP2 ; IP2 = 2 * IP;
+_strmulFP+='#(begin macro)    sbmX(IP, "nameB"+_fp1,0)' + '\n';
+_strmulFP+=sbmX(IP, "nameB"+_fp1,0);
+_strmulFP+='#(end macro)    sbmX(IP, "nameB"+_fp1,0)' + '\n';
+_strmulFP+='#(begin macro)    sbmX(IP, "nameA"+_fp1,1)' + '\n';
+_strmulFP+=sbmX(IP, "nameA"+_fp1,1);
+_strmulFP+='#(end macro)    sbmX(IP, "nameA"+_fp1,1)' + '\n';
+_strmulFP+='#(begin macro)    scope_begin()' + '\n';
+_strmulFP+=scope_begin();
+_strmulFP+='#(end macro)    scope_begin()' + '\n';
+_strmulFP+='#(begin macro)        lvarX(IP2, "nameAX"  + _fp1)' + '\n';
+_strmulFP+=lvarX(IP2, "nameAX"  + _fp1);
+_strmulFP+='#(end macro)        lvarX(IP2, "nameAX"  + _fp1)' + '\n';
+_strmulFP+='#(begin macro)        lvarX(IP2, "nameBX"  + _fp1)' + '\n';
+_strmulFP+=lvarX(IP2, "nameBX"  + _fp1);
+_strmulFP+='#(end macro)        lvarX(IP2, "nameBX"  + _fp1)' + '\n';
+_strmulFP+='#(begin macro)        lvarX(IP2, "resultX" + _fp1)' + '\n';
+_strmulFP+=lvarX(IP2, "resultX" + _fp1);
+_strmulFP+='#(end macro)        lvarX(IP2, "resultX" + _fp1)' + '\n';
+_strmulFP+='        ' + '\n';
+_strmulFP+='        # upcast nameA to nameAX (from I+P to (I+P) * 2)' + '\n';
+_strmulFP+='#(begin macro)        pushvX(IP,"nameA"+_fp1)' + '\n';
+_strmulFP+=pushvX(IP,"nameA"+_fp1);
+_strmulFP+='#(end macro)        pushvX(IP,"nameA"+_fp1)' + '\n';
+_strmulFP+='#(begin macro)        castX(IP,IP2)' + '\n';
+_strmulFP+=castX(IP,IP2);
+_strmulFP+='#(end macro)        castX(IP,IP2)' + '\n';
+_strmulFP+='#(begin macro)        popvX(IP2,"nameAX"+_fp1)' + '\n';
+_strmulFP+=popvX(IP2,"nameAX"+_fp1);
+_strmulFP+='#(end macro)        popvX(IP2,"nameAX"+_fp1)' + '\n';
+_strmulFP+='' + '\n';
+_strmulFP+='        # upcast nameB to nameBX (from I+P to (I+P) * 2)' + '\n';
+_strmulFP+='#(begin macro)        pushvX(IP,"nameB"+_fp1)' + '\n';
+_strmulFP+=pushvX(IP,"nameB"+_fp1);
+_strmulFP+='#(end macro)        pushvX(IP,"nameB"+_fp1)' + '\n';
+_strmulFP+='#(begin macro)        castX(IP,IP2)' + '\n';
+_strmulFP+=castX(IP,IP2);
+_strmulFP+='#(end macro)        castX(IP,IP2)' + '\n';
+_strmulFP+='#(begin macro)        popvX(IP2,"nameBX"+_fp1)' + '\n';
+_strmulFP+=popvX(IP2,"nameBX"+_fp1);
+_strmulFP+='#(end macro)        popvX(IP2,"nameBX"+_fp1)' + '\n';
+_strmulFP+='        ' + '\n';
+_strmulFP+='#(begin macro)        mulvvvX(IP2,"resultX"+_fp1, "nameAX"+_fp1, "nameBX"+_fp1)' + '\n';
+_strmulFP+=mulvvvX(IP2,"resultX"+_fp1, "nameAX"+_fp1, "nameBX"+_fp1);
+_strmulFP+='#(end macro)        mulvvvX(IP2,"resultX"+_fp1, "nameAX"+_fp1, "nameBX"+_fp1)' + '\n';
+_strmulFP+='        ' + '\n';
+_strmulFP+='#(begin macro)        pushvX(IP2,"resultX"+_fp1)' + '\n';
+_strmulFP+=pushvX(IP2,"resultX"+_fp1);
+_strmulFP+='#(end macro)        pushvX(IP2,"resultX"+_fp1)' + '\n';
+_strmulFP+='#(begin macro)        castFP(I+I,P+P, I,P)' + '\n';
+_strmulFP+=castFP(I+I,P+P, I,P);
+_strmulFP+='#(end macro)        castFP(I+I,P+P, I,P)' + '\n';
+_strmulFP+='#(begin macro)        popvX(IP,"nameA"+_fp1)' + '\n';
+_strmulFP+=popvX(IP,"nameA"+_fp1);
+_strmulFP+='#(end macro)        popvX(IP,"nameA"+_fp1)' + '\n';
+_strmulFP+='#(begin macro)    scope_end()' + '\n';
+_strmulFP+=scope_end();
+_strmulFP+='#(end macro)    scope_end()' + '\n';
+_strmulFP+='#(begin macro)    dropX(IP) # drop nameB' + '\n';
+_strmulFP+=dropX(IP);
+_strmulFP+='#(end macro)    dropX(IP) # drop nameB' + '\n';
+return _strmulFP;
+}
+_str_main+='' + '\n';
+_str_main+='#(js) var _fp1; var _fp2;' + '\n';
+var _fp1; var _fp2;
+_str_main+='#(js) _fp1 = 0; _fp2 = 0;' + '\n';
+_fp1 = 0; _fp2 = 0;
+_str_main+='#(end include)../include/fpnumber.inc' + '\n';
+_str_main+='' + '\n';
+var W;W='80'; W=(isNaN(W*1))?(W):(W*1); 
+var H;H='40'; H=(isNaN(H*1))?(H):(H*1); 
+var zoom;zoom='1'; zoom=(isNaN(zoom*1))?(zoom):(zoom*1); 
+var moveX;moveX='-0.5'; moveX=(isNaN(moveX*1))?(moveX):(moveX*1); 
+var moveY;moveY='0 '; moveY=(isNaN(moveY*1))?(moveY):(moveY*1); 
+var maxIte;maxIte='26'; maxIte=(isNaN(maxIte*1))?(maxIte):(maxIte*1); 
+var oneOnHalfZoomW;oneOnHalfZoomW='' + (1/0.5*zoom*W) + ''; oneOnHalfZoomW=(isNaN(oneOnHalfZoomW*1))?(oneOnHalfZoomW):(oneOnHalfZoomW*1); 
+var oneOnHalfZoomH;oneOnHalfZoomH='' + (1/0.5*zoom*H) + ''; oneOnHalfZoomH=(isNaN(oneOnHalfZoomH*1))?(oneOnHalfZoomH):(oneOnHalfZoomH*1); 
+var halfW;halfW='' + (0.5*W) + ''; halfW=(isNaN(halfW*1))?(halfW):(halfW*1); 
+var halfH;halfH='' + (0.5*H) + ''; halfH=(isNaN(halfH*1))?(halfH):(halfH*1); 
+_str_main+='' + '\n';
+_str_main+='# 8.16 fixed number' + '\n';
+_str_main+='    ## 8 = 1*8 bits' + '\n';
+var FP_I;FP_I='1'; FP_I=(isNaN(FP_I*1))?(FP_I):(FP_I*1); 
+_str_main+='    ## 16 = 2*8 bits' + '\n';
+var FP_P;FP_P='2'; FP_P=(isNaN(FP_P*1))?(FP_P):(FP_P*1); 
+_str_main+='# FP_I + FP_P' + '\n';
+_str_main+='    ## 1+2 = 3 : 24 bits' + '\n';
+var FP;FP='3'; FP=(isNaN(FP*1))?(FP):(FP*1); 
+_str_main+='' + '\n';
+_str_main+='#(begin macro)varX(FP,"pr")  # pixel real' + '\n';
+_str_main+=varX(FP,"pr");
+_str_main+='#(end macro)varX(FP,"pr")  # pixel real' + '\n';
+_str_main+='#(begin macro)varX(FP,"pi")  # pixel imaginary' + '\n';
+_str_main+=varX(FP,"pi");
+_str_main+='#(end macro)varX(FP,"pi")  # pixel imaginary' + '\n';
+_str_main+='#(begin macro)varX(FP,"x")    # screen coordinate horizontal' + '\n';
+_str_main+=varX(FP,"x");
+_str_main+='#(end macro)varX(FP,"x")    # screen coordinate horizontal' + '\n';
+_str_main+='#(begin macro)varX(FP,"y")    # screen coordinate vertical' + '\n';
+_str_main+=varX(FP,"y");
+_str_main+='#(end macro)varX(FP,"y")    # screen coordinate vertical' + '\n';
+_str_main+='#(begin macro)varX(FP,"newRe")' + '\n';
+_str_main+=varX(FP,"newRe");
+_str_main+='#(end macro)varX(FP,"newRe")' + '\n';
+_str_main+='#(begin macro)varX(FP,"newIm")' + '\n';
+_str_main+=varX(FP,"newIm");
+_str_main+='#(end macro)varX(FP,"newIm")' + '\n';
+_str_main+='#(begin macro)varX(FP,"oldRe")' + '\n';
+_str_main+=varX(FP,"oldRe");
+_str_main+='#(end macro)varX(FP,"oldRe")' + '\n';
+_str_main+='#(begin macro)varX(FP,"oldIm")' + '\n';
+_str_main+=varX(FP,"oldIm");
+_str_main+='#(end macro)varX(FP,"oldIm")' + '\n';
+_str_main+='# varX(FP,"ONE")' + '\n';
+_str_main+='var     i' + '\n';
+_str_main+='' + '\n';
+_str_main+='#(begin macro)declareTmpX(FP)' + '\n';
+_str_main+=declareTmpX(FP);
+_str_main+='#(end macro)declareTmpX(FP)' + '\n';
+_str_main+='#(begin macro)declareTmpX(FP*2)' + '\n';
+_str_main+=declareTmpX(FP*2);
+_str_main+='#(end macro)declareTmpX(FP*2)' + '\n';
+_str_main+='' + '\n';
+_str_main+='# pushFP(FP_I,FP_P,1)' + '\n';
+_str_main+='# popvX(FP,"ONE")          # ONE = 1.0' + '\n';
+_str_main+='' + '\n';
+_str_main+='push    ' + H + '' + '\n';
+_str_main+='loop' + '\n';
+_str_main+='    push    ' + W + '' + '\n';
+_str_main+='    loop' + '\n';
+_str_main+='        # pr = 1.5 *(x - halfW) * oneOnHalfZoomW + moveX' + '\n';
+_str_main+='#(begin macro)        pushFP(FP_I,FP_P,1.5)' + '\n';
+_str_main+=pushFP(FP_I,FP_P,1.5);
+_str_main+='#(end macro)        pushFP(FP_I,FP_P,1.5)' + '\n';
+_str_main+='#(begin macro)        pushvX(FP,"x")' + '\n';
+_str_main+=pushvX(FP,"x");
+_str_main+='#(end macro)        pushvX(FP,"x")' + '\n';
+_str_main+='#(begin macro)        pushFP(FP_I,FP_P, halfW)' + '\n';
+_str_main+=pushFP(FP_I,FP_P, halfW);
+_str_main+='#(end macro)        pushFP(FP_I,FP_P, halfW)' + '\n';
+_str_main+='#(begin macro)        subX(FP)' + '\n';
+_str_main+=subX(FP);
+_str_main+='#(end macro)        subX(FP)' + '\n';
+_str_main+='#(begin macro)        mulFP(FP_I,FP_P)' + '\n';
+_str_main+=mulFP(FP_I,FP_P);
+_str_main+='#(end macro)        mulFP(FP_I,FP_P)' + '\n';
+_str_main+='#(begin macro)        pushFP(FP_I,FP_P,oneOnHalfZoomW)' + '\n';
+_str_main+=pushFP(FP_I,FP_P,oneOnHalfZoomW);
+_str_main+='#(end macro)        pushFP(FP_I,FP_P,oneOnHalfZoomW)' + '\n';
+_str_main+='#(begin macro)        mulFP(FP_I,FP_P)' + '\n';
+_str_main+=mulFP(FP_I,FP_P);
+_str_main+='#(end macro)        mulFP(FP_I,FP_P)' + '\n';
+_str_main+='#(begin macro)        pushFP(FP_I,FP_P,moveX)' + '\n';
+_str_main+=pushFP(FP_I,FP_P,moveX);
+_str_main+='#(end macro)        pushFP(FP_I,FP_P,moveX)' + '\n';
+_str_main+='#(begin macro)        addX(FP)' + '\n';
+_str_main+=addX(FP);
+_str_main+='#(end macro)        addX(FP)' + '\n';
+_str_main+='#(begin macro)        popvX(FP,"pr")' + '\n';
+_str_main+=popvX(FP,"pr");
+_str_main+='#(end macro)        popvX(FP,"pr")' + '\n';
+_str_main+='        # pi = (y - halfH) * oneOnHalfZoomH + moveY' + '\n';
+_str_main+='#(begin macro)        pushvX(FP,"y")' + '\n';
+_str_main+=pushvX(FP,"y");
+_str_main+='#(end macro)        pushvX(FP,"y")' + '\n';
+_str_main+='#(begin macro)        pushFP(FP_I,FP_P,halfH)' + '\n';
+_str_main+=pushFP(FP_I,FP_P,halfH);
+_str_main+='#(end macro)        pushFP(FP_I,FP_P,halfH)' + '\n';
+_str_main+='#(begin macro)        subX(FP)' + '\n';
+_str_main+=subX(FP);
+_str_main+='#(end macro)        subX(FP)' + '\n';
+_str_main+='#(begin macro)        pushFP(FP_I,FP_P,oneOnHalfZoomW)' + '\n';
+_str_main+=pushFP(FP_I,FP_P,oneOnHalfZoomW);
+_str_main+='#(end macro)        pushFP(FP_I,FP_P,oneOnHalfZoomW)' + '\n';
+_str_main+='#(begin macro)        mulFP(FP_I,FP_P)' + '\n';
+_str_main+=mulFP(FP_I,FP_P);
+_str_main+='#(end macro)        mulFP(FP_I,FP_P)' + '\n';
+_str_main+='#(begin macro)        pushFP(FP_I,FP_P,moveX)' + '\n';
+_str_main+=pushFP(FP_I,FP_P,moveX);
+_str_main+='#(end macro)        pushFP(FP_I,FP_P,moveX)' + '\n';
+_str_main+='#(begin macro)        addX(FP)' + '\n';
+_str_main+=addX(FP);
+_str_main+='#(end macro)        addX(FP)' + '\n';
+_str_main+='#(begin macro)        popvX(FP,"pi")' + '\n';
+_str_main+=popvX(FP,"pi");
+_str_main+='#(end macro)        popvX(FP,"pi")' + '\n';
+_str_main+='        # newRe = 0' + '\n';
+_str_main+='#(begin macro)        setvX(FP,"newRe",0)' + '\n';
+_str_main+=setvX(FP,"newRe",0);
+_str_main+='#(end macro)        setvX(FP,"newRe",0)' + '\n';
+_str_main+='        # newIm = 0' + '\n';
+_str_main+='#(begin macro)        setvX(FP,"newIm",0)' + '\n';
+_str_main+=setvX(FP,"newIm",0);
+_str_main+='#(end macro)        setvX(FP,"newIm",0)' + '\n';
+_str_main+='        # oldRe = 0' + '\n';
+_str_main+='#(begin macro)        setvX(FP,"oldRe",0)' + '\n';
+_str_main+=setvX(FP,"oldRe",0);
+_str_main+='#(end macro)        setvX(FP,"oldRe",0)' + '\n';
+_str_main+='        # oldIm = 0' + '\n';
+_str_main+='#(begin macro)        setvX(FP,"oldIm",0)' + '\n';
+_str_main+=setvX(FP,"oldIm",0);
+_str_main+='#(end macro)        setvX(FP,"oldIm",0)' + '\n';
+_str_main+='        # i = 0' + '\n';
+_str_main+='#(begin macro)        at_reset("i")' + '\n';
+_str_main+=at_reset("i");
+_str_main+='#(end macro)        at_reset("i")' + '\n';
+_str_main+='        # for (i =0 ; i < maxIte; i++) {' + '\n';
+_str_main+='        push    1' + '\n';
+_str_main+='        sbm     loop' + '\n';
+_str_main+='        while' + '\n';
+_str_main+='#(begin macro)            if_inf("i",maxIte)' + '\n';
+_str_main+=if_inf("i",maxIte);
+_str_main+='#(end macro)            if_inf("i",maxIte)' + '\n';
+_str_main+='            #    oldRe = newRe' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"newRe")' + '\n';
+_str_main+=pushvX(FP,"newRe");
+_str_main+='#(end macro)                pushvX(FP,"newRe")' + '\n';
+_str_main+='#(begin macro)                popvX(FP,"oldRe")' + '\n';
+_str_main+=popvX(FP,"oldRe");
+_str_main+='#(end macro)                popvX(FP,"oldRe")' + '\n';
+_str_main+='            #    oldIm = newIm' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"newIm")' + '\n';
+_str_main+=pushvX(FP,"newIm");
+_str_main+='#(end macro)                pushvX(FP,"newIm")' + '\n';
+_str_main+='#(begin macro)                popvX(FP,"oldIm")' + '\n';
+_str_main+=popvX(FP,"oldIm");
+_str_main+='#(end macro)                popvX(FP,"oldIm")' + '\n';
+_str_main+='            #    newRe = oldRe * oldRe - oldIm * oldIm + pr' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"oldRe")' + '\n';
+_str_main+=pushvX(FP,"oldRe");
+_str_main+='#(end macro)                pushvX(FP,"oldRe")' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"oldRe")' + '\n';
+_str_main+=pushvX(FP,"oldRe");
+_str_main+='#(end macro)                pushvX(FP,"oldRe")' + '\n';
+_str_main+='#(begin macro)                mulFP(FP_I,FP_P)' + '\n';
+_str_main+=mulFP(FP_I,FP_P);
+_str_main+='#(end macro)                mulFP(FP_I,FP_P)' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"oldIm")' + '\n';
+_str_main+=pushvX(FP,"oldIm");
+_str_main+='#(end macro)                pushvX(FP,"oldIm")' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"oldIm")' + '\n';
+_str_main+=pushvX(FP,"oldIm");
+_str_main+='#(end macro)                pushvX(FP,"oldIm")' + '\n';
+_str_main+='#(begin macro)                mulFP(FP_I,FP_P)' + '\n';
+_str_main+=mulFP(FP_I,FP_P);
+_str_main+='#(end macro)                mulFP(FP_I,FP_P)' + '\n';
+_str_main+='#(begin macro)                subX(FP)' + '\n';
+_str_main+=subX(FP);
+_str_main+='#(end macro)                subX(FP)' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"pr")' + '\n';
+_str_main+=pushvX(FP,"pr");
+_str_main+='#(end macro)                pushvX(FP,"pr")' + '\n';
+_str_main+='#(begin macro)                addX(FP)' + '\n';
+_str_main+=addX(FP);
+_str_main+='#(end macro)                addX(FP)' + '\n';
+_str_main+='#(begin macro)                popvX(FP,"newRe")' + '\n';
+_str_main+=popvX(FP,"newRe");
+_str_main+='#(end macro)                popvX(FP,"newRe")' + '\n';
+_str_main+='            #    newIm = 2 * oldRe * oldIm + pi' + '\n';
+_str_main+='#(begin macro)                pushFP(FP_I,FP_P,2)' + '\n';
+_str_main+=pushFP(FP_I,FP_P,2);
+_str_main+='#(end macro)                pushFP(FP_I,FP_P,2)' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"oldRe")' + '\n';
+_str_main+=pushvX(FP,"oldRe");
+_str_main+='#(end macro)                pushvX(FP,"oldRe")' + '\n';
+_str_main+='#(begin macro)                mulFP(FP_I,FP_P)' + '\n';
+_str_main+=mulFP(FP_I,FP_P);
+_str_main+='#(end macro)                mulFP(FP_I,FP_P)' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"oldIm")' + '\n';
+_str_main+=pushvX(FP,"oldIm");
+_str_main+='#(end macro)                pushvX(FP,"oldIm")' + '\n';
+_str_main+='#(begin macro)                mulFP(FP_I,FP_P)' + '\n';
+_str_main+=mulFP(FP_I,FP_P);
+_str_main+='#(end macro)                mulFP(FP_I,FP_P)' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"pi")' + '\n';
+_str_main+=pushvX(FP,"pi");
+_str_main+='#(end macro)                pushvX(FP,"pi")' + '\n';
+_str_main+='#(begin macro)                addX(FP)' + '\n';
+_str_main+=addX(FP);
+_str_main+='#(end macro)                addX(FP)' + '\n';
+_str_main+='#(begin macro)                popvX(FP,"newIm")' + '\n';
+_str_main+=popvX(FP,"newIm");
+_str_main+='#(end macro)                popvX(FP,"newIm")' + '\n';
+_str_main+='            #    if (newRe *  newRe +  newIm * newIm) > 4 break for' + '\n';
+_str_main+='                ## newRe *  newRe +  newIm * newIm' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"newRe")' + '\n';
+_str_main+=pushvX(FP,"newRe");
+_str_main+='#(end macro)                pushvX(FP,"newRe")' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"newRe")' + '\n';
+_str_main+=pushvX(FP,"newRe");
+_str_main+='#(end macro)                pushvX(FP,"newRe")' + '\n';
+_str_main+='#(begin macro)                mulFP(FP_I,FP_P)                ' + '\n';
+_str_main+=mulFP(FP_I,FP_P);
+_str_main+='#(end macro)                mulFP(FP_I,FP_P)                ' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"newIm")' + '\n';
+_str_main+=pushvX(FP,"newIm");
+_str_main+='#(end macro)                pushvX(FP,"newIm")' + '\n';
+_str_main+='#(begin macro)                pushvX(FP,"newIm")' + '\n';
+_str_main+=pushvX(FP,"newIm");
+_str_main+='#(end macro)                pushvX(FP,"newIm")' + '\n';
+_str_main+='#(begin macro)                mulFP(FP_I,FP_P)' + '\n';
+_str_main+=mulFP(FP_I,FP_P);
+_str_main+='#(end macro)                mulFP(FP_I,FP_P)' + '\n';
+_str_main+='#(begin macro)                addX(FP)' + '\n';
+_str_main+=addX(FP);
+_str_main+='#(end macro)                addX(FP)' + '\n';
+_str_main+='                ## if stack FP > 4 break               ' + '\n';
+_str_main+='#(begin macro)                pushFP(FP_I,FP_P, 4)' + '\n';
+_str_main+=pushFP(FP_I,FP_P, 4);
+_str_main+='#(end macro)                pushFP(FP_I,FP_P, 4)' + '\n';
+_str_main+='#(begin macro)                supX(FP)' + '\n';
+_str_main+=supX(FP);
+_str_main+='#(end macro)                supX(FP)' + '\n';
+_str_main+='                if' + '\n';
+_str_main+='#(begin macro)                    at_reset("loop")' + '\n';
+_str_main+=at_reset("loop");
+_str_main+='#(end macro)                    at_reset("loop")' + '\n';
+_str_main+='                else                                ' + '\n';
+_str_main+='#(begin macro)                    at_inc("i")' + '\n';
+_str_main+=at_inc("i");
+_str_main+='#(end macro)                    at_inc("i")' + '\n';
+_str_main+='                fi' + '\n';
+_str_main+='            else' + '\n';
+_str_main+='#(begin macro)                at_reset("loop")' + '\n';
+_str_main+=at_reset("loop");
+_str_main+='#(end macro)                at_reset("loop")' + '\n';
+_str_main+='            fi' + '\n';
+_str_main+='        # }' + '\n';
+_str_main+='        wend' + '\n';
+_str_main+='        # if (i >= maxIte) black point (inside mandel)' + '\n';
+_str_main+='#(begin macro)        if_equal("i", maxIte)' + '\n';
+_str_main+=if_equal("i", maxIte);
+_str_main+='#(end macro)        if_equal("i", maxIte)' + '\n';
+_str_main+='#(begin macro)            print("*")' + '\n';
+_str_main+=print("*");
+_str_main+='#(end macro)            print("*")' + '\n';
+_str_main+='        # else // outside mandel' + '\n';
+_str_main+='        else' + '\n';
+_str_main+='#(begin macro)            print(".")' + '\n';
+_str_main+=print(".");
+_str_main+='#(end macro)            print(".")' + '\n';
+_str_main+='        fi' + '\n';
+_str_main+='        # x++' + '\n';
+_str_main+='#(begin macro)        pushvX(FP,"x")' + '\n';
+_str_main+=pushvX(FP,"x");
+_str_main+='#(end macro)        pushvX(FP,"x")' + '\n';
+_str_main+='#(begin macro)        incFP(FP_I,FP_P)' + '\n';
+_str_main+=incFP(FP_I,FP_P);
+_str_main+='#(end macro)        incFP(FP_I,FP_P)' + '\n';
+_str_main+='#(begin macro)        popvX(FP,"x")' + '\n';
+_str_main+=popvX(FP,"x");
+_str_main+='#(end macro)        popvX(FP,"x")' + '\n';
+_str_main+='        # addvvvX(FP,"x","x","ONE")' + '\n';
+_str_main+='    endloop' + '\n';
+_str_main+='    # x = 0' + '\n';
+_str_main+='#(begin macro)    setvX(FP,"x",0)' + '\n';
+_str_main+=setvX(FP,"x",0);
+_str_main+='#(end macro)    setvX(FP,"x",0)' + '\n';
+_str_main+='    # y++' + '\n';
+_str_main+='#(begin macro)    pushvX(FP,"y")' + '\n';
+_str_main+=pushvX(FP,"y");
+_str_main+='#(end macro)    pushvX(FP,"y")' + '\n';
+_str_main+='#(begin macro)    incFP(FP_I,FP_P)' + '\n';
+_str_main+=incFP(FP_I,FP_P);
+_str_main+='#(end macro)    incFP(FP_I,FP_P)' + '\n';
+_str_main+='#(begin macro)    popvX(FP,"y")' + '\n';
+_str_main+=popvX(FP,"y");
+_str_main+='#(end macro)    popvX(FP,"y")' + '\n';
+_str_main+='    #  addvvvX(FP,"y","y","ONE")' + '\n';
 _str_main+='#(begin macro)    print("\\n")' + '\n';
 _str_main+=print("\n");
 _str_main+='#(end macro)    print("\\n")' + '\n';
-_str_main+='#(begin macro)    print("          c s 1 0\\n")' + '\n';
-_str_main+=print("          c s 1 0\n");
-_str_main+='#(end macro)    print("          c s 1 0\\n")' + '\n';
-_str_main+='#(begin macro)    print("[number2]")' + '\n';
-_str_main+=print("[number2]");
-_str_main+='#(end macro)    print("[number2]")' + '\n';
-_str_main+='    push 1' + '\n';
-_str_main+='    if' + '\n';
-_str_main+='#(begin macro)    printhexa16("number2")' + '\n';
-_str_main+=printhexa16("number2");
-_str_main+='#(end macro)    printhexa16("number2")' + '\n';
-_str_main+='    fi' + '\n';
-_str_main+='    ' + '\n';
-_str_main+='#(begin macro)    print("\\n")' + '\n';
-_str_main+=print("\n");
-_str_main+='#(end macro)    print("\\n")' + '\n';
-_str_main+='#(begin macro)    print("          c s 1 0\\n\\n")' + '\n';
-_str_main+=print("          c s 1 0\n\n");
-_str_main+='#(end macro)    print("          c s 1 0\\n\\n")' + '\n';
-_str_main+='    ' + '\n';
-_str_main+='#(begin macro)    print("[decimal number1]")' + '\n';
-_str_main+=print("[decimal number1]");
-_str_main+='#(end macro)    print("[decimal number1]")' + '\n';
-_str_main+='    push 1' + '\n';
-_str_main+='    if' + '\n';
-_str_main+='#(begin macro)    write16("number1")' + '\n';
-_str_main+=write16("number1");
-_str_main+='#(end macro)    write16("number1")' + '\n';
-_str_main+='    fi' + '\n';
-_str_main+='#(begin macro)    print("\\n")' + '\n';
-_str_main+=print("\n");
-_str_main+='#(end macro)    print("\\n")' + '\n';
-_str_main+='#(begin macro)    print("[decimal number2]")' + '\n';
-_str_main+=print("[decimal number2]");
-_str_main+='#(end macro)    print("[decimal number2]")' + '\n';
-_str_main+='    push 1' + '\n';
-_str_main+='    if' + '\n';
-_str_main+='#(begin macro)    write16("number2")' + '\n';
-_str_main+=write16("number2");
-_str_main+='#(end macro)    write16("number2")' + '\n';
-_str_main+='    fi ' + '\n';
-_str_main+='#(begin macro)    print("\\n")' + '\n';
-_str_main+=print("\n");
-_str_main+='#(end macro)    print("\\n")' + '\n';
-_str_main+='' + '\n';
-_str_main+='    push 1' + '\n';
-_str_main+='    if' + '\n';
-_str_main+='#(begin macro)    addvv16("number1","number2")' + '\n';
-_str_main+=addvv16("number1","number2");
-_str_main+='#(end macro)    addvv16("number1","number2")' + '\n';
-_str_main+='    fi' + '\n';
-_str_main+='#(begin macro)    print("[number1+=number2]")' + '\n';
-_str_main+=print("[number1+=number2]");
-_str_main+='#(end macro)    print("[number1+=number2]")' + '\n';
-_str_main+='    push 1' + '\n';
-_str_main+='    if' + '\n';
-_str_main+='#(begin macro)    write16("number1")' + '\n';
-_str_main+=write16("number1");
-_str_main+='#(end macro)    write16("number1")' + '\n';
-_str_main+='    fi ' + '\n';
-_str_main+='#(begin macro)    print("\\n")' + '\n';
-_str_main+=print("\n");
-_str_main+='#(end macro)    print("\\n")' + '\n';
-_str_main+='    ' + '\n';
-_str_main+='   ' + '\n';
-_str_main+='#(begin macro)scope_end()' + '\n';
-_str_main+=scope_end();
-_str_main+='#(end macro)scope_end()' + '\n';
-_str_main+='' + '\n';
-_str_main+='drop' + '\n';
+_str_main+='endloop  ' + '\n';
 _str_main+='' + '\n';
 return _str_main;
 }

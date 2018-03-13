@@ -1,6 +1,7 @@
 var _main = function(){
-var _str_main;
+var _str_main; 
 _str_main='';
+if (arguments.length != 0) throw 'Too much arguments provided to macro _main()[' + [] +']';
 _str_main+='#    ____        _         ____    ____  _        _             ' + '\n';
 _str_main+='#   | __ ) _   _| |_ ___  |___ \\  / ___|| |_ _ __(_)_ __   __ _ ' + '\n';
 _str_main+='#   |  _ \\| | | | __/ _ \\   __) | \\___ \\| __| \'__| | \'_ \\ / _` |' + '\n';
