@@ -2380,7 +2380,7 @@ add
 push    2
 push    5
 and
-#(begin macro)print(" push 2; push 5 ; add ;  01 == ")
+#(begin macro)print(" push 2; push 5 ; and ;  01 == ")
     push    0
 #(js) var __prev; __prev = 0;
 #(js) for (var istr=0; istr < aString.length ; istr++) {
@@ -2606,10 +2606,10 @@ and
 #(js) var __dist ; __dist = (__move > 0)?__move:-__move;
 #(js) if (__dist < __ascii) { // shorter to move
 #(js) if (__move > 0 ) {
-    add     3   
+    add     13   
 #(js) } else {
 #(js) } else {
-    out             # 'd'
+    out             # 'n'
 #(js) __prev  = __ascii;
 #(js) }
 #(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
@@ -2618,6 +2618,8 @@ and
 #(js) if (__dist < __ascii) { // shorter to move
 #(js) if (__move > 0 ) {
 #(js) if (__dist != 0) {
+    sub     10   
+#(js) }
 #(js) }
 #(js) } else {
     out             # 'd'
@@ -2738,7 +2740,7 @@ and
 #(js) __prev  = __ascii;
 #(js) }
     drop
-#(end macro)print(" push 2; push 5 ; add ;  01 == ")
+#(end macro)print(" push 2; push 5 ; and ;  01 == ")
 #(begin macro)popout8hexa()
     push    16
     div
@@ -2815,7 +2817,7 @@ and
 push    1
 push    1
 and
-#(begin macro)print(" push 1; push 1 ; add ;  01 == ")
+#(begin macro)print(" push 1; push 1 ; and ;  01 == ")
     push    0
 #(js) var __prev; __prev = 0;
 #(js) for (var istr=0; istr < aString.length ; istr++) {
@@ -3041,10 +3043,10 @@ and
 #(js) var __dist ; __dist = (__move > 0)?__move:-__move;
 #(js) if (__dist < __ascii) { // shorter to move
 #(js) if (__move > 0 ) {
-    add     3   
+    add     13   
 #(js) } else {
 #(js) } else {
-    out             # 'd'
+    out             # 'n'
 #(js) __prev  = __ascii;
 #(js) }
 #(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
@@ -3053,6 +3055,8 @@ and
 #(js) if (__dist < __ascii) { // shorter to move
 #(js) if (__move > 0 ) {
 #(js) if (__dist != 0) {
+    sub     10   
+#(js) }
 #(js) }
 #(js) } else {
     out             # 'd'
@@ -3173,7 +3177,7 @@ and
 #(js) __prev  = __ascii;
 #(js) }
     drop
-#(end macro)print(" push 1; push 1 ; add ;  01 == ")
+#(end macro)print(" push 1; push 1 ; and ;  01 == ")
 #(begin macro)popout8hexa()
     push    16
     div
@@ -3250,7 +3254,7 @@ and
 push    0
 push    1
 and
-#(begin macro)print(" push 0; push 1 ; add ;  00 == ")
+#(begin macro)print(" push 0; push 1 ; and ;  00 == ")
     push    0
 #(js) var __prev; __prev = 0;
 #(js) for (var istr=0; istr < aString.length ; istr++) {
@@ -3476,10 +3480,10 @@ and
 #(js) var __dist ; __dist = (__move > 0)?__move:-__move;
 #(js) if (__dist < __ascii) { // shorter to move
 #(js) if (__move > 0 ) {
-    add     3   
+    add     13   
 #(js) } else {
 #(js) } else {
-    out             # 'd'
+    out             # 'n'
 #(js) __prev  = __ascii;
 #(js) }
 #(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
@@ -3488,6 +3492,8 @@ and
 #(js) if (__dist < __ascii) { // shorter to move
 #(js) if (__move > 0 ) {
 #(js) if (__dist != 0) {
+    sub     10   
+#(js) }
 #(js) }
 #(js) } else {
     out             # 'd'
@@ -3608,7 +3614,7 @@ and
 #(js) __prev  = __ascii;
 #(js) }
     drop
-#(end macro)print(" push 0; push 1 ; add ;  00 == ")
+#(end macro)print(" push 0; push 1 ; and ;  00 == ")
 #(begin macro)popout8hexa()
     push    16
     div
@@ -3685,7 +3691,7 @@ and
 push    1
 push    0
 and
-#(begin macro)print(" push 1; push 0 ; add ;  00 == ")
+#(begin macro)print(" push 1; push 0 ; and ;  00 == ")
     push    0
 #(js) var __prev; __prev = 0;
 #(js) for (var istr=0; istr < aString.length ; istr++) {
@@ -3911,10 +3917,10 @@ and
 #(js) var __dist ; __dist = (__move > 0)?__move:-__move;
 #(js) if (__dist < __ascii) { // shorter to move
 #(js) if (__move > 0 ) {
-    add     3   
+    add     13   
 #(js) } else {
 #(js) } else {
-    out             # 'd'
+    out             # 'n'
 #(js) __prev  = __ascii;
 #(js) }
 #(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
@@ -3923,6 +3929,8 @@ and
 #(js) if (__dist < __ascii) { // shorter to move
 #(js) if (__move > 0 ) {
 #(js) if (__dist != 0) {
+    sub     10   
+#(js) }
 #(js) }
 #(js) } else {
     out             # 'd'
@@ -4043,7 +4051,7 @@ and
 #(js) __prev  = __ascii;
 #(js) }
     drop
-#(end macro)print(" push 1; push 0 ; add ;  00 == ")
+#(end macro)print(" push 1; push 0 ; and ;  00 == ")
 #(begin macro)popout8hexa()
     push    16
     div
@@ -6636,6 +6644,247 @@ bool
 #(js) }
     drop
 #(end macro)print("\n")
+#(begin macro)print("  255 : 01 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     18   
+#(js) } else {
+#(js) } else {
+    out             # '2'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     26   
+#(js) } else {
+#(js) } else {
+    out             # ':'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     26   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("  255 : 01 == ")
+push 255
+bool
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input25
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input25
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input25
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input25
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input26
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input26
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input26
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input26
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
 #(begin macro)print("  0 : 00 == ")
     push    0
 #(js) var __prev; __prev = 0;
@@ -6787,16 +7036,16 @@ bool
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input25
+    sbm _input27
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input25
+    push _input27
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input25
+    at _input27
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -6804,7 +7053,7 @@ bool
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input25
+    at _input27
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -6814,16 +7063,16 @@ bool
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input26
+    sbm _input28
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input26
+    push _input28
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input26
+    at _input28
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -6831,7 +7080,7 @@ bool
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input26
+    at _input28
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -7467,16 +7716,16 @@ dec
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input27
+    sbm _input29
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input27
+    push _input29
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input27
+    at _input29
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -7484,7 +7733,7 @@ dec
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input27
+    at _input29
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -7494,16 +7743,16 @@ dec
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input28
+    sbm _input30
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input28
+    push _input30
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input28
+    at _input30
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -7511,7 +7760,7 @@ dec
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input28
+    at _input30
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -8192,16 +8441,16 @@ diff
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input29
+    sbm _input31
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input29
+    push _input31
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input29
+    at _input31
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -8209,7 +8458,7 @@ diff
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input29
+    at _input31
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -8219,16 +8468,16 @@ diff
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input30
+    sbm _input32
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input30
+    push _input32
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input30
+    at _input32
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -8236,7 +8485,7 @@ diff
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input30
+    at _input32
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -8473,16 +8722,16 @@ diff
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input31
+    sbm _input33
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input31
+    push _input33
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input31
+    at _input33
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -8490,7 +8739,7 @@ diff
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input31
+    at _input33
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -8500,16 +8749,16 @@ diff
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input32
+    sbm _input34
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input32
+    push _input34
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input32
+    at _input34
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -8517,7 +8766,7 @@ diff
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input32
+    at _input34
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -9109,16 +9358,16 @@ div
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input33
+    sbm _input35
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input33
+    push _input35
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input33
+    at _input35
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -9126,7 +9375,7 @@ div
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input33
+    at _input35
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -9136,16 +9385,16 @@ div
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input34
+    sbm _input36
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input34
+    push _input36
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input34
+    at _input36
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -9153,7 +9402,7 @@ div
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input34
+    at _input36
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -9442,16 +9691,16 @@ div
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input35
+    sbm _input37
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input35
+    push _input37
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input35
+    at _input37
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -9459,7 +9708,7 @@ div
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input35
+    at _input37
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -9469,16 +9718,16 @@ div
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input36
+    sbm _input38
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input36
+    push _input38
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input36
+    at _input38
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -9486,7 +9735,7 @@ div
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input36
+    at _input38
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -10207,16 +10456,16 @@ drop
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input37
+    sbm _input39
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input37
+    push _input39
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input37
+    at _input39
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -10224,7 +10473,7 @@ drop
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input37
+    at _input39
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -10234,16 +10483,16 @@ drop
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input38
+    sbm _input40
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input38
+    push _input40
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input38
+    at _input40
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -10251,7 +10500,7 @@ drop
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input38
+    at _input40
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -10968,16 +11217,16 @@ dup
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input39
+    sbm _input41
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input39
+    push _input41
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input39
+    at _input41
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -10985,7 +11234,7 @@ dup
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input39
+    at _input41
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -10995,16 +11244,16 @@ dup
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input40
+    sbm _input42
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input40
+    push _input42
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input40
+    at _input42
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -11012,7 +11261,7 @@ dup
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input40
+    at _input42
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -11350,16 +11599,16 @@ dup
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input41
+    sbm _input43
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input41
+    push _input43
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input41
+    at _input43
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -11367,7 +11616,7 @@ dup
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input41
+    at _input43
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -11377,16 +11626,16 @@ dup
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input42
+    sbm _input44
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input42
+    push _input44
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input42
+    at _input44
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -11394,7 +11643,7 @@ dup
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input42
+    at _input44
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12038,16 +12287,16 @@ equal
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input43
+    sbm _input45
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input43
+    push _input45
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input43
+    at _input45
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12055,7 +12304,7 @@ equal
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input43
+    at _input45
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12065,16 +12314,16 @@ equal
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input44
+    sbm _input46
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input44
+    push _input46
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input44
+    at _input46
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12082,7 +12331,572 @@ equal
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input44
+    at _input46
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print(" 255 == 255 : 01 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     18   
+#(js) } else {
+#(js) } else {
+    out             # '2'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     18   
+#(js) } else {
+#(js) } else {
+    out             # '2'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     26   
+#(js) } else {
+#(js) } else {
+    out             # ':'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     26   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" 255 == 255 : 01 == ")
+push 255
+push 255
+equal
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input47
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input47
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input47
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input47
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input48
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input48
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input48
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input48
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
+#(begin macro)print(" 0 == 0 : 01 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     26   
+#(js) } else {
+#(js) } else {
+    out             # ':'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     26   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" 0 == 0 : 01 == ")
+push 0
+push 0
+equal
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input49
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input49
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input49
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input49
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input50
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input50
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input50
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input50
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12319,16 +13133,16 @@ equal
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input45
+    sbm _input51
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input45
+    push _input51
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input45
+    at _input51
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12336,7 +13150,7 @@ equal
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input45
+    at _input51
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12346,16 +13160,16 @@ equal
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input46
+    sbm _input52
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input46
+    push _input52
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input46
+    at _input52
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12363,7 +13177,7 @@ equal
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input46
+    at _input52
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12744,16 +13558,16 @@ if
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input47
+    sbm _input53
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input47
+    push _input53
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input47
+    at _input53
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12761,7 +13575,7 @@ if
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input47
+    at _input53
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12771,16 +13585,16 @@ if
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input48
+    sbm _input54
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input48
+    push _input54
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input48
+    at _input54
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12788,7 +13602,7 @@ if
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input48
+    at _input54
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12924,16 +13738,16 @@ if
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input49
+    sbm _input55
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input49
+    push _input55
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input49
+    at _input55
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12941,7 +13755,7 @@ if
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input49
+    at _input55
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12951,16 +13765,16 @@ if
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input50
+    sbm _input56
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input50
+    push _input56
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input50
+    at _input56
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -12968,7 +13782,7 @@ if
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input50
+    at _input56
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -13404,16 +14218,16 @@ else
     div
 #(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input51
+    sbm _input57
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input51
+    push _input57
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input51
+    at _input57
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -13421,7 +14235,7 @@ else
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input51
+    at _input57
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -13431,16 +14245,16 @@ else
 #(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
 #(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
 #(js) __idx++;
-    sbm _input52
+    sbm _input58
 #(begin macro)    if_sup("_input" + __idx,9)
-    push _input52
+    push _input58
     push 9
     sup
     if
 #(end macro)    if_sup("_input" + __idx,9)
 #(begin macro)        at_add("_input" + __idx, "'7'")
 #(begin macro)    at_2("add",a,b)
-    at _input52
+    at _input58
     add '7'
     ta
 #(end macro)    at_2("add",a,b)
@@ -13448,7 +14262,7 @@ else
     else
 #(begin macro)        at_add("_input" + __idx, "'0'")
 #(begin macro)    at_2("add",a,b)
-    at _input52
+    at _input58
     add '0'
     ta
 #(end macro)    at_2("add",a,b)
@@ -13474,10 +14288,11462 @@ else
 #(end macro)    print("\n")
 fi
 
+#(begin macro)print("INC , decrement head of stack value\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     73    
+#(js) }
+    out             # 'I'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'N'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'C'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     12   
+#(js) } else {
+#(js) } else {
+    out             # ','
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     12   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     68   
+#(js) } else {
+#(js) } else {
+    out             # 'd'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     15   
+#(js) } else {
+#(js) } else {
+    out             # 'r'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     13   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'm'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     8   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     9   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     6   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     72   
+#(js) } else {
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     3   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     4   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'd'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     79   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     9   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'f'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'k'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     86   
+#(js) } else {
+#(js) } else {
+    out             # 'v'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     9   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("INC , decrement head of stack value\n")
+#(begin macro)print(" 10 + 1 : 0B == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     1   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # '+'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     26   
+#(js) } else {
+#(js) } else {
+    out             # ':'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     26   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     18   
+#(js) } else {
+#(js) } else {
+    out             # 'B'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" 10 + 1 : 0B == ")
+push 10
+inc
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input59
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input59
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input59
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input59
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input60
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input60
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input60
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input60
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
+
+#(begin macro)print("INF , value in stack -1 less than stack\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     73    
+#(js) }
+    out             # 'I'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'N'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     8   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'F'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     12   
+#(js) } else {
+#(js) } else {
+    out             # ','
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     12   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     86   
+#(js) } else {
+#(js) } else {
+    out             # 'v'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     9   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     73   
+#(js) } else {
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'k'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     13   
+#(js) } else {
+#(js) } else {
+    out             # '-'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     4   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     76   
+#(js) } else {
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     7   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     14   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     84   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     12   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     7   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     13   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'k'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("INF , value in stack -1 less than stack\n")
+#(begin macro)print(" 10 < 10 : 00 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     1   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     28   
+#(js) } else {
+#(js) } else {
+    out             # '<'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     28   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     1   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     26   
+#(js) } else {
+#(js) } else {
+    out             # ':'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     26   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" 10 < 10 : 00 == ")
+push 10
+push 10
+inf
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input61
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input61
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input61
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input61
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input62
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input62
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input62
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input62
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
+#(begin macro)print(" 8 < 10 : 01 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     24   
+#(js) } else {
+#(js) } else {
+    out             # '8'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     24   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     28   
+#(js) } else {
+#(js) } else {
+    out             # '<'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     28   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     1   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     26   
+#(js) } else {
+#(js) } else {
+    out             # ':'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     26   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" 8 < 10 : 01 == ")
+push 8
+push 10
+inf
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input63
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input63
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input63
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input63
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input64
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input64
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input64
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input64
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
+#(begin macro)print(" 0 < 255 : 01 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     28   
+#(js) } else {
+#(js) } else {
+    out             # '<'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     28   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     18   
+#(js) } else {
+#(js) } else {
+    out             # '2'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     26   
+#(js) } else {
+#(js) } else {
+    out             # ':'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     26   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" 0 < 255 : 01 == ")
+push 0
+push 255
+inf
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input65
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input65
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input65
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input65
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input66
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input66
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input66
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input66
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
+
+#(begin macro)print("LOOP/ENDLOOP  repeated loop\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     76    
+#(js) }
+    out             # 'L'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'O'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # 'O'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 'P'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     33   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # '/'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     22   
+#(js) } else {
+#(js) } else {
+    out             # 'E'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     9   
+#(js) } else {
+#(js) } else {
+    out             # 'N'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     10   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'D'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'L'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'O'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # 'O'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 'P'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     82   
+#(js) } else {
+#(js) } else {
+    out             # 'r'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     13   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     4   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     19   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     15   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     1   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'd'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     76   
+#(js) } else {
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("LOOP/ENDLOOP  repeated loop\n")
+#(begin macro)print("  03 02 01 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # '3'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # '2'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     18   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("  03 02 01 == ")
+push 3
+sbm loop
+loop
+    push loop
+#(begin macro)    popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input67
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input67
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input67
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input67
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input68
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input68
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input68
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input68
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)    popout8hexa()
+#(begin macro)    print(" ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)    print(" ")
+endloop
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
+
+#(begin macro)print("MUL multiplication of 2 value in stack\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     77    
+#(js) }
+    out             # 'M'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'U'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     9   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'L'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     77   
+#(js) } else {
+#(js) } else {
+    out             # 'm'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     9   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     7   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     4   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     3   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     6   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     19   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     6   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     1   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     79   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     9   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'f'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     18   
+#(js) } else {
+#(js) } else {
+    out             # '2'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     18   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     86   
+#(js) } else {
+#(js) } else {
+    out             # 'v'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     9   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     73   
+#(js) } else {
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'k'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("MUL multiplication of 2 value in stack\n")
+#(begin macro)print("  push 5 ; push 2 ; mul ;  0A == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     21   
+#(js) } else {
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     18   
+#(js) } else {
+#(js) } else {
+    out             # '2'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     18   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     77   
+#(js) } else {
+#(js) } else {
+    out             # 'm'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     9   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # 'A'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("  push 5 ; push 2 ; mul ;  0A == ")
+push    5
+push    2
+mul
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input69
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input69
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input69
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input69
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input70
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input70
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input70
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input70
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
+
+#(begin macro)print("NOT boolean not of the stack value\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     78    
+#(js) }
+    out             # 'N'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 'O'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'T'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     66   
+#(js) } else {
+#(js) } else {
+    out             # 'b'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     13   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     3   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     7   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     4   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     13   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     78   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     79   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     9   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'f'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     84   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     12   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     3   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'k'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     86   
+#(js) } else {
+#(js) } else {
+    out             # 'v'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     9   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("NOT boolean not of the stack value\n")
+#(begin macro)print("  push 5 ; not ; 00 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     21   
+#(js) } else {
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     78   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("  push 5 ; not ; 00 == ")
+push    5
+not
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input71
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input71
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input71
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input71
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input72
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input72
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input72
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input72
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
+#(begin macro)print("  push 0 ; not ; 01 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     78   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("  push 0 ; not ; 01 == ")
+push    0
+not
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input73
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input73
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input73
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input73
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input74
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input74
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input74
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input74
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
+
+#(begin macro)print("OR two boolean 8 bits in stack\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     79    
+#(js) }
+    out             # 'O'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'R'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     84   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'w'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     8   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     66   
+#(js) } else {
+#(js) } else {
+    out             # 'b'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     13   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     3   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     7   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     4   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     13   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     24   
+#(js) } else {
+#(js) } else {
+    out             # '8'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     24   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     66   
+#(js) } else {
+#(js) } else {
+    out             # 'b'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     7   
+#(js) } else {
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     1   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     73   
+#(js) } else {
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'k'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("OR two boolean 8 bits in stack\n")
+push    2
+push    5
+or
+#(begin macro)print(" push 2; push 5 ; or ;  01 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     18   
+#(js) } else {
+#(js) } else {
+    out             # '2'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     9   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     21   
+#(js) } else {
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     79   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'r'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" push 2; push 5 ; or ;  01 == ")
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input75
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input75
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input75
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input75
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input76
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input76
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input76
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input76
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n") 
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n") 
+push    1
+push    1
+or
+#(begin macro)print(" push 1; push 1 ; or ;  01 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     10   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     79   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'r'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" push 1; push 1 ; or ;  01 == ")
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input77
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input77
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input77
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input77
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input78
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input78
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input78
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input78
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n") 
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n") 
+push    0
+push    1
+or
+#(begin macro)print(" push 0; push 1 ; or ;  01 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     79   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'r'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" push 0; push 1 ; or ;  01 == ")
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input79
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input79
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input79
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input79
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input80
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input80
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input80
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input80
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n") 
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n") 
+push    0
+push    0
+or
+#(begin macro)print(" push 0; push 0 ; or ;  00 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     79   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'r'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" push 0; push 0 ; or ;  00 == ")
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input81
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input81
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input81
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input81
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input82
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input82
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input82
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input82
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n") 
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n") 
+
+#(begin macro)print("SUB an immediate\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     83    
+#(js) }
+    out             # 'S'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'U'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'B'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     65   
+#(js) } else {
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     13   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     73   
+#(js) } else {
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     4   
+#(js) } else {
+#(js) } else {
+    out             # 'm'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # 'm'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     8   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     1   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'd'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     8   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     19   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     15   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("SUB an immediate\n")
+push    3
+sub     1
+#(begin macro)print(" push 3; sub 1 ; 02 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     19   
+#(js) } else {
+#(js) } else {
+    out             # '3'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'b'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # '2'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     18   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" push 3; sub 1 ; 02 == ")
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input83
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input83
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input83
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input83
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input84
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input84
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input84
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input84
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n") 
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n") 
+
+#(begin macro)print("SUB two 8 bits in stack\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     83    
+#(js) }
+    out             # 'S'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'U'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'B'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     84   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'w'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     8   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     24   
+#(js) } else {
+#(js) } else {
+    out             # '8'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     24   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     66   
+#(js) } else {
+#(js) } else {
+    out             # 'b'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     7   
+#(js) } else {
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     1   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     73   
+#(js) } else {
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'k'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("SUB two 8 bits in stack\n")
+push    5
+push    3
+sub
+#(begin macro)print(" push 5; push 3 ; sub ;  02 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     21   
+#(js) } else {
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     6   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     19   
+#(js) } else {
+#(js) } else {
+    out             # '3'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'b'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # '2'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     18   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" push 5; push 3 ; sub ;  02 == ")
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input85
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input85
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input85
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input85
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input86
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input86
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input86
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input86
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n") 
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n") 
+push    2
+push    5
+sub
+#(begin macro)print(" push 2; push 5 ; add ;  FD == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     18   
+#(js) } else {
+#(js) } else {
+    out             # '2'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     9   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     21   
+#(js) } else {
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     65   
+#(js) } else {
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'd'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # 'd'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     38   
+#(js) } else {
+#(js) } else {
+    out             # 'F'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'D'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" push 2; push 5 ; add ;  FD == ")
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input87
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input87
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input87
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input87
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input88
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input88
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input88
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input88
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n") 
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n") 
+
+#(begin macro)print("SUP , value in stack -1 greater than stack\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     83    
+#(js) }
+    out             # 'S'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'U'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     5   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'P'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     12   
+#(js) } else {
+#(js) } else {
+    out             # ','
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     12   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     86   
+#(js) } else {
+#(js) } else {
+    out             # 'v'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     9   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     73   
+#(js) } else {
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'k'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     13   
+#(js) } else {
+#(js) } else {
+    out             # '-'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     4   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     71   
+#(js) } else {
+#(js) } else {
+    out             # 'g'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # 'r'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     13   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     4   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     19   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     15   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     13   
+#(js) } else {
+#(js) } else {
+    out             # 'r'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     84   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     12   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     7   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     13   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'k'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("SUP , value in stack -1 greater than stack\n")
+#(begin macro)print(" 10 > 10 : 00 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     1   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     30   
+#(js) } else {
+#(js) } else {
+    out             # '>'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     30   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     1   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     26   
+#(js) } else {
+#(js) } else {
+    out             # ':'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     26   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" 10 > 10 : 00 == ")
+push 10
+push 10
+sup
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input89
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input89
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input89
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input89
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input90
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input90
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input90
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input90
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
+#(begin macro)print(" 10 > 8 : 01 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     1   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     30   
+#(js) } else {
+#(js) } else {
+    out             # '>'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     30   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     24   
+#(js) } else {
+#(js) } else {
+    out             # '8'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     24   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     26   
+#(js) } else {
+#(js) } else {
+    out             # ':'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     26   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" 10 > 8 : 01 == ")
+push 10
+push 8
+sup
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input91
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input91
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input91
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input91
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input92
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input92
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input92
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input92
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
+#(begin macro)print(" 255 > 0 : 01 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     18   
+#(js) } else {
+#(js) } else {
+    out             # '2'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '5'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     30   
+#(js) } else {
+#(js) } else {
+    out             # '>'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     30   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     26   
+#(js) } else {
+#(js) } else {
+    out             # ':'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     26   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" 255 > 0 : 01 == ")
+push 255
+push 0
+sup
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input93
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input93
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input93
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input93
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input94
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input94
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input94
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input94
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
+
+#(begin macro)print("SWAP, exchange two values in stack\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     83    
+#(js) }
+    out             # 'S'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     4   
+#(js) } else {
+#(js) } else {
+    out             # 'W'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     22   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'A'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     15   
+#(js) } else {
+#(js) } else {
+    out             # 'P'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     36   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ','
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     12   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     69   
+#(js) } else {
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     19   
+#(js) } else {
+#(js) } else {
+    out             # 'x'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     7   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     13   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     7   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'g'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     84   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'w'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     8   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     86   
+#(js) } else {
+#(js) } else {
+    out             # 'v'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     9   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     14   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     73   
+#(js) } else {
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'k'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("SWAP, exchange two values in stack\n")
+#(begin macro)print("  push 10; push 9 ; swap ; 0A 09 == ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     1   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     80   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     5   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     2   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     11   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     25   
+#(js) } else {
+#(js) } else {
+    out             # '9'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     25   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     4   
+#(js) } else {
+#(js) } else {
+    out             # 'w'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     22   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     15   
+#(js) } else {
+#(js) } else {
+    out             # 'p'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     27   
+#(js) } else {
+#(js) } else {
+    out             # ';'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     27   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     17   
+#(js) } else {
+#(js) } else {
+    out             # 'A'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     9   
+#(js) } else {
+#(js) } else {
+    out             # '9'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     25   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("  push 10; push 9 ; swap ; 0A 09 == ")
+push 10
+push 9
+swap
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input95
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input95
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input95
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input95
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input96
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input96
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input96
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input96
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print(" ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" ")
+#(begin macro)popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input97
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input97
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input97
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input97
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input98
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input98
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input98
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input98
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)popout8hexa()
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
+
+#(begin macro)print("WHILE/WEND , while stack value is >0 , do ..\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     87    
+#(js) }
+    out             # 'W'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     15   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'H'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 'I'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'L'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     7   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'E'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     22   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # '/'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     40   
+#(js) } else {
+#(js) } else {
+    out             # 'W'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     18   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'E'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     9   
+#(js) } else {
+#(js) } else {
+    out             # 'N'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     10   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'D'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     12   
+#(js) } else {
+#(js) } else {
+    out             # ','
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     12   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     87   
+#(js) } else {
+#(js) } else {
+    out             # 'w'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     15   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'h'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     7   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     83   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # 'c'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     8   
+#(js) } else {
+#(js) } else {
+    out             # 'k'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     86   
+#(js) } else {
+#(js) } else {
+    out             # 'v'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     21   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'a'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # 'l'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     9   
+#(js) } else {
+#(js) } else {
+    out             # 'u'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     73   
+#(js) } else {
+#(js) } else {
+    out             # 'i'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     10   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     30   
+#(js) } else {
+#(js) } else {
+    out             # '>'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     14   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     16   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     12   
+#(js) } else {
+#(js) } else {
+    out             # ','
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     12   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     68   
+#(js) } else {
+#(js) } else {
+    out             # 'd'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     11   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     14   
+#(js) } else {
+#(js) } else {
+    out             # '.'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '.'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("WHILE/WEND , while stack value is >0 , do ..\n")
+#(begin macro)print(" 01 02 03 == ")  
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # '1'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     17   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     2   
+#(js) } else {
+#(js) } else {
+    out             # '2'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     18   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     16   
+#(js) } else {
+#(js) } else {
+    out             # '0'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     3   
+#(js) } else {
+#(js) } else {
+    out             # '3'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     19   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     29   
+#(js) } else {
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+#(js) }
+#(js) } else {
+    out             # '='
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     29   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print(" 01 02 03 == ")  
+push 1
+sbm whilewend
+while
+    push 4
+    push whilewend
+    equal
+    if
+        at whilewend
+            reset
+        ta
+    else
+        push whilewend
+#(begin macro)        popout8hexa()
+    push    16
+    div
+#(begin macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input99
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input99
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input99
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input99
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output most significant hexa character from head of stack value, then drop
+#(begin macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(js) __idx++;
+    sbm _input100
+#(begin macro)    if_sup("_input" + __idx,9)
+    push _input100
+    push 9
+    sup
+    if
+#(end macro)    if_sup("_input" + __idx,9)
+#(begin macro)        at_add("_input" + __idx, "'7'")
+#(begin macro)    at_2("add",a,b)
+    at _input100
+    add '7'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'7'")
+    else
+#(begin macro)        at_add("_input" + __idx, "'0'")
+#(begin macro)    at_2("add",a,b)
+    at _input100
+    add '0'
+    ta
+#(end macro)    at_2("add",a,b)
+#(end macro)        at_add("_input" + __idx, "'0'")
+    fi
+    pop out
+#(end macro)    popouthexa() # output less significant hexa character from head of stack value, then drop
+#(end macro)        popout8hexa()
+#(begin macro)        print(" ")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)        print(" ")
+        at whilewend
+            inc
+        ta
+    fi
+wend
+#(begin macro)print("\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\n")
 
 
-
-
+#(begin macro)print("\nEnd of test\n")
+    push    0
+#(js) var __prev; __prev = 0;
+#(js) for (var istr=0; istr < aString.length ; istr++) {
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     59   
+#(js) } else {
+#(js) } else {
+    out             # 'E'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     41   
+#(js) } else {
+#(js) } else {
+    out             # 'n'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     10   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'd'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     79   
+#(js) } else {
+#(js) } else {
+    out             # 'o'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     9   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'f'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     32    
+#(js) }
+    out             # ' '
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     84   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+#(js) if (__dist != 0) {
+    sub     15   
+#(js) }
+#(js) }
+#(js) } else {
+    out             # 'e'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     14   
+#(js) } else {
+#(js) } else {
+    out             # 's'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+#(js) if (__move > 0 ) {
+    add     1   
+#(js) } else {
+#(js) } else {
+    out             # 't'
+#(js) __prev  = __ascii;
+#(js) }
+#(js) var __ascii; __ascii = aString[istr].charCodeAt(0);
+#(js) var __move; __move = __ascii - __prev;
+#(js) var __dist ; __dist = (__move > 0)?__move:-__move;
+#(js) if (__dist < __ascii) { // shorter to move
+    set     10    
+#(js) }
+    out             # 
+#(js) __prev  = __ascii;
+#(js) }
+    drop
+#(end macro)print("\nEnd of test\n")
 
 
 

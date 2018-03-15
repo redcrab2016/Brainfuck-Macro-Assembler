@@ -63,7 +63,7 @@ It will show the usage
       -Z, --enable-optimize-compile  (default) optimzed generated bf result
       -r, --disable-optimize-run     do not optimize bf run
       -R, --enable-optimize-run      (default) optimze bf run
-     
+      -X, --debug                    run in debug     
 
 To launch a BF file named sample.bf
 
@@ -100,11 +100,17 @@ If you have compilation error you may investigate
 - firstly in **sample.pc.asm**
 - secondly in **sample.js**        
 
-BF debugger is not yet ready :(
+BF debugger is not yet fully featured
 
-But there is some online BF debuggers
+You can execute step by step your BF program
 
-For instance [this one](https://www.iamcal.com/misc/bf_debug/) is a good one. 
+    java -jar bf.jar -X sample.deb.bf
+
+It is advised to use the debugger with option -i and -o to use file for input/output
+
+If current debugger is not efficient enough you may try some online BF debuggers
+
+For instance [this one](https://www.iamcal.com/misc/bf_debug/) is nicely designed. 
 
 # BF native code and assembler
 

@@ -29,25 +29,25 @@ print("AND two boolean 8 bits in stack\n")
 push    2
 push    5
 and
-print(" push 2; push 5 ; add ;  01 == ")
+print(" push 2; push 5 ; and ;  01 == ")
 popout8hexa()
 print("\n") 
 push    1
 push    1
 and
-print(" push 1; push 1 ; add ;  01 == ")
+print(" push 1; push 1 ; and ;  01 == ")
 popout8hexa()
 print("\n") 
 push    0
 push    1
 and
-print(" push 0; push 1 ; add ;  00 == ")
+print(" push 0; push 1 ; and ;  00 == ")
 popout8hexa()
 print("\n") 
 push    1
 push    0
 and
-print(" push 1; push 0 ; add ;  00 == ")
+print(" push 1; push 0 ; and ;  00 == ")
 popout8hexa()
 print("\n") 
 
@@ -116,6 +116,11 @@ push 10
 bool
 popout8hexa()
 print("\n")
+print("  255 : 01 == ")
+push 255
+bool
+popout8hexa()
+print("\n")
 print("  0 : 00 == ")
 push 0
 bool
@@ -178,6 +183,17 @@ push 10
 push 10
 equal
 popout8hexa()
+print(" 255 == 255 : 01 == ")
+push 255
+push 255
+equal
+popout8hexa()
+print("\n")
+print(" 0 == 0 : 01 == ")
+push 0
+push 0
+equal
+popout8hexa()
 print("\n")
 print(" 10 == 8 : 00 == ")
 push 10
@@ -220,7 +236,7 @@ inc
 popout8hexa()
 print("\n")
 
-print("INF , 2 value in stack are equal\n")
+print("INF , value in stack -1 less than stack\n")
 print(" 10 < 10 : 00 == ")
 push 10
 push 10
@@ -233,8 +249,146 @@ push 10
 inf
 popout8hexa()
 print("\n")
+print(" 0 < 255 : 01 == ")
+push 0
+push 255
+inf
+popout8hexa()
+print("\n")
+
+print("LOOP/ENDLOOP  repeated loop\n")
+print("  03 02 01 == ")
+push 3
+sbm loop
+loop
+    push loop
+    popout8hexa()
+    print(" ")
+endloop
+print("\n")
+
+print("MUL multiplication of 2 value in stack\n")
+print("  push 5 ; push 2 ; mul ;  0A == ")
+push    5
+push    2
+mul
+popout8hexa()
+print("\n")
+
+print("NOT boolean not of the stack value\n")
+print("  push 5 ; not ; 00 == ")
+push    5
+not
+popout8hexa()
+print("\n")
+print("  push 0 ; not ; 01 == ")
+push    0
+not
+popout8hexa()
+print("\n")
+
+print("OR two boolean 8 bits in stack\n")
+push    2
+push    5
+or
+print(" push 2; push 5 ; or ;  01 == ")
+popout8hexa()
+print("\n") 
+push    1
+push    1
+or
+print(" push 1; push 1 ; or ;  01 == ")
+popout8hexa()
+print("\n") 
+push    0
+push    1
+or
+print(" push 0; push 1 ; or ;  01 == ")
+popout8hexa()
+print("\n") 
+push    0
+push    0
+or
+print(" push 0; push 0 ; or ;  00 == ")
+popout8hexa()
+print("\n") 
+
+print("SUB an immediate\n")
+push    3
+sub     1
+print(" push 3; sub 1 ; 02 == ")
+popout8hexa()
+print("\n") 
+
+print("SUB two 8 bits in stack\n")
+push    5
+push    3
+sub
+print(" push 5; push 3 ; sub ;  02 == ")
+popout8hexa()
+print("\n") 
+push    2
+push    5
+sub
+print(" push 2; push 5 ; add ;  FD == ")
+popout8hexa()
+print("\n") 
+
+print("SUP , value in stack -1 greater than stack\n")
+print(" 10 > 10 : 00 == ")
+push 10
+push 10
+sup
+popout8hexa()
+print("\n")
+print(" 10 > 8 : 01 == ")
+push 10
+push 8
+sup
+popout8hexa()
+print("\n")
+print(" 255 > 0 : 01 == ")
+push 255
+push 0
+sup
+popout8hexa()
+print("\n")
+
+print("SWAP, exchange two values in stack\n")
+print("  push 10; push 9 ; swap ; 0A 09 == ")
+push 10
+push 9
+swap
+popout8hexa()
+print(" ")
+popout8hexa()
+print("\n")
+
+print("WHILE/WEND , while stack value is >0 , do ..\n")
+print(" 01 02 03 == ")  
+push 1
+sbm whilewend
+while
+    push 4
+    push whilewend
+    equal
+    if
+        at whilewend
+            reset
+        ta
+    else
+        push whilewend
+        popout8hexa()
+        print(" ")
+        at whilewend
+            inc
+        ta
+    fi
+wend
+print("\n")
 
 
+print("\nEnd of test\n")
 
 
 

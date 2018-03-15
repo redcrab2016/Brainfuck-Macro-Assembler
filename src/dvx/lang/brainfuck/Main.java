@@ -41,7 +41,10 @@ public class Main {
 		}
 		BFCodeInput.close();
 		Engine eng = new Engine(BFCodeOutput.toString(),input,output,optimize);
-		eng.run();
+		if (!doDebug)
+			eng.run();
+		else
+			eng.debug();
 		return eng.getStatus();
 	}
 	
@@ -77,6 +80,7 @@ public class Main {
 "  -Z, --enable-optimize-compile  (default) optimzed generated bf result\n" +
 "  -r, --disable-optimize-run     do not optimize bf run\n" +
 "  -R, --enable-optimize-run      (default) optimze bf run\n" +
+"  -X, --debug                    run in debug\n" +
 ""
 				   );
 	}
@@ -101,6 +105,7 @@ public class Main {
 		boolean compileForProd = true;
 		boolean bfRunDebug = false;
 		boolean bUsage = false;
+		
 		InputStream bfinput = System.in;
 		OutputStream bfoutput = System.out;
 		
@@ -195,6 +200,10 @@ public class Main {
 				case "-R":
 				case "--enable-optimize-run":
 					bfOptimizedRun = true;
+					break;
+				case "-X":
+				case "--debug":
+					bfRunDebug = true;
 					break;
 				case "-s":
 				case "--bf-line-size":

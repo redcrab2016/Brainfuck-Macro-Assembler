@@ -12,11 +12,14 @@
  */
 package dvx.lang.brainfuck.runtime;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -51,7 +54,8 @@ public class Engine {
 	private Deque<Integer> callStack;
 	private EngineStatus currentStatus;
 	private List<CodeInstr> lcode;
-	
+	private boolean debug;
+	private PrintStream psDebug;
 	class CodeInstr {
 		private int codeIndex;
 		private char code;
@@ -103,6 +107,8 @@ public class Engine {
 		callStack = new ArrayDeque<Integer>();
 		currentStatus = EngineStatus.READY;
 		lcode = buildCodeList(code);
+		debug = false;
+		psDebug = System.err;
 	}
 	
 	private List<CodeInstr> buildCodeList(String code) {
@@ -242,6 +248,164 @@ public class Engine {
 		pause = false;
 		while (!pause && step() == EngineStatus.RUNNING);
 		return currentStatus;
+	}
+	
+	private void dumpMemory(int idx, int size, int marker) {
+		
+		int cnt = 0;
+		for (int i = idx ; i < idx +size; i++) {
+			if (i >= data.length) break;
+			if (i >= 0) {
+				if (cnt == 0)
+					psDebug.printf("%07d|",i);
+				if (i == marker)
+					psDebug.print('(');
+				else {
+					if (i-1 == marker)
+						psDebug.print(')');
+					else
+						psDebug.print(' ');;
+				}
+				//if (cnt>0)
+				//	psDebug.print(',');
+				psDebug.printf("%03d:%02X",data[i],data[i]);
+				cnt ++;
+				if (cnt==10) {
+					cnt = 0;
+					psDebug.print('\n');
+				}
+
+			}
+		}
+		psDebug.println("");
+	}
+	
+	private void dumpCode(int idx, int size,int linebefore,int maxline, int markerin, int markerout) {
+		// find begin of line of previous line
+		int eol = 0;
+		int idxprevLine=-1;
+		if (idx < 0 ) idx = 0;
+		for (int i = idx ; i>=0; i--) {
+			if (code.charAt(i) == '\n' ) {
+				eol++;
+				idxprevLine = i+1;
+				if (eol == (linebefore+1)) {
+					idxprevLine = -1;
+					i++;
+					size += idx - i;
+					idx = i;
+					break;		
+				}
+			}
+		}
+		if (eol == 0) {
+			size+=idx;
+			idx = 0;
+		} else {
+			if (idxprevLine  != -1) {
+				size += idx - idxprevLine;
+				idx = idxprevLine;
+			}
+		}
+		// print out code on 3 lines
+		eol = 0;
+		int cnt = 0;
+		char lastChar = 0;
+		psDebug.printf("%07d| ", idx);
+		for (int i = idx ; i< (idx+size);  i++) {
+			if (i > 0 && code.charAt(i-1)=='\n') {
+				eol++;
+				if (eol ==maxline+1) break;
+				if (cnt > 0) psDebug.printf("%07d| ",i);
+			}
+			cnt++;
+			if (i == markerin) 
+				psDebug.print("(");
+			psDebug.print(code.charAt(i));
+			lastChar = code.charAt(i);
+			if (i == markerout) 
+				psDebug.print(")");
+		}
+		if (lastChar != '\n') psDebug.println("\n");
+	}
+	
+	private void dumpStatus() {
+		 psDebug.printf("ip:%07d [ip]:%s mp:%07d [mp]:%03d status:%s\n",
+				 		lcode.get(indexCode).getCodeIndex(),
+		 				lcode.get(indexCode).getCode()+"",
+		 				indexData,
+		 				data[indexData],
+		 				getStatus().toString());
+		 psDebug.print("memory:\n");
+		 dumpMemory(indexData-32,64,indexData);
+		 psDebug.print("code:\n");
+		 int markerIn;
+		 int markerOut;
+		 markerIn = lcode.get(indexCode).getCodeIndex();
+		 markerOut = markerIn;
+		 if (indexCode+1 < lcode.size()) {
+			 markerOut = lcode.get(indexCode+1).getCodeIndex()-1;
+			 for (int i = markerOut; i >=markerIn; i--) {
+				 if ("+-<>[].,".contains(""+code.charAt(i))) {
+					 markerOut = i;
+					 break;
+				 }
+			 }
+		 }
+		 dumpCode(lcode.get(indexCode).getCodeIndex(),
+				 1024, /* maximum character in code*/
+				 3, /* search for nb line before */
+				 6, /* display number of line in code*/
+				 markerIn,
+				 markerOut);
+	}
+	
+	public void debug() {
+		 BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		 psDebug.println("Debugger , type help for help\n");
+		 String cmd;
+		 debug = true;
+		 int iv=0;
+		 int mv=0;
+		 cmd = "";
+		 do 
+		 {
+			 System.err.print("debug> ");
+			 try {
+				cmd = reader.readLine();
+			} catch (IOException e) {
+				cmd = "exit";
+			}
+			 cmd = cmd.toLowerCase().trim();
+			 switch (cmd) {
+			 case "":
+			 case "exit":
+				 break;
+			 case "r":
+			 case "register":
+				 dumpStatus();
+				 break;
+			 case "s":
+			 case "step":
+				 step();
+				 dumpStatus();
+				 break;
+			 case "d":
+			 case "dump":
+				 break;
+			 case "h":
+			 case "help":
+				 psDebug.println("Debugger commands:");
+				 psDebug.println("  help/h     : show this help");
+				 psDebug.println("  register/r : show status");
+				 psDebug.println("  step/s     : run a step");
+				 psDebug.println("  exit       : quit debugger");
+				 break;
+			 default:
+				 psDebug.println("Unknown command "+ cmd + " type 'help' for help");
+			 }
+			 
+		 } while (!cmd.trim().equalsIgnoreCase("exit"));
 	}
 	
 	private char getCode(int idx) {

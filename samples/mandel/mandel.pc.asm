@@ -503,7 +503,7 @@ loop
     loop
         # pr = 1.5 *(x - halfW) * oneOnHalfZoomW + moveX
 #(begin macro)        pushFP(FP_I,FP_P,1.5)
-#(begin macro)    pushX(I*1+P*1,0)
+#(begin macro)    pushX(I+P,0)
     push    0
     push    0
 #(js) var absImmValue; absImmValue = immValue>=0?immValue:-immValue;
@@ -520,15 +520,16 @@ loop
 #(js) absImmValue = absImmValue % Math.pow(256,xx1+1);
     push    0
 #(js) }
-#(end macro)    pushX(I*1+P*1,0)
-#(begin macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    pushX(I+P,0)
+#(begin macro)    setFP(I,P,immValue) 
 #(js) _sv8++; 
 #(js) var IP; IP = I+P;
 #(js) var _sign = immValue >=0?0:1;
 #(js) var _abs = immValue>=0?immValue:-immValue;
 #(js) var _int; _int = _abs | 0;
 #(js) var _fra; _fra = ((_abs - _int) * Math.pow(256,P)) | 0;
-#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra; if (_sign ==1) _fp = -_fp;
+#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra;
+#(js) if (_sign ==1) _fp = -_fp;
 #(begin macro)    sbmX(IP,"_instack"+_sv8,0)
 #(begin macro)    sbmX2(X,name,backward,0)
 #(js) for (var xx=0; xx <X ; xx++) {
@@ -577,7 +578,7 @@ loop
 #(end macro)        setX(X,immValue)
     ta
 #(end macro)    setvX(IP,"_instack"+_sv8, _fp)
-#(end macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    setFP(I,P,immValue) 
 #(end macro)        pushFP(FP_I,FP_P,1.5)
 #(begin macro)        pushvX(FP,"x")
     push    x_c
@@ -594,7 +595,7 @@ loop
 #(js) }
 #(end macro)        pushvX(FP,"x")
 #(begin macro)        pushFP(FP_I,FP_P, halfW)
-#(begin macro)    pushX(I*1+P*1,0)
+#(begin macro)    pushX(I+P,0)
     push    0
     push    0
 #(js) var absImmValue; absImmValue = immValue>=0?immValue:-immValue;
@@ -611,15 +612,16 @@ loop
 #(js) absImmValue = absImmValue % Math.pow(256,xx1+1);
     push    0
 #(js) }
-#(end macro)    pushX(I*1+P*1,0)
-#(begin macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    pushX(I+P,0)
+#(begin macro)    setFP(I,P,immValue) 
 #(js) _sv8++; 
 #(js) var IP; IP = I+P;
 #(js) var _sign = immValue >=0?0:1;
 #(js) var _abs = immValue>=0?immValue:-immValue;
 #(js) var _int; _int = _abs | 0;
 #(js) var _fra; _fra = ((_abs - _int) * Math.pow(256,P)) | 0;
-#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra; if (_sign ==1) _fp = -_fp;
+#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra;
+#(js) if (_sign ==1) _fp = -_fp;
 #(begin macro)    sbmX(IP,"_instack"+_sv8,0)
 #(begin macro)    sbmX2(X,name,backward,0)
 #(js) for (var xx=0; xx <X ; xx++) {
@@ -668,7 +670,7 @@ loop
 #(end macro)        setX(X,immValue)
     ta
 #(end macro)    setvX(IP,"_instack"+_sv8, _fp)
-#(end macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    setFP(I,P,immValue) 
 #(end macro)        pushFP(FP_I,FP_P, halfW)
 #(begin macro)        subX(FP)
 #(js) var _xbits; _xbits = X * 8;
@@ -4959,7 +4961,7 @@ loop
 #(end macro)    dropX(IP) # drop nameB
 #(end macro)        mulFP(FP_I,FP_P)
 #(begin macro)        pushFP(FP_I,FP_P,oneOnHalfZoomW)
-#(begin macro)    pushX(I*1+P*1,0)
+#(begin macro)    pushX(I+P,0)
     push    0
     push    0
 #(js) var absImmValue; absImmValue = immValue>=0?immValue:-immValue;
@@ -4976,15 +4978,16 @@ loop
 #(js) absImmValue = absImmValue % Math.pow(256,xx1+1);
     push    0
 #(js) }
-#(end macro)    pushX(I*1+P*1,0)
-#(begin macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    pushX(I+P,0)
+#(begin macro)    setFP(I,P,immValue) 
 #(js) _sv8++; 
 #(js) var IP; IP = I+P;
 #(js) var _sign = immValue >=0?0:1;
 #(js) var _abs = immValue>=0?immValue:-immValue;
 #(js) var _int; _int = _abs | 0;
 #(js) var _fra; _fra = ((_abs - _int) * Math.pow(256,P)) | 0;
-#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra; if (_sign ==1) _fp = -_fp;
+#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra;
+#(js) if (_sign ==1) _fp = -_fp;
 #(begin macro)    sbmX(IP,"_instack"+_sv8,0)
 #(begin macro)    sbmX2(X,name,backward,0)
 #(js) for (var xx=0; xx <X ; xx++) {
@@ -5033,7 +5036,7 @@ loop
 #(end macro)        setX(X,immValue)
     ta
 #(end macro)    setvX(IP,"_instack"+_sv8, _fp)
-#(end macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    setFP(I,P,immValue) 
 #(end macro)        pushFP(FP_I,FP_P,oneOnHalfZoomW)
 #(begin macro)        mulFP(FP_I,FP_P)
 #(js) _fp1++;
@@ -8347,7 +8350,7 @@ loop
 #(end macro)    dropX(IP) # drop nameB
 #(end macro)        mulFP(FP_I,FP_P)
 #(begin macro)        pushFP(FP_I,FP_P,moveX)
-#(begin macro)    pushX(I*1+P*1,0)
+#(begin macro)    pushX(I+P,0)
     push    0
     push    0
 #(js) var absImmValue; absImmValue = immValue>=0?immValue:-immValue;
@@ -8364,15 +8367,16 @@ loop
 #(js) absImmValue = absImmValue % Math.pow(256,xx1+1);
     push    0
 #(js) }
-#(end macro)    pushX(I*1+P*1,0)
-#(begin macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    pushX(I+P,0)
+#(begin macro)    setFP(I,P,immValue) 
 #(js) _sv8++; 
 #(js) var IP; IP = I+P;
 #(js) var _sign = immValue >=0?0:1;
 #(js) var _abs = immValue>=0?immValue:-immValue;
 #(js) var _int; _int = _abs | 0;
 #(js) var _fra; _fra = ((_abs - _int) * Math.pow(256,P)) | 0;
-#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra; if (_sign ==1) _fp = -_fp;
+#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra;
+#(js) if (_sign ==1) _fp = -_fp;
 #(begin macro)    sbmX(IP,"_instack"+_sv8,0)
 #(begin macro)    sbmX2(X,name,backward,0)
 #(js) for (var xx=0; xx <X ; xx++) {
@@ -8421,7 +8425,7 @@ loop
 #(end macro)        setX(X,immValue)
     ta
 #(end macro)    setvX(IP,"_instack"+_sv8, _fp)
-#(end macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    setFP(I,P,immValue) 
 #(end macro)        pushFP(FP_I,FP_P,moveX)
 #(begin macro)        addX(FP)
 #(js) var _xbits; _xbits = X * 8;
@@ -9427,7 +9431,7 @@ loop
 #(js) }
 #(end macro)        pushvX(FP,"y")
 #(begin macro)        pushFP(FP_I,FP_P,halfH)
-#(begin macro)    pushX(I*1+P*1,0)
+#(begin macro)    pushX(I+P,0)
     push    0
     push    0
 #(js) var absImmValue; absImmValue = immValue>=0?immValue:-immValue;
@@ -9444,15 +9448,16 @@ loop
 #(js) absImmValue = absImmValue % Math.pow(256,xx1+1);
     push    0
 #(js) }
-#(end macro)    pushX(I*1+P*1,0)
-#(begin macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    pushX(I+P,0)
+#(begin macro)    setFP(I,P,immValue) 
 #(js) _sv8++; 
 #(js) var IP; IP = I+P;
 #(js) var _sign = immValue >=0?0:1;
 #(js) var _abs = immValue>=0?immValue:-immValue;
 #(js) var _int; _int = _abs | 0;
 #(js) var _fra; _fra = ((_abs - _int) * Math.pow(256,P)) | 0;
-#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra; if (_sign ==1) _fp = -_fp;
+#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra;
+#(js) if (_sign ==1) _fp = -_fp;
 #(begin macro)    sbmX(IP,"_instack"+_sv8,0)
 #(begin macro)    sbmX2(X,name,backward,0)
 #(js) for (var xx=0; xx <X ; xx++) {
@@ -9501,7 +9506,7 @@ loop
 #(end macro)        setX(X,immValue)
     ta
 #(end macro)    setvX(IP,"_instack"+_sv8, _fp)
-#(end macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    setFP(I,P,immValue) 
 #(end macro)        pushFP(FP_I,FP_P,halfH)
 #(begin macro)        subX(FP)
 #(js) var _xbits; _xbits = X * 8;
@@ -10481,7 +10486,7 @@ loop
 #(end macro)    pushvX(X,"__tmp" + _xbits + "c__")
 #(end macro)        subX(FP)
 #(begin macro)        pushFP(FP_I,FP_P,oneOnHalfZoomW)
-#(begin macro)    pushX(I*1+P*1,0)
+#(begin macro)    pushX(I+P,0)
     push    0
     push    0
 #(js) var absImmValue; absImmValue = immValue>=0?immValue:-immValue;
@@ -10498,15 +10503,16 @@ loop
 #(js) absImmValue = absImmValue % Math.pow(256,xx1+1);
     push    0
 #(js) }
-#(end macro)    pushX(I*1+P*1,0)
-#(begin macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    pushX(I+P,0)
+#(begin macro)    setFP(I,P,immValue) 
 #(js) _sv8++; 
 #(js) var IP; IP = I+P;
 #(js) var _sign = immValue >=0?0:1;
 #(js) var _abs = immValue>=0?immValue:-immValue;
 #(js) var _int; _int = _abs | 0;
 #(js) var _fra; _fra = ((_abs - _int) * Math.pow(256,P)) | 0;
-#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra; if (_sign ==1) _fp = -_fp;
+#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra;
+#(js) if (_sign ==1) _fp = -_fp;
 #(begin macro)    sbmX(IP,"_instack"+_sv8,0)
 #(begin macro)    sbmX2(X,name,backward,0)
 #(js) for (var xx=0; xx <X ; xx++) {
@@ -10555,7 +10561,7 @@ loop
 #(end macro)        setX(X,immValue)
     ta
 #(end macro)    setvX(IP,"_instack"+_sv8, _fp)
-#(end macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    setFP(I,P,immValue) 
 #(end macro)        pushFP(FP_I,FP_P,oneOnHalfZoomW)
 #(begin macro)        mulFP(FP_I,FP_P)
 #(js) _fp1++;
@@ -13869,7 +13875,7 @@ loop
 #(end macro)    dropX(IP) # drop nameB
 #(end macro)        mulFP(FP_I,FP_P)
 #(begin macro)        pushFP(FP_I,FP_P,moveX)
-#(begin macro)    pushX(I*1+P*1,0)
+#(begin macro)    pushX(I+P,0)
     push    0
     push    0
 #(js) var absImmValue; absImmValue = immValue>=0?immValue:-immValue;
@@ -13886,15 +13892,16 @@ loop
 #(js) absImmValue = absImmValue % Math.pow(256,xx1+1);
     push    0
 #(js) }
-#(end macro)    pushX(I*1+P*1,0)
-#(begin macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    pushX(I+P,0)
+#(begin macro)    setFP(I,P,immValue) 
 #(js) _sv8++; 
 #(js) var IP; IP = I+P;
 #(js) var _sign = immValue >=0?0:1;
 #(js) var _abs = immValue>=0?immValue:-immValue;
 #(js) var _int; _int = _abs | 0;
 #(js) var _fra; _fra = ((_abs - _int) * Math.pow(256,P)) | 0;
-#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra; if (_sign ==1) _fp = -_fp;
+#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra;
+#(js) if (_sign ==1) _fp = -_fp;
 #(begin macro)    sbmX(IP,"_instack"+_sv8,0)
 #(begin macro)    sbmX2(X,name,backward,0)
 #(js) for (var xx=0; xx <X ; xx++) {
@@ -13943,7 +13950,7 @@ loop
 #(end macro)        setX(X,immValue)
     ta
 #(end macro)    setvX(IP,"_instack"+_sv8, _fp)
-#(end macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    setFP(I,P,immValue) 
 #(end macro)        pushFP(FP_I,FP_P,moveX)
 #(begin macro)        addX(FP)
 #(js) var _xbits; _xbits = X * 8;
@@ -23809,7 +23816,7 @@ loop
 #(end macro)                popvX(FP,"newRe")
             #    newIm = 2 * oldRe * oldIm + pi
 #(begin macro)                pushFP(FP_I,FP_P,2)
-#(begin macro)    pushX(I*1+P*1,0)
+#(begin macro)    pushX(I+P,0)
     push    0
     push    0
 #(js) var absImmValue; absImmValue = immValue>=0?immValue:-immValue;
@@ -23826,15 +23833,16 @@ loop
 #(js) absImmValue = absImmValue % Math.pow(256,xx1+1);
     push    0
 #(js) }
-#(end macro)    pushX(I*1+P*1,0)
-#(begin macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    pushX(I+P,0)
+#(begin macro)    setFP(I,P,immValue) 
 #(js) _sv8++; 
 #(js) var IP; IP = I+P;
 #(js) var _sign = immValue >=0?0:1;
 #(js) var _abs = immValue>=0?immValue:-immValue;
 #(js) var _int; _int = _abs | 0;
 #(js) var _fra; _fra = ((_abs - _int) * Math.pow(256,P)) | 0;
-#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra; if (_sign ==1) _fp = -_fp;
+#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra;
+#(js) if (_sign ==1) _fp = -_fp;
 #(begin macro)    sbmX(IP,"_instack"+_sv8,0)
 #(begin macro)    sbmX2(X,name,backward,0)
 #(js) for (var xx=0; xx <X ; xx++) {
@@ -23883,7 +23891,7 @@ loop
 #(end macro)        setX(X,immValue)
     ta
 #(end macro)    setvX(IP,"_instack"+_sv8, _fp)
-#(end macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    setFP(I,P,immValue) 
 #(end macro)                pushFP(FP_I,FP_P,2)
 #(begin macro)                pushvX(FP,"oldRe")
     push    oldRe_c
@@ -39196,7 +39204,7 @@ loop
 #(end macro)                addX(FP)
                 ## if stack FP > 4 break               
 #(begin macro)                pushFP(FP_I,FP_P, 4)
-#(begin macro)    pushX(I*1+P*1,0)
+#(begin macro)    pushX(I+P,0)
     push    0
     push    0
 #(js) var absImmValue; absImmValue = immValue>=0?immValue:-immValue;
@@ -39213,15 +39221,16 @@ loop
 #(js) absImmValue = absImmValue % Math.pow(256,xx1+1);
     push    0
 #(js) }
-#(end macro)    pushX(I*1+P*1,0)
-#(begin macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    pushX(I+P,0)
+#(begin macro)    setFP(I,P,immValue) 
 #(js) _sv8++; 
 #(js) var IP; IP = I+P;
 #(js) var _sign = immValue >=0?0:1;
 #(js) var _abs = immValue>=0?immValue:-immValue;
 #(js) var _int; _int = _abs | 0;
 #(js) var _fra; _fra = ((_abs - _int) * Math.pow(256,P)) | 0;
-#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra; if (_sign ==1) _fp = -_fp;
+#(js) var _fp; _fp = _int * Math.pow(256,P) + _fra;
+#(js) if (_sign ==1) _fp = -_fp;
 #(begin macro)    sbmX(IP,"_instack"+_sv8,0)
 #(begin macro)    sbmX2(X,name,backward,0)
 #(js) for (var xx=0; xx <X ; xx++) {
@@ -39270,7 +39279,7 @@ loop
 #(end macro)        setX(X,immValue)
     ta
 #(end macro)    setvX(IP,"_instack"+_sv8, _fp)
-#(end macro)    setFP(I*1,P*1,immValue) 
+#(end macro)    setFP(I,P,immValue) 
 #(end macro)                pushFP(FP_I,FP_P, 4)
 #(begin macro)                supX(FP)
 #(js) var _xbits; _xbits = X * 8;
@@ -40339,6 +40348,11 @@ loop
     sbm _incFPinput1_s - 3
     sbm _incFPinput1_c - 4
 #(end macro)    sbmX2(I,"_incFPinput"+_fp2,0,P)
+#    pushvX(I,"_incFPinput"+_fp2)
+#    incX(I)
+#    popvX(I,"_incFPinput"+_fp2)
+    
+
 #(begin macro)    incvX(I,"_incFPinput"+_fp2)
 #(begin macro)    if_equal(name +"_s",0)  # positive number
     push _incFPinput1_s
@@ -40518,6 +40532,11 @@ loop
     sbm _incFPinput2_s - 3
     sbm _incFPinput2_c - 4
 #(end macro)    sbmX2(I,"_incFPinput"+_fp2,0,P)
+#    pushvX(I,"_incFPinput"+_fp2)
+#    incX(I)
+#    popvX(I,"_incFPinput"+_fp2)
+    
+
 #(begin macro)    incvX(I,"_incFPinput"+_fp2)
 #(begin macro)    if_equal(name +"_s",0)  # positive number
     push _incFPinput2_s
