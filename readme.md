@@ -1149,9 +1149,9 @@ BF Macro Assembler is a pre-compilation language. Macro template can be consider
     
 #### Same example with macro
 
-    MACRO ASSIGN(var,value)
+    MACRO ASSIGN(variableName,value)
         PUSH    {value}
-        POP     {var}
+        POP     {variableName}
     ENDMACRO
     
     ASSIGN("Var1", 10)
@@ -1229,7 +1229,7 @@ Content of file *main.asm*
     
 #### Same example with "js" directive
 
-    JS  for (int idx=1; idx<4 ; idx ++) {    
+    JS  for (var idx=1; idx < 4 ; idx++) {    
     PUSH    {(idx*10)}
     POP     Var{idx}
     JS  }

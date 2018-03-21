@@ -259,6 +259,7 @@ endmacro
 
 # macro diff8() : same as "diff" but with 8 bits value in stack
 macro diff8()
+    diffX(1)
 endmacro
 
 # macro supequalvv8(nameA, nameB) : push 1 if nameA >= nameB push 0 otherwise

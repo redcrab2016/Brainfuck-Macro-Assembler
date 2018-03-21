@@ -259,6 +259,7 @@ endmacro
 
 # macro diff32() : same as "diff" but with 32 bits value in stack
 macro diff32()
+    diffX(4)
 endmacro
 
 # macro supequalvv32(nameA, nameB) : push 1 if nameA >= nameB push 0 otherwise

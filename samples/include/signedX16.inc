@@ -259,6 +259,7 @@ endmacro
 
 # macro diff16() : same as "diff" but with 16 bits value in stack
 macro diff16()
+    diffX(2)
 endmacro
 
 # macro supequalvv16(nameA, nameB) : push 1 if nameA >= nameB push 0 otherwise

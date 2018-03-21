@@ -259,6 +259,7 @@ endmacro
 
 # macro diff24() : same as "diff" but with 24 bits value in stack
 macro diff24()
+    diffX(3)
 endmacro
 
 # macro supequalvv24(nameA, nameB) : push 1 if nameA >= nameB push 0 otherwise

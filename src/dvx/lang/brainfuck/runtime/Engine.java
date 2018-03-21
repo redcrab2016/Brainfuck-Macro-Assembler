@@ -23,7 +23,11 @@ import java.io.PrintStream;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author ysm
@@ -54,14 +58,17 @@ public class Engine {
 	private Deque<Integer> callStack;
 	private EngineStatus currentStatus;
 	private List<CodeInstr> lcode;
+	private Map<Integer,Integer> idx2line;
 	private boolean debug;
 	private PrintStream psDebug;
 	class CodeInstr {
-		private int codeIndex;
-		private char code;
+		private int codeIndex; // char index in code
+		private int codeLine; // line index in code
+		private char code; // code 
 		private int	 n; // repetition or idx in List for '[' and ']'
-		public CodeInstr(int codeindex, char code, int n) {
+		public CodeInstr(int codeindex,int codeline, char code, int n) {
 			this.codeIndex = codeindex;
+			this.codeLine = codeline;
 			this.code = code;
 			this.n = n;
 		}
@@ -81,6 +88,10 @@ public class Engine {
 		
 		public int getCodeIndex() {
 			return codeIndex;
+		}
+
+		public int getCodeLine() {
+			return codeLine;
 		}
 		
 	}
@@ -111,8 +122,20 @@ public class Engine {
 		psDebug = System.err;
 	}
 	
+	/*
+	 * rewind doesn't rewind input/out stream !!
+	 * It does a program reset, not an input/output reset
+	 */
+	private void rewind() {
+		data = new byte[MEMORYSIZE];
+		indexData = 0;
+		indexCode = 0;
+		currentStatus = EngineStatus.READY;
+	}
+	
 	private List<CodeInstr> buildCodeList(String code) {
 		List<CodeInstr> codeList = new ArrayList<CodeInstr>();
+		idx2line = new HashMap<Integer,Integer>(); 
 		// first step construct codelist from code string
 		String validCode = "" + BF_PLUS +
 							BF_MINUS +
@@ -125,19 +148,27 @@ public class Engine {
 		char prevCode = 0;
 		int count = 0;
 		int idx = 0;
-		
+		int linecnt = 1;
+		int line  = 0;
+		idx2line.put(0, 1);
 		for (int i = 0 ; i< code.length() ; i++) {
 			char aCode = code.charAt(i);
+			if (aCode == '\n') {
+				linecnt++;
+				idx2line.put(i+1, linecnt);
+			}
 			if (validCode.indexOf(aCode) == -1) continue; // not valid code go  to next code
 			if (prevCode == 0) {
 				prevCode = aCode;
 				idx = i;
+				line = linecnt;
 				count++;
 			} else 	if (prevCode != aCode ||
 					    prevCode == BF_OPENBRACKET ||
 					    prevCode == BF_CLOSEBRACKET) {
-				codeList.add(new CodeInstr(idx,prevCode,count));
+				codeList.add(new CodeInstr(idx,line,prevCode,count));
 				count = 1;
+				line = linecnt;
 				prevCode = aCode;
 				idx = i;
 			} else if (prevCode == aCode) {
@@ -145,7 +176,7 @@ public class Engine {
 			}
 		}
 		if (prevCode != 0)
-			codeList.add(new CodeInstr(idx,prevCode,count));
+			codeList.add(new CodeInstr(idx,line,prevCode,count));
 		
 		// last step : set the idx of "[" "]" 
 		for (int i = 0 ; i < codeList.size() ; i++) {
@@ -261,16 +292,16 @@ public class Engine {
 				if (i == marker)
 					psDebug.print('(');
 				else {
-					if (i-1 == marker)
+					if (i-1 == marker && cnt>0)
 						psDebug.print(')');
 					else
 						psDebug.print(' ');;
 				}
-				//if (cnt>0)
-				//	psDebug.print(',');
-				psDebug.printf("%03d:%02X",data[i],data[i]);
+
+				psDebug.printf("%03d:%02X",(data[i]<0)?data[i]+256:data[i],data[i]);
 				cnt ++;
 				if (cnt==10) {
+					if (i == marker) psDebug.print(')');
 					cnt = 0;
 					psDebug.print('\n');
 				}
@@ -284,8 +315,9 @@ public class Engine {
 		// find begin of line of previous line
 		int eol = 0;
 		int idxprevLine=-1;
+		int i = 0;
 		if (idx < 0 ) idx = 0;
-		for (int i = idx ; i>=0; i--) {
+		for (i = idx ; i>=0; i--) {
 			if (code.charAt(i) == '\n' ) {
 				eol++;
 				idxprevLine = i+1;
@@ -298,7 +330,7 @@ public class Engine {
 				}
 			}
 		}
-		if (eol == 0) {
+		if (eol == 0 || i==-1) {
 			size+=idx;
 			idx = 0;
 		} else {
@@ -307,16 +339,20 @@ public class Engine {
 				idx = idxprevLine;
 			}
 		}
-		// print out code on 3 lines
+		// print out code on maxline or size character (first met , stop)
 		eol = 0;
 		int cnt = 0;
 		char lastChar = 0;
-		psDebug.printf("%07d| ", idx);
-		for (int i = idx ; i< (idx+size);  i++) {
+		Integer line = idx2line.get(idx);
+		if (line != null)
+			psDebug.printf("%06d:%07d| ", idx2line.get(idx),idx);
+		else
+			psDebug.printf("%06d:%07d| ", 0,idx);
+		for (i = idx ; i< (idx+size);  i++) {
 			if (i > 0 && code.charAt(i-1)=='\n') {
 				eol++;
 				if (eol ==maxline+1) break;
-				if (cnt > 0) psDebug.printf("%07d| ",i);
+				if (cnt > 0) psDebug.printf("%06d:%07d| ", idx2line.get(i),i);
 			}
 			cnt++;
 			if (i == markerin) 
@@ -330,34 +366,39 @@ public class Engine {
 	}
 	
 	private void dumpStatus() {
-		 psDebug.printf("ip:%07d [ip]:%s mp:%07d [mp]:%03d status:%s\n",
-				 		lcode.get(indexCode).getCodeIndex(),
-		 				lcode.get(indexCode).getCode()+"",
-		 				indexData,
-		 				data[indexData],
-		 				getStatus().toString());
-		 psDebug.print("memory:\n");
-		 dumpMemory(indexData-32,64,indexData);
-		 psDebug.print("code:\n");
-		 int markerIn;
-		 int markerOut;
-		 markerIn = lcode.get(indexCode).getCodeIndex();
-		 markerOut = markerIn;
-		 if (indexCode+1 < lcode.size()) {
-			 markerOut = lcode.get(indexCode+1).getCodeIndex()-1;
-			 for (int i = markerOut; i >=markerIn; i--) {
-				 if ("+-<>[].,".contains(""+code.charAt(i))) {
-					 markerOut = i;
-					 break;
+		if (getStatus() == EngineStatus.READY || getStatus() == EngineStatus.RUNNING) {
+			 psDebug.printf("ip:%07d [ip]%s mp:%07d [mp]%03d:%02X status:%s\n",
+					 		lcode.get(indexCode).getCodeIndex(),
+			 				lcode.get(indexCode).getCode()+"",
+			 				indexData,
+			 				(data[indexData]<0)?data[indexData]+256:data[indexData],
+			 				data[indexData],
+			 				getStatus().toString());
+			 psDebug.print("memory:\n");
+			 dumpMemory(indexData-30,60,indexData);
+			 psDebug.print("code:\n");
+			 int markerIn;
+			 int markerOut;
+			 markerIn = lcode.get(indexCode).getCodeIndex();
+			 markerOut = markerIn;
+			 if (indexCode+1 < lcode.size()) {
+				 markerOut = lcode.get(indexCode+1).getCodeIndex()-1;
+				 for (int i = markerOut; i >=markerIn; i--) {
+					 if ("+-<>[].,".contains(""+code.charAt(i))) {
+						 markerOut = i;
+						 break;
+					 }
 				 }
 			 }
-		 }
-		 dumpCode(lcode.get(indexCode).getCodeIndex(),
-				 1024, /* maximum character in code*/
-				 3, /* search for nb line before */
-				 6, /* display number of line in code*/
-				 markerIn,
-				 markerOut);
+			 dumpCode(lcode.get(indexCode).getCodeIndex(),
+					 1024, /* maximum character in code*/
+					 3, /* search for nb line before */
+					 6, /* display number of line in code*/
+					 markerIn,
+					 markerOut);
+		} else {
+			psDebug.println("Program status is "+ getStatus().toString());
+		}
 	}
 	
 	public void debug() {
@@ -368,43 +409,63 @@ public class Engine {
 		 int iv=0;
 		 int mv=0;
 		 cmd = "";
+		 Pattern pExit = Pattern.compile("^(exit|q(uit)?)$");
+		 Pattern pRegister = Pattern.compile("^(r(egister)?)$");
+		 Pattern pStep = Pattern.compile("^(s(step)?)(\\s*([0-9]+))?\\s*(v)?$");
+		 Pattern pHelp = Pattern.compile("^(h(elp)?)$");
+		 Pattern pInit = Pattern.compile("^(i(nit)?)$");
 		 do 
 		 {
 			 System.err.print("debug> ");
 			 try {
 				cmd = reader.readLine();
+				if (cmd == null) cmd = "exit";
 			} catch (IOException e) {
 				cmd = "exit";
 			}
 			 cmd = cmd.toLowerCase().trim();
-			 switch (cmd) {
-			 case "":
-			 case "exit":
-				 break;
-			 case "r":
-			 case "register":
-				 dumpStatus();
-				 break;
-			 case "s":
-			 case "step":
-				 step();
-				 dumpStatus();
-				 break;
-			 case "d":
-			 case "dump":
-				 break;
-			 case "h":
-			 case "help":
+			 Matcher mExist = pExit.matcher(cmd);
+			 Matcher mRegister = pRegister.matcher(cmd);
+			 Matcher mStep = pStep.matcher(cmd);
+			 Matcher mHelp = pHelp.matcher(cmd);
+			 Matcher mInit = pInit.matcher(cmd);
+			 if (cmd.equals("")) continue;
+			 else if (mExist.matches()) break;
+			 else if (mHelp.matches()) {
 				 psDebug.println("Debugger commands:");
-				 psDebug.println("  help/h     : show this help");
-				 psDebug.println("  register/r : show status");
-				 psDebug.println("  step/s     : run a step");
-				 psDebug.println("  exit       : quit debugger");
-				 break;
-			 default:
+				 psDebug.println("  help/h                  : show this help");
+				 psDebug.println("  init/i                  : initialize the program (not input/output)");
+				 psDebug.println("  register/r              : show status");
+				 psDebug.println("  step/s  [nbsteps] [v]   : step code [nbsteps] times ('v' for verbose)");
+				 psDebug.println("  exit                    : quit debugger");
+			 } else if (mRegister.matches()) dumpStatus();
+			 else if (mInit.matches()) {
+				rewind();
+				psDebug.println("WARNING : input/output are not (re)initialized.");
+				dumpStatus();
+			 } else if (mStep.matches()) {
+				 int nbStep = 1;
+				 boolean quiet = true;
+				 if (mStep.group(4) != null) {
+					 nbStep = Integer.parseInt(mStep.group(4));
+				 }
+				 if (mStep.group(5) != null) {
+					 quiet = false;
+				 }
+				 if (getStatus() == EngineStatus.READY ||
+					 getStatus() == EngineStatus.RUNNING) {
+					 for (int i = 0 ; i < nbStep &&
+							 (getStatus() == EngineStatus.READY ||
+							  getStatus() == EngineStatus.RUNNING); i++){
+						 step();
+						 if (!quiet) dumpStatus();
+					 }
+					 if (quiet) dumpStatus();
+				 } else {
+					 psDebug.println("Program status is "+ getStatus().toString());
+				 }
+			 } else 
 				 psDebug.println("Unknown command "+ cmd + " type 'help' for help");
-			 }
-			 
 		 } while (!cmd.trim().equalsIgnoreCase("exit"));
 	}
 	
