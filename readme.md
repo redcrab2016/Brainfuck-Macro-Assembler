@@ -1154,6 +1154,17 @@ BF Macro Assembler is a pre-compilation language. Macro template can be consider
         POP     {variableName}
     ENDMACRO
     
+    ASSIGN Var1, 10
+    ASSIGN Var2, 20
+    ASSIGN Var3, 30
+
+Alternative syntax (provide parameters the same way as a Javascript function) 
+
+    MACRO ASSIGN(variableName,value)
+        PUSH    {value}
+        POP     {variableName}
+    ENDMACRO
+    
     ASSIGN("Var1", 10)
     ASSIGN("Var2", 20)
     ASSIGN("Var3", 30)

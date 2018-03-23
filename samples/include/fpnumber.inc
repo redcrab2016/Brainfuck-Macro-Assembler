@@ -12,15 +12,13 @@ macro subFP(I,P)
 endmacro
 
 macro incFP(I,P)
-js _fp2++;
-    sbmX2(I,"_incFPinput"+_fp2,0,P)
-    incvX(I,"_incFPinput"+_fp2)
+    sbmX2(I,"_incFPinput"+_incFP,0,P)
+    incvX(I,"_incFPinput"+_incFP)
 endmacro
 
 macro decFP(I,P)
-js _fp2++;
-    sbmX2(I,"_incFPinput"+_fp2,0,P)
-    decvX(I,"_incFPinput"+_fp2)
+    sbmX2(I,"_decFPinput"+_decFP,0,P)
+    decvX(I,"_decFPinput"+_decFP)
 endmacro
 
 # macro setFP(I,P,immValue) : set fixed point head of stack I,P (I+P)*8 bits with immediate value 
@@ -87,10 +85,10 @@ macro integerFP(I,P)
     castFP(I,P,I,0)
 endmacro
 
-macro fract(I,P) : retrieve the fractional part of head of stack fixed point number I,P (I+P)*8 bits, into a signed integer P*8 bits 
+# macro fract(I,P) : retrieve the fractional part of head of stack fixed point number I,P (I+P)*8 bits, into a signed integer P*8 bits 
+macro fract(I,P)
     castFP(I,P,0,P)
 endmacro
-
 
 # macro mul 2 fixed point number (I+P)*8 bits in stack
 macro mulFP(I,P)

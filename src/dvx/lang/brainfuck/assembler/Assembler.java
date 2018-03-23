@@ -754,7 +754,11 @@ public class Assembler {
 	private String preCompile(InputStream isAsmSource) throws IOException, ScriptException {
 		String result="";
 		BufferedReader in = new BufferedReader(new InputStreamReader(isAsmSource));
-		String script = genMacro(in,"_main","",false)+"_main();";
+		String script = "var __blockLevel__; __blockLevel__ = 0;\n"+
+						"function __indent() { var __result; __result = '';\n" + 
+						"for (var _i=0 ; _i < __blockLevel__ ; _i++) __result+= '  ';\n"+
+						" return __result;}\n" +
+						genMacro(in,"_main","",false)+"_main();";
 		// DEBUG
 		//System.out.println("JScode:\n"+script);
 
@@ -795,6 +799,22 @@ public class Assembler {
 								macroName + "("+macroParams+")[' + ["+macroParams+"] +']';\n");
 		}
 		String line;
+		Pattern p_asmMacro = Pattern.compile( "^\\s*([a-zA-Z_][a-zA-Z0-9_]*)"+ // group 1 for macro name
+											  "(\\s+((([^\"#][^\",#]*)|(\"([^\"]|\\\\\")*\"))" + // group 2 for argument
+											  "(\\s*,\\s*(([^\"#][^\",#]*)|(\"([^\"]|\\\\\")*\")))*))?" +
+											  "\\s*(#.*)?$"); // group 13 for comment
+		Pattern p_asmInstr = Pattern.compile(
+				"^\\s*(" +
+				"add|and|bool|dec|diff|div|drop|dup|equal|in|inc|inf|mul|not|or|out|reset|" + 
+				"sub|sup|swap|fi|endif|endloop|wend|ta|else|if|while|loop|else|"+
+				"(at\\s+[^\\(].*)|(add\\s+[^\\(].*)|(sub\\s+[^\\(].*)|" + 
+				"(arotl\\s+[^\\(].*)|(arotr\\s+[^\\(].*)|" +
+				"(bf\\s+[^\\(].*)|(pop\\s+[^\\(].*)|(push\\s+[^\\(].*)|" +
+				"(sbm\\s+[^\\(].*)|(set\\s+[^\\(].*)|(var\\s+[^\\(].*)" +
+				")?\\s*(#.*)?$",
+				Pattern.CASE_INSENSITIVE);
+		Pattern p_beginBlock = Pattern.compile("^\\s*(if|while|loop|else|(at\\s+[^\\(].*[^\\)]))\\s*(#.*)?$", Pattern.CASE_INSENSITIVE);
+		Pattern p_endBlock = Pattern.compile("^\\s*(fi|endif|endloop|wend|ta|else)\\s*(#.*)?$", Pattern.CASE_INSENSITIVE);
 		Pattern p_beginmacro = Pattern.compile("^\\s*(macro|MACRO)\\s+([_A-Za-z][_A-Za-z0-9]*)\\s*(\\(([^)]*)\\)).*$");
 		Pattern p_endmacro = Pattern.compile("^\\s*(endmacro|ENDMACRO)\\s*$");
 		Pattern p_instr = Pattern.compile("^\\s*([_A-Za-z][_A-Za-z0-9]*)\\s*(\\([^)]*\\))\\s*(#.*)?$");
@@ -802,6 +822,11 @@ public class Assembler {
 		Pattern p_include = Pattern.compile("^\\s*(include|INCLUDE)\\s+(\\S+)\\s*$");
 		Pattern p_js = Pattern.compile("^\\s*js\\s*(.+)$");
 		while ((line = in.readLine()) != null) {
+			line = line.trim();
+			Matcher m_asmMacro = p_asmMacro.matcher(line);
+			Matcher m_asmInstr = p_asmInstr.matcher(line);
+			Matcher m_beginBlock = p_beginBlock.matcher(line);
+			Matcher m_endBlock = p_endBlock.matcher(line);
 			Matcher m_beginmacro= p_beginmacro.matcher(line);
 			Matcher m_endmacro = p_endmacro.matcher(line);
 			Matcher m_instr = p_instr.matcher(line);
@@ -823,19 +848,19 @@ public class Assembler {
 				}
 				return result.toString();
 			} else if (m_instr.matches()) {
-				result.append("_str"+macroName+"+=" +
+				result.append("_str"+macroName+"+=__indent() +" +
 						toJSstring("#(begin macro)" + line)+" + '\\n';\n");
 
 				result.append("_str"+macroName+"+=" +
 							m_instr.group(1).replaceAll("(\\{([^}]+)\\})", "$2") + 
 							m_instr.group(2).replaceAll("(\\{([^}]+)\\})", "$2") +
 							";\n");
-				result.append("_str"+macroName+"+=" +
+				result.append("_str"+macroName+"+=__indent() +" +
 						toJSstring("#(end macro)" + line)+" + '\\n';\n");
 
 			} else if (m_js.matches()) {
-				result.append("_str"+macroName+"+=" +
-						toJSstring("#(js) " + m_js.group(1))+" + '\\n';\n");
+				//result.append("_str"+macroName+"+=__indent() +" +
+				//		toJSstring("#(js) " + m_js.group(1))+" + '\\n';\n");
 				result.append(m_js.group(1) + "\n");
 			} else if (m_define.matches()) {
 				result.append("var " + m_define.group(2) + ";" +
@@ -844,7 +869,7 @@ public class Assembler {
 						m_define.group(2) +	"=(isNaN(" + m_define.group(2) + "*1))?"+
 						"(" + m_define.group(2) +  "):(" + m_define.group(2) + "*1); \n");
 			} else if (m_include.matches()) {
-				result.append("_str"+macroName+"+=" +
+				result.append("_str"+macroName+"+=__indent() +" +
 						toJSstring("#(begin include)" + m_include.group(2))+" + '\\n';\n");
 				BufferedReader in_include = new BufferedReader(
 												new InputStreamReader(
@@ -862,17 +887,74 @@ public class Assembler {
 					include += "/";
 					result.append( genMacro(in_include, macroName,"",true));
 					include = oldInclude;
-					result.append("_str"+macroName+"+=" +
+					result.append("_str"+macroName+"+=__indent() +" +
 							toJSstring("#(end include)" + m_include.group(2))+" + '\\n';\n");
 				} else {
-					result.append("_str"+macroName+"+=" +
+					result.append("_str"+macroName+"+=__indent() +" +
 							toJSstring("#(already included)" + m_include.group(2))+" + '\\n';\n");
-					result.append("_str"+macroName+"+=" +
+					result.append("_str"+macroName+"+=__indent() +" +
 							toJSstring("#(end include)" + m_include.group(2))+" + '\\n';\n");
 				}
 			} else {
-				result.append("_str"+macroName+"+=" +
-							toJSstring(line)+" + '\\n';\n");
+				if (m_asmInstr.matches()) { // is asm instruction or comment or empty line
+					if (m_endBlock.matches()) {
+						result.append("__blockLevel__--;\n");
+					}
+					result.append("_str"+macroName+"+=__indent() +" +
+								toJSstring(line )+" + '\\n';\n");
+					if (m_beginBlock.matches()) {
+						result.append("__blockLevel__++;\n");
+					}
+				} else { // must be a macro call without parenthesis
+					if (m_asmMacro.matches()) {
+						result.append("_str"+macroName+"+=__indent() +" +
+								toJSstring("#(begin macro)" + line)+" + '\\n';\n");
+						String mParams = m_asmMacro.group(2); //.replaceAll("(\\{([^}]+)\\})", "$2");
+						String regMacroParam ="^\\s*(([^\"#][^\",#]*)|(\"([^\"]|\\\\\")*\"))\\s*(,(.*))?$";
+						Pattern p_macroParam = Pattern.compile(regMacroParam);
+						String resultParams = "";
+						while (mParams != null) {
+							mParams = mParams.trim();
+							if (mParams.length()>0) {
+							    // group 1 = parameter, group 5  remainder parameters
+								Matcher m_macroParam = p_macroParam.matcher(mParams);
+								if (m_macroParam.matches()) {
+									String aParam = m_macroParam.group(1);
+									mParams = m_macroParam.group(6);
+									if (aParam != null) {
+										if (aParam.length()>0) {
+											if (aParam.charAt(0)=='"') {
+												aParam = aParam.substring(1);
+												if (aParam.charAt(aParam.length()-1) == '"') {
+													aParam = aParam.substring(0, aParam.length()-1);
+												}
+												aParam.replace("\\\"", "\"");
+											}
+											aParam = toJSstring(aParam);
+										}
+										aParam = "(" + aParam + ")";
+										aParam = "((isNaN(" + aParam + "*1))?" + aParam + ":(" + aParam + "*1))";
+										if (resultParams.length() > 0 ) resultParams += ",";
+										resultParams += aParam;
+									}
+								} else {
+									mParams = null;
+								}
+							}
+						}
+						result.append("_str"+macroName+"+=" +
+									m_asmMacro.group(1).replaceAll("(\\{([^}]+)\\})", "$2") + 
+									"(" + resultParams + ")"+
+									";\n");
+						
+						result.append("_str"+macroName+"+=__indent() +" +
+								toJSstring("#(end macro)" + line)+" + '\\n';\n");
+						
+					} else {
+						result.append("_str"+macroName+"+=__indent() +" +
+									toJSstring(line )+" + '\\n';\n");
+					}
+				}
 			}
 		}
 		if (!isInclude) {
@@ -885,7 +967,7 @@ public class Assembler {
 	private String toJSstring(String oriString) {
 		oriString = oriString.replace("\\", "\\\\")
 				 .replace("'", "\\'");
-		oriString = oriString.replaceAll("(\\{([^}]+)\\})", "' + $2 + '");
+		oriString = oriString.replaceAll("(\\{([^}]+)\\})", "' + ($2) + '");
 		return "'"+oriString+"'";
 	}
 	

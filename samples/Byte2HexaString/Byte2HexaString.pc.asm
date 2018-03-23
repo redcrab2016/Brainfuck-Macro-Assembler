@@ -1,9 +1,9 @@
-#    ____        _         ____    _   _                ____  _        _             
-#   | __ ) _   _| |_ ___  |___ \  | | | | _____  ____ _/ ___|| |_ _ __(_)_ __   __ _ 
+#    ____        _         ____    _   _                ____  _        _
+#   | __ ) _   _| |_ ___  |___ \  | | | | _____  ____ _/ ___|| |_ _ __(_)_ __   __ _
 #   |  _ \| | | | __/ _ \   __) | | |_| |/ _ \ \/ / _` \___ \| __| '__| | '_ \ / _` |
 #   | |_) | |_| | ||  __/  / __/  |  _  |  __/>  < (_| |___) | |_| |  | | | | | (_| |
 #   |____/ \__, |\__\___| |_____| |_| |_|\___/_/\_\__,_|____/ \__|_|  |_|_| |_|\__, |
-#          |___/                                                               |___/ 
+#          |___/                                                               |___/
 # Read input byte and output it as hexa string
 # this sample do use macro
 
@@ -11,8 +11,6 @@
 #(begin include)../include/macro.inc
 # Common macros
 # scope variables
-#(js) var __scope; var __idx;
-#(js) __scope=[0]; __idx = 0;
 
 
 # macro scope_begin : start a new scope for local variable (usage of macro lvar)
@@ -64,68 +62,65 @@
 # macro print(aString) : print out a string
 #(end include)../include/macro.inc
 
-#(js) var whIdx; whIdx = 0;
 
 
 
 push    1
 while
-    push    in
-    push    16
-    div
-#(begin macro)    writeHexa() # output most significant hexa character from head of stack value, then drop
-#(js) whIdx++;
-    sbm _input1
-#(begin macro)    if_sup("_input" + whIdx,9)
-    push _input1
-    push 9
-    sup
-    if
-#(end macro)    if_sup("_input" + whIdx,9)
-#(begin macro)        at_add("_input" + whIdx, "'7'")
-#(begin macro)    at_2("add",a,b)
+  push    in
+  push    16
+  div
+  #(begin macro)writeHexa() # output most significant hexa character from head of stack value, then drop
+  sbm _input1
+  #(begin macro)if_sup("_input" + whIdx,9)
+  push _input1
+  push 9
+  sup
+  if
+    #(end macro)if_sup("_input" + whIdx,9)
+    #(begin macro)at_add("_input" + whIdx, "'7'")
+    #(begin macro)at_2("add",a,b)
     at _input1
-    add '7'
+      add '7'
     ta
-#(end macro)    at_2("add",a,b)
-#(end macro)        at_add("_input" + whIdx, "'7'")
-    else
-#(begin macro)        at_add("_input" + whIdx, "'0'")
-#(begin macro)    at_2("add",a,b)
+    #(end macro)at_2("add",a,b)
+    #(end macro)at_add("_input" + whIdx, "'7'")
+  else
+    #(begin macro)at_add("_input" + whIdx, "'0'")
+    #(begin macro)at_2("add",a,b)
     at _input1
-    add '0'
+      add '0'
     ta
-#(end macro)    at_2("add",a,b)
-#(end macro)        at_add("_input" + whIdx, "'0'")
-    fi
-    pop out
-#(end macro)    writeHexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)    writeHexa() # output less significant hexa character from head of stack value, then drop
-#(js) whIdx++;
-    sbm _input2
-#(begin macro)    if_sup("_input" + whIdx,9)
-    push _input2
-    push 9
-    sup
-    if
-#(end macro)    if_sup("_input" + whIdx,9)
-#(begin macro)        at_add("_input" + whIdx, "'7'")
-#(begin macro)    at_2("add",a,b)
+    #(end macro)at_2("add",a,b)
+    #(end macro)at_add("_input" + whIdx, "'0'")
+  fi
+  pop out
+  #(end macro)writeHexa() # output most significant hexa character from head of stack value, then drop
+  #(begin macro)writeHexa() # output less significant hexa character from head of stack value, then drop
+  sbm _input2
+  #(begin macro)if_sup("_input" + whIdx,9)
+  push _input2
+  push 9
+  sup
+  if
+    #(end macro)if_sup("_input" + whIdx,9)
+    #(begin macro)at_add("_input" + whIdx, "'7'")
+    #(begin macro)at_2("add",a,b)
     at _input2
-    add '7'
+      add '7'
     ta
-#(end macro)    at_2("add",a,b)
-#(end macro)        at_add("_input" + whIdx, "'7'")
-    else
-#(begin macro)        at_add("_input" + whIdx, "'0'")
-#(begin macro)    at_2("add",a,b)
+    #(end macro)at_2("add",a,b)
+    #(end macro)at_add("_input" + whIdx, "'7'")
+  else
+    #(begin macro)at_add("_input" + whIdx, "'0'")
+    #(begin macro)at_2("add",a,b)
     at _input2
-    add '0'
+      add '0'
     ta
-#(end macro)    at_2("add",a,b)
-#(end macro)        at_add("_input" + whIdx, "'0'")
-    fi
-    pop out
-#(end macro)    writeHexa() # output less significant hexa character from head of stack value, then drop
+    #(end macro)at_2("add",a,b)
+    #(end macro)at_add("_input" + whIdx, "'0'")
+  fi
+  pop out
+  #(end macro)writeHexa() # output less significant hexa character from head of stack value, then drop
 wend
 
