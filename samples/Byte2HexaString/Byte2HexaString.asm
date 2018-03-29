@@ -29,6 +29,6 @@ while
     push    in
     push    16
     div
-    writeHexa() # output most significant hexa character from head of stack value, then drop
-    writeHexa() # output less significant hexa character from head of stack value, then drop
+    writeHexa # output most significant hexa character from head of stack value, then drop
+    writeHexa # output less significant hexa character from head of stack value, then drop
 wend

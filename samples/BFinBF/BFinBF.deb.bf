@@ -1,4 +1,4 @@
-L#68  : PUSH     1                               
+L#75  : PUSH     1                                //@(main@28)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -16,31 +16,31 @@ L#68  : PUSH     1
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>> >[-]+
-L#69  : SBM      loopCounter                     
+L#76  : SBM      loopCounter                      //@(main@29)
  
-L#70  : WHILE                                    
+L#77  : WHILE                                     //@(main@30)
 [
-L#74  : PUSH     in                              
+L#81  : PUSH     in                               //@(macro_inc@22)(main@32)
 >,
-L#75  : SBM      readchar                        
+L#82  : SBM      readchar                         //@(macro_inc@23)(main@32)
  
-L#78  : PUSH     STACK(readchar)                       
+L#85  : PUSH     STACK(readchar)                        //@(macro_inc@29)(main@33)
 >[-]<[>+>+<<-]>[<+>-]>[<+>-]<
-L#79  : PUSH     33                               //'!' 
+L#86  : PUSH     33                               //'!' @(macro_inc@30)(main@33)
 >[-]++++++++++++++++++++++++++++
 +++++
-L#80  : DIFF                                     
+L#87  : DIFF                                      //@(macro_inc@31)(main@33)
 [<->-][-]<[>+<[-]]>[<+>-]<
-L#81  : IF                                       
+L#88  : IF                                        //@(macro_inc@32)(main@33)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#83  : PUSH     STACK(readchar)                       
+L#90  : PUSH     STACK(readchar)                        //@(main@34)
 >[-]<<<[>>>+>+<<<<-]>>>[<<<+>>>-
 ]>[<+>-]<
-L#84  : SUB      42                               // bf code /minus/ 42 /comma/ to have smaller value to compare during BF code interpretation
+L#91  : SUB      42                               // bf code /minus/ 42 /comma/ to have smaller value to compare during BF code interpretation #@(main@35)
 --------------------------------
 ----------
-L#85  : POP      bfCode                          
+L#92  : POP      bfCode                           //@(main@36)
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -75,7 +75,7 @@ L#85  : POP      bfCode
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>-]<
-L#86  : AROTL    bfCode                           // store readchar in bfCode
+L#93  : AROTL    bfCode                           // store readchar in bfCode #@(main@37)
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -185,28 +185,28 @@ L#86  : AROTL    bfCode                           // store readchar in bfCode
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>
 -][-]<
-L#87  : ELSE                                     
+L#94  : ELSE                                      //@(main@38)
 [>+>+<<-]>>[<<+>>-][-]<[>+<[-]]>
 [<+>-]<->[-]<[>+<[-]]>[<+>-]<[
-L#91  : AT       STACK(loopCounter)                    
+L#98  : AT       STACK(loopCounter)                     //@(macro_inc@79)(macro_inc@86)(macro_inc@91)(main@39)
 <<<
-L#92  : RESET                                    
+L#99  : RESET                                     //@(macro_inc@80)(macro_inc@86)(macro_inc@91)(main@39)
 [-]
 >>>
 -][-]<
-L#97  : ENDIF                                    
+L#104 : ENDIF                                     //@(main@40)
 [-]<
-L#99  : DROP                                     
+L#106 : DROP                                      //@(macro_inc@15)(main@41)
 [-]<
-L#101 : WEND                                      // loop for each input bf code
+L#108 : WEND                                      // loop for each input bf code #@(main@42)
 ][-]<
-L#105 : PUSH     127                             
+L#112 : PUSH     127                              //@(macro_inc@45)(main@45)
 >[-]++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++++++
 +++
-L#106 : PUSH     bfCode~pos                      
+L#113 : PUSH     bfCode~pos                       //@(macro_inc@46)(main@45)
 >[-]<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -258,7 +258,7 @@ L#106 : PUSH     bfCode~pos
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>-]>
 [<+>-]<
-L#107 : SUP                                      
+L#114 : SUP                                       //@(macro_inc@47)(main@45)
 <+>+>[-]<[>+>+<<-]>[<+>-]>[<+>-]
 [-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>[
 <<+>>-]<[>[-]<<<<[>>>>+>+<<<<<-]
@@ -274,10 +274,10 @@ L#107 : SUP
 <<-]>>>>>>[-]<<<<<[>>>>>+<<<<<-]
 >>>>>>[-]<<+>+<[->-[>]<<]<[-]<[-
 <]>>>[<<<<<+>>>>>[-]]>[-]<<<<<<
-L#108 : IF                                       
+L#115 : IF                                        //@(macro_inc@48)(main@45)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#110 : PUSH     bfCode~pos                      
+L#117 : PUSH     bfCode~pos                       //@(main@46)
 >[-]<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -329,9 +329,9 @@ L#110 : PUSH     bfCode~pos
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>-]>[<+>-]<
-L#111 : LOOP                                     
+L#118 : LOOP                                      //@(main@47)
 [
-L#112 : AROTR    bfCode                          
+L#119 : AROTR    bfCode                           //@(main@48)
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -456,15 +456,15 @@ L#112 : AROTR    bfCode
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>
-L#113 : ENDLOOP                                  
+L#120 : ENDLOOP                                   //@(main@49)
 -][-]<
 -][-]<
-L#114 : ELSE                                      // forward rot to zero
+L#121 : ELSE                                      // forward rot to zero #@(main@50)
 [>+>+<<-]>>[<<+>>-][-]<[>+<[-]]>
 [<+>-]<->[-]<[>+<[-]]>[<+>-]<[
-L#115 : PUSH     0                               
+L#122 : PUSH     0                                //@(main@51)
 >[-]
-L#116 : PUSH     bfCode~pos                      
+L#123 : PUSH     bfCode~pos                       //@(main@52)
 >[-]<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -516,11 +516,11 @@ L#116 : PUSH     bfCode~pos
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>-]>[<+>-]<
-L#117 : SUB                                      
+L#124 : SUB                                       //@(main@53)
 [<->-]<
-L#118 : LOOP                                     
+L#125 : LOOP                                      //@(main@54)
 [
-L#119 : AROTL    bfCode                          
+L#126 : AROTL    bfCode                           //@(main@55)
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -629,23 +629,23 @@ L#119 : AROTL    bfCode
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>
-L#120 : ENDLOOP                                  
+L#127 : ENDLOOP                                   //@(main@56)
 -][-]<
 -][-]<
-L#121 : ENDIF                                    
+L#128 : ENDIF                                     //@(main@57)
 [-]<
-L#125 : PUSH     1                               
+L#132 : PUSH     1                                //@(main@61)
 >[-]+
-L#126 : SBM      loopCounter2                    
+L#133 : SBM      loopCounter2                     //@(main@62)
  
-L#127 : WHILE                                    
+L#134 : WHILE                                     //@(main@63)
 [
-L#132 : PUSH     bfData                          
+L#139 : PUSH     bfData                           //@(macro_inc@22)(main@66)
 >[-]<<<<<<[>>>>>>+>+<<<<<<<-]>>>
 >>>[<<<<<<+>>>>>>-]>[<+>-]<
-L#133 : SBM      bfD                             
+L#140 : SBM      bfD                              //@(macro_inc@23)(main@66)
  
-L#136 : PUSH     bfCode                          
+L#143 : PUSH     bfCode                           //@(macro_inc@22)(main@67)
 >[-]<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -697,121 +697,121 @@ L#136 : PUSH     bfCode
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>-]>[<+>-]<
-L#137 : SBM      instr                           
+L#144 : SBM      instr                            //@(macro_inc@23)(main@67)
  
-L#141 : PUSH     STACK(instr)                          
+L#148 : PUSH     STACK(instr)                           //@(macro_inc@37)(main@69)
 >[-]<[>+>+<<-]>[<+>-]>[<+>-]<
-L#142 : PUSH     0                               
+L#149 : PUSH     0                                //@(macro_inc@38)(main@69)
 >[-]
-L#143 : EQUAL                                    
+L#150 : EQUAL                                     //@(macro_inc@39)(main@69)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#144 : IF                                       
+L#151 : IF                                        //@(macro_inc@40)(main@69)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#149 : AT       STACK(loopCounter2)                   
+L#156 : AT       STACK(loopCounter2)                    //@(macro_inc@79)(macro_inc@86)(macro_inc@91)(main@70)
 <<<<
-L#150 : RESET                                    
+L#157 : RESET                                     //@(macro_inc@80)(macro_inc@86)(macro_inc@91)(main@70)
 [-]
 >>>>
 -][-]<
-L#155 : ELSE                                     
+L#162 : ELSE                                      //@(main@71)
 [>+>+<<-]>>[<<+>>-][-]<[>+<[-]]>
 [<+>-]<->[-]<[>+<[-]]>[<+>-]<[
-L#157 : PUSH     STACK(instr)                          
+L#164 : PUSH     STACK(instr)                           //@(macro_inc@37)(main@72)
 >[-]<<<[>>>+>+<<<<-]>>>[<<<+>>>-
 ]>[<+>-]<
-L#158 : PUSH     1                               
+L#165 : PUSH     1                                //@(macro_inc@38)(main@72)
 >[-]+
-L#159 : EQUAL                                    
+L#166 : EQUAL                                     //@(macro_inc@39)(main@72)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#160 : IF                                       
+L#167 : IF                                        //@(macro_inc@40)(main@72)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#165 : AT       bfData                          
+L#172 : AT       bfData                           //@(macro_inc@79)(macro_inc@86)(macro_inc@96)(main@73)
 <<<<<<<<<<<
-L#166 : INC                                      
+L#173 : INC                                       //@(macro_inc@80)(macro_inc@86)(macro_inc@96)(main@73)
 +
 >>>>>>>>>>>
 -][-]<
-L#171 : ENDIF                                    
+L#178 : ENDIF                                     //@(main@74)
 [-]<
-L#174 : PUSH     STACK(instr)                          
+L#181 : PUSH     STACK(instr)                           //@(macro_inc@37)(main@76)
 >[-]<<<[>>>+>+<<<<-]>>>[<<<+>>>-
 ]>[<+>-]<
-L#175 : PUSH     3                               
+L#182 : PUSH     3                                //@(macro_inc@38)(main@76)
 >[-]+++
-L#176 : EQUAL                                    
+L#183 : EQUAL                                     //@(macro_inc@39)(main@76)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#177 : IF                                       
+L#184 : IF                                        //@(macro_inc@40)(main@76)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#182 : AT       bfData                          
+L#189 : AT       bfData                           //@(macro_inc@79)(macro_inc@86)(macro_inc@101)(main@77)
 <<<<<<<<<<<
-L#183 : DEC                                      
+L#190 : DEC                                       //@(macro_inc@80)(macro_inc@86)(macro_inc@101)(main@77)
 -
 >>>>>>>>>>>
 -][-]<
-L#188 : ENDIF                                    
+L#195 : ENDIF                                     //@(main@78)
 [-]<
-L#191 : PUSH     STACK(instr)                          
+L#198 : PUSH     STACK(instr)                           //@(macro_inc@37)(main@80)
 >[-]<<<[>>>+>+<<<<-]>>>[<<<+>>>-
 ]>[<+>-]<
-L#192 : PUSH     4                               
+L#199 : PUSH     4                                //@(macro_inc@38)(main@80)
 >[-]++++
-L#193 : EQUAL                                    
+L#200 : EQUAL                                     //@(macro_inc@39)(main@80)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#194 : IF                                       
+L#201 : IF                                        //@(macro_inc@40)(main@80)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#199 : AT       bfData                          
+L#206 : AT       bfData                           //@(macro_inc@79)(macro_inc@86)(macro_inc@111)(main@81)
 <<<<<<<<<<<
-L#200 : OUT                                      
+L#207 : OUT                                       //@(macro_inc@80)(macro_inc@86)(macro_inc@111)(main@81)
 .
 >>>>>>>>>>>
 -][-]<
-L#205 : ENDIF                                    
+L#212 : ENDIF                                     //@(main@82)
 [-]<
-L#208 : PUSH     STACK(instr)                          
+L#215 : PUSH     STACK(instr)                           //@(macro_inc@37)(main@84)
 >[-]<<<[>>>+>+<<<<-]>>>[<<<+>>>-
 ]>[<+>-]<
-L#209 : PUSH     2                               
+L#216 : PUSH     2                                //@(macro_inc@38)(main@84)
 >[-]++
-L#210 : EQUAL                                    
+L#217 : EQUAL                                     //@(macro_inc@39)(main@84)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#211 : IF                                       
+L#218 : IF                                        //@(macro_inc@40)(main@84)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#216 : AT       bfData                          
+L#223 : AT       bfData                           //@(macro_inc@79)(macro_inc@86)(macro_inc@106)(main@85)
 <<<<<<<<<<<
-L#217 : IN                                       
+L#224 : IN                                        //@(macro_inc@80)(macro_inc@86)(macro_inc@106)(main@85)
 ,
 >>>>>>>>>>>
 -][-]<
-L#222 : ENDIF                                    
+L#229 : ENDIF                                     //@(main@86)
 [-]<
-L#225 : PUSH     STACK(instr)                          
+L#232 : PUSH     STACK(instr)                           //@(macro_inc@37)(main@88)
 >[-]<<<[>>>+>+<<<<-]>>>[<<<+>>>-
 ]>[<+>-]<
-L#226 : PUSH     18                              
+L#233 : PUSH     18                               //@(macro_inc@38)(main@88)
 >[-]++++++++++++++++++
-L#227 : EQUAL                                    
+L#234 : EQUAL                                     //@(macro_inc@39)(main@88)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#228 : IF                                       
+L#235 : IF                                        //@(macro_inc@40)(main@88)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#230 : AROTL    bfData                          
+L#237 : AROTL    bfData                           //@(main@89)
 <<<<<<<<<+[>+>+<<-]>>[<<+>>-]+++
 ++++++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++++++
@@ -905,21 +905,21 @@ L#230 : AROTL    bfData
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>]>>>>>>>>>>
 -][-]<
-L#231 : ENDIF                                    
+L#238 : ENDIF                                     //@(main@90)
 [-]<
-L#234 : PUSH     STACK(instr)                          
+L#241 : PUSH     STACK(instr)                           //@(macro_inc@37)(main@92)
 >[-]<<<[>>>+>+<<<<-]>>>[<<<+>>>-
 ]>[<+>-]<
-L#235 : PUSH     20                              
+L#242 : PUSH     20                               //@(macro_inc@38)(main@92)
 >[-]++++++++++++++++++++
-L#236 : EQUAL                                    
+L#243 : EQUAL                                     //@(macro_inc@39)(main@92)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#237 : IF                                       
+L#244 : IF                                        //@(macro_inc@40)(main@92)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#239 : AROTR    bfData                          
+L#246 : AROTR    bfData                           //@(main@93)
 <<<<<<<<<[>+>+<<-]>[<+>-]>[<+>-]
 [-]<[>+<[-]]>[<+>-][-]<[>+<[-]]>
 [<+>-]<->[-]<[>+<[-]]>[<+>-]<[-<
@@ -1029,45 +1029,45 @@ L#239 : AROTR    bfData
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>
 -][-]<
-L#240 : ENDIF                                    
+L#247 : ENDIF                                     //@(main@94)
 [-]<
-L#245 : PUSH     0                               
+L#252 : PUSH     0                                //@(macro_inc@22)(main@97)
 >[-]
-L#246 : SBM      countBracket                    
+L#253 : SBM      countBracket                     //@(macro_inc@23)(main@97)
  
-L#250 : PUSH     STACK(instr)                          
+L#257 : PUSH     STACK(instr)                           //@(macro_inc@37)(main@99)
 >[-]<<<<[>>>>+>+<<<<<-]>>>>[<<<<
 +>>>>-]>[<+>-]<
-L#251 : PUSH     49                              
+L#258 : PUSH     49                               //@(macro_inc@38)(main@99)
 >[-]++++++++++++++++++++++++++++
 +++++++++++++++++++++
-L#252 : EQUAL                                    
+L#259 : EQUAL                                     //@(macro_inc@39)(main@99)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#253 : IF                                       
+L#260 : IF                                        //@(macro_inc@40)(main@99)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#256 : PUSH     STACK(bfD)                            
+L#263 : PUSH     STACK(bfD)                             //@(macro_inc@37)(main@100)
 >[-]<<<<<<<[>>>>>>>+>+<<<<<<<<-]
 >>>>>>>[<<<<<<<+>>>>>>>-]>[<+>-]
 <
-L#257 : PUSH     0                               
+L#264 : PUSH     0                                //@(macro_inc@38)(main@100)
 >[-]
-L#258 : EQUAL                                    
+L#265 : EQUAL                                     //@(macro_inc@39)(main@100)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#259 : IF                                       
+L#266 : IF                                        //@(macro_inc@40)(main@100)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#261 : PUSH     1                               
+L#268 : PUSH     1                                //@(main@101)
 >[-]+
-L#262 : SBM      g2mcbl                           // Go To Matching Closing Bracket Loop
+L#269 : SBM      g2mcbl                           // Go To Matching Closing Bracket Loop #@(main@102)
  
-L#263 : WHILE                                    
+L#270 : WHILE                                     //@(main@103)
 [
-L#264 : AROTL    bfCode                           // go to next bfCode
+L#271 : AROTL    bfCode                           // go to next bfCode #@(main@104)
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -1176,7 +1176,7 @@ L#264 : AROTL    bfCode                           // go to next bfCode
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-L#268 : PUSH     bfCode                          
+L#275 : PUSH     bfCode                           //@(macro_inc@22)(main@106)
 >[-]<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -1230,143 +1230,143 @@ L#268 : PUSH     bfCode
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>-]>[<+>-]<
-L#269 : SBM      tmpBfCode                       
+L#276 : SBM      tmpBfCode                        //@(macro_inc@23)(main@106)
  
-L#273 : PUSH     STACK(tmpBfCode)                      
+L#280 : PUSH     STACK(tmpBfCode)                       //@(macro_inc@37)(main@108)
 >[-]<[>+>+<<-]>[<+>-]>[<+>-]<
-L#274 : PUSH     49                              
+L#281 : PUSH     49                               //@(macro_inc@38)(main@108)
 >[-]++++++++++++++++++++++++++++
 +++++++++++++++++++++
-L#275 : EQUAL                                    
+L#282 : EQUAL                                     //@(macro_inc@39)(main@108)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#276 : IF                                       
+L#283 : IF                                        //@(macro_inc@40)(main@108)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#281 : AT       STACK(countBracket)                   
+L#288 : AT       STACK(countBracket)                    //@(macro_inc@79)(macro_inc@86)(macro_inc@96)(main@109)
 <<<<<<<<
-L#282 : INC                                      
+L#289 : INC                                       //@(macro_inc@80)(macro_inc@86)(macro_inc@96)(main@109)
 +
 >>>>>>>>
 -][-]<
-L#287 : ELSE                                      // if current bfCode != '/open bracket/'
+L#294 : ELSE                                      // if current bfCode != '/open bracket/' #@(main@110)
 [>+>+<<-]>>[<<+>>-][-]<[>+<[-]]>
 [<+>-]<->[-]<[>+<[-]]>[<+>-]<[
-L#289 : PUSH     STACK(tmpBfCode)                      
+L#296 : PUSH     STACK(tmpBfCode)                       //@(macro_inc@37)(main@111)
 >[-]<<<[>>>+>+<<<<-]>>>[<<<+>>>-
 ]>[<+>-]<
-L#290 : PUSH     51                              
+L#297 : PUSH     51                               //@(macro_inc@38)(main@111)
 >[-]++++++++++++++++++++++++++++
 +++++++++++++++++++++++
-L#291 : EQUAL                                    
+L#298 : EQUAL                                     //@(macro_inc@39)(main@111)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#292 : IF                                       
+L#299 : IF                                        //@(macro_inc@40)(main@111)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#295 : PUSH     STACK(countBracket)                   
+L#302 : PUSH     STACK(countBracket)                    //@(macro_inc@37)(main@112)
 >[-]<<<<<<<<<<<[>>>>>>>>>>>+>+<<
 <<<<<<<<<<-]>>>>>>>>>>>[<<<<<<<<
 <<<+>>>>>>>>>>>-]>[<+>-]<
-L#296 : PUSH     0                               
+L#303 : PUSH     0                                //@(macro_inc@38)(main@112)
 >[-]
-L#297 : EQUAL                                    
+L#304 : EQUAL                                     //@(macro_inc@39)(main@112)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#298 : IF                                       
+L#305 : IF                                        //@(macro_inc@40)(main@112)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#303 : AT       STACK(g2mcbl)                         
+L#310 : AT       STACK(g2mcbl)                          //@(macro_inc@79)(macro_inc@86)(macro_inc@91)(main@113)
 <<<<<<<
-L#304 : RESET                                    
+L#311 : RESET                                     //@(macro_inc@80)(macro_inc@86)(macro_inc@91)(main@113)
 [-]
 >>>>>>>
 -][-]<
-L#309 : ELSE                                      // if countBracket /superior/0 then countBracket/minus//minus/
+L#316 : ELSE                                      // if countBracket /superior/0 then countBracket/minus//minus/ #@(main@114)
 [>+>+<<-]>>[<<+>>-][-]<[>+<[-]]>
 [<+>-]<->[-]<[>+<[-]]>[<+>-]<[
-L#313 : AT       STACK(countBracket)                   
+L#320 : AT       STACK(countBracket)                    //@(macro_inc@79)(macro_inc@86)(macro_inc@101)(main@115)
 <<<<<<<<<<<<
-L#314 : DEC                                      
+L#321 : DEC                                       //@(macro_inc@80)(macro_inc@86)(macro_inc@101)(main@115)
 -
 >>>>>>>>>>>>
 -][-]<
-L#319 : ENDIF                                    
+L#326 : ENDIF                                     //@(main@116)
 [-]<
 -][-]<
-L#320 : ELSE                                      // if current bfCode != '/close bracket/'
+L#327 : ELSE                                      // if current bfCode != '/close bracket/' #@(main@117)
 [>+>+<<-]>>[<<+>>-][-]<[>+<[-]]>
 [<+>-]<->[-]<[>+<[-]]>[<+>-]<[
-L#322 : PUSH     STACK(tmpBfCode)                      
+L#329 : PUSH     STACK(tmpBfCode)                       //@(macro_inc@37)(main@118)
 >[-]<<<<<[>>>>>+>+<<<<<<-]>>>>>[
 <<<<<+>>>>>-]>[<+>-]<
-L#323 : PUSH     0                               
+L#330 : PUSH     0                                //@(macro_inc@38)(main@118)
 >[-]
-L#324 : EQUAL                                    
+L#331 : EQUAL                                     //@(macro_inc@39)(main@118)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#325 : IF                                       
+L#332 : IF                                        //@(macro_inc@40)(main@118)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#330 : AT       STACK(g2mcbl)                         
+L#337 : AT       STACK(g2mcbl)                          //@(macro_inc@79)(macro_inc@86)(macro_inc@91)(main@119)
 <<<<<<<
-L#331 : RESET                                    
+L#338 : RESET                                     //@(macro_inc@80)(macro_inc@86)(macro_inc@91)(main@119)
 [-]
 >>>>>>>
 -][-]<
-L#336 : ENDIF                                    
+L#343 : ENDIF                                     //@(main@120)
 [-]<
 -][-]<
-L#337 : ENDIF                                    
+L#344 : ENDIF                                     //@(main@121)
 [-]<
 -][-]<
-L#338 : ENDIF                                    
+L#345 : ENDIF                                     //@(main@122)
 [-]<
-L#340 : DROP                                     
+L#347 : DROP                                      //@(macro_inc@15)(main@123)
 [-]<
-L#342 : WEND                                     
+L#349 : WEND                                      //@(main@124)
 ][-]<
 -][-]<
-L#343 : ENDIF                                    
+L#350 : ENDIF                                     //@(main@125)
 [-]<
 -][-]<
-L#344 : ENDIF                                    
+L#351 : ENDIF                                     //@(main@126)
 [-]<
-L#347 : PUSH     STACK(instr)                          
+L#354 : PUSH     STACK(instr)                           //@(macro_inc@37)(main@128)
 >[-]<<<<[>>>>+>+<<<<<-]>>>>[<<<<
 +>>>>-]>[<+>-]<
-L#348 : PUSH     51                              
+L#355 : PUSH     51                               //@(macro_inc@38)(main@128)
 >[-]++++++++++++++++++++++++++++
 +++++++++++++++++++++++
-L#349 : EQUAL                                    
+L#356 : EQUAL                                     //@(macro_inc@39)(main@128)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#350 : IF                                       
+L#357 : IF                                        //@(macro_inc@40)(main@128)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#353 : PUSH     STACK(bfD)                            
+L#360 : PUSH     STACK(bfD)                             //@(macro_inc@29)(main@129)
 >[-]<<<<<<<[>>>>>>>+>+<<<<<<<<-]
 >>>>>>>[<<<<<<<+>>>>>>>-]>[<+>-]
 <
-L#354 : PUSH     0                               
+L#361 : PUSH     0                                //@(macro_inc@30)(main@129)
 >[-]
-L#355 : DIFF                                     
+L#362 : DIFF                                      //@(macro_inc@31)(main@129)
 [<->-][-]<[>+<[-]]>[<+>-]<
-L#356 : IF                                       
+L#363 : IF                                        //@(macro_inc@32)(main@129)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#358 : PUSH     1                               
+L#365 : PUSH     1                                //@(main@130)
 >[-]+
-L#359 : SBM      g2mobl                           // go to matching open bracket loop
+L#366 : SBM      g2mobl                           // go to matching open bracket loop #@(main@131)
  
-L#360 : WHILE                                    
+L#367 : WHILE                                     //@(main@132)
 [
-L#361 : AROTR    bfCode                           // go to previous bfCode
+L#368 : AROTR    bfCode                           // go to previous bfCode #@(main@133)
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -1491,7 +1491,7 @@ L#361 : AROTR    bfCode                           // go to previous bfCode
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-L#365 : PUSH     bfCode                          
+L#372 : PUSH     bfCode                           //@(macro_inc@22)(main@135)
 >[-]<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -1545,56 +1545,56 @@ L#365 : PUSH     bfCode
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>-]>[<+>-]<
-L#366 : SBM      tmpBfCode                       
+L#373 : SBM      tmpBfCode                        //@(macro_inc@23)(main@135)
  
-L#370 : PUSH     STACK(tmpBfCode)                      
+L#377 : PUSH     STACK(tmpBfCode)                       //@(macro_inc@37)(main@137)
 >[-]<[>+>+<<-]>[<+>-]>[<+>-]<
-L#371 : PUSH     51                              
+L#378 : PUSH     51                               //@(macro_inc@38)(main@137)
 >[-]++++++++++++++++++++++++++++
 +++++++++++++++++++++++
-L#372 : EQUAL                                    
+L#379 : EQUAL                                     //@(macro_inc@39)(main@137)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#373 : IF                                       
+L#380 : IF                                        //@(macro_inc@40)(main@137)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#378 : AT       STACK(countBracket)                   
+L#385 : AT       STACK(countBracket)                    //@(macro_inc@79)(macro_inc@86)(macro_inc@96)(main@138)
 <<<<<<<<
-L#379 : INC                                      
+L#386 : INC                                       //@(macro_inc@80)(macro_inc@86)(macro_inc@96)(main@138)
 +
 >>>>>>>>
 -][-]<
-L#384 : ELSE                                      // if current bfCode != '/close bracket/'
+L#391 : ELSE                                      // if current bfCode != '/close bracket/' #@(main@139)
 [>+>+<<-]>>[<<+>>-][-]<[>+<[-]]>
 [<+>-]<->[-]<[>+<[-]]>[<+>-]<[
-L#386 : PUSH     STACK(tmpBfCode)                      
+L#393 : PUSH     STACK(tmpBfCode)                       //@(macro_inc@37)(main@140)
 >[-]<<<[>>>+>+<<<<-]>>>[<<<+>>>-
 ]>[<+>-]<
-L#387 : PUSH     49                              
+L#394 : PUSH     49                               //@(macro_inc@38)(main@140)
 >[-]++++++++++++++++++++++++++++
 +++++++++++++++++++++
-L#388 : EQUAL                                    
+L#395 : EQUAL                                     //@(macro_inc@39)(main@140)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#389 : IF                                       
+L#396 : IF                                        //@(macro_inc@40)(main@140)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#392 : PUSH     STACK(countBracket)                   
+L#399 : PUSH     STACK(countBracket)                    //@(macro_inc@37)(main@141)
 >[-]<<<<<<<<<<<[>>>>>>>>>>>+>+<<
 <<<<<<<<<<-]>>>>>>>>>>>[<<<<<<<<
 <<<+>>>>>>>>>>>-]>[<+>-]<
-L#393 : PUSH     0                               
+L#400 : PUSH     0                                //@(macro_inc@38)(main@141)
 >[-]
-L#394 : EQUAL                                    
+L#401 : EQUAL                                     //@(macro_inc@39)(main@141)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#395 : IF                                       
+L#402 : IF                                        //@(macro_inc@40)(main@141)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#397 : AROTR    bfCode                          
+L#404 : AROTR    bfCode                           //@(main@142)
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -1720,69 +1720,69 @@ L#397 : AROTR    bfCode
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>
-L#401 : AT       STACK(g2mobl)                         
+L#408 : AT       STACK(g2mobl)                          //@(macro_inc@79)(macro_inc@86)(macro_inc@91)(main@143)
 <<<<<<<
-L#402 : RESET                                    
+L#409 : RESET                                     //@(macro_inc@80)(macro_inc@86)(macro_inc@91)(main@143)
 [-]
 >>>>>>>
 -][-]<
-L#407 : ELSE                                      // if count bracket /superior/ 0 then countBracket /minus//minus/
+L#414 : ELSE                                      // if count bracket /superior/ 0 then countBracket /minus//minus/ #@(main@144)
 [>+>+<<-]>>[<<+>>-][-]<[>+<[-]]>
 [<+>-]<->[-]<[>+<[-]]>[<+>-]<[
-L#411 : AT       STACK(countBracket)                   
+L#418 : AT       STACK(countBracket)                    //@(macro_inc@79)(macro_inc@86)(macro_inc@101)(main@145)
 <<<<<<<<<<<<
-L#412 : DEC                                      
+L#419 : DEC                                       //@(macro_inc@80)(macro_inc@86)(macro_inc@101)(main@145)
 -
 >>>>>>>>>>>>
 -][-]<
-L#417 : ENDIF                                    
+L#424 : ENDIF                                     //@(main@146)
 [-]<
 -][-]<
-L#418 : ELSE                                      // if current bfCode != '/open bracket/'
+L#425 : ELSE                                      // if current bfCode != '/open bracket/' #@(main@147)
 [>+>+<<-]>>[<<+>>-][-]<[>+<[-]]>
 [<+>-]<->[-]<[>+<[-]]>[<+>-]<[
-L#420 : PUSH     STACK(tmpBfCode)                      
+L#427 : PUSH     STACK(tmpBfCode)                       //@(macro_inc@37)(main@148)
 >[-]<<<<<[>>>>>+>+<<<<<<-]>>>>>[
 <<<<<+>>>>>-]>[<+>-]<
-L#421 : PUSH     0                               
+L#428 : PUSH     0                                //@(macro_inc@38)(main@148)
 >[-]
-L#422 : EQUAL                                    
+L#429 : EQUAL                                     //@(macro_inc@39)(main@148)
 [<->-][-]<[>+<[-]]>[<+>-][-]<[>+
 <[-]]>[<+>-]<->[-]<[>+<[-]]>[<+>
 -]<
-L#423 : IF                                       
+L#430 : IF                                        //@(macro_inc@40)(main@148)
 >[-]<[>+<[-]]>[<+>-]<[>+>+<<-]>>
 [<<+>>-]<[
-L#428 : AT       STACK(g2mobl)                         
+L#435 : AT       STACK(g2mobl)                          //@(macro_inc@79)(macro_inc@86)(macro_inc@91)(main@149)
 <<<<<<<
-L#429 : RESET                                    
+L#436 : RESET                                     //@(macro_inc@80)(macro_inc@86)(macro_inc@91)(main@149)
 [-]
 >>>>>>>
 -][-]<
-L#434 : ENDIF                                    
+L#441 : ENDIF                                     //@(main@150)
 [-]<
 -][-]<
-L#435 : ENDIF                                    
+L#442 : ENDIF                                     //@(main@151)
 [-]<
 -][-]<
-L#436 : ENDIF                                    
+L#443 : ENDIF                                     //@(main@152)
 [-]<
-L#438 : DROP                                     
+L#445 : DROP                                      //@(macro_inc@15)(main@153)
 [-]<
-L#440 : WEND                                     
+L#447 : WEND                                      //@(main@154)
 ][-]<
 -][-]<
-L#441 : ENDIF                                    
+L#448 : ENDIF                                     //@(main@155)
 [-]<
 -][-]<
-L#442 : ENDIF                                    
+L#449 : ENDIF                                     //@(main@156)
 [-]<
-L#444 : DROP                                     
+L#451 : DROP                                      //@(macro_inc@15)(main@157)
 [-]<
 -][-]<
-L#446 : ENDIF                                    
+L#453 : ENDIF                                     //@(main@158)
 [-]<
-L#447 : AROTL    bfCode                          
+L#454 : AROTL    bfCode                           //@(main@159)
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -1891,9 +1891,9 @@ L#447 : AROTL    bfCode
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>
-L#451 : DROP                                     
+L#458 : DROP                                      //@(macro_inc@15)(main@162)
 [-]<
-L#452 : DROP                                     
+L#459 : DROP                                      //@(macro_inc@15)(main@162)
 [-]<
-L#454 : WEND                                     
+L#461 : WEND                                      //@(main@163)
 ][-]<

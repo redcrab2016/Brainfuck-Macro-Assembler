@@ -1,16 +1,24 @@
+#    ____  _                      _ _  __   
+#   / ___|(_) __ _ _ __   ___  __| / |/ /_  
+#   \___ \| |/ _` | '_ \ / _ \/ _` | | '_ \ 
+#    ___) | | (_| | | | |  __/ (_| | | (_) |
+#   |____/|_|\__, |_| |_|\___|\__,_|_|\___/ 
+#            |___/                          
+# Sample 16 bits signed integer 
+
 include ../include/macro.inc
 include ../include/signedX16.inc
 
 # display a number
-var16("number1")
+var16   number1
 
 push    0
-setv16("number1", 10384)
+setv16  number1,    10384)
 
 
-scope_begin()
-    lvar16("number2")
-    set16(-1024)
+scope_begin
+    lvar16  number2
+    set16   -1024
 
     print("16 bits Hexa dump\n")
     print("c : carry , overflow or underflow\n")    
@@ -19,62 +27,62 @@ scope_begin()
     print("0 : less significant byte\n")    
 
     print("[number1]")
-    printhexa16("number1")
+    printhexa16 number1
     print("\n")
     print("          c s 1 0\n")
 
     print("[number2]")
-    printhexa16("number2")
+    printhexa16 number2
     print("\n")
     print("          c s 1 0\n\n")
     
     print("[decimal number1]")
-    write16("number1")
+    write16 number1
     print("\n")
     print("[decimal number2]")
-    write16("number2")
+    write16 number2
     print("\n")
 
-    addvv16("number1","number2")
+    addvv16 number1,    number2
     print("[number1+=number2]")
-    write16("number1")
+    write16 number1
     print("\n")
     
-    subvv16("number1","number2")
+    subvv16 number1,    number2
     print("[number1-=number2]")
-    write16("number1")
+    write16 number1
     print("\n")
 
     print("[number1]")
-    printhexa16("number1")
+    printhexa16 number1
     print("\n")
     print("          c s 1 0\n")
 
     print("[number2]")
-    printhexa16("number2")
+    printhexa16 number2
     print("\n")
     print("          c s 1 0\n\n")
 
-    addvv16("number2","number1")
+    addvv16 number2,    number1
     print("[number2+=number1]") 
-    write16("number2")
+    write16 number2
     print("\n")
     
-    subvv16("number2","number1")
+    subvv16 number2,    number1
     print("[number2-=number1]")
-    write16("number2")
+    write16 number2
     print("\n")
 
     print("[number1]")
-    printhexa16("number1")
+    printhexa16 number1
     print("\n")
     print("          c s 1 0\n")
 
     print("[number2]")
-    printhexa16("number2")
+    printhexa16 number2
     print("\n")
     print("          c s 1 0\n\n")
-scope_end()
+scope_end
 
 drop
 

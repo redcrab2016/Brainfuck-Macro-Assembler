@@ -1,126 +1,133 @@
-#    ____        _         ____    _   _                ____  _        _
-#   | __ ) _   _| |_ ___  |___ \  | | | | _____  ____ _/ ___|| |_ _ __(_)_ __   __ _
-#   |  _ \| | | | __/ _ \   __) | | |_| |/ _ \ \/ / _` \___ \| __| '__| | '_ \ / _` |
-#   | |_) | |_| | ||  __/  / __/  |  _  |  __/>  < (_| |___) | |_| |  | | | | | (_| |
-#   |____/ \__, |\__\___| |_____| |_| |_|\___/_/\_\__,_|____/ \__|_|  |_|_| |_|\__, |
-#          |___/                                                               |___/
-# Read input byte and output it as hexa string
-# this sample do use macro
-
-
+#    ____        _         ____    _   _                ____  _        _ #@(main@1)
+#   | __ ) _   _| |_ ___  |___ \  | | | | _____  ____ _/ ___|| |_ _ __(_)_ __   __ _ #@(main@2)
+#   |  _ \| | | | __/ _ \   __) | | |_| |/ _ \ \/ / _` \___ \| __| '__| | '_ \ / _` | #@(main@3)
+#   | |_) | |_| | ||  __/  / __/  |  _  |  __/>  < (_| |___) | |_| |  | | | | | (_| | #@(main@4)
+#   |____/ \__, |\__\___| |_____| |_| |_|\___/_/\_\__,_|____/ \__|_|  |_|_| |_|\__, | #@(main@5)
+#          |___/                                                               |___/ #@(main@6)
+# Read input byte and output it as hexa string #@(main@7)
+# this sample do use macro #@(main@8)
+ #@(main@9)
+ #@(main@10)
 #(begin include)../include/macro.inc
-# Common macros
-# scope variables
-
-
-# macro scope_begin : start a new scope for local variable (usage of macro lvar)
-
-# macro scope_end : end a scope , then drop scoped local variables (drop) (usage of lvar)
-
-# macro lvar(vname,value) : declare  in scope, a local variable named vname with an assigned value (stored in stack)
-
-# macro if_diff(a,b) : if (a != b) {
-
-# macro if_equal(a,b) : if (a == b) {
-
-# macro if_sup(a,b) : if (a > b) {
-
-# macro if_inf(a,b) : if (a < b) {
-
-# macro if_supequal(a,b) : if (a >= b) {
-
-# macro if_infequal(a,b) : if (a <= b) {
-
-# macro at_2
-
-# macro at_1
-
-# macro at_reset(a) : a=0
-
-# macro at_inc(a) : a++
-
-# macro at_dec(a) : a--
-
-# macro at_in(a)  : a= readchar()
-
-# macro at_out(a) : write(a)
-
-# macro at_add(a,b) : a += b (immediate)
-
-# macro at_sub(a,b) : a -= b (immediate)
-
-# macro at_set(a,b) : a = b (immediate)
-
-
-
-
-
-# macro popouthexa() : from head of stack value (from 0 to 15) write out hexa (from 0 to 9 and A to F)
-
-# macro popout8hexa() : from head of stack the 8 bit value is write out in hexa
-
-# macro print(aString) : print out a string
+# Common macros #@(macro_inc@1)
+# scope variables #@(macro_inc@2)
+ #@(macro_inc@5)
+ #@(macro_inc@6)
+# macro scope_begin : start a new scope for local variable (usage of macro lvar) #@(macro_inc@7)
+ #@(macro_inc@11)
+# macro scope_end : end a scope , then drop scoped local variables (drop) (usage of lvar) #@(macro_inc@12)
+ #@(macro_inc@19)
+# macro lvar(vname,value) : declare  in scope, a local variable named vname with an assigned value (stored in stack) #@(macro_inc@20)
+ #@(macro_inc@26)
+# macro if_diff(a,b) : if (a != b) { #@(macro_inc@27)
+ #@(macro_inc@34)
+# macro if_equal(a,b) : if (a == b) { #@(macro_inc@35)
+ #@(macro_inc@42)
+# macro if_sup(a,b) : if (a > b) { #@(macro_inc@43)
+ #@(macro_inc@50)
+# macro if_inf(a,b) : if (a < b) { #@(macro_inc@51)
+ #@(macro_inc@58)
+# macro if_supequal(a,b) : if (a >= b) { #@(macro_inc@59)
+ #@(macro_inc@67)
+# macro if_infequal(a,b) : if (a <= b) { #@(macro_inc@68)
+ #@(macro_inc@76)
+# macro at_2 #@(macro_inc@77)
+ #@(macro_inc@83)
+# macro at_1 #@(macro_inc@84)
+ #@(macro_inc@88)
+# macro at_reset(a) : a=0 #@(macro_inc@89)
+ #@(macro_inc@93)
+# macro at_inc(a) : a++ #@(macro_inc@94)
+ #@(macro_inc@98)
+# macro at_dec(a) : a-- #@(macro_inc@99)
+ #@(macro_inc@103)
+# macro at_in(a)  : a= readchar() #@(macro_inc@104)
+ #@(macro_inc@108)
+# macro at_out(a) : write(a) #@(macro_inc@109)
+ #@(macro_inc@113)
+# macro at_add(a,b) : a += b (immediate) #@(macro_inc@114)
+ #@(macro_inc@118)
+# macro at_sub(a,b) : a -= b (immediate) #@(macro_inc@119)
+ #@(macro_inc@123)
+# macro at_set(a,b) : a = b (immediate) #@(macro_inc@124)
+ #@(macro_inc@128)
+ #@(macro_inc@133)
+ #@(macro_inc@141)
+#macro addof() : push A, push B , replaced by Carry, A+B #@(macro_inc@142)
+ #@(macro_inc@180)
+# macro subof() : push A, push B , replaced by Carry, A-B #@(macro_inc@181)
+ #@(macro_inc@221)
+# macro mulof() : A = stack-1, B= stack : stack-1 = A*B div 256, stack = A*B mod 256 #@(macro_inc@222)
+ #@(macro_inc@245)
+ #@(macro_inc@246)
+ #@(macro_inc@258)
+ #@(macro_inc@265)
+# macro popouthexa() : from head of stack value (from 0 to 15) write out hexa (from 0 to 9 and A to F) #@(macro_inc@266)
+ #@(macro_inc@276)
+# macro popout8hexa() : from head of stack the 8 bit value is write out in hexa #@(macro_inc@277)
+ #@(macro_inc@284)
+# macro print(aString) : print out a string #@(macro_inc@285)
 #(end include)../include/macro.inc
-
-
-
-
-push    1
-while
-  push    in
-  push    16
-  div
-  #(begin macro)writeHexa() # output most significant hexa character from head of stack value, then drop
-  sbm _input1
+ #@(main@12)
+ #@(main@14)
+ #@(main@25)
+ #@(main@26)
+push    1 #@(main@27)
+while #@(main@28)
+  push    in #@(main@29)
+  push    16 #@(main@30)
+  div #@(main@31)
+  #(begin macro)writeHexa # output most significant hexa character from head of stack value, then drop
+  sbm _input1 #@(main@17)(main@32)
   #(begin macro)if_sup("_input" + whIdx,9)
-  push _input1
-  push 9
-  sup
-  if
+  push    _input1 #@(macro_inc@45)(main@18)(main@32)
+  push    9 #@(macro_inc@46)(main@18)(main@32)
+  sup #@(macro_inc@47)(main@18)(main@32)
+  if #@(macro_inc@48)(main@18)(main@32)
     #(end macro)if_sup("_input" + whIdx,9)
     #(begin macro)at_add("_input" + whIdx, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input1
-      add '7'
-    ta
+    at      _input1 #@(macro_inc@79)(macro_inc@116)(main@19)(main@32)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(main@19)(main@32)
+    ta #@(macro_inc@81)(macro_inc@116)(main@19)(main@32)
     #(end macro)at_2("add",a,b)
     #(end macro)at_add("_input" + whIdx, "'7'")
-  else
+  else #@(main@20)(main@32)
     #(begin macro)at_add("_input" + whIdx, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input1
-      add '0'
-    ta
+    at      _input1 #@(macro_inc@79)(macro_inc@116)(main@21)(main@32)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(main@21)(main@32)
+    ta #@(macro_inc@81)(macro_inc@116)(main@21)(main@32)
     #(end macro)at_2("add",a,b)
     #(end macro)at_add("_input" + whIdx, "'0'")
-  fi
-  pop out
-  #(end macro)writeHexa() # output most significant hexa character from head of stack value, then drop
-  #(begin macro)writeHexa() # output less significant hexa character from head of stack value, then drop
-  sbm _input2
+  fi #@(main@22)(main@32)
+  pop out #@(main@23)(main@32)
+  #(end macro)writeHexa # output most significant hexa character from head of stack value, then drop
+  #(begin macro)writeHexa # output less significant hexa character from head of stack value, then drop
+  sbm _input2 #@(main@17)(main@33)
   #(begin macro)if_sup("_input" + whIdx,9)
-  push _input2
-  push 9
-  sup
-  if
+  push    _input2 #@(macro_inc@45)(main@18)(main@33)
+  push    9 #@(macro_inc@46)(main@18)(main@33)
+  sup #@(macro_inc@47)(main@18)(main@33)
+  if #@(macro_inc@48)(main@18)(main@33)
     #(end macro)if_sup("_input" + whIdx,9)
     #(begin macro)at_add("_input" + whIdx, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input2
-      add '7'
-    ta
+    at      _input2 #@(macro_inc@79)(macro_inc@116)(main@19)(main@33)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(main@19)(main@33)
+    ta #@(macro_inc@81)(macro_inc@116)(main@19)(main@33)
     #(end macro)at_2("add",a,b)
     #(end macro)at_add("_input" + whIdx, "'7'")
-  else
+  else #@(main@20)(main@33)
     #(begin macro)at_add("_input" + whIdx, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input2
-      add '0'
-    ta
+    at      _input2 #@(macro_inc@79)(macro_inc@116)(main@21)(main@33)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(main@21)(main@33)
+    ta #@(macro_inc@81)(macro_inc@116)(main@21)(main@33)
     #(end macro)at_2("add",a,b)
     #(end macro)at_add("_input" + whIdx, "'0'")
-  fi
-  pop out
-  #(end macro)writeHexa() # output less significant hexa character from head of stack value, then drop
-wend
+  fi #@(main@22)(main@33)
+  pop out #@(main@23)(main@33)
+  #(end macro)writeHexa # output less significant hexa character from head of stack value, then drop
+wend #@(main@34)
 

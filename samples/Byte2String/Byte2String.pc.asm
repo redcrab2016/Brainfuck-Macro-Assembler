@@ -1,49 +1,49 @@
-#    ____        _         ____    ____  _        _
-#   | __ ) _   _| |_ ___  |___ \  / ___|| |_ _ __(_)_ __   __ _
-#   |  _ \| | | | __/ _ \   __) | \___ \| __| '__| | '_ \ / _` |
-#   | |_) | |_| | ||  __/  / __/   ___) | |_| |  | | | | | (_| |
-#   |____/ \__, |\__\___| |_____| |____/ \__|_|  |_|_| |_|\__, |
-#          |___/                                          |___/
-# Read input byte and output it as decimal number string separated by comma
-# this sample does not use macro,
-# number are prefixed with '0' (e.g 65 is 065, 1 is 001)
-
-var input
-var output*3
-
-push    1
-sbm count
-while
-  at input
-    in
-  ta
-  push count
-  push 1
-  equal
-  if
-    at count
-      set 2
-    ta
-  else
-    push ','
-    pop out
-  fi
-  push 3
-  loop
-    push input
-    push 10
-    div
-    pop input
-    pop output
-    arotl output
-  endloop
-  push 3
-  sbm cnt
-  loop
-    arotr output
-    push output
-    add '0'
-    pop out
-  endloop
-wend
+#    ____        _         ____    ____  _        _ #@(main@1)
+#   | __ ) _   _| |_ ___  |___ \  / ___|| |_ _ __(_)_ __   __ _ #@(main@2)
+#   |  _ \| | | | __/ _ \   __) | \___ \| __| '__| | '_ \ / _` | #@(main@3)
+#   | |_) | |_| | ||  __/  / __/   ___) | |_| |  | | | | | (_| | #@(main@4)
+#   |____/ \__, |\__\___| |_____| |____/ \__|_|  |_|_| |_|\__, | #@(main@5)
+#          |___/                                          |___/ #@(main@6)
+# Read input byte and output it as decimal number string separated by comma #@(main@7)
+# this sample does not use macro, #@(main@8)
+# number are prefixed with '0' (e.g 65 is 065, 1 is 001) #@(main@9)
+ #@(main@10)
+var input #@(main@11)
+var output*3 #@(main@12)
+ #@(main@13)
+push    1 #@(main@14)
+sbm count #@(main@15)
+while #@(main@16)
+  at input #@(main@17)
+    in #@(main@18)
+  ta #@(main@19)
+  push count #@(main@20)
+  push 1 #@(main@21)
+  equal #@(main@22)
+  if #@(main@23)
+    at count #@(main@24)
+      set 2 #@(main@25)
+    ta #@(main@26)
+  else #@(main@27)
+    push ',' #@(main@28)
+    pop out #@(main@29)
+  fi #@(main@30)
+  push 3 #@(main@31)
+  loop #@(main@32)
+    push input #@(main@33)
+    push 10 #@(main@34)
+    div #@(main@35)
+    pop input #@(main@36)
+    pop output #@(main@37)
+    arotl output #@(main@38)
+  endloop #@(main@39)
+  push 3 #@(main@40)
+  sbm cnt #@(main@41)
+  loop #@(main@42)
+    arotr output #@(main@43)
+    push output #@(main@44)
+    add '0' #@(main@45)
+    pop out #@(main@46)
+  endloop #@(main@47)
+wend #@(main@48)
 

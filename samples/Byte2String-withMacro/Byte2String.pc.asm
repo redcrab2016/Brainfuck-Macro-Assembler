@@ -1,173 +1,180 @@
-#    ____        _         ____    ____  _        _
-#   | __ ) _   _| |_ ___  |___ \  / ___|| |_ _ __(_)_ __   __ _
-#   |  _ \| | | | __/ _ \   __) | \___ \| __| '__| | '_ \ / _` |
-#   | |_) | |_| | ||  __/  / __/   ___) | |_| |  | | | | | (_| |
-#   |____/ \__, |\__\___| |_____| |____/ \__|_|  |_|_| |_|\__, |
-#          |___/                                          |___/
-# Read input byte and output it as decimal number string separated by comma
-# this sample do use macro
-# this version does not keep '0' prefix
-
+#    ____        _         ____    ____  _        _ #@(main@1)
+#   | __ ) _   _| |_ ___  |___ \  / ___|| |_ _ __(_)_ __   __ _ #@(main@2)
+#   |  _ \| | | | __/ _ \   __) | \___ \| __| '__| | '_ \ / _` | #@(main@3)
+#   | |_) | |_| | ||  __/  / __/   ___) | |_| |  | | | | | (_| | #@(main@4)
+#   |____/ \__, |\__\___| |_____| |____/ \__|_|  |_|_| |_|\__, | #@(main@5)
+#          |___/                                          |___/ #@(main@6)
+# Read input byte and output it as decimal number string separated by comma #@(main@7)
+# this sample do use macro #@(main@8)
+# this version does not keep '0' prefix #@(main@9)
+ #@(main@10)
 #(begin include)../include/macro.inc
-# Common macros
-# scope variables
-
-
-# macro scope_begin : start a new scope for local variable (usage of macro lvar)
-
-# macro scope_end : end a scope , then drop scoped local variables (drop) (usage of lvar)
-
-# macro lvar(vname,value) : declare  in scope, a local variable named vname with an assigned value (stored in stack)
-
-# macro if_diff(a,b) : if (a != b) {
-
-# macro if_equal(a,b) : if (a == b) {
-
-# macro if_sup(a,b) : if (a > b) {
-
-# macro if_inf(a,b) : if (a < b) {
-
-# macro if_supequal(a,b) : if (a >= b) {
-
-# macro if_infequal(a,b) : if (a <= b) {
-
-# macro at_2
-
-# macro at_1
-
-# macro at_reset(a) : a=0
-
-# macro at_inc(a) : a++
-
-# macro at_dec(a) : a--
-
-# macro at_in(a)  : a= readchar()
-
-# macro at_out(a) : write(a)
-
-# macro at_add(a,b) : a += b (immediate)
-
-# macro at_sub(a,b) : a -= b (immediate)
-
-# macro at_set(a,b) : a = b (immediate)
-
-
-
-
-
-# macro popouthexa() : from head of stack value (from 0 to 15) write out hexa (from 0 to 9 and A to F)
-
-# macro popout8hexa() : from head of stack the 8 bit value is write out in hexa
-
-# macro print(aString) : print out a string
+# Common macros #@(macro_inc@1)
+# scope variables #@(macro_inc@2)
+ #@(macro_inc@5)
+ #@(macro_inc@6)
+# macro scope_begin : start a new scope for local variable (usage of macro lvar) #@(macro_inc@7)
+ #@(macro_inc@11)
+# macro scope_end : end a scope , then drop scoped local variables (drop) (usage of lvar) #@(macro_inc@12)
+ #@(macro_inc@19)
+# macro lvar(vname,value) : declare  in scope, a local variable named vname with an assigned value (stored in stack) #@(macro_inc@20)
+ #@(macro_inc@26)
+# macro if_diff(a,b) : if (a != b) { #@(macro_inc@27)
+ #@(macro_inc@34)
+# macro if_equal(a,b) : if (a == b) { #@(macro_inc@35)
+ #@(macro_inc@42)
+# macro if_sup(a,b) : if (a > b) { #@(macro_inc@43)
+ #@(macro_inc@50)
+# macro if_inf(a,b) : if (a < b) { #@(macro_inc@51)
+ #@(macro_inc@58)
+# macro if_supequal(a,b) : if (a >= b) { #@(macro_inc@59)
+ #@(macro_inc@67)
+# macro if_infequal(a,b) : if (a <= b) { #@(macro_inc@68)
+ #@(macro_inc@76)
+# macro at_2 #@(macro_inc@77)
+ #@(macro_inc@83)
+# macro at_1 #@(macro_inc@84)
+ #@(macro_inc@88)
+# macro at_reset(a) : a=0 #@(macro_inc@89)
+ #@(macro_inc@93)
+# macro at_inc(a) : a++ #@(macro_inc@94)
+ #@(macro_inc@98)
+# macro at_dec(a) : a-- #@(macro_inc@99)
+ #@(macro_inc@103)
+# macro at_in(a)  : a= readchar() #@(macro_inc@104)
+ #@(macro_inc@108)
+# macro at_out(a) : write(a) #@(macro_inc@109)
+ #@(macro_inc@113)
+# macro at_add(a,b) : a += b (immediate) #@(macro_inc@114)
+ #@(macro_inc@118)
+# macro at_sub(a,b) : a -= b (immediate) #@(macro_inc@119)
+ #@(macro_inc@123)
+# macro at_set(a,b) : a = b (immediate) #@(macro_inc@124)
+ #@(macro_inc@128)
+ #@(macro_inc@133)
+ #@(macro_inc@141)
+#macro addof() : push A, push B , replaced by Carry, A+B #@(macro_inc@142)
+ #@(macro_inc@180)
+# macro subof() : push A, push B , replaced by Carry, A-B #@(macro_inc@181)
+ #@(macro_inc@221)
+# macro mulof() : A = stack-1, B= stack : stack-1 = A*B div 256, stack = A*B mod 256 #@(macro_inc@222)
+ #@(macro_inc@245)
+ #@(macro_inc@246)
+ #@(macro_inc@258)
+ #@(macro_inc@265)
+# macro popouthexa() : from head of stack value (from 0 to 15) write out hexa (from 0 to 9 and A to F) #@(macro_inc@266)
+ #@(macro_inc@276)
+# macro popout8hexa() : from head of stack the 8 bit value is write out in hexa #@(macro_inc@277)
+ #@(macro_inc@284)
+# macro print(aString) : print out a string #@(macro_inc@285)
 #(end include)../include/macro.inc
-
-
-
-var input
-var output*3
-
-push    1
-sbm count
-while
-  #(begin macro)at_in("input")
+ #@(main@12)
+ #@(main@18)
+ #@(main@20)
+var input #@(main@21)
+var output*3 #@(main@22)
+ #@(main@23)
+push    1 #@(main@24)
+sbm count #@(main@25)
+while #@(main@26)
+  #(begin macro)at_in   input
   #(begin macro)at_1("in",a)
   #(begin macro)at_2(ope,a,"")
-  at input
-    in 
-  ta
+  at      input #@(macro_inc@79)(macro_inc@86)(macro_inc@106)(main@27)
+    in    #@(macro_inc@80)(macro_inc@86)(macro_inc@106)(main@27)
+  ta #@(macro_inc@81)(macro_inc@86)(macro_inc@106)(main@27)
   #(end macro)at_2(ope,a,"")
   #(end macro)at_1("in",a)
-  #(end macro)at_in("input")
-  #(begin macro)if_equal("count",1)
-  push count
-  push 1
-  equal
-  if
-    #(end macro)if_equal("count",1)
-    #(begin macro)at_set("count",2)
+  #(end macro)at_in   input
+  #(begin macro)if_equal    count,  1
+  push    count #@(macro_inc@37)(main@28)
+  push    1 #@(macro_inc@38)(main@28)
+  equal #@(macro_inc@39)(main@28)
+  if #@(macro_inc@40)(main@28)
+    #(end macro)if_equal    count,  1
+    #(begin macro)at_set  count,  2
     #(begin macro)at_2("set",a,b)
-    at count
-      set 2
-    ta
+    at      count #@(macro_inc@79)(macro_inc@126)(main@29)
+      set   2 #@(macro_inc@80)(macro_inc@126)(main@29)
+    ta #@(macro_inc@81)(macro_inc@126)(main@29)
     #(end macro)at_2("set",a,b)
-    #(end macro)at_set("count",2)
-  else
+    #(end macro)at_set  count,  2
+  else #@(main@30)
     #(begin macro)write("','")
-    push    ','
-    pop     out
+    push    ',' #@(macro_inc@130)(main@31)
+    pop     out #@(macro_inc@131)(main@31)
     #(end macro)write("','")
-  fi
-  push 3
-  loop
-    # output = input mod 10 ; input = input div 10
-    #(begin macro)divide("input",10,"input","output")
-    push input
-    push 10
-    div
-    pop input
-    pop output
-    #(end macro)divide("input",10,"input","output")
-    arotl output
-  endloop
-  #(begin macro)scope_begin()
-  #(end macro)scope_begin()
-  #(begin macro)lvar("prefixzero",1)
-  push 1
-  sbm prefixzero
-  #(end macro)lvar("prefixzero",1)
-  push 3
-  sbm cnt
-  loop
-    arotr output
-    #(begin macro)if_sup("cnt",1)   # cnt == 3 or cnt == 2
-    push cnt
-    push 1
-    sup
-    if
-      #(end macro)if_sup("cnt",1)   # cnt == 3 or cnt == 2
-      #(begin macro)if_diff("output",0)
-      push output
-      push 0
-      diff
-      if
-        #(end macro)if_diff("output",0)
-        #(begin macro)writeDigit("output")
-        push    output
-        add     '0'
-        pop     out
-        #(end macro)writeDigit("output")
-        #(begin macro)at_set("prefixzero",0)
+  fi #@(main@32)
+  push 3 #@(main@33)
+  loop #@(main@34)
+    # output = input mod 10 ; input = input div 10 #@(main@35)
+    #(begin macro)divide  input,  10, input,  output
+    push    input #@(macro_inc@135)(main@36)
+    push    10 #@(macro_inc@136)(main@36)
+    div #@(macro_inc@137)(main@36)
+    pop     input #@(macro_inc@138)(main@36)
+    pop     output #@(macro_inc@139)(main@36)
+    #(end macro)divide  input,  10, input,  output
+    arotl output #@(main@37)
+  endloop #@(main@38)
+  #(begin macro)scope_begin
+  #(end macro)scope_begin
+  #(begin macro)lvar    prefixzero, 1
+  push    1 #@(macro_inc@22)(main@40)
+  sbm     prefixzero #@(macro_inc@23)(main@40)
+  #(end macro)lvar    prefixzero, 1
+  push    3 #@(main@41)
+  sbm     cnt #@(main@42)
+  loop #@(main@43)
+    arotr   output #@(main@44)
+    #(begin macro)if_sup  cnt,    1   # cnt == 3 or cnt == 2
+    push    cnt #@(macro_inc@45)(main@45)
+    push    1 #@(macro_inc@46)(main@45)
+    sup #@(macro_inc@47)(main@45)
+    if #@(macro_inc@48)(main@45)
+      #(end macro)if_sup  cnt,    1   # cnt == 3 or cnt == 2
+      #(begin macro)if_diff output, 0
+      push    output #@(macro_inc@29)(main@46)
+      push    0 #@(macro_inc@30)(main@46)
+      diff #@(macro_inc@31)(main@46)
+      if #@(macro_inc@32)(main@46)
+        #(end macro)if_diff output, 0
+        #(begin macro)writeDigit  output
+        push    output #@(main@14)(main@47)
+        add     '0' #@(main@15)(main@47)
+        pop     out #@(main@16)(main@47)
+        #(end macro)writeDigit  output
+        #(begin macro)at_set  prefixzero, 0
         #(begin macro)at_2("set",a,b)
-        at prefixzero
-          set 0
-        ta
+        at      prefixzero #@(macro_inc@79)(macro_inc@126)(main@48)
+          set   0 #@(macro_inc@80)(macro_inc@126)(main@48)
+        ta #@(macro_inc@81)(macro_inc@126)(main@48)
         #(end macro)at_2("set",a,b)
-        #(end macro)at_set("prefixzero",0)
-      else
-        #(begin macro)if_equal("prefixzero",0)
-        push prefixzero
-        push 0
-        equal
-        if
-          #(end macro)if_equal("prefixzero",0)
-          #(begin macro)writeDigit("output")
-          push    output
-          add     '0'
-          pop     out
-          #(end macro)writeDigit("output")
-        fi
-      fi
-    else
-      #(begin macro)writeDigit("output")
-      push    output
-      add     '0'
-      pop     out
-      #(end macro)writeDigit("output")
-    fi
-  endloop
-  #(begin macro)scope_end()
-  drop
-  #(end macro)scope_end()
-wend
+        #(end macro)at_set  prefixzero, 0
+      else #@(main@49)
+        #(begin macro)if_equal    prefixzero, 0
+        push    prefixzero #@(macro_inc@37)(main@50)
+        push    0 #@(macro_inc@38)(main@50)
+        equal #@(macro_inc@39)(main@50)
+        if #@(macro_inc@40)(main@50)
+          #(end macro)if_equal    prefixzero, 0
+          #(begin macro)writeDigit  output
+          push    output #@(main@14)(main@51)
+          add     '0' #@(main@15)(main@51)
+          pop     out #@(main@16)(main@51)
+          #(end macro)writeDigit  output
+        fi #@(main@52)
+      fi #@(main@53)
+    else #@(main@54)
+      #(begin macro)writeDigit  output
+      push    output #@(main@14)(main@55)
+      add     '0' #@(main@15)(main@55)
+      pop     out #@(main@16)(main@55)
+      #(end macro)writeDigit  output
+    fi #@(main@56)
+  endloop #@(main@57)
+  #(begin macro)scope_end
+  drop #@(macro_inc@15)(main@58)
+  #(end macro)scope_end
+wend #@(main@59)
 

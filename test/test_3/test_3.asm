@@ -71,10 +71,47 @@ print("Signed 32 bits macro test.\n\n")
 # macro mul32() : stack-1 = stack-1 * stack : stack--
 
 scope_begin()
-    lvar32("var1")
-    lvar32("var3")
-    lvar32("var4")
-    lvar32("var5")
+    lvar32  var1
+    lvar32  var3
+    lvar32  var4
+    lvar32  var5
+    lvarX   6,  var6A
+    lvarX   6,  var6B
+    lvarX   6,  var6C
+
+    setvX(6,"var6A",16777216)  # FF FF
+    setvX(6,"var6B",16777216)  # 0A
+    print("1000000 + 1000000=")
+    addvvvX(6, "var6C", "var6A","var6B")
+    printhexaX(6, "var6C")
+    print("\n")
+
+    
+    setvX(6,"var6A",4096)  # FF FF
+    setvX(6,"var6B",4096)  # 0A
+    print("1000 * 1000=")
+    mulvvvX(6, "var6C", "var6A","var6B")
+    printhexaX(6, "var6C")
+    print("\n")
+    
+    setvX(6,"var6A",688128)  # A 80 00
+    setvX(6,"var6B",131072)  # 2 00 00
+    print("A8000 * 20000=")
+    mulvvvX(6, "var6C", "var6A","var6B")
+    printhexaX(6, "var6C")
+    print("\n")
+ 
+ 
+    setv32("var1",0)
+    setv32("var3",65536)
+    setv32("var4",-10)
+    mulvvv32("var1","var3","var4")    
+    print("65536 * -10:")
+    printhexa32("var1")
+    print(":")
+    write32("var1")
+    print("\n")
+ 
     
     setv32("var1",0)
     setv32("var3",65536)

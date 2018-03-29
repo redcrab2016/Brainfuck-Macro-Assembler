@@ -19,47 +19,47 @@ endmacro
 
 # macro lvar(vname,value) : declare  in scope, a local variable named vname with an assigned value (stored in stack)
 macro lvar(vname,value)
-    push {value}
-    sbm {vname}
+    push    {value}
+    sbm     {vname}
     js __scope[__scope.length-1]++; 
 endmacro
 
 # macro if_diff(a,b) : if (a != b) {
 macro if_diff(a,b)
-    push {a}
-    push {b}
+    push    {a}
+    push    {b}
     diff
     if
 endmacro
 
 # macro if_equal(a,b) : if (a == b) {
 macro if_equal(a,b)
-    push {a}
-    push {b}
+    push    {a}
+    push    {b}
     equal
     if
 endmacro
 
 # macro if_sup(a,b) : if (a > b) {
 macro if_sup(a,b)
-    push {a}
-    push {b}
+    push    {a}
+    push    {b}
     sup
     if
 endmacro
 
 # macro if_inf(a,b) : if (a < b) {
 macro if_inf(a,b)
-    push {a}
-    push {b}
+    push    {a}
+    push    {b}
     inf
     if
 endmacro
 
 # macro if_supequal(a,b) : if (a >= b) {
 macro if_supequal(a,b)
-    push {a}
-    push {b}
+    push    {a}
+    push    {b}
     inf
     not
     if
@@ -67,8 +67,8 @@ endmacro
 
 # macro if_infequal(a,b) : if (a <= b) {
 macro if_infequal(a,b)
-    push {a}
-    push {b}
+    push    {a}
+    push    {b}
     sup
     not
     if
@@ -76,8 +76,8 @@ endmacro
 
 # macro at_2
 macro at_2(ope, a,b)
-    at {a}
-    {ope} {b}
+    at      {a}
+    {ope}   {b}
     ta
 endmacro
 
@@ -132,21 +132,126 @@ macro write(a)
 endmacro
 
 macro divide(a,b,d,r)
-    push {a}
-    push {b}
+    push    {a}
+    push    {b}
     div
-    pop {d}
-    pop {r}
+    pop     {d}
+    pop     {r}
 endmacro
 
+#macro addof() : push A, push B , replaced by Carry, A+B
+macro addof()
+    sbm _addofb{_addof}
+    sbm _addofa{_addof} - 1
+    scope_begin()
+        lvar("_addofc"+_addof ,0)
+        push 1
+        sbm _loopao{_addof}
+        while
+            push _addofa{_addof}
+            if
+                at _addofa{_addof}
+                    dec
+                ta 
+                at _addofb{_addof}
+                    inc
+                ta
+                push _addofb{_addof}
+                not
+                if 
+                    at _addofc{_addof}
+                        set 1
+                    ta
+                fi
+            else 
+                at _loopao{_addof}
+                    reset
+                ta
+            fi
+        wend
+        push _addofc{_addof}
+        if
+            at _addofa{_addof}
+                set 1
+            ta
+        fi
+    scope_end()
+endmacro
+
+# macro subof() : push A, push B , replaced by Carry, A-B
+macro subof()
+    sbm _subofb{_subof}
+    sbm _subofa{_subof} - 1
+    scope_begin()
+        lvar("_subofc"+_subof ,0)
+        push 1
+        sbm _loopso{_subof}
+        while
+            push _subofb{_subof}
+            if  
+                at _subofb{_subof}
+                    dec
+                ta
+                at _subofa{_subof}
+                    dec
+                ta
+                push _subofa{_subof}
+                inc
+                not
+                if
+                    at _subofc{_subof}
+                        set 1
+                    ta
+                fi 
+            else
+                at _loopso{_subof}
+                    reset
+                ta
+            fi
+        wend
+        push _subofc{_subof}
+        if
+            at _subofb{_subof}
+                set 1
+            ta
+        fi
+    scope_end()
+    swap
+endmacro
+
+# macro mulof() : A = stack-1, B= stack : stack-1 = A*B div 256, stack = A*B mod 256
+macro mulof()
+    sbm     _mulofA{_mulof} - 1
+    sbm     _mulofB{_mulof}
+    scope_begin
+        lvar    _mulofABdiv256{_mulof},    0
+        lvar    _mulofABmod256{_mulof},    0
+        push    _mulofB{_mulof}
+        loop
+            push    _mulofABmod256{_mulof}
+            push    _mulofA{_mulof}
+            addof
+            pop     _mulofABmod256{_mulof}
+            push    _mulofABdiv256{_mulof}
+            add
+            pop     _mulofABdiv256{_mulof}
+        endloop
+        push    _mulofABmod256{_mulof}
+        pop     _mulofB{_mulof}
+        push    _mulofABdiv256{_mulof}
+        pop     _mulofA{_mulof}    
+    scope_end
+endmacro
+
+
 macro left_rewind(array)
-    push 1
-    sbm __looprewind
+    push    1
+    sbm     __looprewind{_left_rewind}
     while
-        if_diff("{array}.pos",0)
+        if_diff {array}.pos,    0
             arotl {array}
         else
-            at_reset("__looprewind")
+            at_reset    __looprewind{_left_rewind}
         fi
     wend
 endmacro
@@ -160,12 +265,11 @@ endmacro
 
 # macro popouthexa() : from head of stack value (from 0 to 15) write out hexa (from 0 to 9 and A to F)
 macro popouthexa()
-js  __idx++;
-    sbm _input{__idx}
-    if_sup("_input" + __idx,9)
-        at_add("_input" + __idx, "'7'")
+    sbm     _input{_popouthexa}
+    if_sup  _input{_popouthexa},    9
+        at_add("_input" + _popouthexa, "'7'")
     else
-        at_add("_input" + __idx, "'0'")
+        at_add("_input" + _popouthexa, "'0'")
     fi
     pop out
 endmacro
@@ -174,8 +278,8 @@ endmacro
 macro popout8hexa()
     push    16
     div
-    popouthexa() # output most significant hexa character from head of stack value, then drop
-    popouthexa() # output less significant hexa character from head of stack value, then drop
+    popouthexa # output most significant hexa character from head of stack value, then drop
+    popouthexa # output less significant hexa character from head of stack value, then drop
 endmacro
 
 # macro print(aString) : print out a string

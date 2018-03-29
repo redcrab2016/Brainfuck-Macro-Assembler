@@ -684,6 +684,7 @@ public class Assembler {
 	private String preCompiledjs;
 	private String include;
 	private Map<String,Object> includedFile;
+	private int lineNum; // line number in file
 	
 	public Assembler(InputStream isAsmSource, String include, boolean checkUnusedVar)  {
 		sbm = new StackBookmark();
@@ -754,11 +755,16 @@ public class Assembler {
 	private String preCompile(InputStream isAsmSource) throws IOException, ScriptException {
 		String result="";
 		BufferedReader in = new BufferedReader(new InputStreamReader(isAsmSource));
+		lineNum = 0;
 		String script = "var __blockLevel__; __blockLevel__ = 0;\n"+
+						"var __context__; __context__=[];\n" +
+						"function __context() { var __result; __result='';\n" +
+						"for (var _i=__context__.length-1; _i>=0 ; _i--) __result+=__context__[_i];\n" +
+						" return __result;}\n" +
 						"function __indent() { var __result; __result = '';\n" + 
 						"for (var _i=0 ; _i < __blockLevel__ ; _i++) __result+= '  ';\n"+
 						" return __result;}\n" +
-						genMacro(in,"_main","",false)+"_main();";
+						genMacro(in,"_main","",false,"main","")+"_main();";
 		// DEBUG
 		//System.out.println("JScode:\n"+script);
 
@@ -772,7 +778,9 @@ public class Assembler {
 	private String genMacro( BufferedReader in,
 							 String macroName,
 							 String macroParams,
-							 boolean isInclude) throws IOException {
+							 boolean isInclude,
+							 String filename,
+							 String fileComment) throws IOException {
 		StringBuffer result = new StringBuffer();
 		if (!isInclude) {
 			result.append("var _"+macroName+ "; _"+macroName+"=0;\n");
@@ -821,7 +829,12 @@ public class Assembler {
 		Pattern p_define = Pattern.compile("^\\s*(define|DEFINE)\\s+([_A-Za-z][_A-Za-z0-9]*)\\s+(\\S.*)$");
 		Pattern p_include = Pattern.compile("^\\s*(include|INCLUDE)\\s+(\\S+)\\s*$");
 		Pattern p_js = Pattern.compile("^\\s*js\\s*(.+)$");
+		
+		String curFileContext = "";
 		while ((line = in.readLine()) != null) {
+			lineNum++;
+			curFileContext = "(" + filename + "@" + lineNum + ")";//+fileComment;
+			curFileContext = curFileContext.replace('.', '_');
 			line = line.trim();
 			Matcher m_asmMacro = p_asmMacro.matcher(line);
 			Matcher m_asmInstr = p_asmInstr.matcher(line);
@@ -838,7 +851,9 @@ public class Assembler {
 						genMacro(in,
 								 m_beginmacro.group(2),
 								 m_beginmacro.group(4),
-								 false
+								 false,
+								 filename,
+								 fileComment
 								 )
 						);
 			} else if (m_endmacro.matches()) {
@@ -850,11 +865,14 @@ public class Assembler {
 			} else if (m_instr.matches()) {
 				result.append("_str"+macroName+"+=__indent() +" +
 						toJSstring("#(begin macro)" + line)+" + '\\n';\n");
+				result.append("__context__.push('"+ curFileContext+"');\n");
 
 				result.append("_str"+macroName+"+=" +
 							m_instr.group(1).replaceAll("(\\{([^}]+)\\})", "$2") + 
 							m_instr.group(2).replaceAll("(\\{([^}]+)\\})", "$2") +
 							";\n");
+				
+				result.append("__context__.pop();\n");
 				result.append("_str"+macroName+"+=__indent() +" +
 						toJSstring("#(end macro)" + line)+" + '\\n';\n");
 
@@ -879,14 +897,18 @@ public class Assembler {
 													)
 												);
 				String oldInclude = include;
+				int oldLineNum = lineNum;
 				File finc = new File(include + m_include.group(2));
+				
 				String canonicalFilePath  = finc.getCanonicalPath();
 				if ( ! includedFile.containsKey(canonicalFilePath)) { // does include only file that is not yet included
 					includedFile.put(canonicalFilePath, macroName);
 					include = finc.getParent();
 					include += "/";
-					result.append( genMacro(in_include, macroName,"",true));
+					lineNum = 0;
+					result.append( genMacro(in_include, macroName,"",true, finc.getName(),curFileContext));
 					include = oldInclude;
+					lineNum = oldLineNum;
 					result.append("_str"+macroName+"+=__indent() +" +
 							toJSstring("#(end include)" + m_include.group(2))+" + '\\n';\n");
 				} else {
@@ -901,14 +923,12 @@ public class Assembler {
 						result.append("__blockLevel__--;\n");
 					}
 					result.append("_str"+macroName+"+=__indent() +" +
-								toJSstring(line )+" + '\\n';\n");
+								toJSstring(line + " #@"+curFileContext)+"+ __context() + '\\n';\n");
 					if (m_beginBlock.matches()) {
 						result.append("__blockLevel__++;\n");
 					}
 				} else { // must be a macro call without parenthesis
 					if (m_asmMacro.matches()) {
-						result.append("_str"+macroName+"+=__indent() +" +
-								toJSstring("#(begin macro)" + line)+" + '\\n';\n");
 						String mParams = m_asmMacro.group(2); //.replaceAll("(\\{([^}]+)\\})", "$2");
 						String regMacroParam ="^\\s*(([^\"#][^\",#]*)|(\"([^\"]|\\\\\")*\"))\\s*(,(.*))?$";
 						Pattern p_macroParam = Pattern.compile(regMacroParam);
@@ -916,7 +936,7 @@ public class Assembler {
 						while (mParams != null) {
 							mParams = mParams.trim();
 							if (mParams.length()>0) {
-							    // group 1 = parameter, group 5  remainder parameters
+							    // group 1 = parameter, group 6  remainder parameters
 								Matcher m_macroParam = p_macroParam.matcher(mParams);
 								if (m_macroParam.matches()) {
 									String aParam = m_macroParam.group(1);
@@ -942,17 +962,22 @@ public class Assembler {
 								}
 							}
 						}
+						result.append("_str"+macroName+"+=__indent() +" +
+								toJSstring("#(begin macro)" + line)+" + '\\n';\n");
+						result.append("__context__.push('"+ curFileContext+"');\n");
+
 						result.append("_str"+macroName+"+=" +
 									m_asmMacro.group(1).replaceAll("(\\{([^}]+)\\})", "$2") + 
 									"(" + resultParams + ")"+
 									";\n");
-						
+
+						result.append("__context__.pop();\n");
 						result.append("_str"+macroName+"+=__indent() +" +
 								toJSstring("#(end macro)" + line)+" + '\\n';\n");
 						
 					} else {
 						result.append("_str"+macroName+"+=__indent() +" +
-									toJSstring(line )+" + '\\n';\n");
+									toJSstring(line + " #@"+curFileContext)+" + __context() + '\\n';\n");
 					}
 				}
 			}

@@ -24,36 +24,36 @@ var output*{DECIMALSIZE}
 push    1
 sbm count
 while
-    at_in("input")
-    if_equal("count",1)
-        at_set("count",2)
+    at_in   input
+    if_equal    count,  1
+        at_set  count,  2
     else
         write("','")
     fi
     push {DECIMALSIZE}
     loop
         # output = input mod 10 ; input = input div 10
-        divide("input",10,"input","output")
+        divide  input,  10, input,  output
         arotl output
     endloop
-    scope_begin()
-        lvar("prefixzero",1)
-        push {DECIMALSIZE}
-        sbm cnt
+    scope_begin
+        lvar    prefixzero, 1
+        push    {DECIMALSIZE}
+        sbm     cnt
         loop
-            arotr output
-            if_sup("cnt",1)   # cnt == 3 or cnt == 2
-                if_diff("output",0)
-                    writeDigit("output")
-                    at_set("prefixzero",0)
+            arotr   output
+            if_sup  cnt,    1   # cnt == 3 or cnt == 2
+                if_diff output, 0
+                    writeDigit  output
+                    at_set  prefixzero, 0
                 else    
-                    if_equal("prefixzero",0)
-                        writeDigit("output")
+                    if_equal    prefixzero, 0
+                        writeDigit  output
                     fi
                 fi
             else
-                writeDigit("output")
+                writeDigit  output
             fi
         endloop
-    scope_end()
+    scope_end
 wend

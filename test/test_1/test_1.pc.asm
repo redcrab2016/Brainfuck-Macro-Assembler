@@ -1,7332 +1,7339 @@
-# Test 1
+# Test 1 #@(main@1)
 #(begin include)../../samples/include/macro.inc
-# Common macros
-# scope variables
-
-
-# macro scope_begin : start a new scope for local variable (usage of macro lvar)
-
-# macro scope_end : end a scope , then drop scoped local variables (drop) (usage of lvar)
-
-# macro lvar(vname,value) : declare  in scope, a local variable named vname with an assigned value (stored in stack)
-
-# macro if_diff(a,b) : if (a != b) {
-
-# macro if_equal(a,b) : if (a == b) {
-
-# macro if_sup(a,b) : if (a > b) {
-
-# macro if_inf(a,b) : if (a < b) {
-
-# macro if_supequal(a,b) : if (a >= b) {
-
-# macro if_infequal(a,b) : if (a <= b) {
-
-# macro at_2
-
-# macro at_1
-
-# macro at_reset(a) : a=0
-
-# macro at_inc(a) : a++
-
-# macro at_dec(a) : a--
-
-# macro at_in(a)  : a= readchar()
-
-# macro at_out(a) : write(a)
-
-# macro at_add(a,b) : a += b (immediate)
-
-# macro at_sub(a,b) : a -= b (immediate)
-
-# macro at_set(a,b) : a = b (immediate)
-
-
-
-
-
-# macro popouthexa() : from head of stack value (from 0 to 15) write out hexa (from 0 to 9 and A to F)
-
-# macro popout8hexa() : from head of stack the 8 bit value is write out in hexa
-
-# macro print(aString) : print out a string
+# Common macros #@(macro_inc@1)
+# scope variables #@(macro_inc@2)
+ #@(macro_inc@5)
+ #@(macro_inc@6)
+# macro scope_begin : start a new scope for local variable (usage of macro lvar) #@(macro_inc@7)
+ #@(macro_inc@11)
+# macro scope_end : end a scope , then drop scoped local variables (drop) (usage of lvar) #@(macro_inc@12)
+ #@(macro_inc@19)
+# macro lvar(vname,value) : declare  in scope, a local variable named vname with an assigned value (stored in stack) #@(macro_inc@20)
+ #@(macro_inc@26)
+# macro if_diff(a,b) : if (a != b) { #@(macro_inc@27)
+ #@(macro_inc@34)
+# macro if_equal(a,b) : if (a == b) { #@(macro_inc@35)
+ #@(macro_inc@42)
+# macro if_sup(a,b) : if (a > b) { #@(macro_inc@43)
+ #@(macro_inc@50)
+# macro if_inf(a,b) : if (a < b) { #@(macro_inc@51)
+ #@(macro_inc@58)
+# macro if_supequal(a,b) : if (a >= b) { #@(macro_inc@59)
+ #@(macro_inc@67)
+# macro if_infequal(a,b) : if (a <= b) { #@(macro_inc@68)
+ #@(macro_inc@76)
+# macro at_2 #@(macro_inc@77)
+ #@(macro_inc@83)
+# macro at_1 #@(macro_inc@84)
+ #@(macro_inc@88)
+# macro at_reset(a) : a=0 #@(macro_inc@89)
+ #@(macro_inc@93)
+# macro at_inc(a) : a++ #@(macro_inc@94)
+ #@(macro_inc@98)
+# macro at_dec(a) : a-- #@(macro_inc@99)
+ #@(macro_inc@103)
+# macro at_in(a)  : a= readchar() #@(macro_inc@104)
+ #@(macro_inc@108)
+# macro at_out(a) : write(a) #@(macro_inc@109)
+ #@(macro_inc@113)
+# macro at_add(a,b) : a += b (immediate) #@(macro_inc@114)
+ #@(macro_inc@118)
+# macro at_sub(a,b) : a -= b (immediate) #@(macro_inc@119)
+ #@(macro_inc@123)
+# macro at_set(a,b) : a = b (immediate) #@(macro_inc@124)
+ #@(macro_inc@128)
+ #@(macro_inc@133)
+ #@(macro_inc@141)
+#macro addof() : push A, push B , replaced by Carry, A+B #@(macro_inc@142)
+ #@(macro_inc@180)
+# macro subof() : push A, push B , replaced by Carry, A-B #@(macro_inc@181)
+ #@(macro_inc@221)
+# macro mulof() : A = stack-1, B= stack : stack-1 = A*B div 256, stack = A*B mod 256 #@(macro_inc@222)
+ #@(macro_inc@245)
+ #@(macro_inc@246)
+ #@(macro_inc@258)
+ #@(macro_inc@265)
+# macro popouthexa() : from head of stack value (from 0 to 15) write out hexa (from 0 to 9 and A to F) #@(macro_inc@266)
+ #@(macro_inc@276)
+# macro popout8hexa() : from head of stack the 8 bit value is write out in hexa #@(macro_inc@277)
+ #@(macro_inc@284)
+# macro print(aString) : print out a string #@(macro_inc@285)
 #(end include)../../samples/include/macro.inc
-
-# basic operation test
-
+ #@(main@3)
+# basic operation test #@(main@4)
+ #@(main@5)
 #(begin macro)print("Basic operation test.\n\n")
-push    0
-set     66
-out             # 'B'
-add     31
-out             # 'a'
-add     18
-out             # 's'
-sub     10
-out             # 'i'
-sub     6
-out             # 'c'
-set     32
-out             # ' '
-add     79
-out             # 'o'
-add     1
-out             # 'p'
-sub     11
-out             # 'e'
-add     13
-out             # 'r'
-sub     17
-out             # 'a'
-add     19
-out             # 't'
-sub     11
-out             # 'i'
-add     6
-out             # 'o'
-sub     1
-out             # 'n'
-set     32
-out             # ' '
-add     84
-out             # 't'
-sub     15
-out             # 'e'
-add     14
-out             # 's'
-add     1
-out             # 't'
-set     46
-out             # '.'
-set     10
-out             # 
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@6)
+set     66 #@(macro_inc@302)(main@6)
+out             # 'B' #@(macro_inc@304)(main@6)
+add     31 #@(macro_inc@295)(main@6)
+out             # 'a' #@(macro_inc@304)(main@6)
+add     18 #@(macro_inc@295)(main@6)
+out             # 's' #@(macro_inc@304)(main@6)
+sub     10 #@(macro_inc@298)(main@6)
+out             # 'i' #@(macro_inc@304)(main@6)
+sub     6 #@(macro_inc@298)(main@6)
+out             # 'c' #@(macro_inc@304)(main@6)
+set     32 #@(macro_inc@302)(main@6)
+out             # ' ' #@(macro_inc@304)(main@6)
+add     79 #@(macro_inc@295)(main@6)
+out             # 'o' #@(macro_inc@304)(main@6)
+add     1 #@(macro_inc@295)(main@6)
+out             # 'p' #@(macro_inc@304)(main@6)
+sub     11 #@(macro_inc@298)(main@6)
+out             # 'e' #@(macro_inc@304)(main@6)
+add     13 #@(macro_inc@295)(main@6)
+out             # 'r' #@(macro_inc@304)(main@6)
+sub     17 #@(macro_inc@298)(main@6)
+out             # 'a' #@(macro_inc@304)(main@6)
+add     19 #@(macro_inc@295)(main@6)
+out             # 't' #@(macro_inc@304)(main@6)
+sub     11 #@(macro_inc@298)(main@6)
+out             # 'i' #@(macro_inc@304)(main@6)
+add     6 #@(macro_inc@295)(main@6)
+out             # 'o' #@(macro_inc@304)(main@6)
+sub     1 #@(macro_inc@298)(main@6)
+out             # 'n' #@(macro_inc@304)(main@6)
+set     32 #@(macro_inc@302)(main@6)
+out             # ' ' #@(macro_inc@304)(main@6)
+add     84 #@(macro_inc@295)(main@6)
+out             # 't' #@(macro_inc@304)(main@6)
+sub     15 #@(macro_inc@298)(main@6)
+out             # 'e' #@(macro_inc@304)(main@6)
+add     14 #@(macro_inc@295)(main@6)
+out             # 's' #@(macro_inc@304)(main@6)
+add     1 #@(macro_inc@295)(main@6)
+out             # 't' #@(macro_inc@304)(main@6)
+set     46 #@(macro_inc@302)(main@6)
+out             # '.' #@(macro_inc@304)(main@6)
+set     10 #@(macro_inc@302)(main@6)
+out             #  #@(macro_inc@304)(main@6)
+out             #  #@(macro_inc@304)(main@6)
+drop #@(macro_inc@307)(main@6)
 #(end macro)print("Basic operation test.\n\n")
 #(begin macro)print("ADD an immediate\n")
-push    0
-set     65
-out             # 'A'
-add     3
-out             # 'D'
-out             # 'D'
-set     32
-out             # ' '
-add     65
-out             # 'a'
-add     13
-out             # 'n'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     4
-out             # 'm'
-out             # 'm'
-sub     8
-out             # 'e'
-sub     1
-out             # 'd'
-add     5
-out             # 'i'
-sub     8
-out             # 'a'
-add     19
-out             # 't'
-sub     15
-out             # 'e'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@7)
+set     65 #@(macro_inc@302)(main@7)
+out             # 'A' #@(macro_inc@304)(main@7)
+add     3 #@(macro_inc@295)(main@7)
+out             # 'D' #@(macro_inc@304)(main@7)
+out             # 'D' #@(macro_inc@304)(main@7)
+set     32 #@(macro_inc@302)(main@7)
+out             # ' ' #@(macro_inc@304)(main@7)
+add     65 #@(macro_inc@295)(main@7)
+out             # 'a' #@(macro_inc@304)(main@7)
+add     13 #@(macro_inc@295)(main@7)
+out             # 'n' #@(macro_inc@304)(main@7)
+set     32 #@(macro_inc@302)(main@7)
+out             # ' ' #@(macro_inc@304)(main@7)
+add     73 #@(macro_inc@295)(main@7)
+out             # 'i' #@(macro_inc@304)(main@7)
+add     4 #@(macro_inc@295)(main@7)
+out             # 'm' #@(macro_inc@304)(main@7)
+out             # 'm' #@(macro_inc@304)(main@7)
+sub     8 #@(macro_inc@298)(main@7)
+out             # 'e' #@(macro_inc@304)(main@7)
+sub     1 #@(macro_inc@298)(main@7)
+out             # 'd' #@(macro_inc@304)(main@7)
+add     5 #@(macro_inc@295)(main@7)
+out             # 'i' #@(macro_inc@304)(main@7)
+sub     8 #@(macro_inc@298)(main@7)
+out             # 'a' #@(macro_inc@304)(main@7)
+add     19 #@(macro_inc@295)(main@7)
+out             # 't' #@(macro_inc@304)(main@7)
+sub     15 #@(macro_inc@298)(main@7)
+out             # 'e' #@(macro_inc@304)(main@7)
+set     10 #@(macro_inc@302)(main@7)
+out             #  #@(macro_inc@304)(main@7)
+drop #@(macro_inc@307)(main@7)
 #(end macro)print("ADD an immediate\n")
-push    1
-add     3
+push    1 #@(main@8)
+add     3 #@(main@9)
 #(begin macro)print(" push 1; add 3 ; 04 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     17
-out             # '1'
-add     10
-out             # ';'
-sub     27
-out             # ' '
-add     65
-out             # 'a'
-add     3
-out             # 'd'
-out             # 'd'
-set     32
-out             # ' '
-add     19
-out             # '3'
-sub     19
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     16
-out             # '0'
-add     4
-out             # '4'
-sub     20
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@10)
+set     32 #@(macro_inc@302)(main@10)
+out             # ' ' #@(macro_inc@304)(main@10)
+add     80 #@(macro_inc@295)(main@10)
+out             # 'p' #@(macro_inc@304)(main@10)
+add     5 #@(macro_inc@295)(main@10)
+out             # 'u' #@(macro_inc@304)(main@10)
+sub     2 #@(macro_inc@298)(main@10)
+out             # 's' #@(macro_inc@304)(main@10)
+sub     11 #@(macro_inc@298)(main@10)
+out             # 'h' #@(macro_inc@304)(main@10)
+set     32 #@(macro_inc@302)(main@10)
+out             # ' ' #@(macro_inc@304)(main@10)
+add     17 #@(macro_inc@295)(main@10)
+out             # '1' #@(macro_inc@304)(main@10)
+add     10 #@(macro_inc@295)(main@10)
+out             # ';' #@(macro_inc@304)(main@10)
+sub     27 #@(macro_inc@298)(main@10)
+out             # ' ' #@(macro_inc@304)(main@10)
+add     65 #@(macro_inc@295)(main@10)
+out             # 'a' #@(macro_inc@304)(main@10)
+add     3 #@(macro_inc@295)(main@10)
+out             # 'd' #@(macro_inc@304)(main@10)
+out             # 'd' #@(macro_inc@304)(main@10)
+set     32 #@(macro_inc@302)(main@10)
+out             # ' ' #@(macro_inc@304)(main@10)
+add     19 #@(macro_inc@295)(main@10)
+out             # '3' #@(macro_inc@304)(main@10)
+sub     19 #@(macro_inc@298)(main@10)
+out             # ' ' #@(macro_inc@304)(main@10)
+add     27 #@(macro_inc@295)(main@10)
+out             # ';' #@(macro_inc@304)(main@10)
+sub     27 #@(macro_inc@298)(main@10)
+out             # ' ' #@(macro_inc@304)(main@10)
+add     16 #@(macro_inc@295)(main@10)
+out             # '0' #@(macro_inc@304)(main@10)
+add     4 #@(macro_inc@295)(main@10)
+out             # '4' #@(macro_inc@304)(main@10)
+sub     20 #@(macro_inc@298)(main@10)
+out             # ' ' #@(macro_inc@304)(main@10)
+add     29 #@(macro_inc@295)(main@10)
+out             # '=' #@(macro_inc@304)(main@10)
+out             # '=' #@(macro_inc@304)(main@10)
+sub     29 #@(macro_inc@298)(main@10)
+out             # ' ' #@(macro_inc@304)(main@10)
+drop #@(macro_inc@307)(main@10)
 #(end macro)print(" push 1; add 3 ; 04 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input1
-#(begin macro)if_sup("_input" + __idx,9)
-push _input1
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@11)
+div #@(macro_inc@280)(main@11)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input1 #@(macro_inc@268)(macro_inc@281)(main@11)
+#(begin macro)if_sup  _input1,    9
+push    _input1 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@11)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@11)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@11)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@11)
+  #(end macro)if_sup  _input1,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input1
-    add '7'
-  ta
+  at      _input1 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@11)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@11)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@11)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@11)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input1
-    add '0'
-  ta
+  at      _input1 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@11)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@11)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@11)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input2
-#(begin macro)if_sup("_input" + __idx,9)
-push _input2
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@11)
+pop out #@(macro_inc@274)(macro_inc@281)(main@11)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input2 #@(macro_inc@268)(macro_inc@282)(main@11)
+#(begin macro)if_sup  _input2,    9
+push    _input2 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@11)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@11)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@11)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@11)
+  #(end macro)if_sup  _input2,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input2
-    add '7'
-  ta
+  at      _input2 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@11)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@11)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@11)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@11)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input2
-    add '0'
-  ta
+  at      _input2 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@11)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@11)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@11)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@11)
+pop out #@(macro_inc@274)(macro_inc@282)(main@11)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@12)
+set     10 #@(macro_inc@302)(main@12)
+out             #  #@(macro_inc@304)(main@12)
+drop #@(macro_inc@307)(main@12)
 #(end macro)print("\n")
-
+ #@(main@13)
 #(begin macro)print("ADD two 8 bits in stack\n")
-push    0
-set     65
-out             # 'A'
-add     3
-out             # 'D'
-out             # 'D'
-set     32
-out             # ' '
-add     84
-out             # 't'
-add     3
-out             # 'w'
-sub     8
-out             # 'o'
-set     32
-out             # ' '
-add     24
-out             # '8'
-sub     24
-out             # ' '
-add     66
-out             # 'b'
-add     7
-out             # 'i'
-add     11
-out             # 't'
-sub     1
-out             # 's'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     5
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@14)
+set     65 #@(macro_inc@302)(main@14)
+out             # 'A' #@(macro_inc@304)(main@14)
+add     3 #@(macro_inc@295)(main@14)
+out             # 'D' #@(macro_inc@304)(main@14)
+out             # 'D' #@(macro_inc@304)(main@14)
+set     32 #@(macro_inc@302)(main@14)
+out             # ' ' #@(macro_inc@304)(main@14)
+add     84 #@(macro_inc@295)(main@14)
+out             # 't' #@(macro_inc@304)(main@14)
+add     3 #@(macro_inc@295)(main@14)
+out             # 'w' #@(macro_inc@304)(main@14)
+sub     8 #@(macro_inc@298)(main@14)
+out             # 'o' #@(macro_inc@304)(main@14)
+set     32 #@(macro_inc@302)(main@14)
+out             # ' ' #@(macro_inc@304)(main@14)
+add     24 #@(macro_inc@295)(main@14)
+out             # '8' #@(macro_inc@304)(main@14)
+sub     24 #@(macro_inc@298)(main@14)
+out             # ' ' #@(macro_inc@304)(main@14)
+add     66 #@(macro_inc@295)(main@14)
+out             # 'b' #@(macro_inc@304)(main@14)
+add     7 #@(macro_inc@295)(main@14)
+out             # 'i' #@(macro_inc@304)(main@14)
+add     11 #@(macro_inc@295)(main@14)
+out             # 't' #@(macro_inc@304)(main@14)
+sub     1 #@(macro_inc@298)(main@14)
+out             # 's' #@(macro_inc@304)(main@14)
+set     32 #@(macro_inc@302)(main@14)
+out             # ' ' #@(macro_inc@304)(main@14)
+add     73 #@(macro_inc@295)(main@14)
+out             # 'i' #@(macro_inc@304)(main@14)
+add     5 #@(macro_inc@295)(main@14)
+out             # 'n' #@(macro_inc@304)(main@14)
+set     32 #@(macro_inc@302)(main@14)
+out             # ' ' #@(macro_inc@304)(main@14)
+add     83 #@(macro_inc@295)(main@14)
+out             # 's' #@(macro_inc@304)(main@14)
+add     1 #@(macro_inc@295)(main@14)
+out             # 't' #@(macro_inc@304)(main@14)
+sub     19 #@(macro_inc@298)(main@14)
+out             # 'a' #@(macro_inc@304)(main@14)
+add     2 #@(macro_inc@295)(main@14)
+out             # 'c' #@(macro_inc@304)(main@14)
+add     8 #@(macro_inc@295)(main@14)
+out             # 'k' #@(macro_inc@304)(main@14)
+set     10 #@(macro_inc@302)(main@14)
+out             #  #@(macro_inc@304)(main@14)
+drop #@(macro_inc@307)(main@14)
 #(end macro)print("ADD two 8 bits in stack\n")
-push    2
-push    5
-add
+push    2 #@(main@15)
+push    5 #@(main@16)
+add #@(main@17)
 #(begin macro)print(" push 2; push 5 ; add ;  07 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     18
-out             # '2'
-add     9
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     21
-out             # '5'
-sub     21
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     65
-out             # 'a'
-add     3
-out             # 'd'
-out             # 'd'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     7
-out             # '7'
-sub     23
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@18)
+set     32 #@(macro_inc@302)(main@18)
+out             # ' ' #@(macro_inc@304)(main@18)
+add     80 #@(macro_inc@295)(main@18)
+out             # 'p' #@(macro_inc@304)(main@18)
+add     5 #@(macro_inc@295)(main@18)
+out             # 'u' #@(macro_inc@304)(main@18)
+sub     2 #@(macro_inc@298)(main@18)
+out             # 's' #@(macro_inc@304)(main@18)
+sub     11 #@(macro_inc@298)(main@18)
+out             # 'h' #@(macro_inc@304)(main@18)
+set     32 #@(macro_inc@302)(main@18)
+out             # ' ' #@(macro_inc@304)(main@18)
+add     18 #@(macro_inc@295)(main@18)
+out             # '2' #@(macro_inc@304)(main@18)
+add     9 #@(macro_inc@295)(main@18)
+out             # ';' #@(macro_inc@304)(main@18)
+sub     27 #@(macro_inc@298)(main@18)
+out             # ' ' #@(macro_inc@304)(main@18)
+add     80 #@(macro_inc@295)(main@18)
+out             # 'p' #@(macro_inc@304)(main@18)
+add     5 #@(macro_inc@295)(main@18)
+out             # 'u' #@(macro_inc@304)(main@18)
+sub     2 #@(macro_inc@298)(main@18)
+out             # 's' #@(macro_inc@304)(main@18)
+sub     11 #@(macro_inc@298)(main@18)
+out             # 'h' #@(macro_inc@304)(main@18)
+set     32 #@(macro_inc@302)(main@18)
+out             # ' ' #@(macro_inc@304)(main@18)
+add     21 #@(macro_inc@295)(main@18)
+out             # '5' #@(macro_inc@304)(main@18)
+sub     21 #@(macro_inc@298)(main@18)
+out             # ' ' #@(macro_inc@304)(main@18)
+add     27 #@(macro_inc@295)(main@18)
+out             # ';' #@(macro_inc@304)(main@18)
+sub     27 #@(macro_inc@298)(main@18)
+out             # ' ' #@(macro_inc@304)(main@18)
+add     65 #@(macro_inc@295)(main@18)
+out             # 'a' #@(macro_inc@304)(main@18)
+add     3 #@(macro_inc@295)(main@18)
+out             # 'd' #@(macro_inc@304)(main@18)
+out             # 'd' #@(macro_inc@304)(main@18)
+set     32 #@(macro_inc@302)(main@18)
+out             # ' ' #@(macro_inc@304)(main@18)
+add     27 #@(macro_inc@295)(main@18)
+out             # ';' #@(macro_inc@304)(main@18)
+sub     27 #@(macro_inc@298)(main@18)
+out             # ' ' #@(macro_inc@304)(main@18)
+out             # ' ' #@(macro_inc@304)(main@18)
+add     16 #@(macro_inc@295)(main@18)
+out             # '0' #@(macro_inc@304)(main@18)
+add     7 #@(macro_inc@295)(main@18)
+out             # '7' #@(macro_inc@304)(main@18)
+sub     23 #@(macro_inc@298)(main@18)
+out             # ' ' #@(macro_inc@304)(main@18)
+add     29 #@(macro_inc@295)(main@18)
+out             # '=' #@(macro_inc@304)(main@18)
+out             # '=' #@(macro_inc@304)(main@18)
+sub     29 #@(macro_inc@298)(main@18)
+out             # ' ' #@(macro_inc@304)(main@18)
+drop #@(macro_inc@307)(main@18)
 #(end macro)print(" push 2; push 5 ; add ;  07 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input3
-#(begin macro)if_sup("_input" + __idx,9)
-push _input3
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@19)
+div #@(macro_inc@280)(main@19)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input3 #@(macro_inc@268)(macro_inc@281)(main@19)
+#(begin macro)if_sup  _input3,    9
+push    _input3 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@19)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@19)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@19)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@19)
+  #(end macro)if_sup  _input3,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input3
-    add '7'
-  ta
+  at      _input3 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@19)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@19)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@19)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@19)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input3
-    add '0'
-  ta
+  at      _input3 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@19)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@19)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@19)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input4
-#(begin macro)if_sup("_input" + __idx,9)
-push _input4
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@19)
+pop out #@(macro_inc@274)(macro_inc@281)(main@19)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input4 #@(macro_inc@268)(macro_inc@282)(main@19)
+#(begin macro)if_sup  _input4,    9
+push    _input4 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@19)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@19)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@19)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@19)
+  #(end macro)if_sup  _input4,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input4
-    add '7'
-  ta
+  at      _input4 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@19)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@19)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@19)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@19)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input4
-    add '0'
-  ta
+  at      _input4 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@19)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@19)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@19)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@19)
+pop out #@(macro_inc@274)(macro_inc@282)(main@19)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@20)
+set     10 #@(macro_inc@302)(main@20)
+out             #  #@(macro_inc@304)(main@20)
+drop #@(macro_inc@307)(main@20)
 #(end macro)print("\n")
-push    253
-push    5
-add
+push    253 #@(main@21)
+push    5 #@(main@22)
+add #@(main@23)
 #(begin macro)print(" push 253; push 5 ; add ;  02 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     18
-out             # '2'
-add     3
-out             # '5'
-sub     2
-out             # '3'
-add     8
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     21
-out             # '5'
-sub     21
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     65
-out             # 'a'
-add     3
-out             # 'd'
-out             # 'd'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     2
-out             # '2'
-sub     18
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@24)
+set     32 #@(macro_inc@302)(main@24)
+out             # ' ' #@(macro_inc@304)(main@24)
+add     80 #@(macro_inc@295)(main@24)
+out             # 'p' #@(macro_inc@304)(main@24)
+add     5 #@(macro_inc@295)(main@24)
+out             # 'u' #@(macro_inc@304)(main@24)
+sub     2 #@(macro_inc@298)(main@24)
+out             # 's' #@(macro_inc@304)(main@24)
+sub     11 #@(macro_inc@298)(main@24)
+out             # 'h' #@(macro_inc@304)(main@24)
+set     32 #@(macro_inc@302)(main@24)
+out             # ' ' #@(macro_inc@304)(main@24)
+add     18 #@(macro_inc@295)(main@24)
+out             # '2' #@(macro_inc@304)(main@24)
+add     3 #@(macro_inc@295)(main@24)
+out             # '5' #@(macro_inc@304)(main@24)
+sub     2 #@(macro_inc@298)(main@24)
+out             # '3' #@(macro_inc@304)(main@24)
+add     8 #@(macro_inc@295)(main@24)
+out             # ';' #@(macro_inc@304)(main@24)
+sub     27 #@(macro_inc@298)(main@24)
+out             # ' ' #@(macro_inc@304)(main@24)
+add     80 #@(macro_inc@295)(main@24)
+out             # 'p' #@(macro_inc@304)(main@24)
+add     5 #@(macro_inc@295)(main@24)
+out             # 'u' #@(macro_inc@304)(main@24)
+sub     2 #@(macro_inc@298)(main@24)
+out             # 's' #@(macro_inc@304)(main@24)
+sub     11 #@(macro_inc@298)(main@24)
+out             # 'h' #@(macro_inc@304)(main@24)
+set     32 #@(macro_inc@302)(main@24)
+out             # ' ' #@(macro_inc@304)(main@24)
+add     21 #@(macro_inc@295)(main@24)
+out             # '5' #@(macro_inc@304)(main@24)
+sub     21 #@(macro_inc@298)(main@24)
+out             # ' ' #@(macro_inc@304)(main@24)
+add     27 #@(macro_inc@295)(main@24)
+out             # ';' #@(macro_inc@304)(main@24)
+sub     27 #@(macro_inc@298)(main@24)
+out             # ' ' #@(macro_inc@304)(main@24)
+add     65 #@(macro_inc@295)(main@24)
+out             # 'a' #@(macro_inc@304)(main@24)
+add     3 #@(macro_inc@295)(main@24)
+out             # 'd' #@(macro_inc@304)(main@24)
+out             # 'd' #@(macro_inc@304)(main@24)
+set     32 #@(macro_inc@302)(main@24)
+out             # ' ' #@(macro_inc@304)(main@24)
+add     27 #@(macro_inc@295)(main@24)
+out             # ';' #@(macro_inc@304)(main@24)
+sub     27 #@(macro_inc@298)(main@24)
+out             # ' ' #@(macro_inc@304)(main@24)
+out             # ' ' #@(macro_inc@304)(main@24)
+add     16 #@(macro_inc@295)(main@24)
+out             # '0' #@(macro_inc@304)(main@24)
+add     2 #@(macro_inc@295)(main@24)
+out             # '2' #@(macro_inc@304)(main@24)
+sub     18 #@(macro_inc@298)(main@24)
+out             # ' ' #@(macro_inc@304)(main@24)
+add     29 #@(macro_inc@295)(main@24)
+out             # '=' #@(macro_inc@304)(main@24)
+out             # '=' #@(macro_inc@304)(main@24)
+sub     29 #@(macro_inc@298)(main@24)
+out             # ' ' #@(macro_inc@304)(main@24)
+drop #@(macro_inc@307)(main@24)
 #(end macro)print(" push 253; push 5 ; add ;  02 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input5
-#(begin macro)if_sup("_input" + __idx,9)
-push _input5
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@25)
+div #@(macro_inc@280)(main@25)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input5 #@(macro_inc@268)(macro_inc@281)(main@25)
+#(begin macro)if_sup  _input5,    9
+push    _input5 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@25)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@25)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@25)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@25)
+  #(end macro)if_sup  _input5,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input5
-    add '7'
-  ta
+  at      _input5 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@25)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@25)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@25)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@25)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input5
-    add '0'
-  ta
+  at      _input5 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@25)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@25)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@25)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input6
-#(begin macro)if_sup("_input" + __idx,9)
-push _input6
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@25)
+pop out #@(macro_inc@274)(macro_inc@281)(main@25)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input6 #@(macro_inc@268)(macro_inc@282)(main@25)
+#(begin macro)if_sup  _input6,    9
+push    _input6 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@25)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@25)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@25)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@25)
+  #(end macro)if_sup  _input6,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input6
-    add '7'
-  ta
+  at      _input6 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@25)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@25)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@25)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@25)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input6
-    add '0'
-  ta
+  at      _input6 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@25)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@25)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@25)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@25)
+pop out #@(macro_inc@274)(macro_inc@282)(main@25)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@26)
+set     10 #@(macro_inc@302)(main@26)
+out             #  #@(macro_inc@304)(main@26)
+drop #@(macro_inc@307)(main@26)
 #(end macro)print("\n")
-
+ #@(main@27)
 #(begin macro)print("AND two boolean 8 bits in stack\n")
-push    0
-set     65
-out             # 'A'
-add     13
-out             # 'N'
-sub     10
-out             # 'D'
-set     32
-out             # ' '
-add     84
-out             # 't'
-add     3
-out             # 'w'
-sub     8
-out             # 'o'
-set     32
-out             # ' '
-add     66
-out             # 'b'
-add     13
-out             # 'o'
-out             # 'o'
-sub     3
-out             # 'l'
-sub     7
-out             # 'e'
-sub     4
-out             # 'a'
-add     13
-out             # 'n'
-set     32
-out             # ' '
-add     24
-out             # '8'
-sub     24
-out             # ' '
-add     66
-out             # 'b'
-add     7
-out             # 'i'
-add     11
-out             # 't'
-sub     1
-out             # 's'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     5
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@28)
+set     65 #@(macro_inc@302)(main@28)
+out             # 'A' #@(macro_inc@304)(main@28)
+add     13 #@(macro_inc@295)(main@28)
+out             # 'N' #@(macro_inc@304)(main@28)
+sub     10 #@(macro_inc@298)(main@28)
+out             # 'D' #@(macro_inc@304)(main@28)
+set     32 #@(macro_inc@302)(main@28)
+out             # ' ' #@(macro_inc@304)(main@28)
+add     84 #@(macro_inc@295)(main@28)
+out             # 't' #@(macro_inc@304)(main@28)
+add     3 #@(macro_inc@295)(main@28)
+out             # 'w' #@(macro_inc@304)(main@28)
+sub     8 #@(macro_inc@298)(main@28)
+out             # 'o' #@(macro_inc@304)(main@28)
+set     32 #@(macro_inc@302)(main@28)
+out             # ' ' #@(macro_inc@304)(main@28)
+add     66 #@(macro_inc@295)(main@28)
+out             # 'b' #@(macro_inc@304)(main@28)
+add     13 #@(macro_inc@295)(main@28)
+out             # 'o' #@(macro_inc@304)(main@28)
+out             # 'o' #@(macro_inc@304)(main@28)
+sub     3 #@(macro_inc@298)(main@28)
+out             # 'l' #@(macro_inc@304)(main@28)
+sub     7 #@(macro_inc@298)(main@28)
+out             # 'e' #@(macro_inc@304)(main@28)
+sub     4 #@(macro_inc@298)(main@28)
+out             # 'a' #@(macro_inc@304)(main@28)
+add     13 #@(macro_inc@295)(main@28)
+out             # 'n' #@(macro_inc@304)(main@28)
+set     32 #@(macro_inc@302)(main@28)
+out             # ' ' #@(macro_inc@304)(main@28)
+add     24 #@(macro_inc@295)(main@28)
+out             # '8' #@(macro_inc@304)(main@28)
+sub     24 #@(macro_inc@298)(main@28)
+out             # ' ' #@(macro_inc@304)(main@28)
+add     66 #@(macro_inc@295)(main@28)
+out             # 'b' #@(macro_inc@304)(main@28)
+add     7 #@(macro_inc@295)(main@28)
+out             # 'i' #@(macro_inc@304)(main@28)
+add     11 #@(macro_inc@295)(main@28)
+out             # 't' #@(macro_inc@304)(main@28)
+sub     1 #@(macro_inc@298)(main@28)
+out             # 's' #@(macro_inc@304)(main@28)
+set     32 #@(macro_inc@302)(main@28)
+out             # ' ' #@(macro_inc@304)(main@28)
+add     73 #@(macro_inc@295)(main@28)
+out             # 'i' #@(macro_inc@304)(main@28)
+add     5 #@(macro_inc@295)(main@28)
+out             # 'n' #@(macro_inc@304)(main@28)
+set     32 #@(macro_inc@302)(main@28)
+out             # ' ' #@(macro_inc@304)(main@28)
+add     83 #@(macro_inc@295)(main@28)
+out             # 's' #@(macro_inc@304)(main@28)
+add     1 #@(macro_inc@295)(main@28)
+out             # 't' #@(macro_inc@304)(main@28)
+sub     19 #@(macro_inc@298)(main@28)
+out             # 'a' #@(macro_inc@304)(main@28)
+add     2 #@(macro_inc@295)(main@28)
+out             # 'c' #@(macro_inc@304)(main@28)
+add     8 #@(macro_inc@295)(main@28)
+out             # 'k' #@(macro_inc@304)(main@28)
+set     10 #@(macro_inc@302)(main@28)
+out             #  #@(macro_inc@304)(main@28)
+drop #@(macro_inc@307)(main@28)
 #(end macro)print("AND two boolean 8 bits in stack\n")
-push    2
-push    5
-and
+push    2 #@(main@29)
+push    5 #@(main@30)
+and #@(main@31)
 #(begin macro)print(" push 2; push 5 ; and ;  01 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     18
-out             # '2'
-add     9
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     21
-out             # '5'
-sub     21
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     65
-out             # 'a'
-add     13
-out             # 'n'
-sub     10
-out             # 'd'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@32)
+set     32 #@(macro_inc@302)(main@32)
+out             # ' ' #@(macro_inc@304)(main@32)
+add     80 #@(macro_inc@295)(main@32)
+out             # 'p' #@(macro_inc@304)(main@32)
+add     5 #@(macro_inc@295)(main@32)
+out             # 'u' #@(macro_inc@304)(main@32)
+sub     2 #@(macro_inc@298)(main@32)
+out             # 's' #@(macro_inc@304)(main@32)
+sub     11 #@(macro_inc@298)(main@32)
+out             # 'h' #@(macro_inc@304)(main@32)
+set     32 #@(macro_inc@302)(main@32)
+out             # ' ' #@(macro_inc@304)(main@32)
+add     18 #@(macro_inc@295)(main@32)
+out             # '2' #@(macro_inc@304)(main@32)
+add     9 #@(macro_inc@295)(main@32)
+out             # ';' #@(macro_inc@304)(main@32)
+sub     27 #@(macro_inc@298)(main@32)
+out             # ' ' #@(macro_inc@304)(main@32)
+add     80 #@(macro_inc@295)(main@32)
+out             # 'p' #@(macro_inc@304)(main@32)
+add     5 #@(macro_inc@295)(main@32)
+out             # 'u' #@(macro_inc@304)(main@32)
+sub     2 #@(macro_inc@298)(main@32)
+out             # 's' #@(macro_inc@304)(main@32)
+sub     11 #@(macro_inc@298)(main@32)
+out             # 'h' #@(macro_inc@304)(main@32)
+set     32 #@(macro_inc@302)(main@32)
+out             # ' ' #@(macro_inc@304)(main@32)
+add     21 #@(macro_inc@295)(main@32)
+out             # '5' #@(macro_inc@304)(main@32)
+sub     21 #@(macro_inc@298)(main@32)
+out             # ' ' #@(macro_inc@304)(main@32)
+add     27 #@(macro_inc@295)(main@32)
+out             # ';' #@(macro_inc@304)(main@32)
+sub     27 #@(macro_inc@298)(main@32)
+out             # ' ' #@(macro_inc@304)(main@32)
+add     65 #@(macro_inc@295)(main@32)
+out             # 'a' #@(macro_inc@304)(main@32)
+add     13 #@(macro_inc@295)(main@32)
+out             # 'n' #@(macro_inc@304)(main@32)
+sub     10 #@(macro_inc@298)(main@32)
+out             # 'd' #@(macro_inc@304)(main@32)
+set     32 #@(macro_inc@302)(main@32)
+out             # ' ' #@(macro_inc@304)(main@32)
+add     27 #@(macro_inc@295)(main@32)
+out             # ';' #@(macro_inc@304)(main@32)
+sub     27 #@(macro_inc@298)(main@32)
+out             # ' ' #@(macro_inc@304)(main@32)
+out             # ' ' #@(macro_inc@304)(main@32)
+add     16 #@(macro_inc@295)(main@32)
+out             # '0' #@(macro_inc@304)(main@32)
+add     1 #@(macro_inc@295)(main@32)
+out             # '1' #@(macro_inc@304)(main@32)
+sub     17 #@(macro_inc@298)(main@32)
+out             # ' ' #@(macro_inc@304)(main@32)
+add     29 #@(macro_inc@295)(main@32)
+out             # '=' #@(macro_inc@304)(main@32)
+out             # '=' #@(macro_inc@304)(main@32)
+sub     29 #@(macro_inc@298)(main@32)
+out             # ' ' #@(macro_inc@304)(main@32)
+drop #@(macro_inc@307)(main@32)
 #(end macro)print(" push 2; push 5 ; and ;  01 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input7
-#(begin macro)if_sup("_input" + __idx,9)
-push _input7
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@33)
+div #@(macro_inc@280)(main@33)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input7 #@(macro_inc@268)(macro_inc@281)(main@33)
+#(begin macro)if_sup  _input7,    9
+push    _input7 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@33)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@33)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@33)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@33)
+  #(end macro)if_sup  _input7,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input7
-    add '7'
-  ta
+  at      _input7 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@33)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@33)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@33)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@33)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input7
-    add '0'
-  ta
+  at      _input7 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@33)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@33)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@33)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input8
-#(begin macro)if_sup("_input" + __idx,9)
-push _input8
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@33)
+pop out #@(macro_inc@274)(macro_inc@281)(main@33)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input8 #@(macro_inc@268)(macro_inc@282)(main@33)
+#(begin macro)if_sup  _input8,    9
+push    _input8 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@33)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@33)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@33)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@33)
+  #(end macro)if_sup  _input8,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input8
-    add '7'
-  ta
+  at      _input8 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@33)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@33)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@33)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@33)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input8
-    add '0'
-  ta
+  at      _input8 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@33)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@33)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@33)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@33)
+pop out #@(macro_inc@274)(macro_inc@282)(main@33)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@34)
+set     10 #@(macro_inc@302)(main@34)
+out             #  #@(macro_inc@304)(main@34)
+drop #@(macro_inc@307)(main@34)
 #(end macro)print("\n")
-push    1
-push    1
-and
+push    1 #@(main@35)
+push    1 #@(main@36)
+and #@(main@37)
 #(begin macro)print(" push 1; push 1 ; and ;  01 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     17
-out             # '1'
-add     10
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     17
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     65
-out             # 'a'
-add     13
-out             # 'n'
-sub     10
-out             # 'd'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@38)
+set     32 #@(macro_inc@302)(main@38)
+out             # ' ' #@(macro_inc@304)(main@38)
+add     80 #@(macro_inc@295)(main@38)
+out             # 'p' #@(macro_inc@304)(main@38)
+add     5 #@(macro_inc@295)(main@38)
+out             # 'u' #@(macro_inc@304)(main@38)
+sub     2 #@(macro_inc@298)(main@38)
+out             # 's' #@(macro_inc@304)(main@38)
+sub     11 #@(macro_inc@298)(main@38)
+out             # 'h' #@(macro_inc@304)(main@38)
+set     32 #@(macro_inc@302)(main@38)
+out             # ' ' #@(macro_inc@304)(main@38)
+add     17 #@(macro_inc@295)(main@38)
+out             # '1' #@(macro_inc@304)(main@38)
+add     10 #@(macro_inc@295)(main@38)
+out             # ';' #@(macro_inc@304)(main@38)
+sub     27 #@(macro_inc@298)(main@38)
+out             # ' ' #@(macro_inc@304)(main@38)
+add     80 #@(macro_inc@295)(main@38)
+out             # 'p' #@(macro_inc@304)(main@38)
+add     5 #@(macro_inc@295)(main@38)
+out             # 'u' #@(macro_inc@304)(main@38)
+sub     2 #@(macro_inc@298)(main@38)
+out             # 's' #@(macro_inc@304)(main@38)
+sub     11 #@(macro_inc@298)(main@38)
+out             # 'h' #@(macro_inc@304)(main@38)
+set     32 #@(macro_inc@302)(main@38)
+out             # ' ' #@(macro_inc@304)(main@38)
+add     17 #@(macro_inc@295)(main@38)
+out             # '1' #@(macro_inc@304)(main@38)
+sub     17 #@(macro_inc@298)(main@38)
+out             # ' ' #@(macro_inc@304)(main@38)
+add     27 #@(macro_inc@295)(main@38)
+out             # ';' #@(macro_inc@304)(main@38)
+sub     27 #@(macro_inc@298)(main@38)
+out             # ' ' #@(macro_inc@304)(main@38)
+add     65 #@(macro_inc@295)(main@38)
+out             # 'a' #@(macro_inc@304)(main@38)
+add     13 #@(macro_inc@295)(main@38)
+out             # 'n' #@(macro_inc@304)(main@38)
+sub     10 #@(macro_inc@298)(main@38)
+out             # 'd' #@(macro_inc@304)(main@38)
+set     32 #@(macro_inc@302)(main@38)
+out             # ' ' #@(macro_inc@304)(main@38)
+add     27 #@(macro_inc@295)(main@38)
+out             # ';' #@(macro_inc@304)(main@38)
+sub     27 #@(macro_inc@298)(main@38)
+out             # ' ' #@(macro_inc@304)(main@38)
+out             # ' ' #@(macro_inc@304)(main@38)
+add     16 #@(macro_inc@295)(main@38)
+out             # '0' #@(macro_inc@304)(main@38)
+add     1 #@(macro_inc@295)(main@38)
+out             # '1' #@(macro_inc@304)(main@38)
+sub     17 #@(macro_inc@298)(main@38)
+out             # ' ' #@(macro_inc@304)(main@38)
+add     29 #@(macro_inc@295)(main@38)
+out             # '=' #@(macro_inc@304)(main@38)
+out             # '=' #@(macro_inc@304)(main@38)
+sub     29 #@(macro_inc@298)(main@38)
+out             # ' ' #@(macro_inc@304)(main@38)
+drop #@(macro_inc@307)(main@38)
 #(end macro)print(" push 1; push 1 ; and ;  01 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input9
-#(begin macro)if_sup("_input" + __idx,9)
-push _input9
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@39)
+div #@(macro_inc@280)(main@39)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input9 #@(macro_inc@268)(macro_inc@281)(main@39)
+#(begin macro)if_sup  _input9,    9
+push    _input9 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@39)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@39)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@39)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@39)
+  #(end macro)if_sup  _input9,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input9
-    add '7'
-  ta
+  at      _input9 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@39)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@39)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@39)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@39)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input9
-    add '0'
-  ta
+  at      _input9 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@39)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@39)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@39)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input10
-#(begin macro)if_sup("_input" + __idx,9)
-push _input10
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@39)
+pop out #@(macro_inc@274)(macro_inc@281)(main@39)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input10 #@(macro_inc@268)(macro_inc@282)(main@39)
+#(begin macro)if_sup  _input10,    9
+push    _input10 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@39)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@39)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@39)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@39)
+  #(end macro)if_sup  _input10,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input10
-    add '7'
-  ta
+  at      _input10 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@39)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@39)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@39)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@39)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input10
-    add '0'
-  ta
+  at      _input10 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@39)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@39)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@39)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@39)
+pop out #@(macro_inc@274)(macro_inc@282)(main@39)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@40)
+set     10 #@(macro_inc@302)(main@40)
+out             #  #@(macro_inc@304)(main@40)
+drop #@(macro_inc@307)(main@40)
 #(end macro)print("\n")
-push    0
-push    1
-and
+push    0 #@(main@41)
+push    1 #@(main@42)
+and #@(main@43)
 #(begin macro)print(" push 0; push 1 ; and ;  00 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     16
-out             # '0'
-add     11
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     17
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     65
-out             # 'a'
-add     13
-out             # 'n'
-sub     10
-out             # 'd'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-out             # '0'
-sub     16
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@44)
+set     32 #@(macro_inc@302)(main@44)
+out             # ' ' #@(macro_inc@304)(main@44)
+add     80 #@(macro_inc@295)(main@44)
+out             # 'p' #@(macro_inc@304)(main@44)
+add     5 #@(macro_inc@295)(main@44)
+out             # 'u' #@(macro_inc@304)(main@44)
+sub     2 #@(macro_inc@298)(main@44)
+out             # 's' #@(macro_inc@304)(main@44)
+sub     11 #@(macro_inc@298)(main@44)
+out             # 'h' #@(macro_inc@304)(main@44)
+set     32 #@(macro_inc@302)(main@44)
+out             # ' ' #@(macro_inc@304)(main@44)
+add     16 #@(macro_inc@295)(main@44)
+out             # '0' #@(macro_inc@304)(main@44)
+add     11 #@(macro_inc@295)(main@44)
+out             # ';' #@(macro_inc@304)(main@44)
+sub     27 #@(macro_inc@298)(main@44)
+out             # ' ' #@(macro_inc@304)(main@44)
+add     80 #@(macro_inc@295)(main@44)
+out             # 'p' #@(macro_inc@304)(main@44)
+add     5 #@(macro_inc@295)(main@44)
+out             # 'u' #@(macro_inc@304)(main@44)
+sub     2 #@(macro_inc@298)(main@44)
+out             # 's' #@(macro_inc@304)(main@44)
+sub     11 #@(macro_inc@298)(main@44)
+out             # 'h' #@(macro_inc@304)(main@44)
+set     32 #@(macro_inc@302)(main@44)
+out             # ' ' #@(macro_inc@304)(main@44)
+add     17 #@(macro_inc@295)(main@44)
+out             # '1' #@(macro_inc@304)(main@44)
+sub     17 #@(macro_inc@298)(main@44)
+out             # ' ' #@(macro_inc@304)(main@44)
+add     27 #@(macro_inc@295)(main@44)
+out             # ';' #@(macro_inc@304)(main@44)
+sub     27 #@(macro_inc@298)(main@44)
+out             # ' ' #@(macro_inc@304)(main@44)
+add     65 #@(macro_inc@295)(main@44)
+out             # 'a' #@(macro_inc@304)(main@44)
+add     13 #@(macro_inc@295)(main@44)
+out             # 'n' #@(macro_inc@304)(main@44)
+sub     10 #@(macro_inc@298)(main@44)
+out             # 'd' #@(macro_inc@304)(main@44)
+set     32 #@(macro_inc@302)(main@44)
+out             # ' ' #@(macro_inc@304)(main@44)
+add     27 #@(macro_inc@295)(main@44)
+out             # ';' #@(macro_inc@304)(main@44)
+sub     27 #@(macro_inc@298)(main@44)
+out             # ' ' #@(macro_inc@304)(main@44)
+out             # ' ' #@(macro_inc@304)(main@44)
+add     16 #@(macro_inc@295)(main@44)
+out             # '0' #@(macro_inc@304)(main@44)
+out             # '0' #@(macro_inc@304)(main@44)
+sub     16 #@(macro_inc@298)(main@44)
+out             # ' ' #@(macro_inc@304)(main@44)
+add     29 #@(macro_inc@295)(main@44)
+out             # '=' #@(macro_inc@304)(main@44)
+out             # '=' #@(macro_inc@304)(main@44)
+sub     29 #@(macro_inc@298)(main@44)
+out             # ' ' #@(macro_inc@304)(main@44)
+drop #@(macro_inc@307)(main@44)
 #(end macro)print(" push 0; push 1 ; and ;  00 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input11
-#(begin macro)if_sup("_input" + __idx,9)
-push _input11
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@45)
+div #@(macro_inc@280)(main@45)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input11 #@(macro_inc@268)(macro_inc@281)(main@45)
+#(begin macro)if_sup  _input11,    9
+push    _input11 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@45)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@45)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@45)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@45)
+  #(end macro)if_sup  _input11,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input11
-    add '7'
-  ta
+  at      _input11 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@45)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@45)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@45)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@45)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input11
-    add '0'
-  ta
+  at      _input11 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@45)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@45)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@45)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input12
-#(begin macro)if_sup("_input" + __idx,9)
-push _input12
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@45)
+pop out #@(macro_inc@274)(macro_inc@281)(main@45)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input12 #@(macro_inc@268)(macro_inc@282)(main@45)
+#(begin macro)if_sup  _input12,    9
+push    _input12 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@45)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@45)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@45)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@45)
+  #(end macro)if_sup  _input12,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input12
-    add '7'
-  ta
+  at      _input12 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@45)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@45)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@45)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@45)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input12
-    add '0'
-  ta
+  at      _input12 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@45)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@45)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@45)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@45)
+pop out #@(macro_inc@274)(macro_inc@282)(main@45)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@46)
+set     10 #@(macro_inc@302)(main@46)
+out             #  #@(macro_inc@304)(main@46)
+drop #@(macro_inc@307)(main@46)
 #(end macro)print("\n")
-push    1
-push    0
-and
+push    1 #@(main@47)
+push    0 #@(main@48)
+and #@(main@49)
 #(begin macro)print(" push 1; push 0 ; and ;  00 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     17
-out             # '1'
-add     10
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     16
-out             # '0'
-sub     16
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     65
-out             # 'a'
-add     13
-out             # 'n'
-sub     10
-out             # 'd'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-out             # '0'
-sub     16
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@50)
+set     32 #@(macro_inc@302)(main@50)
+out             # ' ' #@(macro_inc@304)(main@50)
+add     80 #@(macro_inc@295)(main@50)
+out             # 'p' #@(macro_inc@304)(main@50)
+add     5 #@(macro_inc@295)(main@50)
+out             # 'u' #@(macro_inc@304)(main@50)
+sub     2 #@(macro_inc@298)(main@50)
+out             # 's' #@(macro_inc@304)(main@50)
+sub     11 #@(macro_inc@298)(main@50)
+out             # 'h' #@(macro_inc@304)(main@50)
+set     32 #@(macro_inc@302)(main@50)
+out             # ' ' #@(macro_inc@304)(main@50)
+add     17 #@(macro_inc@295)(main@50)
+out             # '1' #@(macro_inc@304)(main@50)
+add     10 #@(macro_inc@295)(main@50)
+out             # ';' #@(macro_inc@304)(main@50)
+sub     27 #@(macro_inc@298)(main@50)
+out             # ' ' #@(macro_inc@304)(main@50)
+add     80 #@(macro_inc@295)(main@50)
+out             # 'p' #@(macro_inc@304)(main@50)
+add     5 #@(macro_inc@295)(main@50)
+out             # 'u' #@(macro_inc@304)(main@50)
+sub     2 #@(macro_inc@298)(main@50)
+out             # 's' #@(macro_inc@304)(main@50)
+sub     11 #@(macro_inc@298)(main@50)
+out             # 'h' #@(macro_inc@304)(main@50)
+set     32 #@(macro_inc@302)(main@50)
+out             # ' ' #@(macro_inc@304)(main@50)
+add     16 #@(macro_inc@295)(main@50)
+out             # '0' #@(macro_inc@304)(main@50)
+sub     16 #@(macro_inc@298)(main@50)
+out             # ' ' #@(macro_inc@304)(main@50)
+add     27 #@(macro_inc@295)(main@50)
+out             # ';' #@(macro_inc@304)(main@50)
+sub     27 #@(macro_inc@298)(main@50)
+out             # ' ' #@(macro_inc@304)(main@50)
+add     65 #@(macro_inc@295)(main@50)
+out             # 'a' #@(macro_inc@304)(main@50)
+add     13 #@(macro_inc@295)(main@50)
+out             # 'n' #@(macro_inc@304)(main@50)
+sub     10 #@(macro_inc@298)(main@50)
+out             # 'd' #@(macro_inc@304)(main@50)
+set     32 #@(macro_inc@302)(main@50)
+out             # ' ' #@(macro_inc@304)(main@50)
+add     27 #@(macro_inc@295)(main@50)
+out             # ';' #@(macro_inc@304)(main@50)
+sub     27 #@(macro_inc@298)(main@50)
+out             # ' ' #@(macro_inc@304)(main@50)
+out             # ' ' #@(macro_inc@304)(main@50)
+add     16 #@(macro_inc@295)(main@50)
+out             # '0' #@(macro_inc@304)(main@50)
+out             # '0' #@(macro_inc@304)(main@50)
+sub     16 #@(macro_inc@298)(main@50)
+out             # ' ' #@(macro_inc@304)(main@50)
+add     29 #@(macro_inc@295)(main@50)
+out             # '=' #@(macro_inc@304)(main@50)
+out             # '=' #@(macro_inc@304)(main@50)
+sub     29 #@(macro_inc@298)(main@50)
+out             # ' ' #@(macro_inc@304)(main@50)
+drop #@(macro_inc@307)(main@50)
 #(end macro)print(" push 1; push 0 ; and ;  00 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input13
-#(begin macro)if_sup("_input" + __idx,9)
-push _input13
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@51)
+div #@(macro_inc@280)(main@51)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input13 #@(macro_inc@268)(macro_inc@281)(main@51)
+#(begin macro)if_sup  _input13,    9
+push    _input13 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@51)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@51)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@51)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@51)
+  #(end macro)if_sup  _input13,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input13
-    add '7'
-  ta
+  at      _input13 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@51)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@51)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@51)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@51)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input13
-    add '0'
-  ta
+  at      _input13 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@51)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@51)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@51)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input14
-#(begin macro)if_sup("_input" + __idx,9)
-push _input14
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@51)
+pop out #@(macro_inc@274)(macro_inc@281)(main@51)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input14 #@(macro_inc@268)(macro_inc@282)(main@51)
+#(begin macro)if_sup  _input14,    9
+push    _input14 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@51)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@51)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@51)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@51)
+  #(end macro)if_sup  _input14,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input14
-    add '7'
-  ta
+  at      _input14 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@51)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@51)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@51)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@51)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input14
-    add '0'
-  ta
+  at      _input14 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@51)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@51)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@51)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@51)
+pop out #@(macro_inc@274)(macro_inc@282)(main@51)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@52)
+set     10 #@(macro_inc@302)(main@52)
+out             #  #@(macro_inc@304)(main@52)
+drop #@(macro_inc@307)(main@52)
 #(end macro)print("\n")
-
+ #@(main@53)
 #(begin macro)print("AROTL rotate array\n")
-push    0
-set     65
-out             # 'A'
-add     17
-out             # 'R'
-sub     3
-out             # 'O'
-add     5
-out             # 'T'
-sub     8
-out             # 'L'
-set     32
-out             # ' '
-add     82
-out             # 'r'
-sub     3
-out             # 'o'
-add     5
-out             # 't'
-sub     19
-out             # 'a'
-add     19
-out             # 't'
-sub     15
-out             # 'e'
-set     32
-out             # ' '
-add     65
-out             # 'a'
-add     17
-out             # 'r'
-out             # 'r'
-sub     17
-out             # 'a'
-add     24
-out             # 'y'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@54)
+set     65 #@(macro_inc@302)(main@54)
+out             # 'A' #@(macro_inc@304)(main@54)
+add     17 #@(macro_inc@295)(main@54)
+out             # 'R' #@(macro_inc@304)(main@54)
+sub     3 #@(macro_inc@298)(main@54)
+out             # 'O' #@(macro_inc@304)(main@54)
+add     5 #@(macro_inc@295)(main@54)
+out             # 'T' #@(macro_inc@304)(main@54)
+sub     8 #@(macro_inc@298)(main@54)
+out             # 'L' #@(macro_inc@304)(main@54)
+set     32 #@(macro_inc@302)(main@54)
+out             # ' ' #@(macro_inc@304)(main@54)
+add     82 #@(macro_inc@295)(main@54)
+out             # 'r' #@(macro_inc@304)(main@54)
+sub     3 #@(macro_inc@298)(main@54)
+out             # 'o' #@(macro_inc@304)(main@54)
+add     5 #@(macro_inc@295)(main@54)
+out             # 't' #@(macro_inc@304)(main@54)
+sub     19 #@(macro_inc@298)(main@54)
+out             # 'a' #@(macro_inc@304)(main@54)
+add     19 #@(macro_inc@295)(main@54)
+out             # 't' #@(macro_inc@304)(main@54)
+sub     15 #@(macro_inc@298)(main@54)
+out             # 'e' #@(macro_inc@304)(main@54)
+set     32 #@(macro_inc@302)(main@54)
+out             # ' ' #@(macro_inc@304)(main@54)
+add     65 #@(macro_inc@295)(main@54)
+out             # 'a' #@(macro_inc@304)(main@54)
+add     17 #@(macro_inc@295)(main@54)
+out             # 'r' #@(macro_inc@304)(main@54)
+out             # 'r' #@(macro_inc@304)(main@54)
+sub     17 #@(macro_inc@298)(main@54)
+out             # 'a' #@(macro_inc@304)(main@54)
+add     24 #@(macro_inc@295)(main@54)
+out             # 'y' #@(macro_inc@304)(main@54)
+set     10 #@(macro_inc@302)(main@54)
+out             #  #@(macro_inc@304)(main@54)
+drop #@(macro_inc@307)(main@54)
 #(end macro)print("AROTL rotate array\n")
-var grot1*3
-push 1
-pop grot1
-arotl grot1
-push 2
-pop grot1
-arotl grot1
-push 3
-pop grot1
-arotl grot1
+var grot1*3 #@(main@55)
+push 1 #@(main@56)
+pop grot1 #@(main@57)
+arotl grot1 #@(main@58)
+push 2 #@(main@59)
+pop grot1 #@(main@60)
+arotl grot1 #@(main@61)
+push 3 #@(main@62)
+pop grot1 #@(main@63)
+arotl grot1 #@(main@64)
 #(begin macro)print("  01 02 03 == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     16
-out             # '0'
-add     2
-out             # '2'
-sub     18
-out             # ' '
-add     16
-out             # '0'
-add     3
-out             # '3'
-sub     19
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@65)
+set     32 #@(macro_inc@302)(main@65)
+out             # ' ' #@(macro_inc@304)(main@65)
+out             # ' ' #@(macro_inc@304)(main@65)
+add     16 #@(macro_inc@295)(main@65)
+out             # '0' #@(macro_inc@304)(main@65)
+add     1 #@(macro_inc@295)(main@65)
+out             # '1' #@(macro_inc@304)(main@65)
+sub     17 #@(macro_inc@298)(main@65)
+out             # ' ' #@(macro_inc@304)(main@65)
+add     16 #@(macro_inc@295)(main@65)
+out             # '0' #@(macro_inc@304)(main@65)
+add     2 #@(macro_inc@295)(main@65)
+out             # '2' #@(macro_inc@304)(main@65)
+sub     18 #@(macro_inc@298)(main@65)
+out             # ' ' #@(macro_inc@304)(main@65)
+add     16 #@(macro_inc@295)(main@65)
+out             # '0' #@(macro_inc@304)(main@65)
+add     3 #@(macro_inc@295)(main@65)
+out             # '3' #@(macro_inc@304)(main@65)
+sub     19 #@(macro_inc@298)(main@65)
+out             # ' ' #@(macro_inc@304)(main@65)
+add     29 #@(macro_inc@295)(main@65)
+out             # '=' #@(macro_inc@304)(main@65)
+out             # '=' #@(macro_inc@304)(main@65)
+sub     29 #@(macro_inc@298)(main@65)
+out             # ' ' #@(macro_inc@304)(main@65)
+drop #@(macro_inc@307)(main@65)
 #(end macro)print("  01 02 03 == ")
-push 3
-loop
-  push grot1
+push 3 #@(main@66)
+loop #@(main@67)
+  push grot1 #@(main@68)
   #(begin macro)popout8hexa()
-  push    16
-  div
-  #(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-  sbm _input15
-  #(begin macro)if_sup("_input" + __idx,9)
-  push _input15
-  push 9
-  sup
-  if
-    #(end macro)if_sup("_input" + __idx,9)
-    #(begin macro)at_add("_input" + __idx, "'7'")
+  push    16 #@(macro_inc@279)(main@69)
+  div #@(macro_inc@280)(main@69)
+  #(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+  sbm     _input15 #@(macro_inc@268)(macro_inc@281)(main@69)
+  #(begin macro)if_sup  _input15,    9
+  push    _input15 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@69)
+  push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@69)
+  sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@69)
+  if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@69)
+    #(end macro)if_sup  _input15,    9
+    #(begin macro)at_add("_input" + _popouthexa, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input15
-      add '7'
-    ta
+    at      _input15 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@69)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@69)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@69)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'7'")
-  else
-    #(begin macro)at_add("_input" + __idx, "'0'")
+    #(end macro)at_add("_input" + _popouthexa, "'7'")
+  else #@(macro_inc@271)(macro_inc@281)(main@69)
+    #(begin macro)at_add("_input" + _popouthexa, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input15
-      add '0'
-    ta
+    at      _input15 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@69)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@69)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@69)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'0'")
-  fi
-  pop out
-  #(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-  #(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-  sbm _input16
-  #(begin macro)if_sup("_input" + __idx,9)
-  push _input16
-  push 9
-  sup
-  if
-    #(end macro)if_sup("_input" + __idx,9)
-    #(begin macro)at_add("_input" + __idx, "'7'")
+    #(end macro)at_add("_input" + _popouthexa, "'0'")
+  fi #@(macro_inc@273)(macro_inc@281)(main@69)
+  pop out #@(macro_inc@274)(macro_inc@281)(main@69)
+  #(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+  #(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+  sbm     _input16 #@(macro_inc@268)(macro_inc@282)(main@69)
+  #(begin macro)if_sup  _input16,    9
+  push    _input16 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@69)
+  push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@69)
+  sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@69)
+  if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@69)
+    #(end macro)if_sup  _input16,    9
+    #(begin macro)at_add("_input" + _popouthexa, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input16
-      add '7'
-    ta
+    at      _input16 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@69)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@69)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@69)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'7'")
-  else
-    #(begin macro)at_add("_input" + __idx, "'0'")
+    #(end macro)at_add("_input" + _popouthexa, "'7'")
+  else #@(macro_inc@271)(macro_inc@282)(main@69)
+    #(begin macro)at_add("_input" + _popouthexa, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input16
-      add '0'
-    ta
+    at      _input16 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@69)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@69)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@69)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'0'")
-  fi
-  pop out
-  #(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+    #(end macro)at_add("_input" + _popouthexa, "'0'")
+  fi #@(macro_inc@273)(macro_inc@282)(main@69)
+  pop out #@(macro_inc@274)(macro_inc@282)(main@69)
+  #(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
   #(end macro)popout8hexa()
   #(begin macro)print(" ")
-  push    0
-  set     32
-  out             # ' '
-  drop
+  push    0 #@(macro_inc@287)(main@70)
+  set     32 #@(macro_inc@302)(main@70)
+  out             # ' ' #@(macro_inc@304)(main@70)
+  drop #@(macro_inc@307)(main@70)
   #(end macro)print(" ")
-  arotl grot1
-endloop
+  arotl grot1 #@(main@71)
+endloop #@(main@72)
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@73)
+set     10 #@(macro_inc@302)(main@73)
+out             #  #@(macro_inc@304)(main@73)
+drop #@(macro_inc@307)(main@73)
 #(end macro)print("\n")
-
+ #@(main@74)
 #(begin macro)print("AROTR rotate array\n")
-push    0
-set     65
-out             # 'A'
-add     17
-out             # 'R'
-sub     3
-out             # 'O'
-add     5
-out             # 'T'
-sub     2
-out             # 'R'
-set     32
-out             # ' '
-add     82
-out             # 'r'
-sub     3
-out             # 'o'
-add     5
-out             # 't'
-sub     19
-out             # 'a'
-add     19
-out             # 't'
-sub     15
-out             # 'e'
-set     32
-out             # ' '
-add     65
-out             # 'a'
-add     17
-out             # 'r'
-out             # 'r'
-sub     17
-out             # 'a'
-add     24
-out             # 'y'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@75)
+set     65 #@(macro_inc@302)(main@75)
+out             # 'A' #@(macro_inc@304)(main@75)
+add     17 #@(macro_inc@295)(main@75)
+out             # 'R' #@(macro_inc@304)(main@75)
+sub     3 #@(macro_inc@298)(main@75)
+out             # 'O' #@(macro_inc@304)(main@75)
+add     5 #@(macro_inc@295)(main@75)
+out             # 'T' #@(macro_inc@304)(main@75)
+sub     2 #@(macro_inc@298)(main@75)
+out             # 'R' #@(macro_inc@304)(main@75)
+set     32 #@(macro_inc@302)(main@75)
+out             # ' ' #@(macro_inc@304)(main@75)
+add     82 #@(macro_inc@295)(main@75)
+out             # 'r' #@(macro_inc@304)(main@75)
+sub     3 #@(macro_inc@298)(main@75)
+out             # 'o' #@(macro_inc@304)(main@75)
+add     5 #@(macro_inc@295)(main@75)
+out             # 't' #@(macro_inc@304)(main@75)
+sub     19 #@(macro_inc@298)(main@75)
+out             # 'a' #@(macro_inc@304)(main@75)
+add     19 #@(macro_inc@295)(main@75)
+out             # 't' #@(macro_inc@304)(main@75)
+sub     15 #@(macro_inc@298)(main@75)
+out             # 'e' #@(macro_inc@304)(main@75)
+set     32 #@(macro_inc@302)(main@75)
+out             # ' ' #@(macro_inc@304)(main@75)
+add     65 #@(macro_inc@295)(main@75)
+out             # 'a' #@(macro_inc@304)(main@75)
+add     17 #@(macro_inc@295)(main@75)
+out             # 'r' #@(macro_inc@304)(main@75)
+out             # 'r' #@(macro_inc@304)(main@75)
+sub     17 #@(macro_inc@298)(main@75)
+out             # 'a' #@(macro_inc@304)(main@75)
+add     24 #@(macro_inc@295)(main@75)
+out             # 'y' #@(macro_inc@304)(main@75)
+set     10 #@(macro_inc@302)(main@75)
+out             #  #@(macro_inc@304)(main@75)
+drop #@(macro_inc@307)(main@75)
 #(end macro)print("AROTR rotate array\n")
-var grot2*3
-push 1
-pop grot2
-arotr grot2
-push 2
-pop grot2
-arotr grot2
-push 3
-pop grot2
-arotr grot2
+var grot2*3 #@(main@76)
+push 1 #@(main@77)
+pop grot2 #@(main@78)
+arotr grot2 #@(main@79)
+push 2 #@(main@80)
+pop grot2 #@(main@81)
+arotr grot2 #@(main@82)
+push 3 #@(main@83)
+pop grot2 #@(main@84)
+arotr grot2 #@(main@85)
 #(begin macro)print("  01 02 03 == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     16
-out             # '0'
-add     2
-out             # '2'
-sub     18
-out             # ' '
-add     16
-out             # '0'
-add     3
-out             # '3'
-sub     19
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@86)
+set     32 #@(macro_inc@302)(main@86)
+out             # ' ' #@(macro_inc@304)(main@86)
+out             # ' ' #@(macro_inc@304)(main@86)
+add     16 #@(macro_inc@295)(main@86)
+out             # '0' #@(macro_inc@304)(main@86)
+add     1 #@(macro_inc@295)(main@86)
+out             # '1' #@(macro_inc@304)(main@86)
+sub     17 #@(macro_inc@298)(main@86)
+out             # ' ' #@(macro_inc@304)(main@86)
+add     16 #@(macro_inc@295)(main@86)
+out             # '0' #@(macro_inc@304)(main@86)
+add     2 #@(macro_inc@295)(main@86)
+out             # '2' #@(macro_inc@304)(main@86)
+sub     18 #@(macro_inc@298)(main@86)
+out             # ' ' #@(macro_inc@304)(main@86)
+add     16 #@(macro_inc@295)(main@86)
+out             # '0' #@(macro_inc@304)(main@86)
+add     3 #@(macro_inc@295)(main@86)
+out             # '3' #@(macro_inc@304)(main@86)
+sub     19 #@(macro_inc@298)(main@86)
+out             # ' ' #@(macro_inc@304)(main@86)
+add     29 #@(macro_inc@295)(main@86)
+out             # '=' #@(macro_inc@304)(main@86)
+out             # '=' #@(macro_inc@304)(main@86)
+sub     29 #@(macro_inc@298)(main@86)
+out             # ' ' #@(macro_inc@304)(main@86)
+drop #@(macro_inc@307)(main@86)
 #(end macro)print("  01 02 03 == ")
-push 3
-loop
-  push grot2
+push 3 #@(main@87)
+loop #@(main@88)
+  push grot2 #@(main@89)
   #(begin macro)popout8hexa()
-  push    16
-  div
-  #(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-  sbm _input17
-  #(begin macro)if_sup("_input" + __idx,9)
-  push _input17
-  push 9
-  sup
-  if
-    #(end macro)if_sup("_input" + __idx,9)
-    #(begin macro)at_add("_input" + __idx, "'7'")
+  push    16 #@(macro_inc@279)(main@90)
+  div #@(macro_inc@280)(main@90)
+  #(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+  sbm     _input17 #@(macro_inc@268)(macro_inc@281)(main@90)
+  #(begin macro)if_sup  _input17,    9
+  push    _input17 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@90)
+  push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@90)
+  sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@90)
+  if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@90)
+    #(end macro)if_sup  _input17,    9
+    #(begin macro)at_add("_input" + _popouthexa, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input17
-      add '7'
-    ta
+    at      _input17 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@90)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@90)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@90)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'7'")
-  else
-    #(begin macro)at_add("_input" + __idx, "'0'")
+    #(end macro)at_add("_input" + _popouthexa, "'7'")
+  else #@(macro_inc@271)(macro_inc@281)(main@90)
+    #(begin macro)at_add("_input" + _popouthexa, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input17
-      add '0'
-    ta
+    at      _input17 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@90)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@90)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@90)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'0'")
-  fi
-  pop out
-  #(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-  #(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-  sbm _input18
-  #(begin macro)if_sup("_input" + __idx,9)
-  push _input18
-  push 9
-  sup
-  if
-    #(end macro)if_sup("_input" + __idx,9)
-    #(begin macro)at_add("_input" + __idx, "'7'")
+    #(end macro)at_add("_input" + _popouthexa, "'0'")
+  fi #@(macro_inc@273)(macro_inc@281)(main@90)
+  pop out #@(macro_inc@274)(macro_inc@281)(main@90)
+  #(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+  #(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+  sbm     _input18 #@(macro_inc@268)(macro_inc@282)(main@90)
+  #(begin macro)if_sup  _input18,    9
+  push    _input18 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@90)
+  push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@90)
+  sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@90)
+  if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@90)
+    #(end macro)if_sup  _input18,    9
+    #(begin macro)at_add("_input" + _popouthexa, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input18
-      add '7'
-    ta
+    at      _input18 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@90)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@90)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@90)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'7'")
-  else
-    #(begin macro)at_add("_input" + __idx, "'0'")
+    #(end macro)at_add("_input" + _popouthexa, "'7'")
+  else #@(macro_inc@271)(macro_inc@282)(main@90)
+    #(begin macro)at_add("_input" + _popouthexa, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input18
-      add '0'
-    ta
+    at      _input18 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@90)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@90)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@90)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'0'")
-  fi
-  pop out
-  #(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+    #(end macro)at_add("_input" + _popouthexa, "'0'")
+  fi #@(macro_inc@273)(macro_inc@282)(main@90)
+  pop out #@(macro_inc@274)(macro_inc@282)(main@90)
+  #(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
   #(end macro)popout8hexa()
   #(begin macro)print(" ")
-  push    0
-  set     32
-  out             # ' '
-  drop
+  push    0 #@(macro_inc@287)(main@91)
+  set     32 #@(macro_inc@302)(main@91)
+  out             # ' ' #@(macro_inc@304)(main@91)
+  drop #@(macro_inc@307)(main@91)
   #(end macro)print(" ")
-  arotr grot2
-endloop
+  arotr grot2 #@(main@92)
+endloop #@(main@93)
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@94)
+set     10 #@(macro_inc@302)(main@94)
+out             #  #@(macro_inc@304)(main@94)
+drop #@(macro_inc@307)(main@94)
 #(end macro)print("\n")
-
+ #@(main@95)
 #(begin macro)print("AT / TA at variable action\n")
-push    0
-set     65
-out             # 'A'
-add     19
-out             # 'T'
-set     32
-out             # ' '
-add     15
-out             # '/'
-sub     15
-out             # ' '
-add     52
-out             # 'T'
-sub     19
-out             # 'A'
-set     32
-out             # ' '
-add     65
-out             # 'a'
-add     19
-out             # 't'
-set     32
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     17
-out             # 'r'
-sub     9
-out             # 'i'
-sub     8
-out             # 'a'
-add     1
-out             # 'b'
-add     10
-out             # 'l'
-sub     7
-out             # 'e'
-set     32
-out             # ' '
-add     65
-out             # 'a'
-add     2
-out             # 'c'
-add     17
-out             # 't'
-sub     11
-out             # 'i'
-add     6
-out             # 'o'
-sub     1
-out             # 'n'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@96)
+set     65 #@(macro_inc@302)(main@96)
+out             # 'A' #@(macro_inc@304)(main@96)
+add     19 #@(macro_inc@295)(main@96)
+out             # 'T' #@(macro_inc@304)(main@96)
+set     32 #@(macro_inc@302)(main@96)
+out             # ' ' #@(macro_inc@304)(main@96)
+add     15 #@(macro_inc@295)(main@96)
+out             # '/' #@(macro_inc@304)(main@96)
+sub     15 #@(macro_inc@298)(main@96)
+out             # ' ' #@(macro_inc@304)(main@96)
+add     52 #@(macro_inc@295)(main@96)
+out             # 'T' #@(macro_inc@304)(main@96)
+sub     19 #@(macro_inc@298)(main@96)
+out             # 'A' #@(macro_inc@304)(main@96)
+set     32 #@(macro_inc@302)(main@96)
+out             # ' ' #@(macro_inc@304)(main@96)
+add     65 #@(macro_inc@295)(main@96)
+out             # 'a' #@(macro_inc@304)(main@96)
+add     19 #@(macro_inc@295)(main@96)
+out             # 't' #@(macro_inc@304)(main@96)
+set     32 #@(macro_inc@302)(main@96)
+out             # ' ' #@(macro_inc@304)(main@96)
+add     86 #@(macro_inc@295)(main@96)
+out             # 'v' #@(macro_inc@304)(main@96)
+sub     21 #@(macro_inc@298)(main@96)
+out             # 'a' #@(macro_inc@304)(main@96)
+add     17 #@(macro_inc@295)(main@96)
+out             # 'r' #@(macro_inc@304)(main@96)
+sub     9 #@(macro_inc@298)(main@96)
+out             # 'i' #@(macro_inc@304)(main@96)
+sub     8 #@(macro_inc@298)(main@96)
+out             # 'a' #@(macro_inc@304)(main@96)
+add     1 #@(macro_inc@295)(main@96)
+out             # 'b' #@(macro_inc@304)(main@96)
+add     10 #@(macro_inc@295)(main@96)
+out             # 'l' #@(macro_inc@304)(main@96)
+sub     7 #@(macro_inc@298)(main@96)
+out             # 'e' #@(macro_inc@304)(main@96)
+set     32 #@(macro_inc@302)(main@96)
+out             # ' ' #@(macro_inc@304)(main@96)
+add     65 #@(macro_inc@295)(main@96)
+out             # 'a' #@(macro_inc@304)(main@96)
+add     2 #@(macro_inc@295)(main@96)
+out             # 'c' #@(macro_inc@304)(main@96)
+add     17 #@(macro_inc@295)(main@96)
+out             # 't' #@(macro_inc@304)(main@96)
+sub     11 #@(macro_inc@298)(main@96)
+out             # 'i' #@(macro_inc@304)(main@96)
+add     6 #@(macro_inc@295)(main@96)
+out             # 'o' #@(macro_inc@304)(main@96)
+sub     1 #@(macro_inc@298)(main@96)
+out             # 'n' #@(macro_inc@304)(main@96)
+set     10 #@(macro_inc@302)(main@96)
+out             #  #@(macro_inc@304)(main@96)
+drop #@(macro_inc@307)(main@96)
 #(end macro)print("AT / TA at variable action\n")
-var gvar2
-at gvar2
-  set 9
-ta
-push gvar2
+var gvar2 #@(main@97)
+at gvar2 #@(main@98)
+  set 9 #@(main@99)
+ta #@(main@100)
+push gvar2 #@(main@101)
 #(begin macro)print("  09 == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     9
-out             # '9'
-sub     25
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@102)
+set     32 #@(macro_inc@302)(main@102)
+out             # ' ' #@(macro_inc@304)(main@102)
+out             # ' ' #@(macro_inc@304)(main@102)
+add     16 #@(macro_inc@295)(main@102)
+out             # '0' #@(macro_inc@304)(main@102)
+add     9 #@(macro_inc@295)(main@102)
+out             # '9' #@(macro_inc@304)(main@102)
+sub     25 #@(macro_inc@298)(main@102)
+out             # ' ' #@(macro_inc@304)(main@102)
+add     29 #@(macro_inc@295)(main@102)
+out             # '=' #@(macro_inc@304)(main@102)
+out             # '=' #@(macro_inc@304)(main@102)
+sub     29 #@(macro_inc@298)(main@102)
+out             # ' ' #@(macro_inc@304)(main@102)
+drop #@(macro_inc@307)(main@102)
 #(end macro)print("  09 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input19
-#(begin macro)if_sup("_input" + __idx,9)
-push _input19
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@103)
+div #@(macro_inc@280)(main@103)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input19 #@(macro_inc@268)(macro_inc@281)(main@103)
+#(begin macro)if_sup  _input19,    9
+push    _input19 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@103)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@103)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@103)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@103)
+  #(end macro)if_sup  _input19,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input19
-    add '7'
-  ta
+  at      _input19 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@103)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@103)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@103)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@103)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input19
-    add '0'
-  ta
+  at      _input19 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@103)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@103)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@103)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input20
-#(begin macro)if_sup("_input" + __idx,9)
-push _input20
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@103)
+pop out #@(macro_inc@274)(macro_inc@281)(main@103)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input20 #@(macro_inc@268)(macro_inc@282)(main@103)
+#(begin macro)if_sup  _input20,    9
+push    _input20 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@103)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@103)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@103)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@103)
+  #(end macro)if_sup  _input20,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input20
-    add '7'
-  ta
+  at      _input20 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@103)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@103)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@103)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@103)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input20
-    add '0'
-  ta
+  at      _input20 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@103)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@103)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@103)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@103)
+pop out #@(macro_inc@274)(macro_inc@282)(main@103)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@104)
+set     10 #@(macro_inc@302)(main@104)
+out             #  #@(macro_inc@304)(main@104)
+drop #@(macro_inc@307)(main@104)
 #(end macro)print("\n")
-
+ #@(main@105)
 #(begin macro)print("BF inline BF actions\n")
-push    0
-set     66
-out             # 'B'
-add     4
-out             # 'F'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     5
-out             # 'n'
-sub     2
-out             # 'l'
-sub     3
-out             # 'i'
-add     5
-out             # 'n'
-sub     9
-out             # 'e'
-set     32
-out             # ' '
-add     34
-out             # 'B'
-add     4
-out             # 'F'
-set     32
-out             # ' '
-add     65
-out             # 'a'
-add     2
-out             # 'c'
-add     17
-out             # 't'
-sub     11
-out             # 'i'
-add     6
-out             # 'o'
-sub     1
-out             # 'n'
-add     5
-out             # 's'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@106)
+set     66 #@(macro_inc@302)(main@106)
+out             # 'B' #@(macro_inc@304)(main@106)
+add     4 #@(macro_inc@295)(main@106)
+out             # 'F' #@(macro_inc@304)(main@106)
+set     32 #@(macro_inc@302)(main@106)
+out             # ' ' #@(macro_inc@304)(main@106)
+add     73 #@(macro_inc@295)(main@106)
+out             # 'i' #@(macro_inc@304)(main@106)
+add     5 #@(macro_inc@295)(main@106)
+out             # 'n' #@(macro_inc@304)(main@106)
+sub     2 #@(macro_inc@298)(main@106)
+out             # 'l' #@(macro_inc@304)(main@106)
+sub     3 #@(macro_inc@298)(main@106)
+out             # 'i' #@(macro_inc@304)(main@106)
+add     5 #@(macro_inc@295)(main@106)
+out             # 'n' #@(macro_inc@304)(main@106)
+sub     9 #@(macro_inc@298)(main@106)
+out             # 'e' #@(macro_inc@304)(main@106)
+set     32 #@(macro_inc@302)(main@106)
+out             # ' ' #@(macro_inc@304)(main@106)
+add     34 #@(macro_inc@295)(main@106)
+out             # 'B' #@(macro_inc@304)(main@106)
+add     4 #@(macro_inc@295)(main@106)
+out             # 'F' #@(macro_inc@304)(main@106)
+set     32 #@(macro_inc@302)(main@106)
+out             # ' ' #@(macro_inc@304)(main@106)
+add     65 #@(macro_inc@295)(main@106)
+out             # 'a' #@(macro_inc@304)(main@106)
+add     2 #@(macro_inc@295)(main@106)
+out             # 'c' #@(macro_inc@304)(main@106)
+add     17 #@(macro_inc@295)(main@106)
+out             # 't' #@(macro_inc@304)(main@106)
+sub     11 #@(macro_inc@298)(main@106)
+out             # 'i' #@(macro_inc@304)(main@106)
+add     6 #@(macro_inc@295)(main@106)
+out             # 'o' #@(macro_inc@304)(main@106)
+sub     1 #@(macro_inc@298)(main@106)
+out             # 'n' #@(macro_inc@304)(main@106)
+add     5 #@(macro_inc@295)(main@106)
+out             # 's' #@(macro_inc@304)(main@106)
+set     10 #@(macro_inc@302)(main@106)
+out             #  #@(macro_inc@304)(main@106)
+drop #@(macro_inc@307)(main@106)
 #(end macro)print("BF inline BF actions\n")
 #(begin macro)print("  09 == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     9
-out             # '9'
-sub     25
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@107)
+set     32 #@(macro_inc@302)(main@107)
+out             # ' ' #@(macro_inc@304)(main@107)
+out             # ' ' #@(macro_inc@304)(main@107)
+add     16 #@(macro_inc@295)(main@107)
+out             # '0' #@(macro_inc@304)(main@107)
+add     9 #@(macro_inc@295)(main@107)
+out             # '9' #@(macro_inc@304)(main@107)
+sub     25 #@(macro_inc@298)(main@107)
+out             # ' ' #@(macro_inc@304)(main@107)
+add     29 #@(macro_inc@295)(main@107)
+out             # '=' #@(macro_inc@304)(main@107)
+out             # '=' #@(macro_inc@304)(main@107)
+sub     29 #@(macro_inc@298)(main@107)
+out             # ' ' #@(macro_inc@304)(main@107)
+drop #@(macro_inc@307)(main@107)
 #(end macro)print("  09 == ")
-push    0
-bf  +++++++++
+push    0 #@(main@108)
+bf  +++++++++ #@(main@109)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input21
-#(begin macro)if_sup("_input" + __idx,9)
-push _input21
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@110)
+div #@(macro_inc@280)(main@110)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input21 #@(macro_inc@268)(macro_inc@281)(main@110)
+#(begin macro)if_sup  _input21,    9
+push    _input21 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@110)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@110)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@110)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@110)
+  #(end macro)if_sup  _input21,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input21
-    add '7'
-  ta
+  at      _input21 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@110)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@110)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@110)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@110)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input21
-    add '0'
-  ta
+  at      _input21 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@110)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@110)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@110)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input22
-#(begin macro)if_sup("_input" + __idx,9)
-push _input22
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@110)
+pop out #@(macro_inc@274)(macro_inc@281)(main@110)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input22 #@(macro_inc@268)(macro_inc@282)(main@110)
+#(begin macro)if_sup  _input22,    9
+push    _input22 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@110)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@110)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@110)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@110)
+  #(end macro)if_sup  _input22,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input22
-    add '7'
-  ta
+  at      _input22 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@110)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@110)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@110)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@110)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input22
-    add '0'
-  ta
+  at      _input22 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@110)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@110)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@110)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@110)
+pop out #@(macro_inc@274)(macro_inc@282)(main@110)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@111)
+set     10 #@(macro_inc@302)(main@111)
+out             #  #@(macro_inc@304)(main@111)
+drop #@(macro_inc@307)(main@111)
 #(end macro)print("\n")
-
+ #@(main@112)
 #(begin macro)print("BOOL transform stack value to 0 or 1\n")
-push    0
-set     66
-out             # 'B'
-add     13
-out             # 'O'
-out             # 'O'
-sub     3
-out             # 'L'
-set     32
-out             # ' '
-add     84
-out             # 't'
-sub     2
-out             # 'r'
-sub     17
-out             # 'a'
-add     13
-out             # 'n'
-add     5
-out             # 's'
-sub     13
-out             # 'f'
-add     9
-out             # 'o'
-add     3
-out             # 'r'
-sub     5
-out             # 'm'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     32
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-set     32
-out             # ' '
-add     84
-out             # 't'
-sub     5
-out             # 'o'
-set     32
-out             # ' '
-add     16
-out             # '0'
-sub     16
-out             # ' '
-add     79
-out             # 'o'
-add     3
-out             # 'r'
-set     32
-out             # ' '
-add     17
-out             # '1'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@113)
+set     66 #@(macro_inc@302)(main@113)
+out             # 'B' #@(macro_inc@304)(main@113)
+add     13 #@(macro_inc@295)(main@113)
+out             # 'O' #@(macro_inc@304)(main@113)
+out             # 'O' #@(macro_inc@304)(main@113)
+sub     3 #@(macro_inc@298)(main@113)
+out             # 'L' #@(macro_inc@304)(main@113)
+set     32 #@(macro_inc@302)(main@113)
+out             # ' ' #@(macro_inc@304)(main@113)
+add     84 #@(macro_inc@295)(main@113)
+out             # 't' #@(macro_inc@304)(main@113)
+sub     2 #@(macro_inc@298)(main@113)
+out             # 'r' #@(macro_inc@304)(main@113)
+sub     17 #@(macro_inc@298)(main@113)
+out             # 'a' #@(macro_inc@304)(main@113)
+add     13 #@(macro_inc@295)(main@113)
+out             # 'n' #@(macro_inc@304)(main@113)
+add     5 #@(macro_inc@295)(main@113)
+out             # 's' #@(macro_inc@304)(main@113)
+sub     13 #@(macro_inc@298)(main@113)
+out             # 'f' #@(macro_inc@304)(main@113)
+add     9 #@(macro_inc@295)(main@113)
+out             # 'o' #@(macro_inc@304)(main@113)
+add     3 #@(macro_inc@295)(main@113)
+out             # 'r' #@(macro_inc@304)(main@113)
+sub     5 #@(macro_inc@298)(main@113)
+out             # 'm' #@(macro_inc@304)(main@113)
+set     32 #@(macro_inc@302)(main@113)
+out             # ' ' #@(macro_inc@304)(main@113)
+add     83 #@(macro_inc@295)(main@113)
+out             # 's' #@(macro_inc@304)(main@113)
+add     1 #@(macro_inc@295)(main@113)
+out             # 't' #@(macro_inc@304)(main@113)
+sub     19 #@(macro_inc@298)(main@113)
+out             # 'a' #@(macro_inc@304)(main@113)
+add     2 #@(macro_inc@295)(main@113)
+out             # 'c' #@(macro_inc@304)(main@113)
+add     8 #@(macro_inc@295)(main@113)
+out             # 'k' #@(macro_inc@304)(main@113)
+set     32 #@(macro_inc@302)(main@113)
+out             # ' ' #@(macro_inc@304)(main@113)
+add     86 #@(macro_inc@295)(main@113)
+out             # 'v' #@(macro_inc@304)(main@113)
+sub     21 #@(macro_inc@298)(main@113)
+out             # 'a' #@(macro_inc@304)(main@113)
+add     11 #@(macro_inc@295)(main@113)
+out             # 'l' #@(macro_inc@304)(main@113)
+add     9 #@(macro_inc@295)(main@113)
+out             # 'u' #@(macro_inc@304)(main@113)
+sub     16 #@(macro_inc@298)(main@113)
+out             # 'e' #@(macro_inc@304)(main@113)
+set     32 #@(macro_inc@302)(main@113)
+out             # ' ' #@(macro_inc@304)(main@113)
+add     84 #@(macro_inc@295)(main@113)
+out             # 't' #@(macro_inc@304)(main@113)
+sub     5 #@(macro_inc@298)(main@113)
+out             # 'o' #@(macro_inc@304)(main@113)
+set     32 #@(macro_inc@302)(main@113)
+out             # ' ' #@(macro_inc@304)(main@113)
+add     16 #@(macro_inc@295)(main@113)
+out             # '0' #@(macro_inc@304)(main@113)
+sub     16 #@(macro_inc@298)(main@113)
+out             # ' ' #@(macro_inc@304)(main@113)
+add     79 #@(macro_inc@295)(main@113)
+out             # 'o' #@(macro_inc@304)(main@113)
+add     3 #@(macro_inc@295)(main@113)
+out             # 'r' #@(macro_inc@304)(main@113)
+set     32 #@(macro_inc@302)(main@113)
+out             # ' ' #@(macro_inc@304)(main@113)
+add     17 #@(macro_inc@295)(main@113)
+out             # '1' #@(macro_inc@304)(main@113)
+set     10 #@(macro_inc@302)(main@113)
+out             #  #@(macro_inc@304)(main@113)
+drop #@(macro_inc@307)(main@113)
 #(end macro)print("BOOL transform stack value to 0 or 1\n")
 #(begin macro)print("  10 : 01 == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@114)
+set     32 #@(macro_inc@302)(main@114)
+out             # ' ' #@(macro_inc@304)(main@114)
+out             # ' ' #@(macro_inc@304)(main@114)
+add     17 #@(macro_inc@295)(main@114)
+out             # '1' #@(macro_inc@304)(main@114)
+sub     1 #@(macro_inc@298)(main@114)
+out             # '0' #@(macro_inc@304)(main@114)
+sub     16 #@(macro_inc@298)(main@114)
+out             # ' ' #@(macro_inc@304)(main@114)
+add     26 #@(macro_inc@295)(main@114)
+out             # ':' #@(macro_inc@304)(main@114)
+sub     26 #@(macro_inc@298)(main@114)
+out             # ' ' #@(macro_inc@304)(main@114)
+add     16 #@(macro_inc@295)(main@114)
+out             # '0' #@(macro_inc@304)(main@114)
+add     1 #@(macro_inc@295)(main@114)
+out             # '1' #@(macro_inc@304)(main@114)
+sub     17 #@(macro_inc@298)(main@114)
+out             # ' ' #@(macro_inc@304)(main@114)
+add     29 #@(macro_inc@295)(main@114)
+out             # '=' #@(macro_inc@304)(main@114)
+out             # '=' #@(macro_inc@304)(main@114)
+sub     29 #@(macro_inc@298)(main@114)
+out             # ' ' #@(macro_inc@304)(main@114)
+drop #@(macro_inc@307)(main@114)
 #(end macro)print("  10 : 01 == ")
-push 10
-bool
+push 10 #@(main@115)
+bool #@(main@116)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input23
-#(begin macro)if_sup("_input" + __idx,9)
-push _input23
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@117)
+div #@(macro_inc@280)(main@117)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input23 #@(macro_inc@268)(macro_inc@281)(main@117)
+#(begin macro)if_sup  _input23,    9
+push    _input23 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@117)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@117)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@117)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@117)
+  #(end macro)if_sup  _input23,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input23
-    add '7'
-  ta
+  at      _input23 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@117)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@117)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@117)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@117)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input23
-    add '0'
-  ta
+  at      _input23 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@117)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@117)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@117)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input24
-#(begin macro)if_sup("_input" + __idx,9)
-push _input24
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@117)
+pop out #@(macro_inc@274)(macro_inc@281)(main@117)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input24 #@(macro_inc@268)(macro_inc@282)(main@117)
+#(begin macro)if_sup  _input24,    9
+push    _input24 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@117)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@117)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@117)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@117)
+  #(end macro)if_sup  _input24,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input24
-    add '7'
-  ta
+  at      _input24 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@117)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@117)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@117)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@117)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input24
-    add '0'
-  ta
+  at      _input24 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@117)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@117)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@117)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@117)
+pop out #@(macro_inc@274)(macro_inc@282)(main@117)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@118)
+set     10 #@(macro_inc@302)(main@118)
+out             #  #@(macro_inc@304)(main@118)
+drop #@(macro_inc@307)(main@118)
 #(end macro)print("\n")
 #(begin macro)print("  255 : 01 == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     18
-out             # '2'
-add     3
-out             # '5'
-out             # '5'
-sub     21
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@119)
+set     32 #@(macro_inc@302)(main@119)
+out             # ' ' #@(macro_inc@304)(main@119)
+out             # ' ' #@(macro_inc@304)(main@119)
+add     18 #@(macro_inc@295)(main@119)
+out             # '2' #@(macro_inc@304)(main@119)
+add     3 #@(macro_inc@295)(main@119)
+out             # '5' #@(macro_inc@304)(main@119)
+out             # '5' #@(macro_inc@304)(main@119)
+sub     21 #@(macro_inc@298)(main@119)
+out             # ' ' #@(macro_inc@304)(main@119)
+add     26 #@(macro_inc@295)(main@119)
+out             # ':' #@(macro_inc@304)(main@119)
+sub     26 #@(macro_inc@298)(main@119)
+out             # ' ' #@(macro_inc@304)(main@119)
+add     16 #@(macro_inc@295)(main@119)
+out             # '0' #@(macro_inc@304)(main@119)
+add     1 #@(macro_inc@295)(main@119)
+out             # '1' #@(macro_inc@304)(main@119)
+sub     17 #@(macro_inc@298)(main@119)
+out             # ' ' #@(macro_inc@304)(main@119)
+add     29 #@(macro_inc@295)(main@119)
+out             # '=' #@(macro_inc@304)(main@119)
+out             # '=' #@(macro_inc@304)(main@119)
+sub     29 #@(macro_inc@298)(main@119)
+out             # ' ' #@(macro_inc@304)(main@119)
+drop #@(macro_inc@307)(main@119)
 #(end macro)print("  255 : 01 == ")
-push 255
-bool
+push 255 #@(main@120)
+bool #@(main@121)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input25
-#(begin macro)if_sup("_input" + __idx,9)
-push _input25
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@122)
+div #@(macro_inc@280)(main@122)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input25 #@(macro_inc@268)(macro_inc@281)(main@122)
+#(begin macro)if_sup  _input25,    9
+push    _input25 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@122)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@122)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@122)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@122)
+  #(end macro)if_sup  _input25,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input25
-    add '7'
-  ta
+  at      _input25 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@122)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@122)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@122)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@122)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input25
-    add '0'
-  ta
+  at      _input25 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@122)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@122)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@122)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input26
-#(begin macro)if_sup("_input" + __idx,9)
-push _input26
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@122)
+pop out #@(macro_inc@274)(macro_inc@281)(main@122)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input26 #@(macro_inc@268)(macro_inc@282)(main@122)
+#(begin macro)if_sup  _input26,    9
+push    _input26 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@122)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@122)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@122)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@122)
+  #(end macro)if_sup  _input26,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input26
-    add '7'
-  ta
+  at      _input26 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@122)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@122)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@122)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@122)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input26
-    add '0'
-  ta
+  at      _input26 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@122)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@122)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@122)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@122)
+pop out #@(macro_inc@274)(macro_inc@282)(main@122)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@123)
+set     10 #@(macro_inc@302)(main@123)
+out             #  #@(macro_inc@304)(main@123)
+drop #@(macro_inc@307)(main@123)
 #(end macro)print("\n")
 #(begin macro)print("  0 : 00 == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-sub     16
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-out             # '0'
-sub     16
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@124)
+set     32 #@(macro_inc@302)(main@124)
+out             # ' ' #@(macro_inc@304)(main@124)
+out             # ' ' #@(macro_inc@304)(main@124)
+add     16 #@(macro_inc@295)(main@124)
+out             # '0' #@(macro_inc@304)(main@124)
+sub     16 #@(macro_inc@298)(main@124)
+out             # ' ' #@(macro_inc@304)(main@124)
+add     26 #@(macro_inc@295)(main@124)
+out             # ':' #@(macro_inc@304)(main@124)
+sub     26 #@(macro_inc@298)(main@124)
+out             # ' ' #@(macro_inc@304)(main@124)
+add     16 #@(macro_inc@295)(main@124)
+out             # '0' #@(macro_inc@304)(main@124)
+out             # '0' #@(macro_inc@304)(main@124)
+sub     16 #@(macro_inc@298)(main@124)
+out             # ' ' #@(macro_inc@304)(main@124)
+add     29 #@(macro_inc@295)(main@124)
+out             # '=' #@(macro_inc@304)(main@124)
+out             # '=' #@(macro_inc@304)(main@124)
+sub     29 #@(macro_inc@298)(main@124)
+out             # ' ' #@(macro_inc@304)(main@124)
+drop #@(macro_inc@307)(main@124)
 #(end macro)print("  0 : 00 == ")
-push 0
-bool
+push 0 #@(main@125)
+bool #@(main@126)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input27
-#(begin macro)if_sup("_input" + __idx,9)
-push _input27
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@127)
+div #@(macro_inc@280)(main@127)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input27 #@(macro_inc@268)(macro_inc@281)(main@127)
+#(begin macro)if_sup  _input27,    9
+push    _input27 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@127)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@127)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@127)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@127)
+  #(end macro)if_sup  _input27,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input27
-    add '7'
-  ta
+  at      _input27 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@127)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@127)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@127)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@127)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input27
-    add '0'
-  ta
+  at      _input27 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@127)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@127)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@127)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input28
-#(begin macro)if_sup("_input" + __idx,9)
-push _input28
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@127)
+pop out #@(macro_inc@274)(macro_inc@281)(main@127)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input28 #@(macro_inc@268)(macro_inc@282)(main@127)
+#(begin macro)if_sup  _input28,    9
+push    _input28 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@127)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@127)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@127)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@127)
+  #(end macro)if_sup  _input28,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input28
-    add '7'
-  ta
+  at      _input28 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@127)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@127)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@127)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@127)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input28
-    add '0'
-  ta
+  at      _input28 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@127)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@127)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@127)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@127)
+pop out #@(macro_inc@274)(macro_inc@282)(main@127)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@128)
+set     10 #@(macro_inc@302)(main@128)
+out             #  #@(macro_inc@304)(main@128)
+drop #@(macro_inc@307)(main@128)
 #(end macro)print("\n")
-
+ #@(main@129)
 #(begin macro)print("DEC , decrement head of stack value\n")
-push    0
-set     68
-out             # 'D'
-add     1
-out             # 'E'
-sub     2
-out             # 'C'
-set     32
-out             # ' '
-add     12
-out             # ','
-sub     12
-out             # ' '
-add     68
-out             # 'd'
-add     1
-out             # 'e'
-sub     2
-out             # 'c'
-add     15
-out             # 'r'
-sub     13
-out             # 'e'
-add     8
-out             # 'm'
-sub     8
-out             # 'e'
-add     9
-out             # 'n'
-add     6
-out             # 't'
-set     32
-out             # ' '
-add     72
-out             # 'h'
-sub     3
-out             # 'e'
-sub     4
-out             # 'a'
-add     3
-out             # 'd'
-set     32
-out             # ' '
-add     79
-out             # 'o'
-sub     9
-out             # 'f'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     32
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@130)
+set     68 #@(macro_inc@302)(main@130)
+out             # 'D' #@(macro_inc@304)(main@130)
+add     1 #@(macro_inc@295)(main@130)
+out             # 'E' #@(macro_inc@304)(main@130)
+sub     2 #@(macro_inc@298)(main@130)
+out             # 'C' #@(macro_inc@304)(main@130)
+set     32 #@(macro_inc@302)(main@130)
+out             # ' ' #@(macro_inc@304)(main@130)
+add     12 #@(macro_inc@295)(main@130)
+out             # ',' #@(macro_inc@304)(main@130)
+sub     12 #@(macro_inc@298)(main@130)
+out             # ' ' #@(macro_inc@304)(main@130)
+add     68 #@(macro_inc@295)(main@130)
+out             # 'd' #@(macro_inc@304)(main@130)
+add     1 #@(macro_inc@295)(main@130)
+out             # 'e' #@(macro_inc@304)(main@130)
+sub     2 #@(macro_inc@298)(main@130)
+out             # 'c' #@(macro_inc@304)(main@130)
+add     15 #@(macro_inc@295)(main@130)
+out             # 'r' #@(macro_inc@304)(main@130)
+sub     13 #@(macro_inc@298)(main@130)
+out             # 'e' #@(macro_inc@304)(main@130)
+add     8 #@(macro_inc@295)(main@130)
+out             # 'm' #@(macro_inc@304)(main@130)
+sub     8 #@(macro_inc@298)(main@130)
+out             # 'e' #@(macro_inc@304)(main@130)
+add     9 #@(macro_inc@295)(main@130)
+out             # 'n' #@(macro_inc@304)(main@130)
+add     6 #@(macro_inc@295)(main@130)
+out             # 't' #@(macro_inc@304)(main@130)
+set     32 #@(macro_inc@302)(main@130)
+out             # ' ' #@(macro_inc@304)(main@130)
+add     72 #@(macro_inc@295)(main@130)
+out             # 'h' #@(macro_inc@304)(main@130)
+sub     3 #@(macro_inc@298)(main@130)
+out             # 'e' #@(macro_inc@304)(main@130)
+sub     4 #@(macro_inc@298)(main@130)
+out             # 'a' #@(macro_inc@304)(main@130)
+add     3 #@(macro_inc@295)(main@130)
+out             # 'd' #@(macro_inc@304)(main@130)
+set     32 #@(macro_inc@302)(main@130)
+out             # ' ' #@(macro_inc@304)(main@130)
+add     79 #@(macro_inc@295)(main@130)
+out             # 'o' #@(macro_inc@304)(main@130)
+sub     9 #@(macro_inc@298)(main@130)
+out             # 'f' #@(macro_inc@304)(main@130)
+set     32 #@(macro_inc@302)(main@130)
+out             # ' ' #@(macro_inc@304)(main@130)
+add     83 #@(macro_inc@295)(main@130)
+out             # 's' #@(macro_inc@304)(main@130)
+add     1 #@(macro_inc@295)(main@130)
+out             # 't' #@(macro_inc@304)(main@130)
+sub     19 #@(macro_inc@298)(main@130)
+out             # 'a' #@(macro_inc@304)(main@130)
+add     2 #@(macro_inc@295)(main@130)
+out             # 'c' #@(macro_inc@304)(main@130)
+add     8 #@(macro_inc@295)(main@130)
+out             # 'k' #@(macro_inc@304)(main@130)
+set     32 #@(macro_inc@302)(main@130)
+out             # ' ' #@(macro_inc@304)(main@130)
+add     86 #@(macro_inc@295)(main@130)
+out             # 'v' #@(macro_inc@304)(main@130)
+sub     21 #@(macro_inc@298)(main@130)
+out             # 'a' #@(macro_inc@304)(main@130)
+add     11 #@(macro_inc@295)(main@130)
+out             # 'l' #@(macro_inc@304)(main@130)
+add     9 #@(macro_inc@295)(main@130)
+out             # 'u' #@(macro_inc@304)(main@130)
+sub     16 #@(macro_inc@298)(main@130)
+out             # 'e' #@(macro_inc@304)(main@130)
+set     10 #@(macro_inc@302)(main@130)
+out             #  #@(macro_inc@304)(main@130)
+drop #@(macro_inc@307)(main@130)
 #(end macro)print("DEC , decrement head of stack value\n")
 #(begin macro)print(" 10 - 1 : 09 == ")
-push    0
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     13
-out             # '-'
-sub     13
-out             # ' '
-add     17
-out             # '1'
-sub     17
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-add     9
-out             # '9'
-sub     25
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@131)
+set     32 #@(macro_inc@302)(main@131)
+out             # ' ' #@(macro_inc@304)(main@131)
+add     17 #@(macro_inc@295)(main@131)
+out             # '1' #@(macro_inc@304)(main@131)
+sub     1 #@(macro_inc@298)(main@131)
+out             # '0' #@(macro_inc@304)(main@131)
+sub     16 #@(macro_inc@298)(main@131)
+out             # ' ' #@(macro_inc@304)(main@131)
+add     13 #@(macro_inc@295)(main@131)
+out             # '-' #@(macro_inc@304)(main@131)
+sub     13 #@(macro_inc@298)(main@131)
+out             # ' ' #@(macro_inc@304)(main@131)
+add     17 #@(macro_inc@295)(main@131)
+out             # '1' #@(macro_inc@304)(main@131)
+sub     17 #@(macro_inc@298)(main@131)
+out             # ' ' #@(macro_inc@304)(main@131)
+add     26 #@(macro_inc@295)(main@131)
+out             # ':' #@(macro_inc@304)(main@131)
+sub     26 #@(macro_inc@298)(main@131)
+out             # ' ' #@(macro_inc@304)(main@131)
+add     16 #@(macro_inc@295)(main@131)
+out             # '0' #@(macro_inc@304)(main@131)
+add     9 #@(macro_inc@295)(main@131)
+out             # '9' #@(macro_inc@304)(main@131)
+sub     25 #@(macro_inc@298)(main@131)
+out             # ' ' #@(macro_inc@304)(main@131)
+add     29 #@(macro_inc@295)(main@131)
+out             # '=' #@(macro_inc@304)(main@131)
+out             # '=' #@(macro_inc@304)(main@131)
+sub     29 #@(macro_inc@298)(main@131)
+out             # ' ' #@(macro_inc@304)(main@131)
+drop #@(macro_inc@307)(main@131)
 #(end macro)print(" 10 - 1 : 09 == ")
-push 10
-dec
+push 10 #@(main@132)
+dec #@(main@133)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input29
-#(begin macro)if_sup("_input" + __idx,9)
-push _input29
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@134)
+div #@(macro_inc@280)(main@134)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input29 #@(macro_inc@268)(macro_inc@281)(main@134)
+#(begin macro)if_sup  _input29,    9
+push    _input29 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@134)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@134)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@134)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@134)
+  #(end macro)if_sup  _input29,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input29
-    add '7'
-  ta
+  at      _input29 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@134)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@134)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@134)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@134)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input29
-    add '0'
-  ta
+  at      _input29 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@134)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@134)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@134)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input30
-#(begin macro)if_sup("_input" + __idx,9)
-push _input30
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@134)
+pop out #@(macro_inc@274)(macro_inc@281)(main@134)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input30 #@(macro_inc@268)(macro_inc@282)(main@134)
+#(begin macro)if_sup  _input30,    9
+push    _input30 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@134)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@134)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@134)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@134)
+  #(end macro)if_sup  _input30,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input30
-    add '7'
-  ta
+  at      _input30 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@134)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@134)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@134)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@134)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input30
-    add '0'
-  ta
+  at      _input30 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@134)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@134)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@134)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@134)
+pop out #@(macro_inc@274)(macro_inc@282)(main@134)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@135)
+set     10 #@(macro_inc@302)(main@135)
+out             #  #@(macro_inc@304)(main@135)
+drop #@(macro_inc@307)(main@135)
 #(end macro)print("\n")
-
+ #@(main@136)
 #(begin macro)print("DIFF , 2 value in stack are different\n")
-push    0
-set     68
-out             # 'D'
-add     5
-out             # 'I'
-sub     3
-out             # 'F'
-out             # 'F'
-set     32
-out             # ' '
-add     12
-out             # ','
-sub     12
-out             # ' '
-add     18
-out             # '2'
-sub     18
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     5
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     32
-out             # ' '
-add     65
-out             # 'a'
-add     17
-out             # 'r'
-sub     13
-out             # 'e'
-set     32
-out             # ' '
-add     68
-out             # 'd'
-add     5
-out             # 'i'
-sub     3
-out             # 'f'
-out             # 'f'
-sub     1
-out             # 'e'
-add     13
-out             # 'r'
-sub     13
-out             # 'e'
-add     9
-out             # 'n'
-add     6
-out             # 't'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@137)
+set     68 #@(macro_inc@302)(main@137)
+out             # 'D' #@(macro_inc@304)(main@137)
+add     5 #@(macro_inc@295)(main@137)
+out             # 'I' #@(macro_inc@304)(main@137)
+sub     3 #@(macro_inc@298)(main@137)
+out             # 'F' #@(macro_inc@304)(main@137)
+out             # 'F' #@(macro_inc@304)(main@137)
+set     32 #@(macro_inc@302)(main@137)
+out             # ' ' #@(macro_inc@304)(main@137)
+add     12 #@(macro_inc@295)(main@137)
+out             # ',' #@(macro_inc@304)(main@137)
+sub     12 #@(macro_inc@298)(main@137)
+out             # ' ' #@(macro_inc@304)(main@137)
+add     18 #@(macro_inc@295)(main@137)
+out             # '2' #@(macro_inc@304)(main@137)
+sub     18 #@(macro_inc@298)(main@137)
+out             # ' ' #@(macro_inc@304)(main@137)
+add     86 #@(macro_inc@295)(main@137)
+out             # 'v' #@(macro_inc@304)(main@137)
+sub     21 #@(macro_inc@298)(main@137)
+out             # 'a' #@(macro_inc@304)(main@137)
+add     11 #@(macro_inc@295)(main@137)
+out             # 'l' #@(macro_inc@304)(main@137)
+add     9 #@(macro_inc@295)(main@137)
+out             # 'u' #@(macro_inc@304)(main@137)
+sub     16 #@(macro_inc@298)(main@137)
+out             # 'e' #@(macro_inc@304)(main@137)
+set     32 #@(macro_inc@302)(main@137)
+out             # ' ' #@(macro_inc@304)(main@137)
+add     73 #@(macro_inc@295)(main@137)
+out             # 'i' #@(macro_inc@304)(main@137)
+add     5 #@(macro_inc@295)(main@137)
+out             # 'n' #@(macro_inc@304)(main@137)
+set     32 #@(macro_inc@302)(main@137)
+out             # ' ' #@(macro_inc@304)(main@137)
+add     83 #@(macro_inc@295)(main@137)
+out             # 's' #@(macro_inc@304)(main@137)
+add     1 #@(macro_inc@295)(main@137)
+out             # 't' #@(macro_inc@304)(main@137)
+sub     19 #@(macro_inc@298)(main@137)
+out             # 'a' #@(macro_inc@304)(main@137)
+add     2 #@(macro_inc@295)(main@137)
+out             # 'c' #@(macro_inc@304)(main@137)
+add     8 #@(macro_inc@295)(main@137)
+out             # 'k' #@(macro_inc@304)(main@137)
+set     32 #@(macro_inc@302)(main@137)
+out             # ' ' #@(macro_inc@304)(main@137)
+add     65 #@(macro_inc@295)(main@137)
+out             # 'a' #@(macro_inc@304)(main@137)
+add     17 #@(macro_inc@295)(main@137)
+out             # 'r' #@(macro_inc@304)(main@137)
+sub     13 #@(macro_inc@298)(main@137)
+out             # 'e' #@(macro_inc@304)(main@137)
+set     32 #@(macro_inc@302)(main@137)
+out             # ' ' #@(macro_inc@304)(main@137)
+add     68 #@(macro_inc@295)(main@137)
+out             # 'd' #@(macro_inc@304)(main@137)
+add     5 #@(macro_inc@295)(main@137)
+out             # 'i' #@(macro_inc@304)(main@137)
+sub     3 #@(macro_inc@298)(main@137)
+out             # 'f' #@(macro_inc@304)(main@137)
+out             # 'f' #@(macro_inc@304)(main@137)
+sub     1 #@(macro_inc@298)(main@137)
+out             # 'e' #@(macro_inc@304)(main@137)
+add     13 #@(macro_inc@295)(main@137)
+out             # 'r' #@(macro_inc@304)(main@137)
+sub     13 #@(macro_inc@298)(main@137)
+out             # 'e' #@(macro_inc@304)(main@137)
+add     9 #@(macro_inc@295)(main@137)
+out             # 'n' #@(macro_inc@304)(main@137)
+add     6 #@(macro_inc@295)(main@137)
+out             # 't' #@(macro_inc@304)(main@137)
+set     10 #@(macro_inc@302)(main@137)
+out             #  #@(macro_inc@304)(main@137)
+drop #@(macro_inc@307)(main@137)
 #(end macro)print("DIFF , 2 value in stack are different\n")
 #(begin macro)print(" 10 <> 10 : 00 == ")
-push    0
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     28
-out             # '<'
-add     2
-out             # '>'
-sub     30
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-out             # '0'
-sub     16
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@138)
+set     32 #@(macro_inc@302)(main@138)
+out             # ' ' #@(macro_inc@304)(main@138)
+add     17 #@(macro_inc@295)(main@138)
+out             # '1' #@(macro_inc@304)(main@138)
+sub     1 #@(macro_inc@298)(main@138)
+out             # '0' #@(macro_inc@304)(main@138)
+sub     16 #@(macro_inc@298)(main@138)
+out             # ' ' #@(macro_inc@304)(main@138)
+add     28 #@(macro_inc@295)(main@138)
+out             # '<' #@(macro_inc@304)(main@138)
+add     2 #@(macro_inc@295)(main@138)
+out             # '>' #@(macro_inc@304)(main@138)
+sub     30 #@(macro_inc@298)(main@138)
+out             # ' ' #@(macro_inc@304)(main@138)
+add     17 #@(macro_inc@295)(main@138)
+out             # '1' #@(macro_inc@304)(main@138)
+sub     1 #@(macro_inc@298)(main@138)
+out             # '0' #@(macro_inc@304)(main@138)
+sub     16 #@(macro_inc@298)(main@138)
+out             # ' ' #@(macro_inc@304)(main@138)
+add     26 #@(macro_inc@295)(main@138)
+out             # ':' #@(macro_inc@304)(main@138)
+sub     26 #@(macro_inc@298)(main@138)
+out             # ' ' #@(macro_inc@304)(main@138)
+add     16 #@(macro_inc@295)(main@138)
+out             # '0' #@(macro_inc@304)(main@138)
+out             # '0' #@(macro_inc@304)(main@138)
+sub     16 #@(macro_inc@298)(main@138)
+out             # ' ' #@(macro_inc@304)(main@138)
+add     29 #@(macro_inc@295)(main@138)
+out             # '=' #@(macro_inc@304)(main@138)
+out             # '=' #@(macro_inc@304)(main@138)
+sub     29 #@(macro_inc@298)(main@138)
+out             # ' ' #@(macro_inc@304)(main@138)
+drop #@(macro_inc@307)(main@138)
 #(end macro)print(" 10 <> 10 : 00 == ")
-push 10
-push 10
-diff
+push 10 #@(main@139)
+push 10 #@(main@140)
+diff #@(main@141)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input31
-#(begin macro)if_sup("_input" + __idx,9)
-push _input31
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@142)
+div #@(macro_inc@280)(main@142)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input31 #@(macro_inc@268)(macro_inc@281)(main@142)
+#(begin macro)if_sup  _input31,    9
+push    _input31 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@142)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@142)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@142)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@142)
+  #(end macro)if_sup  _input31,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input31
-    add '7'
-  ta
+  at      _input31 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@142)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@142)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@142)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@142)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input31
-    add '0'
-  ta
+  at      _input31 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@142)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@142)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@142)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input32
-#(begin macro)if_sup("_input" + __idx,9)
-push _input32
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@142)
+pop out #@(macro_inc@274)(macro_inc@281)(main@142)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input32 #@(macro_inc@268)(macro_inc@282)(main@142)
+#(begin macro)if_sup  _input32,    9
+push    _input32 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@142)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@142)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@142)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@142)
+  #(end macro)if_sup  _input32,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input32
-    add '7'
-  ta
+  at      _input32 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@142)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@142)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@142)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@142)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input32
-    add '0'
-  ta
+  at      _input32 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@142)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@142)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@142)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@142)
+pop out #@(macro_inc@274)(macro_inc@282)(main@142)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@143)
+set     10 #@(macro_inc@302)(main@143)
+out             #  #@(macro_inc@304)(main@143)
+drop #@(macro_inc@307)(main@143)
 #(end macro)print("\n")
 #(begin macro)print(" 10 <> 8 : 01 == ")
-push    0
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     28
-out             # '<'
-add     2
-out             # '>'
-sub     30
-out             # ' '
-add     24
-out             # '8'
-sub     24
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@144)
+set     32 #@(macro_inc@302)(main@144)
+out             # ' ' #@(macro_inc@304)(main@144)
+add     17 #@(macro_inc@295)(main@144)
+out             # '1' #@(macro_inc@304)(main@144)
+sub     1 #@(macro_inc@298)(main@144)
+out             # '0' #@(macro_inc@304)(main@144)
+sub     16 #@(macro_inc@298)(main@144)
+out             # ' ' #@(macro_inc@304)(main@144)
+add     28 #@(macro_inc@295)(main@144)
+out             # '<' #@(macro_inc@304)(main@144)
+add     2 #@(macro_inc@295)(main@144)
+out             # '>' #@(macro_inc@304)(main@144)
+sub     30 #@(macro_inc@298)(main@144)
+out             # ' ' #@(macro_inc@304)(main@144)
+add     24 #@(macro_inc@295)(main@144)
+out             # '8' #@(macro_inc@304)(main@144)
+sub     24 #@(macro_inc@298)(main@144)
+out             # ' ' #@(macro_inc@304)(main@144)
+add     26 #@(macro_inc@295)(main@144)
+out             # ':' #@(macro_inc@304)(main@144)
+sub     26 #@(macro_inc@298)(main@144)
+out             # ' ' #@(macro_inc@304)(main@144)
+add     16 #@(macro_inc@295)(main@144)
+out             # '0' #@(macro_inc@304)(main@144)
+add     1 #@(macro_inc@295)(main@144)
+out             # '1' #@(macro_inc@304)(main@144)
+sub     17 #@(macro_inc@298)(main@144)
+out             # ' ' #@(macro_inc@304)(main@144)
+add     29 #@(macro_inc@295)(main@144)
+out             # '=' #@(macro_inc@304)(main@144)
+out             # '=' #@(macro_inc@304)(main@144)
+sub     29 #@(macro_inc@298)(main@144)
+out             # ' ' #@(macro_inc@304)(main@144)
+drop #@(macro_inc@307)(main@144)
 #(end macro)print(" 10 <> 8 : 01 == ")
-push 10
-push 8
-diff
+push 10 #@(main@145)
+push 8 #@(main@146)
+diff #@(main@147)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input33
-#(begin macro)if_sup("_input" + __idx,9)
-push _input33
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@148)
+div #@(macro_inc@280)(main@148)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input33 #@(macro_inc@268)(macro_inc@281)(main@148)
+#(begin macro)if_sup  _input33,    9
+push    _input33 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@148)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@148)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@148)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@148)
+  #(end macro)if_sup  _input33,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input33
-    add '7'
-  ta
+  at      _input33 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@148)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@148)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@148)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@148)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input33
-    add '0'
-  ta
+  at      _input33 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@148)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@148)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@148)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input34
-#(begin macro)if_sup("_input" + __idx,9)
-push _input34
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@148)
+pop out #@(macro_inc@274)(macro_inc@281)(main@148)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input34 #@(macro_inc@268)(macro_inc@282)(main@148)
+#(begin macro)if_sup  _input34,    9
+push    _input34 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@148)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@148)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@148)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@148)
+  #(end macro)if_sup  _input34,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input34
-    add '7'
-  ta
+  at      _input34 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@148)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@148)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@148)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@148)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input34
-    add '0'
-  ta
+  at      _input34 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@148)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@148)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@148)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@148)
+pop out #@(macro_inc@274)(macro_inc@282)(main@148)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@149)
+set     10 #@(macro_inc@302)(main@149)
+out             #  #@(macro_inc@304)(main@149)
+drop #@(macro_inc@307)(main@149)
 #(end macro)print("\n")
-
+ #@(main@150)
 #(begin macro)print("DIV , div 2 value in stack\n")
-push    0
-set     68
-out             # 'D'
-add     5
-out             # 'I'
-add     13
-out             # 'V'
-set     32
-out             # ' '
-add     12
-out             # ','
-sub     12
-out             # ' '
-add     68
-out             # 'd'
-add     5
-out             # 'i'
-add     13
-out             # 'v'
-set     32
-out             # ' '
-add     18
-out             # '2'
-sub     18
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     5
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@151)
+set     68 #@(macro_inc@302)(main@151)
+out             # 'D' #@(macro_inc@304)(main@151)
+add     5 #@(macro_inc@295)(main@151)
+out             # 'I' #@(macro_inc@304)(main@151)
+add     13 #@(macro_inc@295)(main@151)
+out             # 'V' #@(macro_inc@304)(main@151)
+set     32 #@(macro_inc@302)(main@151)
+out             # ' ' #@(macro_inc@304)(main@151)
+add     12 #@(macro_inc@295)(main@151)
+out             # ',' #@(macro_inc@304)(main@151)
+sub     12 #@(macro_inc@298)(main@151)
+out             # ' ' #@(macro_inc@304)(main@151)
+add     68 #@(macro_inc@295)(main@151)
+out             # 'd' #@(macro_inc@304)(main@151)
+add     5 #@(macro_inc@295)(main@151)
+out             # 'i' #@(macro_inc@304)(main@151)
+add     13 #@(macro_inc@295)(main@151)
+out             # 'v' #@(macro_inc@304)(main@151)
+set     32 #@(macro_inc@302)(main@151)
+out             # ' ' #@(macro_inc@304)(main@151)
+add     18 #@(macro_inc@295)(main@151)
+out             # '2' #@(macro_inc@304)(main@151)
+sub     18 #@(macro_inc@298)(main@151)
+out             # ' ' #@(macro_inc@304)(main@151)
+add     86 #@(macro_inc@295)(main@151)
+out             # 'v' #@(macro_inc@304)(main@151)
+sub     21 #@(macro_inc@298)(main@151)
+out             # 'a' #@(macro_inc@304)(main@151)
+add     11 #@(macro_inc@295)(main@151)
+out             # 'l' #@(macro_inc@304)(main@151)
+add     9 #@(macro_inc@295)(main@151)
+out             # 'u' #@(macro_inc@304)(main@151)
+sub     16 #@(macro_inc@298)(main@151)
+out             # 'e' #@(macro_inc@304)(main@151)
+set     32 #@(macro_inc@302)(main@151)
+out             # ' ' #@(macro_inc@304)(main@151)
+add     73 #@(macro_inc@295)(main@151)
+out             # 'i' #@(macro_inc@304)(main@151)
+add     5 #@(macro_inc@295)(main@151)
+out             # 'n' #@(macro_inc@304)(main@151)
+set     32 #@(macro_inc@302)(main@151)
+out             # ' ' #@(macro_inc@304)(main@151)
+add     83 #@(macro_inc@295)(main@151)
+out             # 's' #@(macro_inc@304)(main@151)
+add     1 #@(macro_inc@295)(main@151)
+out             # 't' #@(macro_inc@304)(main@151)
+sub     19 #@(macro_inc@298)(main@151)
+out             # 'a' #@(macro_inc@304)(main@151)
+add     2 #@(macro_inc@295)(main@151)
+out             # 'c' #@(macro_inc@304)(main@151)
+add     8 #@(macro_inc@295)(main@151)
+out             # 'k' #@(macro_inc@304)(main@151)
+set     10 #@(macro_inc@302)(main@151)
+out             #  #@(macro_inc@304)(main@151)
+drop #@(macro_inc@307)(main@151)
 #(end macro)print("DIV , div 2 value in stack\n")
 #(begin macro)print("  5 div 2 = 2 ; 02 == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     21
-out             # '5'
-sub     21
-out             # ' '
-add     68
-out             # 'd'
-add     5
-out             # 'i'
-add     13
-out             # 'v'
-set     32
-out             # ' '
-add     18
-out             # '2'
-sub     18
-out             # ' '
-add     29
-out             # '='
-sub     29
-out             # ' '
-add     18
-out             # '2'
-sub     18
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     16
-out             # '0'
-add     2
-out             # '2'
-sub     18
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@152)
+set     32 #@(macro_inc@302)(main@152)
+out             # ' ' #@(macro_inc@304)(main@152)
+out             # ' ' #@(macro_inc@304)(main@152)
+add     21 #@(macro_inc@295)(main@152)
+out             # '5' #@(macro_inc@304)(main@152)
+sub     21 #@(macro_inc@298)(main@152)
+out             # ' ' #@(macro_inc@304)(main@152)
+add     68 #@(macro_inc@295)(main@152)
+out             # 'd' #@(macro_inc@304)(main@152)
+add     5 #@(macro_inc@295)(main@152)
+out             # 'i' #@(macro_inc@304)(main@152)
+add     13 #@(macro_inc@295)(main@152)
+out             # 'v' #@(macro_inc@304)(main@152)
+set     32 #@(macro_inc@302)(main@152)
+out             # ' ' #@(macro_inc@304)(main@152)
+add     18 #@(macro_inc@295)(main@152)
+out             # '2' #@(macro_inc@304)(main@152)
+sub     18 #@(macro_inc@298)(main@152)
+out             # ' ' #@(macro_inc@304)(main@152)
+add     29 #@(macro_inc@295)(main@152)
+out             # '=' #@(macro_inc@304)(main@152)
+sub     29 #@(macro_inc@298)(main@152)
+out             # ' ' #@(macro_inc@304)(main@152)
+add     18 #@(macro_inc@295)(main@152)
+out             # '2' #@(macro_inc@304)(main@152)
+sub     18 #@(macro_inc@298)(main@152)
+out             # ' ' #@(macro_inc@304)(main@152)
+add     27 #@(macro_inc@295)(main@152)
+out             # ';' #@(macro_inc@304)(main@152)
+sub     27 #@(macro_inc@298)(main@152)
+out             # ' ' #@(macro_inc@304)(main@152)
+add     16 #@(macro_inc@295)(main@152)
+out             # '0' #@(macro_inc@304)(main@152)
+add     2 #@(macro_inc@295)(main@152)
+out             # '2' #@(macro_inc@304)(main@152)
+sub     18 #@(macro_inc@298)(main@152)
+out             # ' ' #@(macro_inc@304)(main@152)
+add     29 #@(macro_inc@295)(main@152)
+out             # '=' #@(macro_inc@304)(main@152)
+out             # '=' #@(macro_inc@304)(main@152)
+sub     29 #@(macro_inc@298)(main@152)
+out             # ' ' #@(macro_inc@304)(main@152)
+drop #@(macro_inc@307)(main@152)
 #(end macro)print("  5 div 2 = 2 ; 02 == ")
-push 5
-push 2
-div
+push 5 #@(main@153)
+push 2 #@(main@154)
+div #@(main@155)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input35
-#(begin macro)if_sup("_input" + __idx,9)
-push _input35
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@156)
+div #@(macro_inc@280)(main@156)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input35 #@(macro_inc@268)(macro_inc@281)(main@156)
+#(begin macro)if_sup  _input35,    9
+push    _input35 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@156)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@156)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@156)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@156)
+  #(end macro)if_sup  _input35,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input35
-    add '7'
-  ta
+  at      _input35 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@156)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@156)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@156)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@156)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input35
-    add '0'
-  ta
+  at      _input35 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@156)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@156)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@156)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input36
-#(begin macro)if_sup("_input" + __idx,9)
-push _input36
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@156)
+pop out #@(macro_inc@274)(macro_inc@281)(main@156)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input36 #@(macro_inc@268)(macro_inc@282)(main@156)
+#(begin macro)if_sup  _input36,    9
+push    _input36 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@156)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@156)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@156)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@156)
+  #(end macro)if_sup  _input36,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input36
-    add '7'
-  ta
+  at      _input36 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@156)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@156)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@156)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@156)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input36
-    add '0'
-  ta
+  at      _input36 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@156)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@156)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@156)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@156)
+pop out #@(macro_inc@274)(macro_inc@282)(main@156)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@157)
+set     10 #@(macro_inc@302)(main@157)
+out             #  #@(macro_inc@304)(main@157)
+drop #@(macro_inc@307)(main@157)
 #(end macro)print("\n")
 #(begin macro)print("  5 mod 2 = 1 ; 01 == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     21
-out             # '5'
-sub     21
-out             # ' '
-add     77
-out             # 'm'
-add     2
-out             # 'o'
-sub     11
-out             # 'd'
-set     32
-out             # ' '
-add     18
-out             # '2'
-sub     18
-out             # ' '
-add     29
-out             # '='
-sub     29
-out             # ' '
-add     17
-out             # '1'
-sub     17
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@158)
+set     32 #@(macro_inc@302)(main@158)
+out             # ' ' #@(macro_inc@304)(main@158)
+out             # ' ' #@(macro_inc@304)(main@158)
+add     21 #@(macro_inc@295)(main@158)
+out             # '5' #@(macro_inc@304)(main@158)
+sub     21 #@(macro_inc@298)(main@158)
+out             # ' ' #@(macro_inc@304)(main@158)
+add     77 #@(macro_inc@295)(main@158)
+out             # 'm' #@(macro_inc@304)(main@158)
+add     2 #@(macro_inc@295)(main@158)
+out             # 'o' #@(macro_inc@304)(main@158)
+sub     11 #@(macro_inc@298)(main@158)
+out             # 'd' #@(macro_inc@304)(main@158)
+set     32 #@(macro_inc@302)(main@158)
+out             # ' ' #@(macro_inc@304)(main@158)
+add     18 #@(macro_inc@295)(main@158)
+out             # '2' #@(macro_inc@304)(main@158)
+sub     18 #@(macro_inc@298)(main@158)
+out             # ' ' #@(macro_inc@304)(main@158)
+add     29 #@(macro_inc@295)(main@158)
+out             # '=' #@(macro_inc@304)(main@158)
+sub     29 #@(macro_inc@298)(main@158)
+out             # ' ' #@(macro_inc@304)(main@158)
+add     17 #@(macro_inc@295)(main@158)
+out             # '1' #@(macro_inc@304)(main@158)
+sub     17 #@(macro_inc@298)(main@158)
+out             # ' ' #@(macro_inc@304)(main@158)
+add     27 #@(macro_inc@295)(main@158)
+out             # ';' #@(macro_inc@304)(main@158)
+sub     27 #@(macro_inc@298)(main@158)
+out             # ' ' #@(macro_inc@304)(main@158)
+add     16 #@(macro_inc@295)(main@158)
+out             # '0' #@(macro_inc@304)(main@158)
+add     1 #@(macro_inc@295)(main@158)
+out             # '1' #@(macro_inc@304)(main@158)
+sub     17 #@(macro_inc@298)(main@158)
+out             # ' ' #@(macro_inc@304)(main@158)
+add     29 #@(macro_inc@295)(main@158)
+out             # '=' #@(macro_inc@304)(main@158)
+out             # '=' #@(macro_inc@304)(main@158)
+sub     29 #@(macro_inc@298)(main@158)
+out             # ' ' #@(macro_inc@304)(main@158)
+drop #@(macro_inc@307)(main@158)
 #(end macro)print("  5 mod 2 = 1 ; 01 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input37
-#(begin macro)if_sup("_input" + __idx,9)
-push _input37
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@159)
+div #@(macro_inc@280)(main@159)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input37 #@(macro_inc@268)(macro_inc@281)(main@159)
+#(begin macro)if_sup  _input37,    9
+push    _input37 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@159)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@159)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@159)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@159)
+  #(end macro)if_sup  _input37,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input37
-    add '7'
-  ta
+  at      _input37 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@159)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@159)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@159)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@159)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input37
-    add '0'
-  ta
+  at      _input37 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@159)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@159)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@159)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input38
-#(begin macro)if_sup("_input" + __idx,9)
-push _input38
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@159)
+pop out #@(macro_inc@274)(macro_inc@281)(main@159)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input38 #@(macro_inc@268)(macro_inc@282)(main@159)
+#(begin macro)if_sup  _input38,    9
+push    _input38 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@159)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@159)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@159)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@159)
+  #(end macro)if_sup  _input38,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input38
-    add '7'
-  ta
+  at      _input38 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@159)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@159)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@159)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@159)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input38
-    add '0'
-  ta
+  at      _input38 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@159)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@159)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@159)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@159)
+pop out #@(macro_inc@274)(macro_inc@282)(main@159)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@160)
+set     10 #@(macro_inc@302)(main@160)
+out             #  #@(macro_inc@304)(main@160)
+drop #@(macro_inc@307)(main@160)
 #(end macro)print("\n")
-
+ #@(main@161)
 #(begin macro)print("DROP, drop a value in stack\n")
-push    0
-set     68
-out             # 'D'
-add     14
-out             # 'R'
-sub     3
-out             # 'O'
-add     1
-out             # 'P'
-sub     36
-out             # ','
-sub     12
-out             # ' '
-add     68
-out             # 'd'
-add     14
-out             # 'r'
-sub     3
-out             # 'o'
-add     1
-out             # 'p'
-set     32
-out             # ' '
-add     65
-out             # 'a'
-set     32
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     5
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@162)
+set     68 #@(macro_inc@302)(main@162)
+out             # 'D' #@(macro_inc@304)(main@162)
+add     14 #@(macro_inc@295)(main@162)
+out             # 'R' #@(macro_inc@304)(main@162)
+sub     3 #@(macro_inc@298)(main@162)
+out             # 'O' #@(macro_inc@304)(main@162)
+add     1 #@(macro_inc@295)(main@162)
+out             # 'P' #@(macro_inc@304)(main@162)
+sub     36 #@(macro_inc@298)(main@162)
+out             # ',' #@(macro_inc@304)(main@162)
+sub     12 #@(macro_inc@298)(main@162)
+out             # ' ' #@(macro_inc@304)(main@162)
+add     68 #@(macro_inc@295)(main@162)
+out             # 'd' #@(macro_inc@304)(main@162)
+add     14 #@(macro_inc@295)(main@162)
+out             # 'r' #@(macro_inc@304)(main@162)
+sub     3 #@(macro_inc@298)(main@162)
+out             # 'o' #@(macro_inc@304)(main@162)
+add     1 #@(macro_inc@295)(main@162)
+out             # 'p' #@(macro_inc@304)(main@162)
+set     32 #@(macro_inc@302)(main@162)
+out             # ' ' #@(macro_inc@304)(main@162)
+add     65 #@(macro_inc@295)(main@162)
+out             # 'a' #@(macro_inc@304)(main@162)
+set     32 #@(macro_inc@302)(main@162)
+out             # ' ' #@(macro_inc@304)(main@162)
+add     86 #@(macro_inc@295)(main@162)
+out             # 'v' #@(macro_inc@304)(main@162)
+sub     21 #@(macro_inc@298)(main@162)
+out             # 'a' #@(macro_inc@304)(main@162)
+add     11 #@(macro_inc@295)(main@162)
+out             # 'l' #@(macro_inc@304)(main@162)
+add     9 #@(macro_inc@295)(main@162)
+out             # 'u' #@(macro_inc@304)(main@162)
+sub     16 #@(macro_inc@298)(main@162)
+out             # 'e' #@(macro_inc@304)(main@162)
+set     32 #@(macro_inc@302)(main@162)
+out             # ' ' #@(macro_inc@304)(main@162)
+add     73 #@(macro_inc@295)(main@162)
+out             # 'i' #@(macro_inc@304)(main@162)
+add     5 #@(macro_inc@295)(main@162)
+out             # 'n' #@(macro_inc@304)(main@162)
+set     32 #@(macro_inc@302)(main@162)
+out             # ' ' #@(macro_inc@304)(main@162)
+add     83 #@(macro_inc@295)(main@162)
+out             # 's' #@(macro_inc@304)(main@162)
+add     1 #@(macro_inc@295)(main@162)
+out             # 't' #@(macro_inc@304)(main@162)
+sub     19 #@(macro_inc@298)(main@162)
+out             # 'a' #@(macro_inc@304)(main@162)
+add     2 #@(macro_inc@295)(main@162)
+out             # 'c' #@(macro_inc@304)(main@162)
+add     8 #@(macro_inc@295)(main@162)
+out             # 'k' #@(macro_inc@304)(main@162)
+set     10 #@(macro_inc@302)(main@162)
+out             #  #@(macro_inc@304)(main@162)
+drop #@(macro_inc@307)(main@162)
 #(end macro)print("DROP, drop a value in stack\n")
-push 8
-push 5
-drop
+push 8 #@(main@163)
+push 5 #@(main@164)
+drop #@(main@165)
 #(begin macro)print (" push 8; push 5 ; drop  ; 08 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     24
-out             # '8'
-add     3
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     21
-out             # '5'
-sub     21
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     68
-out             # 'd'
-add     14
-out             # 'r'
-sub     3
-out             # 'o'
-add     1
-out             # 'p'
-set     32
-out             # ' '
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     16
-out             # '0'
-add     8
-out             # '8'
-sub     24
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@166)
+set     32 #@(macro_inc@302)(main@166)
+out             # ' ' #@(macro_inc@304)(main@166)
+add     80 #@(macro_inc@295)(main@166)
+out             # 'p' #@(macro_inc@304)(main@166)
+add     5 #@(macro_inc@295)(main@166)
+out             # 'u' #@(macro_inc@304)(main@166)
+sub     2 #@(macro_inc@298)(main@166)
+out             # 's' #@(macro_inc@304)(main@166)
+sub     11 #@(macro_inc@298)(main@166)
+out             # 'h' #@(macro_inc@304)(main@166)
+set     32 #@(macro_inc@302)(main@166)
+out             # ' ' #@(macro_inc@304)(main@166)
+add     24 #@(macro_inc@295)(main@166)
+out             # '8' #@(macro_inc@304)(main@166)
+add     3 #@(macro_inc@295)(main@166)
+out             # ';' #@(macro_inc@304)(main@166)
+sub     27 #@(macro_inc@298)(main@166)
+out             # ' ' #@(macro_inc@304)(main@166)
+add     80 #@(macro_inc@295)(main@166)
+out             # 'p' #@(macro_inc@304)(main@166)
+add     5 #@(macro_inc@295)(main@166)
+out             # 'u' #@(macro_inc@304)(main@166)
+sub     2 #@(macro_inc@298)(main@166)
+out             # 's' #@(macro_inc@304)(main@166)
+sub     11 #@(macro_inc@298)(main@166)
+out             # 'h' #@(macro_inc@304)(main@166)
+set     32 #@(macro_inc@302)(main@166)
+out             # ' ' #@(macro_inc@304)(main@166)
+add     21 #@(macro_inc@295)(main@166)
+out             # '5' #@(macro_inc@304)(main@166)
+sub     21 #@(macro_inc@298)(main@166)
+out             # ' ' #@(macro_inc@304)(main@166)
+add     27 #@(macro_inc@295)(main@166)
+out             # ';' #@(macro_inc@304)(main@166)
+sub     27 #@(macro_inc@298)(main@166)
+out             # ' ' #@(macro_inc@304)(main@166)
+add     68 #@(macro_inc@295)(main@166)
+out             # 'd' #@(macro_inc@304)(main@166)
+add     14 #@(macro_inc@295)(main@166)
+out             # 'r' #@(macro_inc@304)(main@166)
+sub     3 #@(macro_inc@298)(main@166)
+out             # 'o' #@(macro_inc@304)(main@166)
+add     1 #@(macro_inc@295)(main@166)
+out             # 'p' #@(macro_inc@304)(main@166)
+set     32 #@(macro_inc@302)(main@166)
+out             # ' ' #@(macro_inc@304)(main@166)
+out             # ' ' #@(macro_inc@304)(main@166)
+add     27 #@(macro_inc@295)(main@166)
+out             # ';' #@(macro_inc@304)(main@166)
+sub     27 #@(macro_inc@298)(main@166)
+out             # ' ' #@(macro_inc@304)(main@166)
+add     16 #@(macro_inc@295)(main@166)
+out             # '0' #@(macro_inc@304)(main@166)
+add     8 #@(macro_inc@295)(main@166)
+out             # '8' #@(macro_inc@304)(main@166)
+sub     24 #@(macro_inc@298)(main@166)
+out             # ' ' #@(macro_inc@304)(main@166)
+add     29 #@(macro_inc@295)(main@166)
+out             # '=' #@(macro_inc@304)(main@166)
+out             # '=' #@(macro_inc@304)(main@166)
+sub     29 #@(macro_inc@298)(main@166)
+out             # ' ' #@(macro_inc@304)(main@166)
+drop #@(macro_inc@307)(main@166)
 #(end macro)print (" push 8; push 5 ; drop  ; 08 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input39
-#(begin macro)if_sup("_input" + __idx,9)
-push _input39
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@167)
+div #@(macro_inc@280)(main@167)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input39 #@(macro_inc@268)(macro_inc@281)(main@167)
+#(begin macro)if_sup  _input39,    9
+push    _input39 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@167)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@167)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@167)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@167)
+  #(end macro)if_sup  _input39,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input39
-    add '7'
-  ta
+  at      _input39 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@167)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@167)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@167)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@167)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input39
-    add '0'
-  ta
+  at      _input39 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@167)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@167)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@167)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input40
-#(begin macro)if_sup("_input" + __idx,9)
-push _input40
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@167)
+pop out #@(macro_inc@274)(macro_inc@281)(main@167)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input40 #@(macro_inc@268)(macro_inc@282)(main@167)
+#(begin macro)if_sup  _input40,    9
+push    _input40 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@167)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@167)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@167)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@167)
+  #(end macro)if_sup  _input40,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input40
-    add '7'
-  ta
+  at      _input40 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@167)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@167)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@167)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@167)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input40
-    add '0'
-  ta
+  at      _input40 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@167)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@167)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@167)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@167)
+pop out #@(macro_inc@274)(macro_inc@282)(main@167)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@168)
+set     10 #@(macro_inc@302)(main@168)
+out             #  #@(macro_inc@304)(main@168)
+drop #@(macro_inc@307)(main@168)
 #(end macro)print("\n")
-
+ #@(main@169)
 #(begin macro)print("DUP,  duplicate head of stack value\n")
-push    0
-set     68
-out             # 'D'
-add     17
-out             # 'U'
-sub     5
-out             # 'P'
-sub     36
-out             # ','
-sub     12
-out             # ' '
-out             # ' '
-add     68
-out             # 'd'
-add     17
-out             # 'u'
-sub     5
-out             # 'p'
-sub     4
-out             # 'l'
-sub     3
-out             # 'i'
-sub     6
-out             # 'c'
-sub     2
-out             # 'a'
-add     19
-out             # 't'
-sub     15
-out             # 'e'
-set     32
-out             # ' '
-add     72
-out             # 'h'
-sub     3
-out             # 'e'
-sub     4
-out             # 'a'
-add     3
-out             # 'd'
-set     32
-out             # ' '
-add     79
-out             # 'o'
-sub     9
-out             # 'f'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     32
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@170)
+set     68 #@(macro_inc@302)(main@170)
+out             # 'D' #@(macro_inc@304)(main@170)
+add     17 #@(macro_inc@295)(main@170)
+out             # 'U' #@(macro_inc@304)(main@170)
+sub     5 #@(macro_inc@298)(main@170)
+out             # 'P' #@(macro_inc@304)(main@170)
+sub     36 #@(macro_inc@298)(main@170)
+out             # ',' #@(macro_inc@304)(main@170)
+sub     12 #@(macro_inc@298)(main@170)
+out             # ' ' #@(macro_inc@304)(main@170)
+out             # ' ' #@(macro_inc@304)(main@170)
+add     68 #@(macro_inc@295)(main@170)
+out             # 'd' #@(macro_inc@304)(main@170)
+add     17 #@(macro_inc@295)(main@170)
+out             # 'u' #@(macro_inc@304)(main@170)
+sub     5 #@(macro_inc@298)(main@170)
+out             # 'p' #@(macro_inc@304)(main@170)
+sub     4 #@(macro_inc@298)(main@170)
+out             # 'l' #@(macro_inc@304)(main@170)
+sub     3 #@(macro_inc@298)(main@170)
+out             # 'i' #@(macro_inc@304)(main@170)
+sub     6 #@(macro_inc@298)(main@170)
+out             # 'c' #@(macro_inc@304)(main@170)
+sub     2 #@(macro_inc@298)(main@170)
+out             # 'a' #@(macro_inc@304)(main@170)
+add     19 #@(macro_inc@295)(main@170)
+out             # 't' #@(macro_inc@304)(main@170)
+sub     15 #@(macro_inc@298)(main@170)
+out             # 'e' #@(macro_inc@304)(main@170)
+set     32 #@(macro_inc@302)(main@170)
+out             # ' ' #@(macro_inc@304)(main@170)
+add     72 #@(macro_inc@295)(main@170)
+out             # 'h' #@(macro_inc@304)(main@170)
+sub     3 #@(macro_inc@298)(main@170)
+out             # 'e' #@(macro_inc@304)(main@170)
+sub     4 #@(macro_inc@298)(main@170)
+out             # 'a' #@(macro_inc@304)(main@170)
+add     3 #@(macro_inc@295)(main@170)
+out             # 'd' #@(macro_inc@304)(main@170)
+set     32 #@(macro_inc@302)(main@170)
+out             # ' ' #@(macro_inc@304)(main@170)
+add     79 #@(macro_inc@295)(main@170)
+out             # 'o' #@(macro_inc@304)(main@170)
+sub     9 #@(macro_inc@298)(main@170)
+out             # 'f' #@(macro_inc@304)(main@170)
+set     32 #@(macro_inc@302)(main@170)
+out             # ' ' #@(macro_inc@304)(main@170)
+add     83 #@(macro_inc@295)(main@170)
+out             # 's' #@(macro_inc@304)(main@170)
+add     1 #@(macro_inc@295)(main@170)
+out             # 't' #@(macro_inc@304)(main@170)
+sub     19 #@(macro_inc@298)(main@170)
+out             # 'a' #@(macro_inc@304)(main@170)
+add     2 #@(macro_inc@295)(main@170)
+out             # 'c' #@(macro_inc@304)(main@170)
+add     8 #@(macro_inc@295)(main@170)
+out             # 'k' #@(macro_inc@304)(main@170)
+set     32 #@(macro_inc@302)(main@170)
+out             # ' ' #@(macro_inc@304)(main@170)
+add     86 #@(macro_inc@295)(main@170)
+out             # 'v' #@(macro_inc@304)(main@170)
+sub     21 #@(macro_inc@298)(main@170)
+out             # 'a' #@(macro_inc@304)(main@170)
+add     11 #@(macro_inc@295)(main@170)
+out             # 'l' #@(macro_inc@304)(main@170)
+add     9 #@(macro_inc@295)(main@170)
+out             # 'u' #@(macro_inc@304)(main@170)
+sub     16 #@(macro_inc@298)(main@170)
+out             # 'e' #@(macro_inc@304)(main@170)
+set     10 #@(macro_inc@302)(main@170)
+out             #  #@(macro_inc@304)(main@170)
+drop #@(macro_inc@307)(main@170)
 #(end macro)print("DUP,  duplicate head of stack value\n")
-push 10
-dup
+push 10 #@(main@171)
+dup #@(main@172)
 #(begin macro)print(" push 10; dup ;  0A == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-add     11
-out             # ';'
-sub     27
-out             # ' '
-add     68
-out             # 'd'
-add     17
-out             # 'u'
-sub     5
-out             # 'p'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     17
-out             # 'A'
-set     32
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@173)
+set     32 #@(macro_inc@302)(main@173)
+out             # ' ' #@(macro_inc@304)(main@173)
+add     80 #@(macro_inc@295)(main@173)
+out             # 'p' #@(macro_inc@304)(main@173)
+add     5 #@(macro_inc@295)(main@173)
+out             # 'u' #@(macro_inc@304)(main@173)
+sub     2 #@(macro_inc@298)(main@173)
+out             # 's' #@(macro_inc@304)(main@173)
+sub     11 #@(macro_inc@298)(main@173)
+out             # 'h' #@(macro_inc@304)(main@173)
+set     32 #@(macro_inc@302)(main@173)
+out             # ' ' #@(macro_inc@304)(main@173)
+add     17 #@(macro_inc@295)(main@173)
+out             # '1' #@(macro_inc@304)(main@173)
+sub     1 #@(macro_inc@298)(main@173)
+out             # '0' #@(macro_inc@304)(main@173)
+add     11 #@(macro_inc@295)(main@173)
+out             # ';' #@(macro_inc@304)(main@173)
+sub     27 #@(macro_inc@298)(main@173)
+out             # ' ' #@(macro_inc@304)(main@173)
+add     68 #@(macro_inc@295)(main@173)
+out             # 'd' #@(macro_inc@304)(main@173)
+add     17 #@(macro_inc@295)(main@173)
+out             # 'u' #@(macro_inc@304)(main@173)
+sub     5 #@(macro_inc@298)(main@173)
+out             # 'p' #@(macro_inc@304)(main@173)
+set     32 #@(macro_inc@302)(main@173)
+out             # ' ' #@(macro_inc@304)(main@173)
+add     27 #@(macro_inc@295)(main@173)
+out             # ';' #@(macro_inc@304)(main@173)
+sub     27 #@(macro_inc@298)(main@173)
+out             # ' ' #@(macro_inc@304)(main@173)
+out             # ' ' #@(macro_inc@304)(main@173)
+add     16 #@(macro_inc@295)(main@173)
+out             # '0' #@(macro_inc@304)(main@173)
+add     17 #@(macro_inc@295)(main@173)
+out             # 'A' #@(macro_inc@304)(main@173)
+set     32 #@(macro_inc@302)(main@173)
+out             # ' ' #@(macro_inc@304)(main@173)
+add     29 #@(macro_inc@295)(main@173)
+out             # '=' #@(macro_inc@304)(main@173)
+out             # '=' #@(macro_inc@304)(main@173)
+sub     29 #@(macro_inc@298)(main@173)
+out             # ' ' #@(macro_inc@304)(main@173)
+drop #@(macro_inc@307)(main@173)
 #(end macro)print(" push 10; dup ;  0A == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input41
-#(begin macro)if_sup("_input" + __idx,9)
-push _input41
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@174)
+div #@(macro_inc@280)(main@174)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input41 #@(macro_inc@268)(macro_inc@281)(main@174)
+#(begin macro)if_sup  _input41,    9
+push    _input41 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@174)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@174)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@174)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@174)
+  #(end macro)if_sup  _input41,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input41
-    add '7'
-  ta
+  at      _input41 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@174)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@174)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@174)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@174)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input41
-    add '0'
-  ta
+  at      _input41 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@174)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@174)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@174)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input42
-#(begin macro)if_sup("_input" + __idx,9)
-push _input42
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@174)
+pop out #@(macro_inc@274)(macro_inc@281)(main@174)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input42 #@(macro_inc@268)(macro_inc@282)(main@174)
+#(begin macro)if_sup  _input42,    9
+push    _input42 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@174)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@174)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@174)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@174)
+  #(end macro)if_sup  _input42,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input42
-    add '7'
-  ta
+  at      _input42 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@174)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@174)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@174)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@174)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input42
-    add '0'
-  ta
+  at      _input42 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@174)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@174)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@174)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@174)
+pop out #@(macro_inc@274)(macro_inc@282)(main@174)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@175)
+set     10 #@(macro_inc@302)(main@175)
+out             #  #@(macro_inc@304)(main@175)
+drop #@(macro_inc@307)(main@175)
 #(end macro)print("\n")
 #(begin macro)print(" then... drop once ; 0A == ")
-push    0
-set     32
-out             # ' '
-add     84
-out             # 't'
-sub     12
-out             # 'h'
-sub     3
-out             # 'e'
-add     9
-out             # 'n'
-set     46
-out             # '.'
-out             # '.'
-out             # '.'
-sub     14
-out             # ' '
-add     68
-out             # 'd'
-add     14
-out             # 'r'
-sub     3
-out             # 'o'
-add     1
-out             # 'p'
-set     32
-out             # ' '
-add     79
-out             # 'o'
-sub     1
-out             # 'n'
-sub     11
-out             # 'c'
-add     2
-out             # 'e'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     16
-out             # '0'
-add     17
-out             # 'A'
-set     32
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@176)
+set     32 #@(macro_inc@302)(main@176)
+out             # ' ' #@(macro_inc@304)(main@176)
+add     84 #@(macro_inc@295)(main@176)
+out             # 't' #@(macro_inc@304)(main@176)
+sub     12 #@(macro_inc@298)(main@176)
+out             # 'h' #@(macro_inc@304)(main@176)
+sub     3 #@(macro_inc@298)(main@176)
+out             # 'e' #@(macro_inc@304)(main@176)
+add     9 #@(macro_inc@295)(main@176)
+out             # 'n' #@(macro_inc@304)(main@176)
+set     46 #@(macro_inc@302)(main@176)
+out             # '.' #@(macro_inc@304)(main@176)
+out             # '.' #@(macro_inc@304)(main@176)
+out             # '.' #@(macro_inc@304)(main@176)
+sub     14 #@(macro_inc@298)(main@176)
+out             # ' ' #@(macro_inc@304)(main@176)
+add     68 #@(macro_inc@295)(main@176)
+out             # 'd' #@(macro_inc@304)(main@176)
+add     14 #@(macro_inc@295)(main@176)
+out             # 'r' #@(macro_inc@304)(main@176)
+sub     3 #@(macro_inc@298)(main@176)
+out             # 'o' #@(macro_inc@304)(main@176)
+add     1 #@(macro_inc@295)(main@176)
+out             # 'p' #@(macro_inc@304)(main@176)
+set     32 #@(macro_inc@302)(main@176)
+out             # ' ' #@(macro_inc@304)(main@176)
+add     79 #@(macro_inc@295)(main@176)
+out             # 'o' #@(macro_inc@304)(main@176)
+sub     1 #@(macro_inc@298)(main@176)
+out             # 'n' #@(macro_inc@304)(main@176)
+sub     11 #@(macro_inc@298)(main@176)
+out             # 'c' #@(macro_inc@304)(main@176)
+add     2 #@(macro_inc@295)(main@176)
+out             # 'e' #@(macro_inc@304)(main@176)
+set     32 #@(macro_inc@302)(main@176)
+out             # ' ' #@(macro_inc@304)(main@176)
+add     27 #@(macro_inc@295)(main@176)
+out             # ';' #@(macro_inc@304)(main@176)
+sub     27 #@(macro_inc@298)(main@176)
+out             # ' ' #@(macro_inc@304)(main@176)
+add     16 #@(macro_inc@295)(main@176)
+out             # '0' #@(macro_inc@304)(main@176)
+add     17 #@(macro_inc@295)(main@176)
+out             # 'A' #@(macro_inc@304)(main@176)
+set     32 #@(macro_inc@302)(main@176)
+out             # ' ' #@(macro_inc@304)(main@176)
+add     29 #@(macro_inc@295)(main@176)
+out             # '=' #@(macro_inc@304)(main@176)
+out             # '=' #@(macro_inc@304)(main@176)
+sub     29 #@(macro_inc@298)(main@176)
+out             # ' ' #@(macro_inc@304)(main@176)
+drop #@(macro_inc@307)(main@176)
 #(end macro)print(" then... drop once ; 0A == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input43
-#(begin macro)if_sup("_input" + __idx,9)
-push _input43
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@177)
+div #@(macro_inc@280)(main@177)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input43 #@(macro_inc@268)(macro_inc@281)(main@177)
+#(begin macro)if_sup  _input43,    9
+push    _input43 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@177)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@177)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@177)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@177)
+  #(end macro)if_sup  _input43,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input43
-    add '7'
-  ta
+  at      _input43 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@177)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@177)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@177)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@177)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input43
-    add '0'
-  ta
+  at      _input43 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@177)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@177)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@177)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input44
-#(begin macro)if_sup("_input" + __idx,9)
-push _input44
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@177)
+pop out #@(macro_inc@274)(macro_inc@281)(main@177)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input44 #@(macro_inc@268)(macro_inc@282)(main@177)
+#(begin macro)if_sup  _input44,    9
+push    _input44 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@177)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@177)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@177)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@177)
+  #(end macro)if_sup  _input44,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input44
-    add '7'
-  ta
+  at      _input44 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@177)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@177)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@177)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@177)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input44
-    add '0'
-  ta
+  at      _input44 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@177)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@177)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@177)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@177)
+pop out #@(macro_inc@274)(macro_inc@282)(main@177)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@178)
+set     10 #@(macro_inc@302)(main@178)
+out             #  #@(macro_inc@304)(main@178)
+drop #@(macro_inc@307)(main@178)
 #(end macro)print("\n")
-
+ #@(main@179)
 #(begin macro)print("EQUAL , 2 value in stack are equal\n")
-push    0
-set     69
-out             # 'E'
-add     12
-out             # 'Q'
-add     4
-out             # 'U'
-sub     20
-out             # 'A'
-add     11
-out             # 'L'
-set     32
-out             # ' '
-add     12
-out             # ','
-sub     12
-out             # ' '
-add     18
-out             # '2'
-sub     18
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     5
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     32
-out             # ' '
-add     65
-out             # 'a'
-add     17
-out             # 'r'
-sub     13
-out             # 'e'
-set     32
-out             # ' '
-add     69
-out             # 'e'
-add     12
-out             # 'q'
-add     4
-out             # 'u'
-sub     20
-out             # 'a'
-add     11
-out             # 'l'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@180)
+set     69 #@(macro_inc@302)(main@180)
+out             # 'E' #@(macro_inc@304)(main@180)
+add     12 #@(macro_inc@295)(main@180)
+out             # 'Q' #@(macro_inc@304)(main@180)
+add     4 #@(macro_inc@295)(main@180)
+out             # 'U' #@(macro_inc@304)(main@180)
+sub     20 #@(macro_inc@298)(main@180)
+out             # 'A' #@(macro_inc@304)(main@180)
+add     11 #@(macro_inc@295)(main@180)
+out             # 'L' #@(macro_inc@304)(main@180)
+set     32 #@(macro_inc@302)(main@180)
+out             # ' ' #@(macro_inc@304)(main@180)
+add     12 #@(macro_inc@295)(main@180)
+out             # ',' #@(macro_inc@304)(main@180)
+sub     12 #@(macro_inc@298)(main@180)
+out             # ' ' #@(macro_inc@304)(main@180)
+add     18 #@(macro_inc@295)(main@180)
+out             # '2' #@(macro_inc@304)(main@180)
+sub     18 #@(macro_inc@298)(main@180)
+out             # ' ' #@(macro_inc@304)(main@180)
+add     86 #@(macro_inc@295)(main@180)
+out             # 'v' #@(macro_inc@304)(main@180)
+sub     21 #@(macro_inc@298)(main@180)
+out             # 'a' #@(macro_inc@304)(main@180)
+add     11 #@(macro_inc@295)(main@180)
+out             # 'l' #@(macro_inc@304)(main@180)
+add     9 #@(macro_inc@295)(main@180)
+out             # 'u' #@(macro_inc@304)(main@180)
+sub     16 #@(macro_inc@298)(main@180)
+out             # 'e' #@(macro_inc@304)(main@180)
+set     32 #@(macro_inc@302)(main@180)
+out             # ' ' #@(macro_inc@304)(main@180)
+add     73 #@(macro_inc@295)(main@180)
+out             # 'i' #@(macro_inc@304)(main@180)
+add     5 #@(macro_inc@295)(main@180)
+out             # 'n' #@(macro_inc@304)(main@180)
+set     32 #@(macro_inc@302)(main@180)
+out             # ' ' #@(macro_inc@304)(main@180)
+add     83 #@(macro_inc@295)(main@180)
+out             # 's' #@(macro_inc@304)(main@180)
+add     1 #@(macro_inc@295)(main@180)
+out             # 't' #@(macro_inc@304)(main@180)
+sub     19 #@(macro_inc@298)(main@180)
+out             # 'a' #@(macro_inc@304)(main@180)
+add     2 #@(macro_inc@295)(main@180)
+out             # 'c' #@(macro_inc@304)(main@180)
+add     8 #@(macro_inc@295)(main@180)
+out             # 'k' #@(macro_inc@304)(main@180)
+set     32 #@(macro_inc@302)(main@180)
+out             # ' ' #@(macro_inc@304)(main@180)
+add     65 #@(macro_inc@295)(main@180)
+out             # 'a' #@(macro_inc@304)(main@180)
+add     17 #@(macro_inc@295)(main@180)
+out             # 'r' #@(macro_inc@304)(main@180)
+sub     13 #@(macro_inc@298)(main@180)
+out             # 'e' #@(macro_inc@304)(main@180)
+set     32 #@(macro_inc@302)(main@180)
+out             # ' ' #@(macro_inc@304)(main@180)
+add     69 #@(macro_inc@295)(main@180)
+out             # 'e' #@(macro_inc@304)(main@180)
+add     12 #@(macro_inc@295)(main@180)
+out             # 'q' #@(macro_inc@304)(main@180)
+add     4 #@(macro_inc@295)(main@180)
+out             # 'u' #@(macro_inc@304)(main@180)
+sub     20 #@(macro_inc@298)(main@180)
+out             # 'a' #@(macro_inc@304)(main@180)
+add     11 #@(macro_inc@295)(main@180)
+out             # 'l' #@(macro_inc@304)(main@180)
+set     10 #@(macro_inc@302)(main@180)
+out             #  #@(macro_inc@304)(main@180)
+drop #@(macro_inc@307)(main@180)
 #(end macro)print("EQUAL , 2 value in stack are equal\n")
 #(begin macro)print(" 10 == 10 : 01 == ")
-push    0
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@181)
+set     32 #@(macro_inc@302)(main@181)
+out             # ' ' #@(macro_inc@304)(main@181)
+add     17 #@(macro_inc@295)(main@181)
+out             # '1' #@(macro_inc@304)(main@181)
+sub     1 #@(macro_inc@298)(main@181)
+out             # '0' #@(macro_inc@304)(main@181)
+sub     16 #@(macro_inc@298)(main@181)
+out             # ' ' #@(macro_inc@304)(main@181)
+add     29 #@(macro_inc@295)(main@181)
+out             # '=' #@(macro_inc@304)(main@181)
+out             # '=' #@(macro_inc@304)(main@181)
+sub     29 #@(macro_inc@298)(main@181)
+out             # ' ' #@(macro_inc@304)(main@181)
+add     17 #@(macro_inc@295)(main@181)
+out             # '1' #@(macro_inc@304)(main@181)
+sub     1 #@(macro_inc@298)(main@181)
+out             # '0' #@(macro_inc@304)(main@181)
+sub     16 #@(macro_inc@298)(main@181)
+out             # ' ' #@(macro_inc@304)(main@181)
+add     26 #@(macro_inc@295)(main@181)
+out             # ':' #@(macro_inc@304)(main@181)
+sub     26 #@(macro_inc@298)(main@181)
+out             # ' ' #@(macro_inc@304)(main@181)
+add     16 #@(macro_inc@295)(main@181)
+out             # '0' #@(macro_inc@304)(main@181)
+add     1 #@(macro_inc@295)(main@181)
+out             # '1' #@(macro_inc@304)(main@181)
+sub     17 #@(macro_inc@298)(main@181)
+out             # ' ' #@(macro_inc@304)(main@181)
+add     29 #@(macro_inc@295)(main@181)
+out             # '=' #@(macro_inc@304)(main@181)
+out             # '=' #@(macro_inc@304)(main@181)
+sub     29 #@(macro_inc@298)(main@181)
+out             # ' ' #@(macro_inc@304)(main@181)
+drop #@(macro_inc@307)(main@181)
 #(end macro)print(" 10 == 10 : 01 == ")
-push 10
-push 10
-equal
+push 10 #@(main@182)
+push 10 #@(main@183)
+equal #@(main@184)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input45
-#(begin macro)if_sup("_input" + __idx,9)
-push _input45
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@185)
+div #@(macro_inc@280)(main@185)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input45 #@(macro_inc@268)(macro_inc@281)(main@185)
+#(begin macro)if_sup  _input45,    9
+push    _input45 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@185)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@185)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@185)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@185)
+  #(end macro)if_sup  _input45,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input45
-    add '7'
-  ta
+  at      _input45 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@185)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@185)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@185)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@185)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input45
-    add '0'
-  ta
+  at      _input45 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@185)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@185)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@185)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input46
-#(begin macro)if_sup("_input" + __idx,9)
-push _input46
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@185)
+pop out #@(macro_inc@274)(macro_inc@281)(main@185)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input46 #@(macro_inc@268)(macro_inc@282)(main@185)
+#(begin macro)if_sup  _input46,    9
+push    _input46 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@185)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@185)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@185)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@185)
+  #(end macro)if_sup  _input46,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input46
-    add '7'
-  ta
+  at      _input46 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@185)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@185)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@185)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@185)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input46
-    add '0'
-  ta
+  at      _input46 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@185)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@185)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@185)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@185)
+pop out #@(macro_inc@274)(macro_inc@282)(main@185)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print(" 255 == 255 : 01 == ")
-push    0
-set     32
-out             # ' '
-add     18
-out             # '2'
-add     3
-out             # '5'
-out             # '5'
-sub     21
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-add     18
-out             # '2'
-add     3
-out             # '5'
-out             # '5'
-sub     21
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@186)
+set     32 #@(macro_inc@302)(main@186)
+out             # ' ' #@(macro_inc@304)(main@186)
+add     18 #@(macro_inc@295)(main@186)
+out             # '2' #@(macro_inc@304)(main@186)
+add     3 #@(macro_inc@295)(main@186)
+out             # '5' #@(macro_inc@304)(main@186)
+out             # '5' #@(macro_inc@304)(main@186)
+sub     21 #@(macro_inc@298)(main@186)
+out             # ' ' #@(macro_inc@304)(main@186)
+add     29 #@(macro_inc@295)(main@186)
+out             # '=' #@(macro_inc@304)(main@186)
+out             # '=' #@(macro_inc@304)(main@186)
+sub     29 #@(macro_inc@298)(main@186)
+out             # ' ' #@(macro_inc@304)(main@186)
+add     18 #@(macro_inc@295)(main@186)
+out             # '2' #@(macro_inc@304)(main@186)
+add     3 #@(macro_inc@295)(main@186)
+out             # '5' #@(macro_inc@304)(main@186)
+out             # '5' #@(macro_inc@304)(main@186)
+sub     21 #@(macro_inc@298)(main@186)
+out             # ' ' #@(macro_inc@304)(main@186)
+add     26 #@(macro_inc@295)(main@186)
+out             # ':' #@(macro_inc@304)(main@186)
+sub     26 #@(macro_inc@298)(main@186)
+out             # ' ' #@(macro_inc@304)(main@186)
+add     16 #@(macro_inc@295)(main@186)
+out             # '0' #@(macro_inc@304)(main@186)
+add     1 #@(macro_inc@295)(main@186)
+out             # '1' #@(macro_inc@304)(main@186)
+sub     17 #@(macro_inc@298)(main@186)
+out             # ' ' #@(macro_inc@304)(main@186)
+add     29 #@(macro_inc@295)(main@186)
+out             # '=' #@(macro_inc@304)(main@186)
+out             # '=' #@(macro_inc@304)(main@186)
+sub     29 #@(macro_inc@298)(main@186)
+out             # ' ' #@(macro_inc@304)(main@186)
+drop #@(macro_inc@307)(main@186)
 #(end macro)print(" 255 == 255 : 01 == ")
-push 255
-push 255
-equal
+push 255 #@(main@187)
+push 255 #@(main@188)
+equal #@(main@189)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input47
-#(begin macro)if_sup("_input" + __idx,9)
-push _input47
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@190)
+div #@(macro_inc@280)(main@190)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input47 #@(macro_inc@268)(macro_inc@281)(main@190)
+#(begin macro)if_sup  _input47,    9
+push    _input47 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@190)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@190)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@190)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@190)
+  #(end macro)if_sup  _input47,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input47
-    add '7'
-  ta
+  at      _input47 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@190)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@190)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@190)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@190)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input47
-    add '0'
-  ta
+  at      _input47 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@190)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@190)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@190)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input48
-#(begin macro)if_sup("_input" + __idx,9)
-push _input48
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@190)
+pop out #@(macro_inc@274)(macro_inc@281)(main@190)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input48 #@(macro_inc@268)(macro_inc@282)(main@190)
+#(begin macro)if_sup  _input48,    9
+push    _input48 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@190)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@190)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@190)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@190)
+  #(end macro)if_sup  _input48,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input48
-    add '7'
-  ta
+  at      _input48 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@190)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@190)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@190)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@190)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input48
-    add '0'
-  ta
+  at      _input48 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@190)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@190)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@190)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@190)
+pop out #@(macro_inc@274)(macro_inc@282)(main@190)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@191)
+set     10 #@(macro_inc@302)(main@191)
+out             #  #@(macro_inc@304)(main@191)
+drop #@(macro_inc@307)(main@191)
 #(end macro)print("\n")
 #(begin macro)print(" 0 == 0 : 01 == ")
-push    0
-set     32
-out             # ' '
-add     16
-out             # '0'
-sub     16
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-add     16
-out             # '0'
-sub     16
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@192)
+set     32 #@(macro_inc@302)(main@192)
+out             # ' ' #@(macro_inc@304)(main@192)
+add     16 #@(macro_inc@295)(main@192)
+out             # '0' #@(macro_inc@304)(main@192)
+sub     16 #@(macro_inc@298)(main@192)
+out             # ' ' #@(macro_inc@304)(main@192)
+add     29 #@(macro_inc@295)(main@192)
+out             # '=' #@(macro_inc@304)(main@192)
+out             # '=' #@(macro_inc@304)(main@192)
+sub     29 #@(macro_inc@298)(main@192)
+out             # ' ' #@(macro_inc@304)(main@192)
+add     16 #@(macro_inc@295)(main@192)
+out             # '0' #@(macro_inc@304)(main@192)
+sub     16 #@(macro_inc@298)(main@192)
+out             # ' ' #@(macro_inc@304)(main@192)
+add     26 #@(macro_inc@295)(main@192)
+out             # ':' #@(macro_inc@304)(main@192)
+sub     26 #@(macro_inc@298)(main@192)
+out             # ' ' #@(macro_inc@304)(main@192)
+add     16 #@(macro_inc@295)(main@192)
+out             # '0' #@(macro_inc@304)(main@192)
+add     1 #@(macro_inc@295)(main@192)
+out             # '1' #@(macro_inc@304)(main@192)
+sub     17 #@(macro_inc@298)(main@192)
+out             # ' ' #@(macro_inc@304)(main@192)
+add     29 #@(macro_inc@295)(main@192)
+out             # '=' #@(macro_inc@304)(main@192)
+out             # '=' #@(macro_inc@304)(main@192)
+sub     29 #@(macro_inc@298)(main@192)
+out             # ' ' #@(macro_inc@304)(main@192)
+drop #@(macro_inc@307)(main@192)
 #(end macro)print(" 0 == 0 : 01 == ")
-push 0
-push 0
-equal
+push 0 #@(main@193)
+push 0 #@(main@194)
+equal #@(main@195)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input49
-#(begin macro)if_sup("_input" + __idx,9)
-push _input49
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@196)
+div #@(macro_inc@280)(main@196)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input49 #@(macro_inc@268)(macro_inc@281)(main@196)
+#(begin macro)if_sup  _input49,    9
+push    _input49 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@196)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@196)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@196)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@196)
+  #(end macro)if_sup  _input49,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input49
-    add '7'
-  ta
+  at      _input49 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@196)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@196)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@196)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@196)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input49
-    add '0'
-  ta
+  at      _input49 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@196)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@196)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@196)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input50
-#(begin macro)if_sup("_input" + __idx,9)
-push _input50
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@196)
+pop out #@(macro_inc@274)(macro_inc@281)(main@196)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input50 #@(macro_inc@268)(macro_inc@282)(main@196)
+#(begin macro)if_sup  _input50,    9
+push    _input50 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@196)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@196)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@196)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@196)
+  #(end macro)if_sup  _input50,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input50
-    add '7'
-  ta
+  at      _input50 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@196)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@196)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@196)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@196)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input50
-    add '0'
-  ta
+  at      _input50 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@196)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@196)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@196)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@196)
+pop out #@(macro_inc@274)(macro_inc@282)(main@196)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@197)
+set     10 #@(macro_inc@302)(main@197)
+out             #  #@(macro_inc@304)(main@197)
+drop #@(macro_inc@307)(main@197)
 #(end macro)print("\n")
 #(begin macro)print(" 10 == 8 : 00 == ")
-push    0
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-add     24
-out             # '8'
-sub     24
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-out             # '0'
-sub     16
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@198)
+set     32 #@(macro_inc@302)(main@198)
+out             # ' ' #@(macro_inc@304)(main@198)
+add     17 #@(macro_inc@295)(main@198)
+out             # '1' #@(macro_inc@304)(main@198)
+sub     1 #@(macro_inc@298)(main@198)
+out             # '0' #@(macro_inc@304)(main@198)
+sub     16 #@(macro_inc@298)(main@198)
+out             # ' ' #@(macro_inc@304)(main@198)
+add     29 #@(macro_inc@295)(main@198)
+out             # '=' #@(macro_inc@304)(main@198)
+out             # '=' #@(macro_inc@304)(main@198)
+sub     29 #@(macro_inc@298)(main@198)
+out             # ' ' #@(macro_inc@304)(main@198)
+add     24 #@(macro_inc@295)(main@198)
+out             # '8' #@(macro_inc@304)(main@198)
+sub     24 #@(macro_inc@298)(main@198)
+out             # ' ' #@(macro_inc@304)(main@198)
+add     26 #@(macro_inc@295)(main@198)
+out             # ':' #@(macro_inc@304)(main@198)
+sub     26 #@(macro_inc@298)(main@198)
+out             # ' ' #@(macro_inc@304)(main@198)
+add     16 #@(macro_inc@295)(main@198)
+out             # '0' #@(macro_inc@304)(main@198)
+out             # '0' #@(macro_inc@304)(main@198)
+sub     16 #@(macro_inc@298)(main@198)
+out             # ' ' #@(macro_inc@304)(main@198)
+add     29 #@(macro_inc@295)(main@198)
+out             # '=' #@(macro_inc@304)(main@198)
+out             # '=' #@(macro_inc@304)(main@198)
+sub     29 #@(macro_inc@298)(main@198)
+out             # ' ' #@(macro_inc@304)(main@198)
+drop #@(macro_inc@307)(main@198)
 #(end macro)print(" 10 == 8 : 00 == ")
-push 10
-push 8
-equal
+push 10 #@(main@199)
+push 8 #@(main@200)
+equal #@(main@201)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input51
-#(begin macro)if_sup("_input" + __idx,9)
-push _input51
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@202)
+div #@(macro_inc@280)(main@202)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input51 #@(macro_inc@268)(macro_inc@281)(main@202)
+#(begin macro)if_sup  _input51,    9
+push    _input51 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@202)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@202)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@202)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@202)
+  #(end macro)if_sup  _input51,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input51
-    add '7'
-  ta
+  at      _input51 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@202)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@202)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@202)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@202)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input51
-    add '0'
-  ta
+  at      _input51 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@202)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@202)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@202)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input52
-#(begin macro)if_sup("_input" + __idx,9)
-push _input52
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@202)
+pop out #@(macro_inc@274)(macro_inc@281)(main@202)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input52 #@(macro_inc@268)(macro_inc@282)(main@202)
+#(begin macro)if_sup  _input52,    9
+push    _input52 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@202)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@202)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@202)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@202)
+  #(end macro)if_sup  _input52,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input52
-    add '7'
-  ta
+  at      _input52 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@202)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@202)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@202)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@202)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input52
-    add '0'
-  ta
+  at      _input52 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@202)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@202)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@202)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@202)
+pop out #@(macro_inc@274)(macro_inc@282)(main@202)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@203)
+set     10 #@(macro_inc@302)(main@203)
+out             #  #@(macro_inc@304)(main@203)
+drop #@(macro_inc@307)(main@203)
 #(end macro)print("\n")
-
+ #@(main@204)
 #(begin macro)print("IF/FI IF/ELSE/FI ...\n")
-push    0
-set     73
-out             # 'I'
-sub     3
-out             # 'F'
-sub     23
-out             # '/'
-add     23
-out             # 'F'
-add     3
-out             # 'I'
-set     32
-out             # ' '
-add     41
-out             # 'I'
-sub     3
-out             # 'F'
-sub     23
-out             # '/'
-add     22
-out             # 'E'
-add     7
-out             # 'L'
-add     7
-out             # 'S'
-sub     14
-out             # 'E'
-sub     22
-out             # '/'
-add     23
-out             # 'F'
-add     3
-out             # 'I'
-set     32
-out             # ' '
-add     14
-out             # '.'
-out             # '.'
-out             # '.'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@205)
+set     73 #@(macro_inc@302)(main@205)
+out             # 'I' #@(macro_inc@304)(main@205)
+sub     3 #@(macro_inc@298)(main@205)
+out             # 'F' #@(macro_inc@304)(main@205)
+sub     23 #@(macro_inc@298)(main@205)
+out             # '/' #@(macro_inc@304)(main@205)
+add     23 #@(macro_inc@295)(main@205)
+out             # 'F' #@(macro_inc@304)(main@205)
+add     3 #@(macro_inc@295)(main@205)
+out             # 'I' #@(macro_inc@304)(main@205)
+set     32 #@(macro_inc@302)(main@205)
+out             # ' ' #@(macro_inc@304)(main@205)
+add     41 #@(macro_inc@295)(main@205)
+out             # 'I' #@(macro_inc@304)(main@205)
+sub     3 #@(macro_inc@298)(main@205)
+out             # 'F' #@(macro_inc@304)(main@205)
+sub     23 #@(macro_inc@298)(main@205)
+out             # '/' #@(macro_inc@304)(main@205)
+add     22 #@(macro_inc@295)(main@205)
+out             # 'E' #@(macro_inc@304)(main@205)
+add     7 #@(macro_inc@295)(main@205)
+out             # 'L' #@(macro_inc@304)(main@205)
+add     7 #@(macro_inc@295)(main@205)
+out             # 'S' #@(macro_inc@304)(main@205)
+sub     14 #@(macro_inc@298)(main@205)
+out             # 'E' #@(macro_inc@304)(main@205)
+sub     22 #@(macro_inc@298)(main@205)
+out             # '/' #@(macro_inc@304)(main@205)
+add     23 #@(macro_inc@295)(main@205)
+out             # 'F' #@(macro_inc@304)(main@205)
+add     3 #@(macro_inc@295)(main@205)
+out             # 'I' #@(macro_inc@304)(main@205)
+set     32 #@(macro_inc@302)(main@205)
+out             # ' ' #@(macro_inc@304)(main@205)
+add     14 #@(macro_inc@295)(main@205)
+out             # '.' #@(macro_inc@304)(main@205)
+out             # '.' #@(macro_inc@304)(main@205)
+out             # '.' #@(macro_inc@304)(main@205)
+set     10 #@(macro_inc@302)(main@205)
+out             #  #@(macro_inc@304)(main@205)
+drop #@(macro_inc@307)(main@205)
 #(end macro)print("IF/FI IF/ELSE/FI ...\n")
-push 1
-if
-  push 1
+push 1 #@(main@206)
+if #@(main@207)
+  push 1 #@(main@208)
   #(begin macro)print("   01 == ")
-  push    0
-  set     32
-  out             # ' '
-  out             # ' '
-  out             # ' '
-  add     16
-  out             # '0'
-  add     1
-  out             # '1'
-  sub     17
-  out             # ' '
-  add     29
-  out             # '='
-  out             # '='
-  sub     29
-  out             # ' '
-  drop
+  push    0 #@(macro_inc@287)(main@209)
+  set     32 #@(macro_inc@302)(main@209)
+  out             # ' ' #@(macro_inc@304)(main@209)
+  out             # ' ' #@(macro_inc@304)(main@209)
+  out             # ' ' #@(macro_inc@304)(main@209)
+  add     16 #@(macro_inc@295)(main@209)
+  out             # '0' #@(macro_inc@304)(main@209)
+  add     1 #@(macro_inc@295)(main@209)
+  out             # '1' #@(macro_inc@304)(main@209)
+  sub     17 #@(macro_inc@298)(main@209)
+  out             # ' ' #@(macro_inc@304)(main@209)
+  add     29 #@(macro_inc@295)(main@209)
+  out             # '=' #@(macro_inc@304)(main@209)
+  out             # '=' #@(macro_inc@304)(main@209)
+  sub     29 #@(macro_inc@298)(main@209)
+  out             # ' ' #@(macro_inc@304)(main@209)
+  drop #@(macro_inc@307)(main@209)
   #(end macro)print("   01 == ")
   #(begin macro)popout8hexa()
-  push    16
-  div
-  #(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-  sbm _input53
-  #(begin macro)if_sup("_input" + __idx,9)
-  push _input53
-  push 9
-  sup
-  if
-    #(end macro)if_sup("_input" + __idx,9)
-    #(begin macro)at_add("_input" + __idx, "'7'")
+  push    16 #@(macro_inc@279)(main@210)
+  div #@(macro_inc@280)(main@210)
+  #(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+  sbm     _input53 #@(macro_inc@268)(macro_inc@281)(main@210)
+  #(begin macro)if_sup  _input53,    9
+  push    _input53 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@210)
+  push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@210)
+  sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@210)
+  if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@210)
+    #(end macro)if_sup  _input53,    9
+    #(begin macro)at_add("_input" + _popouthexa, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input53
-      add '7'
-    ta
+    at      _input53 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@210)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@210)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@210)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'7'")
-  else
-    #(begin macro)at_add("_input" + __idx, "'0'")
+    #(end macro)at_add("_input" + _popouthexa, "'7'")
+  else #@(macro_inc@271)(macro_inc@281)(main@210)
+    #(begin macro)at_add("_input" + _popouthexa, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input53
-      add '0'
-    ta
+    at      _input53 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@210)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@210)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@210)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'0'")
-  fi
-  pop out
-  #(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-  #(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-  sbm _input54
-  #(begin macro)if_sup("_input" + __idx,9)
-  push _input54
-  push 9
-  sup
-  if
-    #(end macro)if_sup("_input" + __idx,9)
-    #(begin macro)at_add("_input" + __idx, "'7'")
+    #(end macro)at_add("_input" + _popouthexa, "'0'")
+  fi #@(macro_inc@273)(macro_inc@281)(main@210)
+  pop out #@(macro_inc@274)(macro_inc@281)(main@210)
+  #(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+  #(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+  sbm     _input54 #@(macro_inc@268)(macro_inc@282)(main@210)
+  #(begin macro)if_sup  _input54,    9
+  push    _input54 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@210)
+  push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@210)
+  sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@210)
+  if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@210)
+    #(end macro)if_sup  _input54,    9
+    #(begin macro)at_add("_input" + _popouthexa, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input54
-      add '7'
-    ta
+    at      _input54 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@210)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@210)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@210)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'7'")
-  else
-    #(begin macro)at_add("_input" + __idx, "'0'")
+    #(end macro)at_add("_input" + _popouthexa, "'7'")
+  else #@(macro_inc@271)(macro_inc@282)(main@210)
+    #(begin macro)at_add("_input" + _popouthexa, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input54
-      add '0'
-    ta
+    at      _input54 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@210)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@210)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@210)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'0'")
-  fi
-  pop out
-  #(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+    #(end macro)at_add("_input" + _popouthexa, "'0'")
+  fi #@(macro_inc@273)(macro_inc@282)(main@210)
+  pop out #@(macro_inc@274)(macro_inc@282)(main@210)
+  #(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
   #(end macro)popout8hexa()
   #(begin macro)print("\n")
-  push    0
-  set     10
-  out             # 
-  drop
+  push    0 #@(macro_inc@287)(main@211)
+  set     10 #@(macro_inc@302)(main@211)
+  out             #  #@(macro_inc@304)(main@211)
+  drop #@(macro_inc@307)(main@211)
   #(end macro)print("\n")
-fi
-push 255
-if
-  push 255
+fi #@(main@212)
+push 255 #@(main@213)
+if #@(main@214)
+  push 255 #@(main@215)
   #(begin macro)print("   FF == ")
-  push    0
-  set     32
-  out             # ' '
-  out             # ' '
-  out             # ' '
-  add     38
-  out             # 'F'
-  out             # 'F'
-  set     32
-  out             # ' '
-  add     29
-  out             # '='
-  out             # '='
-  sub     29
-  out             # ' '
-  drop
+  push    0 #@(macro_inc@287)(main@216)
+  set     32 #@(macro_inc@302)(main@216)
+  out             # ' ' #@(macro_inc@304)(main@216)
+  out             # ' ' #@(macro_inc@304)(main@216)
+  out             # ' ' #@(macro_inc@304)(main@216)
+  add     38 #@(macro_inc@295)(main@216)
+  out             # 'F' #@(macro_inc@304)(main@216)
+  out             # 'F' #@(macro_inc@304)(main@216)
+  set     32 #@(macro_inc@302)(main@216)
+  out             # ' ' #@(macro_inc@304)(main@216)
+  add     29 #@(macro_inc@295)(main@216)
+  out             # '=' #@(macro_inc@304)(main@216)
+  out             # '=' #@(macro_inc@304)(main@216)
+  sub     29 #@(macro_inc@298)(main@216)
+  out             # ' ' #@(macro_inc@304)(main@216)
+  drop #@(macro_inc@307)(main@216)
   #(end macro)print("   FF == ")
   #(begin macro)popout8hexa()
-  push    16
-  div
-  #(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-  sbm _input55
-  #(begin macro)if_sup("_input" + __idx,9)
-  push _input55
-  push 9
-  sup
-  if
-    #(end macro)if_sup("_input" + __idx,9)
-    #(begin macro)at_add("_input" + __idx, "'7'")
+  push    16 #@(macro_inc@279)(main@217)
+  div #@(macro_inc@280)(main@217)
+  #(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+  sbm     _input55 #@(macro_inc@268)(macro_inc@281)(main@217)
+  #(begin macro)if_sup  _input55,    9
+  push    _input55 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@217)
+  push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@217)
+  sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@217)
+  if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@217)
+    #(end macro)if_sup  _input55,    9
+    #(begin macro)at_add("_input" + _popouthexa, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input55
-      add '7'
-    ta
+    at      _input55 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@217)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@217)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@217)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'7'")
-  else
-    #(begin macro)at_add("_input" + __idx, "'0'")
+    #(end macro)at_add("_input" + _popouthexa, "'7'")
+  else #@(macro_inc@271)(macro_inc@281)(main@217)
+    #(begin macro)at_add("_input" + _popouthexa, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input55
-      add '0'
-    ta
+    at      _input55 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@217)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@217)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@217)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'0'")
-  fi
-  pop out
-  #(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-  #(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-  sbm _input56
-  #(begin macro)if_sup("_input" + __idx,9)
-  push _input56
-  push 9
-  sup
-  if
-    #(end macro)if_sup("_input" + __idx,9)
-    #(begin macro)at_add("_input" + __idx, "'7'")
+    #(end macro)at_add("_input" + _popouthexa, "'0'")
+  fi #@(macro_inc@273)(macro_inc@281)(main@217)
+  pop out #@(macro_inc@274)(macro_inc@281)(main@217)
+  #(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+  #(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+  sbm     _input56 #@(macro_inc@268)(macro_inc@282)(main@217)
+  #(begin macro)if_sup  _input56,    9
+  push    _input56 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@217)
+  push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@217)
+  sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@217)
+  if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@217)
+    #(end macro)if_sup  _input56,    9
+    #(begin macro)at_add("_input" + _popouthexa, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input56
-      add '7'
-    ta
+    at      _input56 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@217)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@217)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@217)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'7'")
-  else
-    #(begin macro)at_add("_input" + __idx, "'0'")
+    #(end macro)at_add("_input" + _popouthexa, "'7'")
+  else #@(macro_inc@271)(macro_inc@282)(main@217)
+    #(begin macro)at_add("_input" + _popouthexa, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input56
-      add '0'
-    ta
+    at      _input56 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@217)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@217)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@217)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'0'")
-  fi
-  pop out
-  #(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+    #(end macro)at_add("_input" + _popouthexa, "'0'")
+  fi #@(macro_inc@273)(macro_inc@282)(main@217)
+  pop out #@(macro_inc@274)(macro_inc@282)(main@217)
+  #(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
   #(end macro)popout8hexa()
   #(begin macro)print("\n")
-  push    0
-  set     10
-  out             # 
-  drop
+  push    0 #@(macro_inc@287)(main@218)
+  set     10 #@(macro_inc@302)(main@218)
+  out             #  #@(macro_inc@304)(main@218)
+  drop #@(macro_inc@307)(main@218)
   #(end macro)print("\n")
-else
+else #@(main@219)
   #(begin macro)print("  BUG 255 !!!\n")
-  push    0
-  set     32
-  out             # ' '
-  out             # ' '
-  add     34
-  out             # 'B'
-  add     19
-  out             # 'U'
-  sub     14
-  out             # 'G'
-  set     32
-  out             # ' '
-  add     18
-  out             # '2'
-  add     3
-  out             # '5'
-  out             # '5'
-  sub     21
-  out             # ' '
-  add     1
-  out             # '!'
-  out             # '!'
-  out             # '!'
-  set     10
-  out             # 
-  drop
+  push    0 #@(macro_inc@287)(main@220)
+  set     32 #@(macro_inc@302)(main@220)
+  out             # ' ' #@(macro_inc@304)(main@220)
+  out             # ' ' #@(macro_inc@304)(main@220)
+  add     34 #@(macro_inc@295)(main@220)
+  out             # 'B' #@(macro_inc@304)(main@220)
+  add     19 #@(macro_inc@295)(main@220)
+  out             # 'U' #@(macro_inc@304)(main@220)
+  sub     14 #@(macro_inc@298)(main@220)
+  out             # 'G' #@(macro_inc@304)(main@220)
+  set     32 #@(macro_inc@302)(main@220)
+  out             # ' ' #@(macro_inc@304)(main@220)
+  add     18 #@(macro_inc@295)(main@220)
+  out             # '2' #@(macro_inc@304)(main@220)
+  add     3 #@(macro_inc@295)(main@220)
+  out             # '5' #@(macro_inc@304)(main@220)
+  out             # '5' #@(macro_inc@304)(main@220)
+  sub     21 #@(macro_inc@298)(main@220)
+  out             # ' ' #@(macro_inc@304)(main@220)
+  add     1 #@(macro_inc@295)(main@220)
+  out             # '!' #@(macro_inc@304)(main@220)
+  out             # '!' #@(macro_inc@304)(main@220)
+  out             # '!' #@(macro_inc@304)(main@220)
+  set     10 #@(macro_inc@302)(main@220)
+  out             #  #@(macro_inc@304)(main@220)
+  drop #@(macro_inc@307)(main@220)
   #(end macro)print("  BUG 255 !!!\n")
-fi
-push 0
-if
+fi #@(main@221)
+push 0 #@(main@222)
+if #@(main@223)
   #(begin macro)print("  BUG 0 !!!\n")
-  push    0
-  set     32
-  out             # ' '
-  out             # ' '
-  add     34
-  out             # 'B'
-  add     19
-  out             # 'U'
-  sub     14
-  out             # 'G'
-  set     32
-  out             # ' '
-  add     16
-  out             # '0'
-  sub     16
-  out             # ' '
-  add     1
-  out             # '!'
-  out             # '!'
-  out             # '!'
-  set     10
-  out             # 
-  drop
+  push    0 #@(macro_inc@287)(main@224)
+  set     32 #@(macro_inc@302)(main@224)
+  out             # ' ' #@(macro_inc@304)(main@224)
+  out             # ' ' #@(macro_inc@304)(main@224)
+  add     34 #@(macro_inc@295)(main@224)
+  out             # 'B' #@(macro_inc@304)(main@224)
+  add     19 #@(macro_inc@295)(main@224)
+  out             # 'U' #@(macro_inc@304)(main@224)
+  sub     14 #@(macro_inc@298)(main@224)
+  out             # 'G' #@(macro_inc@304)(main@224)
+  set     32 #@(macro_inc@302)(main@224)
+  out             # ' ' #@(macro_inc@304)(main@224)
+  add     16 #@(macro_inc@295)(main@224)
+  out             # '0' #@(macro_inc@304)(main@224)
+  sub     16 #@(macro_inc@298)(main@224)
+  out             # ' ' #@(macro_inc@304)(main@224)
+  add     1 #@(macro_inc@295)(main@224)
+  out             # '!' #@(macro_inc@304)(main@224)
+  out             # '!' #@(macro_inc@304)(main@224)
+  out             # '!' #@(macro_inc@304)(main@224)
+  set     10 #@(macro_inc@302)(main@224)
+  out             #  #@(macro_inc@304)(main@224)
+  drop #@(macro_inc@307)(main@224)
   #(end macro)print("  BUG 0 !!!\n")
-else
-  push 0
+else #@(main@225)
+  push 0 #@(main@226)
   #(begin macro)print("   00 == ")
-  push    0
-  set     32
-  out             # ' '
-  out             # ' '
-  out             # ' '
-  add     16
-  out             # '0'
-  out             # '0'
-  sub     16
-  out             # ' '
-  add     29
-  out             # '='
-  out             # '='
-  sub     29
-  out             # ' '
-  drop
+  push    0 #@(macro_inc@287)(main@227)
+  set     32 #@(macro_inc@302)(main@227)
+  out             # ' ' #@(macro_inc@304)(main@227)
+  out             # ' ' #@(macro_inc@304)(main@227)
+  out             # ' ' #@(macro_inc@304)(main@227)
+  add     16 #@(macro_inc@295)(main@227)
+  out             # '0' #@(macro_inc@304)(main@227)
+  out             # '0' #@(macro_inc@304)(main@227)
+  sub     16 #@(macro_inc@298)(main@227)
+  out             # ' ' #@(macro_inc@304)(main@227)
+  add     29 #@(macro_inc@295)(main@227)
+  out             # '=' #@(macro_inc@304)(main@227)
+  out             # '=' #@(macro_inc@304)(main@227)
+  sub     29 #@(macro_inc@298)(main@227)
+  out             # ' ' #@(macro_inc@304)(main@227)
+  drop #@(macro_inc@307)(main@227)
   #(end macro)print("   00 == ")
   #(begin macro)popout8hexa()
-  push    16
-  div
-  #(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-  sbm _input57
-  #(begin macro)if_sup("_input" + __idx,9)
-  push _input57
-  push 9
-  sup
-  if
-    #(end macro)if_sup("_input" + __idx,9)
-    #(begin macro)at_add("_input" + __idx, "'7'")
+  push    16 #@(macro_inc@279)(main@228)
+  div #@(macro_inc@280)(main@228)
+  #(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+  sbm     _input57 #@(macro_inc@268)(macro_inc@281)(main@228)
+  #(begin macro)if_sup  _input57,    9
+  push    _input57 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@228)
+  push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@228)
+  sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@228)
+  if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@228)
+    #(end macro)if_sup  _input57,    9
+    #(begin macro)at_add("_input" + _popouthexa, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input57
-      add '7'
-    ta
+    at      _input57 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@228)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@228)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@228)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'7'")
-  else
-    #(begin macro)at_add("_input" + __idx, "'0'")
+    #(end macro)at_add("_input" + _popouthexa, "'7'")
+  else #@(macro_inc@271)(macro_inc@281)(main@228)
+    #(begin macro)at_add("_input" + _popouthexa, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input57
-      add '0'
-    ta
+    at      _input57 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@228)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@228)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@228)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'0'")
-  fi
-  pop out
-  #(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-  #(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-  sbm _input58
-  #(begin macro)if_sup("_input" + __idx,9)
-  push _input58
-  push 9
-  sup
-  if
-    #(end macro)if_sup("_input" + __idx,9)
-    #(begin macro)at_add("_input" + __idx, "'7'")
+    #(end macro)at_add("_input" + _popouthexa, "'0'")
+  fi #@(macro_inc@273)(macro_inc@281)(main@228)
+  pop out #@(macro_inc@274)(macro_inc@281)(main@228)
+  #(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+  #(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+  sbm     _input58 #@(macro_inc@268)(macro_inc@282)(main@228)
+  #(begin macro)if_sup  _input58,    9
+  push    _input58 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@228)
+  push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@228)
+  sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@228)
+  if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@228)
+    #(end macro)if_sup  _input58,    9
+    #(begin macro)at_add("_input" + _popouthexa, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input58
-      add '7'
-    ta
+    at      _input58 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@228)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@228)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@228)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'7'")
-  else
-    #(begin macro)at_add("_input" + __idx, "'0'")
+    #(end macro)at_add("_input" + _popouthexa, "'7'")
+  else #@(macro_inc@271)(macro_inc@282)(main@228)
+    #(begin macro)at_add("_input" + _popouthexa, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input58
-      add '0'
-    ta
+    at      _input58 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@228)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@228)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@228)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'0'")
-  fi
-  pop out
-  #(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+    #(end macro)at_add("_input" + _popouthexa, "'0'")
+  fi #@(macro_inc@273)(macro_inc@282)(main@228)
+  pop out #@(macro_inc@274)(macro_inc@282)(main@228)
+  #(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
   #(end macro)popout8hexa()
   #(begin macro)print("\n")
-  push    0
-  set     10
-  out             # 
-  drop
+  push    0 #@(macro_inc@287)(main@229)
+  set     10 #@(macro_inc@302)(main@229)
+  out             #  #@(macro_inc@304)(main@229)
+  drop #@(macro_inc@307)(main@229)
   #(end macro)print("\n")
-fi
-
+fi #@(main@230)
+ #@(main@231)
 #(begin macro)print("INC , decrement head of stack value\n")
-push    0
-set     73
-out             # 'I'
-add     5
-out             # 'N'
-sub     11
-out             # 'C'
-set     32
-out             # ' '
-add     12
-out             # ','
-sub     12
-out             # ' '
-add     68
-out             # 'd'
-add     1
-out             # 'e'
-sub     2
-out             # 'c'
-add     15
-out             # 'r'
-sub     13
-out             # 'e'
-add     8
-out             # 'm'
-sub     8
-out             # 'e'
-add     9
-out             # 'n'
-add     6
-out             # 't'
-set     32
-out             # ' '
-add     72
-out             # 'h'
-sub     3
-out             # 'e'
-sub     4
-out             # 'a'
-add     3
-out             # 'd'
-set     32
-out             # ' '
-add     79
-out             # 'o'
-sub     9
-out             # 'f'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     32
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@232)
+set     73 #@(macro_inc@302)(main@232)
+out             # 'I' #@(macro_inc@304)(main@232)
+add     5 #@(macro_inc@295)(main@232)
+out             # 'N' #@(macro_inc@304)(main@232)
+sub     11 #@(macro_inc@298)(main@232)
+out             # 'C' #@(macro_inc@304)(main@232)
+set     32 #@(macro_inc@302)(main@232)
+out             # ' ' #@(macro_inc@304)(main@232)
+add     12 #@(macro_inc@295)(main@232)
+out             # ',' #@(macro_inc@304)(main@232)
+sub     12 #@(macro_inc@298)(main@232)
+out             # ' ' #@(macro_inc@304)(main@232)
+add     68 #@(macro_inc@295)(main@232)
+out             # 'd' #@(macro_inc@304)(main@232)
+add     1 #@(macro_inc@295)(main@232)
+out             # 'e' #@(macro_inc@304)(main@232)
+sub     2 #@(macro_inc@298)(main@232)
+out             # 'c' #@(macro_inc@304)(main@232)
+add     15 #@(macro_inc@295)(main@232)
+out             # 'r' #@(macro_inc@304)(main@232)
+sub     13 #@(macro_inc@298)(main@232)
+out             # 'e' #@(macro_inc@304)(main@232)
+add     8 #@(macro_inc@295)(main@232)
+out             # 'm' #@(macro_inc@304)(main@232)
+sub     8 #@(macro_inc@298)(main@232)
+out             # 'e' #@(macro_inc@304)(main@232)
+add     9 #@(macro_inc@295)(main@232)
+out             # 'n' #@(macro_inc@304)(main@232)
+add     6 #@(macro_inc@295)(main@232)
+out             # 't' #@(macro_inc@304)(main@232)
+set     32 #@(macro_inc@302)(main@232)
+out             # ' ' #@(macro_inc@304)(main@232)
+add     72 #@(macro_inc@295)(main@232)
+out             # 'h' #@(macro_inc@304)(main@232)
+sub     3 #@(macro_inc@298)(main@232)
+out             # 'e' #@(macro_inc@304)(main@232)
+sub     4 #@(macro_inc@298)(main@232)
+out             # 'a' #@(macro_inc@304)(main@232)
+add     3 #@(macro_inc@295)(main@232)
+out             # 'd' #@(macro_inc@304)(main@232)
+set     32 #@(macro_inc@302)(main@232)
+out             # ' ' #@(macro_inc@304)(main@232)
+add     79 #@(macro_inc@295)(main@232)
+out             # 'o' #@(macro_inc@304)(main@232)
+sub     9 #@(macro_inc@298)(main@232)
+out             # 'f' #@(macro_inc@304)(main@232)
+set     32 #@(macro_inc@302)(main@232)
+out             # ' ' #@(macro_inc@304)(main@232)
+add     83 #@(macro_inc@295)(main@232)
+out             # 's' #@(macro_inc@304)(main@232)
+add     1 #@(macro_inc@295)(main@232)
+out             # 't' #@(macro_inc@304)(main@232)
+sub     19 #@(macro_inc@298)(main@232)
+out             # 'a' #@(macro_inc@304)(main@232)
+add     2 #@(macro_inc@295)(main@232)
+out             # 'c' #@(macro_inc@304)(main@232)
+add     8 #@(macro_inc@295)(main@232)
+out             # 'k' #@(macro_inc@304)(main@232)
+set     32 #@(macro_inc@302)(main@232)
+out             # ' ' #@(macro_inc@304)(main@232)
+add     86 #@(macro_inc@295)(main@232)
+out             # 'v' #@(macro_inc@304)(main@232)
+sub     21 #@(macro_inc@298)(main@232)
+out             # 'a' #@(macro_inc@304)(main@232)
+add     11 #@(macro_inc@295)(main@232)
+out             # 'l' #@(macro_inc@304)(main@232)
+add     9 #@(macro_inc@295)(main@232)
+out             # 'u' #@(macro_inc@304)(main@232)
+sub     16 #@(macro_inc@298)(main@232)
+out             # 'e' #@(macro_inc@304)(main@232)
+set     10 #@(macro_inc@302)(main@232)
+out             #  #@(macro_inc@304)(main@232)
+drop #@(macro_inc@307)(main@232)
 #(end macro)print("INC , decrement head of stack value\n")
 #(begin macro)print(" 10 + 1 : 0B == ")
-push    0
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     11
-out             # '+'
-sub     11
-out             # ' '
-add     17
-out             # '1'
-sub     17
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-add     18
-out             # 'B'
-set     32
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@233)
+set     32 #@(macro_inc@302)(main@233)
+out             # ' ' #@(macro_inc@304)(main@233)
+add     17 #@(macro_inc@295)(main@233)
+out             # '1' #@(macro_inc@304)(main@233)
+sub     1 #@(macro_inc@298)(main@233)
+out             # '0' #@(macro_inc@304)(main@233)
+sub     16 #@(macro_inc@298)(main@233)
+out             # ' ' #@(macro_inc@304)(main@233)
+add     11 #@(macro_inc@295)(main@233)
+out             # '+' #@(macro_inc@304)(main@233)
+sub     11 #@(macro_inc@298)(main@233)
+out             # ' ' #@(macro_inc@304)(main@233)
+add     17 #@(macro_inc@295)(main@233)
+out             # '1' #@(macro_inc@304)(main@233)
+sub     17 #@(macro_inc@298)(main@233)
+out             # ' ' #@(macro_inc@304)(main@233)
+add     26 #@(macro_inc@295)(main@233)
+out             # ':' #@(macro_inc@304)(main@233)
+sub     26 #@(macro_inc@298)(main@233)
+out             # ' ' #@(macro_inc@304)(main@233)
+add     16 #@(macro_inc@295)(main@233)
+out             # '0' #@(macro_inc@304)(main@233)
+add     18 #@(macro_inc@295)(main@233)
+out             # 'B' #@(macro_inc@304)(main@233)
+set     32 #@(macro_inc@302)(main@233)
+out             # ' ' #@(macro_inc@304)(main@233)
+add     29 #@(macro_inc@295)(main@233)
+out             # '=' #@(macro_inc@304)(main@233)
+out             # '=' #@(macro_inc@304)(main@233)
+sub     29 #@(macro_inc@298)(main@233)
+out             # ' ' #@(macro_inc@304)(main@233)
+drop #@(macro_inc@307)(main@233)
 #(end macro)print(" 10 + 1 : 0B == ")
-push 10
-inc
+push 10 #@(main@234)
+inc #@(main@235)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input59
-#(begin macro)if_sup("_input" + __idx,9)
-push _input59
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@236)
+div #@(macro_inc@280)(main@236)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input59 #@(macro_inc@268)(macro_inc@281)(main@236)
+#(begin macro)if_sup  _input59,    9
+push    _input59 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@236)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@236)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@236)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@236)
+  #(end macro)if_sup  _input59,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input59
-    add '7'
-  ta
+  at      _input59 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@236)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@236)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@236)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@236)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input59
-    add '0'
-  ta
+  at      _input59 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@236)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@236)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@236)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input60
-#(begin macro)if_sup("_input" + __idx,9)
-push _input60
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@236)
+pop out #@(macro_inc@274)(macro_inc@281)(main@236)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input60 #@(macro_inc@268)(macro_inc@282)(main@236)
+#(begin macro)if_sup  _input60,    9
+push    _input60 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@236)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@236)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@236)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@236)
+  #(end macro)if_sup  _input60,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input60
-    add '7'
-  ta
+  at      _input60 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@236)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@236)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@236)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@236)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input60
-    add '0'
-  ta
+  at      _input60 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@236)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@236)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@236)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@236)
+pop out #@(macro_inc@274)(macro_inc@282)(main@236)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@237)
+set     10 #@(macro_inc@302)(main@237)
+out             #  #@(macro_inc@304)(main@237)
+drop #@(macro_inc@307)(main@237)
 #(end macro)print("\n")
-
+ #@(main@238)
 #(begin macro)print("INF , value in stack -1 less than stack\n")
-push    0
-set     73
-out             # 'I'
-add     5
-out             # 'N'
-sub     8
-out             # 'F'
-set     32
-out             # ' '
-add     12
-out             # ','
-sub     12
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     5
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     32
-out             # ' '
-add     13
-out             # '-'
-add     4
-out             # '1'
-sub     17
-out             # ' '
-add     76
-out             # 'l'
-sub     7
-out             # 'e'
-add     14
-out             # 's'
-out             # 's'
-set     32
-out             # ' '
-add     84
-out             # 't'
-sub     12
-out             # 'h'
-sub     7
-out             # 'a'
-add     13
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@239)
+set     73 #@(macro_inc@302)(main@239)
+out             # 'I' #@(macro_inc@304)(main@239)
+add     5 #@(macro_inc@295)(main@239)
+out             # 'N' #@(macro_inc@304)(main@239)
+sub     8 #@(macro_inc@298)(main@239)
+out             # 'F' #@(macro_inc@304)(main@239)
+set     32 #@(macro_inc@302)(main@239)
+out             # ' ' #@(macro_inc@304)(main@239)
+add     12 #@(macro_inc@295)(main@239)
+out             # ',' #@(macro_inc@304)(main@239)
+sub     12 #@(macro_inc@298)(main@239)
+out             # ' ' #@(macro_inc@304)(main@239)
+add     86 #@(macro_inc@295)(main@239)
+out             # 'v' #@(macro_inc@304)(main@239)
+sub     21 #@(macro_inc@298)(main@239)
+out             # 'a' #@(macro_inc@304)(main@239)
+add     11 #@(macro_inc@295)(main@239)
+out             # 'l' #@(macro_inc@304)(main@239)
+add     9 #@(macro_inc@295)(main@239)
+out             # 'u' #@(macro_inc@304)(main@239)
+sub     16 #@(macro_inc@298)(main@239)
+out             # 'e' #@(macro_inc@304)(main@239)
+set     32 #@(macro_inc@302)(main@239)
+out             # ' ' #@(macro_inc@304)(main@239)
+add     73 #@(macro_inc@295)(main@239)
+out             # 'i' #@(macro_inc@304)(main@239)
+add     5 #@(macro_inc@295)(main@239)
+out             # 'n' #@(macro_inc@304)(main@239)
+set     32 #@(macro_inc@302)(main@239)
+out             # ' ' #@(macro_inc@304)(main@239)
+add     83 #@(macro_inc@295)(main@239)
+out             # 's' #@(macro_inc@304)(main@239)
+add     1 #@(macro_inc@295)(main@239)
+out             # 't' #@(macro_inc@304)(main@239)
+sub     19 #@(macro_inc@298)(main@239)
+out             # 'a' #@(macro_inc@304)(main@239)
+add     2 #@(macro_inc@295)(main@239)
+out             # 'c' #@(macro_inc@304)(main@239)
+add     8 #@(macro_inc@295)(main@239)
+out             # 'k' #@(macro_inc@304)(main@239)
+set     32 #@(macro_inc@302)(main@239)
+out             # ' ' #@(macro_inc@304)(main@239)
+add     13 #@(macro_inc@295)(main@239)
+out             # '-' #@(macro_inc@304)(main@239)
+add     4 #@(macro_inc@295)(main@239)
+out             # '1' #@(macro_inc@304)(main@239)
+sub     17 #@(macro_inc@298)(main@239)
+out             # ' ' #@(macro_inc@304)(main@239)
+add     76 #@(macro_inc@295)(main@239)
+out             # 'l' #@(macro_inc@304)(main@239)
+sub     7 #@(macro_inc@298)(main@239)
+out             # 'e' #@(macro_inc@304)(main@239)
+add     14 #@(macro_inc@295)(main@239)
+out             # 's' #@(macro_inc@304)(main@239)
+out             # 's' #@(macro_inc@304)(main@239)
+set     32 #@(macro_inc@302)(main@239)
+out             # ' ' #@(macro_inc@304)(main@239)
+add     84 #@(macro_inc@295)(main@239)
+out             # 't' #@(macro_inc@304)(main@239)
+sub     12 #@(macro_inc@298)(main@239)
+out             # 'h' #@(macro_inc@304)(main@239)
+sub     7 #@(macro_inc@298)(main@239)
+out             # 'a' #@(macro_inc@304)(main@239)
+add     13 #@(macro_inc@295)(main@239)
+out             # 'n' #@(macro_inc@304)(main@239)
+set     32 #@(macro_inc@302)(main@239)
+out             # ' ' #@(macro_inc@304)(main@239)
+add     83 #@(macro_inc@295)(main@239)
+out             # 's' #@(macro_inc@304)(main@239)
+add     1 #@(macro_inc@295)(main@239)
+out             # 't' #@(macro_inc@304)(main@239)
+sub     19 #@(macro_inc@298)(main@239)
+out             # 'a' #@(macro_inc@304)(main@239)
+add     2 #@(macro_inc@295)(main@239)
+out             # 'c' #@(macro_inc@304)(main@239)
+add     8 #@(macro_inc@295)(main@239)
+out             # 'k' #@(macro_inc@304)(main@239)
+set     10 #@(macro_inc@302)(main@239)
+out             #  #@(macro_inc@304)(main@239)
+drop #@(macro_inc@307)(main@239)
 #(end macro)print("INF , value in stack -1 less than stack\n")
 #(begin macro)print(" 10 < 10 : 00 == ")
-push    0
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     28
-out             # '<'
-sub     28
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-out             # '0'
-sub     16
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@240)
+set     32 #@(macro_inc@302)(main@240)
+out             # ' ' #@(macro_inc@304)(main@240)
+add     17 #@(macro_inc@295)(main@240)
+out             # '1' #@(macro_inc@304)(main@240)
+sub     1 #@(macro_inc@298)(main@240)
+out             # '0' #@(macro_inc@304)(main@240)
+sub     16 #@(macro_inc@298)(main@240)
+out             # ' ' #@(macro_inc@304)(main@240)
+add     28 #@(macro_inc@295)(main@240)
+out             # '<' #@(macro_inc@304)(main@240)
+sub     28 #@(macro_inc@298)(main@240)
+out             # ' ' #@(macro_inc@304)(main@240)
+add     17 #@(macro_inc@295)(main@240)
+out             # '1' #@(macro_inc@304)(main@240)
+sub     1 #@(macro_inc@298)(main@240)
+out             # '0' #@(macro_inc@304)(main@240)
+sub     16 #@(macro_inc@298)(main@240)
+out             # ' ' #@(macro_inc@304)(main@240)
+add     26 #@(macro_inc@295)(main@240)
+out             # ':' #@(macro_inc@304)(main@240)
+sub     26 #@(macro_inc@298)(main@240)
+out             # ' ' #@(macro_inc@304)(main@240)
+add     16 #@(macro_inc@295)(main@240)
+out             # '0' #@(macro_inc@304)(main@240)
+out             # '0' #@(macro_inc@304)(main@240)
+sub     16 #@(macro_inc@298)(main@240)
+out             # ' ' #@(macro_inc@304)(main@240)
+add     29 #@(macro_inc@295)(main@240)
+out             # '=' #@(macro_inc@304)(main@240)
+out             # '=' #@(macro_inc@304)(main@240)
+sub     29 #@(macro_inc@298)(main@240)
+out             # ' ' #@(macro_inc@304)(main@240)
+drop #@(macro_inc@307)(main@240)
 #(end macro)print(" 10 < 10 : 00 == ")
-push 10
-push 10
-inf
+push 10 #@(main@241)
+push 10 #@(main@242)
+inf #@(main@243)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input61
-#(begin macro)if_sup("_input" + __idx,9)
-push _input61
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@244)
+div #@(macro_inc@280)(main@244)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input61 #@(macro_inc@268)(macro_inc@281)(main@244)
+#(begin macro)if_sup  _input61,    9
+push    _input61 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@244)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@244)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@244)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@244)
+  #(end macro)if_sup  _input61,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input61
-    add '7'
-  ta
+  at      _input61 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@244)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@244)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@244)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@244)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input61
-    add '0'
-  ta
+  at      _input61 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@244)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@244)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@244)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input62
-#(begin macro)if_sup("_input" + __idx,9)
-push _input62
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@244)
+pop out #@(macro_inc@274)(macro_inc@281)(main@244)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input62 #@(macro_inc@268)(macro_inc@282)(main@244)
+#(begin macro)if_sup  _input62,    9
+push    _input62 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@244)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@244)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@244)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@244)
+  #(end macro)if_sup  _input62,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input62
-    add '7'
-  ta
+  at      _input62 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@244)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@244)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@244)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@244)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input62
-    add '0'
-  ta
+  at      _input62 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@244)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@244)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@244)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@244)
+pop out #@(macro_inc@274)(macro_inc@282)(main@244)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@245)
+set     10 #@(macro_inc@302)(main@245)
+out             #  #@(macro_inc@304)(main@245)
+drop #@(macro_inc@307)(main@245)
 #(end macro)print("\n")
 #(begin macro)print(" 8 < 10 : 01 == ")
-push    0
-set     32
-out             # ' '
-add     24
-out             # '8'
-sub     24
-out             # ' '
-add     28
-out             # '<'
-sub     28
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@246)
+set     32 #@(macro_inc@302)(main@246)
+out             # ' ' #@(macro_inc@304)(main@246)
+add     24 #@(macro_inc@295)(main@246)
+out             # '8' #@(macro_inc@304)(main@246)
+sub     24 #@(macro_inc@298)(main@246)
+out             # ' ' #@(macro_inc@304)(main@246)
+add     28 #@(macro_inc@295)(main@246)
+out             # '<' #@(macro_inc@304)(main@246)
+sub     28 #@(macro_inc@298)(main@246)
+out             # ' ' #@(macro_inc@304)(main@246)
+add     17 #@(macro_inc@295)(main@246)
+out             # '1' #@(macro_inc@304)(main@246)
+sub     1 #@(macro_inc@298)(main@246)
+out             # '0' #@(macro_inc@304)(main@246)
+sub     16 #@(macro_inc@298)(main@246)
+out             # ' ' #@(macro_inc@304)(main@246)
+add     26 #@(macro_inc@295)(main@246)
+out             # ':' #@(macro_inc@304)(main@246)
+sub     26 #@(macro_inc@298)(main@246)
+out             # ' ' #@(macro_inc@304)(main@246)
+add     16 #@(macro_inc@295)(main@246)
+out             # '0' #@(macro_inc@304)(main@246)
+add     1 #@(macro_inc@295)(main@246)
+out             # '1' #@(macro_inc@304)(main@246)
+sub     17 #@(macro_inc@298)(main@246)
+out             # ' ' #@(macro_inc@304)(main@246)
+add     29 #@(macro_inc@295)(main@246)
+out             # '=' #@(macro_inc@304)(main@246)
+out             # '=' #@(macro_inc@304)(main@246)
+sub     29 #@(macro_inc@298)(main@246)
+out             # ' ' #@(macro_inc@304)(main@246)
+drop #@(macro_inc@307)(main@246)
 #(end macro)print(" 8 < 10 : 01 == ")
-push 8
-push 10
-inf
+push 8 #@(main@247)
+push 10 #@(main@248)
+inf #@(main@249)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input63
-#(begin macro)if_sup("_input" + __idx,9)
-push _input63
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@250)
+div #@(macro_inc@280)(main@250)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input63 #@(macro_inc@268)(macro_inc@281)(main@250)
+#(begin macro)if_sup  _input63,    9
+push    _input63 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@250)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@250)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@250)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@250)
+  #(end macro)if_sup  _input63,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input63
-    add '7'
-  ta
+  at      _input63 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@250)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@250)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@250)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@250)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input63
-    add '0'
-  ta
+  at      _input63 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@250)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@250)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@250)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input64
-#(begin macro)if_sup("_input" + __idx,9)
-push _input64
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@250)
+pop out #@(macro_inc@274)(macro_inc@281)(main@250)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input64 #@(macro_inc@268)(macro_inc@282)(main@250)
+#(begin macro)if_sup  _input64,    9
+push    _input64 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@250)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@250)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@250)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@250)
+  #(end macro)if_sup  _input64,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input64
-    add '7'
-  ta
+  at      _input64 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@250)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@250)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@250)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@250)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input64
-    add '0'
-  ta
+  at      _input64 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@250)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@250)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@250)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@250)
+pop out #@(macro_inc@274)(macro_inc@282)(main@250)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@251)
+set     10 #@(macro_inc@302)(main@251)
+out             #  #@(macro_inc@304)(main@251)
+drop #@(macro_inc@307)(main@251)
 #(end macro)print("\n")
 #(begin macro)print(" 0 < 255 : 01 == ")
-push    0
-set     32
-out             # ' '
-add     16
-out             # '0'
-sub     16
-out             # ' '
-add     28
-out             # '<'
-sub     28
-out             # ' '
-add     18
-out             # '2'
-add     3
-out             # '5'
-out             # '5'
-sub     21
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@252)
+set     32 #@(macro_inc@302)(main@252)
+out             # ' ' #@(macro_inc@304)(main@252)
+add     16 #@(macro_inc@295)(main@252)
+out             # '0' #@(macro_inc@304)(main@252)
+sub     16 #@(macro_inc@298)(main@252)
+out             # ' ' #@(macro_inc@304)(main@252)
+add     28 #@(macro_inc@295)(main@252)
+out             # '<' #@(macro_inc@304)(main@252)
+sub     28 #@(macro_inc@298)(main@252)
+out             # ' ' #@(macro_inc@304)(main@252)
+add     18 #@(macro_inc@295)(main@252)
+out             # '2' #@(macro_inc@304)(main@252)
+add     3 #@(macro_inc@295)(main@252)
+out             # '5' #@(macro_inc@304)(main@252)
+out             # '5' #@(macro_inc@304)(main@252)
+sub     21 #@(macro_inc@298)(main@252)
+out             # ' ' #@(macro_inc@304)(main@252)
+add     26 #@(macro_inc@295)(main@252)
+out             # ':' #@(macro_inc@304)(main@252)
+sub     26 #@(macro_inc@298)(main@252)
+out             # ' ' #@(macro_inc@304)(main@252)
+add     16 #@(macro_inc@295)(main@252)
+out             # '0' #@(macro_inc@304)(main@252)
+add     1 #@(macro_inc@295)(main@252)
+out             # '1' #@(macro_inc@304)(main@252)
+sub     17 #@(macro_inc@298)(main@252)
+out             # ' ' #@(macro_inc@304)(main@252)
+add     29 #@(macro_inc@295)(main@252)
+out             # '=' #@(macro_inc@304)(main@252)
+out             # '=' #@(macro_inc@304)(main@252)
+sub     29 #@(macro_inc@298)(main@252)
+out             # ' ' #@(macro_inc@304)(main@252)
+drop #@(macro_inc@307)(main@252)
 #(end macro)print(" 0 < 255 : 01 == ")
-push 0
-push 255
-inf
+push 0 #@(main@253)
+push 255 #@(main@254)
+inf #@(main@255)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input65
-#(begin macro)if_sup("_input" + __idx,9)
-push _input65
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@256)
+div #@(macro_inc@280)(main@256)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input65 #@(macro_inc@268)(macro_inc@281)(main@256)
+#(begin macro)if_sup  _input65,    9
+push    _input65 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@256)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@256)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@256)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@256)
+  #(end macro)if_sup  _input65,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input65
-    add '7'
-  ta
+  at      _input65 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@256)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@256)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@256)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@256)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input65
-    add '0'
-  ta
+  at      _input65 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@256)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@256)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@256)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input66
-#(begin macro)if_sup("_input" + __idx,9)
-push _input66
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@256)
+pop out #@(macro_inc@274)(macro_inc@281)(main@256)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input66 #@(macro_inc@268)(macro_inc@282)(main@256)
+#(begin macro)if_sup  _input66,    9
+push    _input66 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@256)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@256)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@256)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@256)
+  #(end macro)if_sup  _input66,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input66
-    add '7'
-  ta
+  at      _input66 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@256)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@256)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@256)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@256)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input66
-    add '0'
-  ta
+  at      _input66 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@256)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@256)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@256)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@256)
+pop out #@(macro_inc@274)(macro_inc@282)(main@256)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@257)
+set     10 #@(macro_inc@302)(main@257)
+out             #  #@(macro_inc@304)(main@257)
+drop #@(macro_inc@307)(main@257)
 #(end macro)print("\n")
-
+ #@(main@258)
 #(begin macro)print("LOOP/ENDLOOP  repeated loop\n")
-push    0
-set     76
-out             # 'L'
-add     3
-out             # 'O'
-out             # 'O'
-add     1
-out             # 'P'
-sub     33
-out             # '/'
-add     22
-out             # 'E'
-add     9
-out             # 'N'
-sub     10
-out             # 'D'
-add     8
-out             # 'L'
-add     3
-out             # 'O'
-out             # 'O'
-add     1
-out             # 'P'
-set     32
-out             # ' '
-out             # ' '
-add     82
-out             # 'r'
-sub     13
-out             # 'e'
-add     11
-out             # 'p'
-sub     11
-out             # 'e'
-sub     4
-out             # 'a'
-add     19
-out             # 't'
-sub     15
-out             # 'e'
-sub     1
-out             # 'd'
-set     32
-out             # ' '
-add     76
-out             # 'l'
-add     3
-out             # 'o'
-out             # 'o'
-add     1
-out             # 'p'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@259)
+set     76 #@(macro_inc@302)(main@259)
+out             # 'L' #@(macro_inc@304)(main@259)
+add     3 #@(macro_inc@295)(main@259)
+out             # 'O' #@(macro_inc@304)(main@259)
+out             # 'O' #@(macro_inc@304)(main@259)
+add     1 #@(macro_inc@295)(main@259)
+out             # 'P' #@(macro_inc@304)(main@259)
+sub     33 #@(macro_inc@298)(main@259)
+out             # '/' #@(macro_inc@304)(main@259)
+add     22 #@(macro_inc@295)(main@259)
+out             # 'E' #@(macro_inc@304)(main@259)
+add     9 #@(macro_inc@295)(main@259)
+out             # 'N' #@(macro_inc@304)(main@259)
+sub     10 #@(macro_inc@298)(main@259)
+out             # 'D' #@(macro_inc@304)(main@259)
+add     8 #@(macro_inc@295)(main@259)
+out             # 'L' #@(macro_inc@304)(main@259)
+add     3 #@(macro_inc@295)(main@259)
+out             # 'O' #@(macro_inc@304)(main@259)
+out             # 'O' #@(macro_inc@304)(main@259)
+add     1 #@(macro_inc@295)(main@259)
+out             # 'P' #@(macro_inc@304)(main@259)
+set     32 #@(macro_inc@302)(main@259)
+out             # ' ' #@(macro_inc@304)(main@259)
+out             # ' ' #@(macro_inc@304)(main@259)
+add     82 #@(macro_inc@295)(main@259)
+out             # 'r' #@(macro_inc@304)(main@259)
+sub     13 #@(macro_inc@298)(main@259)
+out             # 'e' #@(macro_inc@304)(main@259)
+add     11 #@(macro_inc@295)(main@259)
+out             # 'p' #@(macro_inc@304)(main@259)
+sub     11 #@(macro_inc@298)(main@259)
+out             # 'e' #@(macro_inc@304)(main@259)
+sub     4 #@(macro_inc@298)(main@259)
+out             # 'a' #@(macro_inc@304)(main@259)
+add     19 #@(macro_inc@295)(main@259)
+out             # 't' #@(macro_inc@304)(main@259)
+sub     15 #@(macro_inc@298)(main@259)
+out             # 'e' #@(macro_inc@304)(main@259)
+sub     1 #@(macro_inc@298)(main@259)
+out             # 'd' #@(macro_inc@304)(main@259)
+set     32 #@(macro_inc@302)(main@259)
+out             # ' ' #@(macro_inc@304)(main@259)
+add     76 #@(macro_inc@295)(main@259)
+out             # 'l' #@(macro_inc@304)(main@259)
+add     3 #@(macro_inc@295)(main@259)
+out             # 'o' #@(macro_inc@304)(main@259)
+out             # 'o' #@(macro_inc@304)(main@259)
+add     1 #@(macro_inc@295)(main@259)
+out             # 'p' #@(macro_inc@304)(main@259)
+set     10 #@(macro_inc@302)(main@259)
+out             #  #@(macro_inc@304)(main@259)
+drop #@(macro_inc@307)(main@259)
 #(end macro)print("LOOP/ENDLOOP  repeated loop\n")
 #(begin macro)print("  03 02 01 == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     3
-out             # '3'
-sub     19
-out             # ' '
-add     16
-out             # '0'
-add     2
-out             # '2'
-sub     18
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@260)
+set     32 #@(macro_inc@302)(main@260)
+out             # ' ' #@(macro_inc@304)(main@260)
+out             # ' ' #@(macro_inc@304)(main@260)
+add     16 #@(macro_inc@295)(main@260)
+out             # '0' #@(macro_inc@304)(main@260)
+add     3 #@(macro_inc@295)(main@260)
+out             # '3' #@(macro_inc@304)(main@260)
+sub     19 #@(macro_inc@298)(main@260)
+out             # ' ' #@(macro_inc@304)(main@260)
+add     16 #@(macro_inc@295)(main@260)
+out             # '0' #@(macro_inc@304)(main@260)
+add     2 #@(macro_inc@295)(main@260)
+out             # '2' #@(macro_inc@304)(main@260)
+sub     18 #@(macro_inc@298)(main@260)
+out             # ' ' #@(macro_inc@304)(main@260)
+add     16 #@(macro_inc@295)(main@260)
+out             # '0' #@(macro_inc@304)(main@260)
+add     1 #@(macro_inc@295)(main@260)
+out             # '1' #@(macro_inc@304)(main@260)
+sub     17 #@(macro_inc@298)(main@260)
+out             # ' ' #@(macro_inc@304)(main@260)
+add     29 #@(macro_inc@295)(main@260)
+out             # '=' #@(macro_inc@304)(main@260)
+out             # '=' #@(macro_inc@304)(main@260)
+sub     29 #@(macro_inc@298)(main@260)
+out             # ' ' #@(macro_inc@304)(main@260)
+drop #@(macro_inc@307)(main@260)
 #(end macro)print("  03 02 01 == ")
-push 3
-sbm loop
-loop
-  push loop
+push 3 #@(main@261)
+sbm loop #@(main@262)
+loop #@(main@263)
+  push loop #@(main@264)
   #(begin macro)popout8hexa()
-  push    16
-  div
-  #(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-  sbm _input67
-  #(begin macro)if_sup("_input" + __idx,9)
-  push _input67
-  push 9
-  sup
-  if
-    #(end macro)if_sup("_input" + __idx,9)
-    #(begin macro)at_add("_input" + __idx, "'7'")
+  push    16 #@(macro_inc@279)(main@265)
+  div #@(macro_inc@280)(main@265)
+  #(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+  sbm     _input67 #@(macro_inc@268)(macro_inc@281)(main@265)
+  #(begin macro)if_sup  _input67,    9
+  push    _input67 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@265)
+  push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@265)
+  sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@265)
+  if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@265)
+    #(end macro)if_sup  _input67,    9
+    #(begin macro)at_add("_input" + _popouthexa, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input67
-      add '7'
-    ta
+    at      _input67 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@265)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@265)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@265)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'7'")
-  else
-    #(begin macro)at_add("_input" + __idx, "'0'")
+    #(end macro)at_add("_input" + _popouthexa, "'7'")
+  else #@(macro_inc@271)(macro_inc@281)(main@265)
+    #(begin macro)at_add("_input" + _popouthexa, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input67
-      add '0'
-    ta
+    at      _input67 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@265)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@265)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@265)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'0'")
-  fi
-  pop out
-  #(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-  #(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-  sbm _input68
-  #(begin macro)if_sup("_input" + __idx,9)
-  push _input68
-  push 9
-  sup
-  if
-    #(end macro)if_sup("_input" + __idx,9)
-    #(begin macro)at_add("_input" + __idx, "'7'")
+    #(end macro)at_add("_input" + _popouthexa, "'0'")
+  fi #@(macro_inc@273)(macro_inc@281)(main@265)
+  pop out #@(macro_inc@274)(macro_inc@281)(main@265)
+  #(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+  #(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+  sbm     _input68 #@(macro_inc@268)(macro_inc@282)(main@265)
+  #(begin macro)if_sup  _input68,    9
+  push    _input68 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@265)
+  push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@265)
+  sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@265)
+  if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@265)
+    #(end macro)if_sup  _input68,    9
+    #(begin macro)at_add("_input" + _popouthexa, "'7'")
     #(begin macro)at_2("add",a,b)
-    at _input68
-      add '7'
-    ta
+    at      _input68 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@265)
+      add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@265)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@265)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'7'")
-  else
-    #(begin macro)at_add("_input" + __idx, "'0'")
+    #(end macro)at_add("_input" + _popouthexa, "'7'")
+  else #@(macro_inc@271)(macro_inc@282)(main@265)
+    #(begin macro)at_add("_input" + _popouthexa, "'0'")
     #(begin macro)at_2("add",a,b)
-    at _input68
-      add '0'
-    ta
+    at      _input68 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@265)
+      add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@265)
+    ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@265)
     #(end macro)at_2("add",a,b)
-    #(end macro)at_add("_input" + __idx, "'0'")
-  fi
-  pop out
-  #(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+    #(end macro)at_add("_input" + _popouthexa, "'0'")
+  fi #@(macro_inc@273)(macro_inc@282)(main@265)
+  pop out #@(macro_inc@274)(macro_inc@282)(main@265)
+  #(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
   #(end macro)popout8hexa()
   #(begin macro)print(" ")
-  push    0
-  set     32
-  out             # ' '
-  drop
+  push    0 #@(macro_inc@287)(main@266)
+  set     32 #@(macro_inc@302)(main@266)
+  out             # ' ' #@(macro_inc@304)(main@266)
+  drop #@(macro_inc@307)(main@266)
   #(end macro)print(" ")
-endloop
+endloop #@(main@267)
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@268)
+set     10 #@(macro_inc@302)(main@268)
+out             #  #@(macro_inc@304)(main@268)
+drop #@(macro_inc@307)(main@268)
 #(end macro)print("\n")
-
+ #@(main@269)
 #(begin macro)print("MUL multiplication of 2 value in stack\n")
-push    0
-set     77
-out             # 'M'
-add     8
-out             # 'U'
-sub     9
-out             # 'L'
-set     32
-out             # ' '
-add     77
-out             # 'm'
-add     8
-out             # 'u'
-sub     9
-out             # 'l'
-add     8
-out             # 't'
-sub     11
-out             # 'i'
-add     7
-out             # 'p'
-sub     4
-out             # 'l'
-sub     3
-out             # 'i'
-sub     6
-out             # 'c'
-sub     2
-out             # 'a'
-add     19
-out             # 't'
-sub     11
-out             # 'i'
-add     6
-out             # 'o'
-sub     1
-out             # 'n'
-set     32
-out             # ' '
-add     79
-out             # 'o'
-sub     9
-out             # 'f'
-set     32
-out             # ' '
-add     18
-out             # '2'
-sub     18
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     5
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@270)
+set     77 #@(macro_inc@302)(main@270)
+out             # 'M' #@(macro_inc@304)(main@270)
+add     8 #@(macro_inc@295)(main@270)
+out             # 'U' #@(macro_inc@304)(main@270)
+sub     9 #@(macro_inc@298)(main@270)
+out             # 'L' #@(macro_inc@304)(main@270)
+set     32 #@(macro_inc@302)(main@270)
+out             # ' ' #@(macro_inc@304)(main@270)
+add     77 #@(macro_inc@295)(main@270)
+out             # 'm' #@(macro_inc@304)(main@270)
+add     8 #@(macro_inc@295)(main@270)
+out             # 'u' #@(macro_inc@304)(main@270)
+sub     9 #@(macro_inc@298)(main@270)
+out             # 'l' #@(macro_inc@304)(main@270)
+add     8 #@(macro_inc@295)(main@270)
+out             # 't' #@(macro_inc@304)(main@270)
+sub     11 #@(macro_inc@298)(main@270)
+out             # 'i' #@(macro_inc@304)(main@270)
+add     7 #@(macro_inc@295)(main@270)
+out             # 'p' #@(macro_inc@304)(main@270)
+sub     4 #@(macro_inc@298)(main@270)
+out             # 'l' #@(macro_inc@304)(main@270)
+sub     3 #@(macro_inc@298)(main@270)
+out             # 'i' #@(macro_inc@304)(main@270)
+sub     6 #@(macro_inc@298)(main@270)
+out             # 'c' #@(macro_inc@304)(main@270)
+sub     2 #@(macro_inc@298)(main@270)
+out             # 'a' #@(macro_inc@304)(main@270)
+add     19 #@(macro_inc@295)(main@270)
+out             # 't' #@(macro_inc@304)(main@270)
+sub     11 #@(macro_inc@298)(main@270)
+out             # 'i' #@(macro_inc@304)(main@270)
+add     6 #@(macro_inc@295)(main@270)
+out             # 'o' #@(macro_inc@304)(main@270)
+sub     1 #@(macro_inc@298)(main@270)
+out             # 'n' #@(macro_inc@304)(main@270)
+set     32 #@(macro_inc@302)(main@270)
+out             # ' ' #@(macro_inc@304)(main@270)
+add     79 #@(macro_inc@295)(main@270)
+out             # 'o' #@(macro_inc@304)(main@270)
+sub     9 #@(macro_inc@298)(main@270)
+out             # 'f' #@(macro_inc@304)(main@270)
+set     32 #@(macro_inc@302)(main@270)
+out             # ' ' #@(macro_inc@304)(main@270)
+add     18 #@(macro_inc@295)(main@270)
+out             # '2' #@(macro_inc@304)(main@270)
+sub     18 #@(macro_inc@298)(main@270)
+out             # ' ' #@(macro_inc@304)(main@270)
+add     86 #@(macro_inc@295)(main@270)
+out             # 'v' #@(macro_inc@304)(main@270)
+sub     21 #@(macro_inc@298)(main@270)
+out             # 'a' #@(macro_inc@304)(main@270)
+add     11 #@(macro_inc@295)(main@270)
+out             # 'l' #@(macro_inc@304)(main@270)
+add     9 #@(macro_inc@295)(main@270)
+out             # 'u' #@(macro_inc@304)(main@270)
+sub     16 #@(macro_inc@298)(main@270)
+out             # 'e' #@(macro_inc@304)(main@270)
+set     32 #@(macro_inc@302)(main@270)
+out             # ' ' #@(macro_inc@304)(main@270)
+add     73 #@(macro_inc@295)(main@270)
+out             # 'i' #@(macro_inc@304)(main@270)
+add     5 #@(macro_inc@295)(main@270)
+out             # 'n' #@(macro_inc@304)(main@270)
+set     32 #@(macro_inc@302)(main@270)
+out             # ' ' #@(macro_inc@304)(main@270)
+add     83 #@(macro_inc@295)(main@270)
+out             # 's' #@(macro_inc@304)(main@270)
+add     1 #@(macro_inc@295)(main@270)
+out             # 't' #@(macro_inc@304)(main@270)
+sub     19 #@(macro_inc@298)(main@270)
+out             # 'a' #@(macro_inc@304)(main@270)
+add     2 #@(macro_inc@295)(main@270)
+out             # 'c' #@(macro_inc@304)(main@270)
+add     8 #@(macro_inc@295)(main@270)
+out             # 'k' #@(macro_inc@304)(main@270)
+set     10 #@(macro_inc@302)(main@270)
+out             #  #@(macro_inc@304)(main@270)
+drop #@(macro_inc@307)(main@270)
 #(end macro)print("MUL multiplication of 2 value in stack\n")
 #(begin macro)print("  push 5 ; push 2 ; mul ;  0A == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     21
-out             # '5'
-sub     21
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     18
-out             # '2'
-sub     18
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     77
-out             # 'm'
-add     8
-out             # 'u'
-sub     9
-out             # 'l'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     17
-out             # 'A'
-set     32
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@271)
+set     32 #@(macro_inc@302)(main@271)
+out             # ' ' #@(macro_inc@304)(main@271)
+out             # ' ' #@(macro_inc@304)(main@271)
+add     80 #@(macro_inc@295)(main@271)
+out             # 'p' #@(macro_inc@304)(main@271)
+add     5 #@(macro_inc@295)(main@271)
+out             # 'u' #@(macro_inc@304)(main@271)
+sub     2 #@(macro_inc@298)(main@271)
+out             # 's' #@(macro_inc@304)(main@271)
+sub     11 #@(macro_inc@298)(main@271)
+out             # 'h' #@(macro_inc@304)(main@271)
+set     32 #@(macro_inc@302)(main@271)
+out             # ' ' #@(macro_inc@304)(main@271)
+add     21 #@(macro_inc@295)(main@271)
+out             # '5' #@(macro_inc@304)(main@271)
+sub     21 #@(macro_inc@298)(main@271)
+out             # ' ' #@(macro_inc@304)(main@271)
+add     27 #@(macro_inc@295)(main@271)
+out             # ';' #@(macro_inc@304)(main@271)
+sub     27 #@(macro_inc@298)(main@271)
+out             # ' ' #@(macro_inc@304)(main@271)
+add     80 #@(macro_inc@295)(main@271)
+out             # 'p' #@(macro_inc@304)(main@271)
+add     5 #@(macro_inc@295)(main@271)
+out             # 'u' #@(macro_inc@304)(main@271)
+sub     2 #@(macro_inc@298)(main@271)
+out             # 's' #@(macro_inc@304)(main@271)
+sub     11 #@(macro_inc@298)(main@271)
+out             # 'h' #@(macro_inc@304)(main@271)
+set     32 #@(macro_inc@302)(main@271)
+out             # ' ' #@(macro_inc@304)(main@271)
+add     18 #@(macro_inc@295)(main@271)
+out             # '2' #@(macro_inc@304)(main@271)
+sub     18 #@(macro_inc@298)(main@271)
+out             # ' ' #@(macro_inc@304)(main@271)
+add     27 #@(macro_inc@295)(main@271)
+out             # ';' #@(macro_inc@304)(main@271)
+sub     27 #@(macro_inc@298)(main@271)
+out             # ' ' #@(macro_inc@304)(main@271)
+add     77 #@(macro_inc@295)(main@271)
+out             # 'm' #@(macro_inc@304)(main@271)
+add     8 #@(macro_inc@295)(main@271)
+out             # 'u' #@(macro_inc@304)(main@271)
+sub     9 #@(macro_inc@298)(main@271)
+out             # 'l' #@(macro_inc@304)(main@271)
+set     32 #@(macro_inc@302)(main@271)
+out             # ' ' #@(macro_inc@304)(main@271)
+add     27 #@(macro_inc@295)(main@271)
+out             # ';' #@(macro_inc@304)(main@271)
+sub     27 #@(macro_inc@298)(main@271)
+out             # ' ' #@(macro_inc@304)(main@271)
+out             # ' ' #@(macro_inc@304)(main@271)
+add     16 #@(macro_inc@295)(main@271)
+out             # '0' #@(macro_inc@304)(main@271)
+add     17 #@(macro_inc@295)(main@271)
+out             # 'A' #@(macro_inc@304)(main@271)
+set     32 #@(macro_inc@302)(main@271)
+out             # ' ' #@(macro_inc@304)(main@271)
+add     29 #@(macro_inc@295)(main@271)
+out             # '=' #@(macro_inc@304)(main@271)
+out             # '=' #@(macro_inc@304)(main@271)
+sub     29 #@(macro_inc@298)(main@271)
+out             # ' ' #@(macro_inc@304)(main@271)
+drop #@(macro_inc@307)(main@271)
 #(end macro)print("  push 5 ; push 2 ; mul ;  0A == ")
-push    5
-push    2
-mul
+push    5 #@(main@272)
+push    2 #@(main@273)
+mul #@(main@274)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input69
-#(begin macro)if_sup("_input" + __idx,9)
-push _input69
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@275)
+div #@(macro_inc@280)(main@275)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input69 #@(macro_inc@268)(macro_inc@281)(main@275)
+#(begin macro)if_sup  _input69,    9
+push    _input69 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@275)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@275)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@275)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@275)
+  #(end macro)if_sup  _input69,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input69
-    add '7'
-  ta
+  at      _input69 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@275)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@275)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@275)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@275)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input69
-    add '0'
-  ta
+  at      _input69 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@275)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@275)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@275)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input70
-#(begin macro)if_sup("_input" + __idx,9)
-push _input70
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@275)
+pop out #@(macro_inc@274)(macro_inc@281)(main@275)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input70 #@(macro_inc@268)(macro_inc@282)(main@275)
+#(begin macro)if_sup  _input70,    9
+push    _input70 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@275)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@275)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@275)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@275)
+  #(end macro)if_sup  _input70,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input70
-    add '7'
-  ta
+  at      _input70 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@275)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@275)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@275)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@275)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input70
-    add '0'
-  ta
+  at      _input70 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@275)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@275)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@275)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@275)
+pop out #@(macro_inc@274)(macro_inc@282)(main@275)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@276)
+set     10 #@(macro_inc@302)(main@276)
+out             #  #@(macro_inc@304)(main@276)
+drop #@(macro_inc@307)(main@276)
 #(end macro)print("\n")
-
+ #@(main@277)
 #(begin macro)print("NOT boolean not of the stack value\n")
-push    0
-set     78
-out             # 'N'
-add     1
-out             # 'O'
-add     5
-out             # 'T'
-set     32
-out             # ' '
-add     66
-out             # 'b'
-add     13
-out             # 'o'
-out             # 'o'
-sub     3
-out             # 'l'
-sub     7
-out             # 'e'
-sub     4
-out             # 'a'
-add     13
-out             # 'n'
-set     32
-out             # ' '
-add     78
-out             # 'n'
-add     1
-out             # 'o'
-add     5
-out             # 't'
-set     32
-out             # ' '
-add     79
-out             # 'o'
-sub     9
-out             # 'f'
-set     32
-out             # ' '
-add     84
-out             # 't'
-sub     12
-out             # 'h'
-sub     3
-out             # 'e'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     32
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@278)
+set     78 #@(macro_inc@302)(main@278)
+out             # 'N' #@(macro_inc@304)(main@278)
+add     1 #@(macro_inc@295)(main@278)
+out             # 'O' #@(macro_inc@304)(main@278)
+add     5 #@(macro_inc@295)(main@278)
+out             # 'T' #@(macro_inc@304)(main@278)
+set     32 #@(macro_inc@302)(main@278)
+out             # ' ' #@(macro_inc@304)(main@278)
+add     66 #@(macro_inc@295)(main@278)
+out             # 'b' #@(macro_inc@304)(main@278)
+add     13 #@(macro_inc@295)(main@278)
+out             # 'o' #@(macro_inc@304)(main@278)
+out             # 'o' #@(macro_inc@304)(main@278)
+sub     3 #@(macro_inc@298)(main@278)
+out             # 'l' #@(macro_inc@304)(main@278)
+sub     7 #@(macro_inc@298)(main@278)
+out             # 'e' #@(macro_inc@304)(main@278)
+sub     4 #@(macro_inc@298)(main@278)
+out             # 'a' #@(macro_inc@304)(main@278)
+add     13 #@(macro_inc@295)(main@278)
+out             # 'n' #@(macro_inc@304)(main@278)
+set     32 #@(macro_inc@302)(main@278)
+out             # ' ' #@(macro_inc@304)(main@278)
+add     78 #@(macro_inc@295)(main@278)
+out             # 'n' #@(macro_inc@304)(main@278)
+add     1 #@(macro_inc@295)(main@278)
+out             # 'o' #@(macro_inc@304)(main@278)
+add     5 #@(macro_inc@295)(main@278)
+out             # 't' #@(macro_inc@304)(main@278)
+set     32 #@(macro_inc@302)(main@278)
+out             # ' ' #@(macro_inc@304)(main@278)
+add     79 #@(macro_inc@295)(main@278)
+out             # 'o' #@(macro_inc@304)(main@278)
+sub     9 #@(macro_inc@298)(main@278)
+out             # 'f' #@(macro_inc@304)(main@278)
+set     32 #@(macro_inc@302)(main@278)
+out             # ' ' #@(macro_inc@304)(main@278)
+add     84 #@(macro_inc@295)(main@278)
+out             # 't' #@(macro_inc@304)(main@278)
+sub     12 #@(macro_inc@298)(main@278)
+out             # 'h' #@(macro_inc@304)(main@278)
+sub     3 #@(macro_inc@298)(main@278)
+out             # 'e' #@(macro_inc@304)(main@278)
+set     32 #@(macro_inc@302)(main@278)
+out             # ' ' #@(macro_inc@304)(main@278)
+add     83 #@(macro_inc@295)(main@278)
+out             # 's' #@(macro_inc@304)(main@278)
+add     1 #@(macro_inc@295)(main@278)
+out             # 't' #@(macro_inc@304)(main@278)
+sub     19 #@(macro_inc@298)(main@278)
+out             # 'a' #@(macro_inc@304)(main@278)
+add     2 #@(macro_inc@295)(main@278)
+out             # 'c' #@(macro_inc@304)(main@278)
+add     8 #@(macro_inc@295)(main@278)
+out             # 'k' #@(macro_inc@304)(main@278)
+set     32 #@(macro_inc@302)(main@278)
+out             # ' ' #@(macro_inc@304)(main@278)
+add     86 #@(macro_inc@295)(main@278)
+out             # 'v' #@(macro_inc@304)(main@278)
+sub     21 #@(macro_inc@298)(main@278)
+out             # 'a' #@(macro_inc@304)(main@278)
+add     11 #@(macro_inc@295)(main@278)
+out             # 'l' #@(macro_inc@304)(main@278)
+add     9 #@(macro_inc@295)(main@278)
+out             # 'u' #@(macro_inc@304)(main@278)
+sub     16 #@(macro_inc@298)(main@278)
+out             # 'e' #@(macro_inc@304)(main@278)
+set     10 #@(macro_inc@302)(main@278)
+out             #  #@(macro_inc@304)(main@278)
+drop #@(macro_inc@307)(main@278)
 #(end macro)print("NOT boolean not of the stack value\n")
 #(begin macro)print("  push 5 ; not ; 00 == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     21
-out             # '5'
-sub     21
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     78
-out             # 'n'
-add     1
-out             # 'o'
-add     5
-out             # 't'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     16
-out             # '0'
-out             # '0'
-sub     16
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@279)
+set     32 #@(macro_inc@302)(main@279)
+out             # ' ' #@(macro_inc@304)(main@279)
+out             # ' ' #@(macro_inc@304)(main@279)
+add     80 #@(macro_inc@295)(main@279)
+out             # 'p' #@(macro_inc@304)(main@279)
+add     5 #@(macro_inc@295)(main@279)
+out             # 'u' #@(macro_inc@304)(main@279)
+sub     2 #@(macro_inc@298)(main@279)
+out             # 's' #@(macro_inc@304)(main@279)
+sub     11 #@(macro_inc@298)(main@279)
+out             # 'h' #@(macro_inc@304)(main@279)
+set     32 #@(macro_inc@302)(main@279)
+out             # ' ' #@(macro_inc@304)(main@279)
+add     21 #@(macro_inc@295)(main@279)
+out             # '5' #@(macro_inc@304)(main@279)
+sub     21 #@(macro_inc@298)(main@279)
+out             # ' ' #@(macro_inc@304)(main@279)
+add     27 #@(macro_inc@295)(main@279)
+out             # ';' #@(macro_inc@304)(main@279)
+sub     27 #@(macro_inc@298)(main@279)
+out             # ' ' #@(macro_inc@304)(main@279)
+add     78 #@(macro_inc@295)(main@279)
+out             # 'n' #@(macro_inc@304)(main@279)
+add     1 #@(macro_inc@295)(main@279)
+out             # 'o' #@(macro_inc@304)(main@279)
+add     5 #@(macro_inc@295)(main@279)
+out             # 't' #@(macro_inc@304)(main@279)
+set     32 #@(macro_inc@302)(main@279)
+out             # ' ' #@(macro_inc@304)(main@279)
+add     27 #@(macro_inc@295)(main@279)
+out             # ';' #@(macro_inc@304)(main@279)
+sub     27 #@(macro_inc@298)(main@279)
+out             # ' ' #@(macro_inc@304)(main@279)
+add     16 #@(macro_inc@295)(main@279)
+out             # '0' #@(macro_inc@304)(main@279)
+out             # '0' #@(macro_inc@304)(main@279)
+sub     16 #@(macro_inc@298)(main@279)
+out             # ' ' #@(macro_inc@304)(main@279)
+add     29 #@(macro_inc@295)(main@279)
+out             # '=' #@(macro_inc@304)(main@279)
+out             # '=' #@(macro_inc@304)(main@279)
+sub     29 #@(macro_inc@298)(main@279)
+out             # ' ' #@(macro_inc@304)(main@279)
+drop #@(macro_inc@307)(main@279)
 #(end macro)print("  push 5 ; not ; 00 == ")
-push    5
-not
+push    5 #@(main@280)
+not #@(main@281)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input71
-#(begin macro)if_sup("_input" + __idx,9)
-push _input71
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@282)
+div #@(macro_inc@280)(main@282)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input71 #@(macro_inc@268)(macro_inc@281)(main@282)
+#(begin macro)if_sup  _input71,    9
+push    _input71 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@282)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@282)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@282)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@282)
+  #(end macro)if_sup  _input71,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input71
-    add '7'
-  ta
+  at      _input71 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@282)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@282)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@282)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@282)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input71
-    add '0'
-  ta
+  at      _input71 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@282)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@282)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@282)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input72
-#(begin macro)if_sup("_input" + __idx,9)
-push _input72
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@282)
+pop out #@(macro_inc@274)(macro_inc@281)(main@282)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input72 #@(macro_inc@268)(macro_inc@282)(main@282)
+#(begin macro)if_sup  _input72,    9
+push    _input72 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@282)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@282)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@282)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@282)
+  #(end macro)if_sup  _input72,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input72
-    add '7'
-  ta
+  at      _input72 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@282)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@282)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@282)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@282)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input72
-    add '0'
-  ta
+  at      _input72 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@282)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@282)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@282)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@282)
+pop out #@(macro_inc@274)(macro_inc@282)(main@282)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@283)
+set     10 #@(macro_inc@302)(main@283)
+out             #  #@(macro_inc@304)(main@283)
+drop #@(macro_inc@307)(main@283)
 #(end macro)print("\n")
 #(begin macro)print("  push 0 ; not ; 01 == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     16
-out             # '0'
-sub     16
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     78
-out             # 'n'
-add     1
-out             # 'o'
-add     5
-out             # 't'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@284)
+set     32 #@(macro_inc@302)(main@284)
+out             # ' ' #@(macro_inc@304)(main@284)
+out             # ' ' #@(macro_inc@304)(main@284)
+add     80 #@(macro_inc@295)(main@284)
+out             # 'p' #@(macro_inc@304)(main@284)
+add     5 #@(macro_inc@295)(main@284)
+out             # 'u' #@(macro_inc@304)(main@284)
+sub     2 #@(macro_inc@298)(main@284)
+out             # 's' #@(macro_inc@304)(main@284)
+sub     11 #@(macro_inc@298)(main@284)
+out             # 'h' #@(macro_inc@304)(main@284)
+set     32 #@(macro_inc@302)(main@284)
+out             # ' ' #@(macro_inc@304)(main@284)
+add     16 #@(macro_inc@295)(main@284)
+out             # '0' #@(macro_inc@304)(main@284)
+sub     16 #@(macro_inc@298)(main@284)
+out             # ' ' #@(macro_inc@304)(main@284)
+add     27 #@(macro_inc@295)(main@284)
+out             # ';' #@(macro_inc@304)(main@284)
+sub     27 #@(macro_inc@298)(main@284)
+out             # ' ' #@(macro_inc@304)(main@284)
+add     78 #@(macro_inc@295)(main@284)
+out             # 'n' #@(macro_inc@304)(main@284)
+add     1 #@(macro_inc@295)(main@284)
+out             # 'o' #@(macro_inc@304)(main@284)
+add     5 #@(macro_inc@295)(main@284)
+out             # 't' #@(macro_inc@304)(main@284)
+set     32 #@(macro_inc@302)(main@284)
+out             # ' ' #@(macro_inc@304)(main@284)
+add     27 #@(macro_inc@295)(main@284)
+out             # ';' #@(macro_inc@304)(main@284)
+sub     27 #@(macro_inc@298)(main@284)
+out             # ' ' #@(macro_inc@304)(main@284)
+add     16 #@(macro_inc@295)(main@284)
+out             # '0' #@(macro_inc@304)(main@284)
+add     1 #@(macro_inc@295)(main@284)
+out             # '1' #@(macro_inc@304)(main@284)
+sub     17 #@(macro_inc@298)(main@284)
+out             # ' ' #@(macro_inc@304)(main@284)
+add     29 #@(macro_inc@295)(main@284)
+out             # '=' #@(macro_inc@304)(main@284)
+out             # '=' #@(macro_inc@304)(main@284)
+sub     29 #@(macro_inc@298)(main@284)
+out             # ' ' #@(macro_inc@304)(main@284)
+drop #@(macro_inc@307)(main@284)
 #(end macro)print("  push 0 ; not ; 01 == ")
-push    0
-not
+push    0 #@(main@285)
+not #@(main@286)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input73
-#(begin macro)if_sup("_input" + __idx,9)
-push _input73
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@287)
+div #@(macro_inc@280)(main@287)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input73 #@(macro_inc@268)(macro_inc@281)(main@287)
+#(begin macro)if_sup  _input73,    9
+push    _input73 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@287)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@287)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@287)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@287)
+  #(end macro)if_sup  _input73,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input73
-    add '7'
-  ta
+  at      _input73 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@287)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@287)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@287)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@287)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input73
-    add '0'
-  ta
+  at      _input73 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@287)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@287)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@287)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input74
-#(begin macro)if_sup("_input" + __idx,9)
-push _input74
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@287)
+pop out #@(macro_inc@274)(macro_inc@281)(main@287)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input74 #@(macro_inc@268)(macro_inc@282)(main@287)
+#(begin macro)if_sup  _input74,    9
+push    _input74 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@287)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@287)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@287)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@287)
+  #(end macro)if_sup  _input74,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input74
-    add '7'
-  ta
+  at      _input74 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@287)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@287)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@287)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@287)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input74
-    add '0'
-  ta
+  at      _input74 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@287)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@287)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@287)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@287)
+pop out #@(macro_inc@274)(macro_inc@282)(main@287)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@288)
+set     10 #@(macro_inc@302)(main@288)
+out             #  #@(macro_inc@304)(main@288)
+drop #@(macro_inc@307)(main@288)
 #(end macro)print("\n")
-
+ #@(main@289)
 #(begin macro)print("OR two boolean 8 bits in stack\n")
-push    0
-set     79
-out             # 'O'
-add     3
-out             # 'R'
-set     32
-out             # ' '
-add     84
-out             # 't'
-add     3
-out             # 'w'
-sub     8
-out             # 'o'
-set     32
-out             # ' '
-add     66
-out             # 'b'
-add     13
-out             # 'o'
-out             # 'o'
-sub     3
-out             # 'l'
-sub     7
-out             # 'e'
-sub     4
-out             # 'a'
-add     13
-out             # 'n'
-set     32
-out             # ' '
-add     24
-out             # '8'
-sub     24
-out             # ' '
-add     66
-out             # 'b'
-add     7
-out             # 'i'
-add     11
-out             # 't'
-sub     1
-out             # 's'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     5
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@290)
+set     79 #@(macro_inc@302)(main@290)
+out             # 'O' #@(macro_inc@304)(main@290)
+add     3 #@(macro_inc@295)(main@290)
+out             # 'R' #@(macro_inc@304)(main@290)
+set     32 #@(macro_inc@302)(main@290)
+out             # ' ' #@(macro_inc@304)(main@290)
+add     84 #@(macro_inc@295)(main@290)
+out             # 't' #@(macro_inc@304)(main@290)
+add     3 #@(macro_inc@295)(main@290)
+out             # 'w' #@(macro_inc@304)(main@290)
+sub     8 #@(macro_inc@298)(main@290)
+out             # 'o' #@(macro_inc@304)(main@290)
+set     32 #@(macro_inc@302)(main@290)
+out             # ' ' #@(macro_inc@304)(main@290)
+add     66 #@(macro_inc@295)(main@290)
+out             # 'b' #@(macro_inc@304)(main@290)
+add     13 #@(macro_inc@295)(main@290)
+out             # 'o' #@(macro_inc@304)(main@290)
+out             # 'o' #@(macro_inc@304)(main@290)
+sub     3 #@(macro_inc@298)(main@290)
+out             # 'l' #@(macro_inc@304)(main@290)
+sub     7 #@(macro_inc@298)(main@290)
+out             # 'e' #@(macro_inc@304)(main@290)
+sub     4 #@(macro_inc@298)(main@290)
+out             # 'a' #@(macro_inc@304)(main@290)
+add     13 #@(macro_inc@295)(main@290)
+out             # 'n' #@(macro_inc@304)(main@290)
+set     32 #@(macro_inc@302)(main@290)
+out             # ' ' #@(macro_inc@304)(main@290)
+add     24 #@(macro_inc@295)(main@290)
+out             # '8' #@(macro_inc@304)(main@290)
+sub     24 #@(macro_inc@298)(main@290)
+out             # ' ' #@(macro_inc@304)(main@290)
+add     66 #@(macro_inc@295)(main@290)
+out             # 'b' #@(macro_inc@304)(main@290)
+add     7 #@(macro_inc@295)(main@290)
+out             # 'i' #@(macro_inc@304)(main@290)
+add     11 #@(macro_inc@295)(main@290)
+out             # 't' #@(macro_inc@304)(main@290)
+sub     1 #@(macro_inc@298)(main@290)
+out             # 's' #@(macro_inc@304)(main@290)
+set     32 #@(macro_inc@302)(main@290)
+out             # ' ' #@(macro_inc@304)(main@290)
+add     73 #@(macro_inc@295)(main@290)
+out             # 'i' #@(macro_inc@304)(main@290)
+add     5 #@(macro_inc@295)(main@290)
+out             # 'n' #@(macro_inc@304)(main@290)
+set     32 #@(macro_inc@302)(main@290)
+out             # ' ' #@(macro_inc@304)(main@290)
+add     83 #@(macro_inc@295)(main@290)
+out             # 's' #@(macro_inc@304)(main@290)
+add     1 #@(macro_inc@295)(main@290)
+out             # 't' #@(macro_inc@304)(main@290)
+sub     19 #@(macro_inc@298)(main@290)
+out             # 'a' #@(macro_inc@304)(main@290)
+add     2 #@(macro_inc@295)(main@290)
+out             # 'c' #@(macro_inc@304)(main@290)
+add     8 #@(macro_inc@295)(main@290)
+out             # 'k' #@(macro_inc@304)(main@290)
+set     10 #@(macro_inc@302)(main@290)
+out             #  #@(macro_inc@304)(main@290)
+drop #@(macro_inc@307)(main@290)
 #(end macro)print("OR two boolean 8 bits in stack\n")
-push    2
-push    5
-or
+push    2 #@(main@291)
+push    5 #@(main@292)
+or #@(main@293)
 #(begin macro)print(" push 2; push 5 ; or ;  01 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     18
-out             # '2'
-add     9
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     21
-out             # '5'
-sub     21
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     79
-out             # 'o'
-add     3
-out             # 'r'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@294)
+set     32 #@(macro_inc@302)(main@294)
+out             # ' ' #@(macro_inc@304)(main@294)
+add     80 #@(macro_inc@295)(main@294)
+out             # 'p' #@(macro_inc@304)(main@294)
+add     5 #@(macro_inc@295)(main@294)
+out             # 'u' #@(macro_inc@304)(main@294)
+sub     2 #@(macro_inc@298)(main@294)
+out             # 's' #@(macro_inc@304)(main@294)
+sub     11 #@(macro_inc@298)(main@294)
+out             # 'h' #@(macro_inc@304)(main@294)
+set     32 #@(macro_inc@302)(main@294)
+out             # ' ' #@(macro_inc@304)(main@294)
+add     18 #@(macro_inc@295)(main@294)
+out             # '2' #@(macro_inc@304)(main@294)
+add     9 #@(macro_inc@295)(main@294)
+out             # ';' #@(macro_inc@304)(main@294)
+sub     27 #@(macro_inc@298)(main@294)
+out             # ' ' #@(macro_inc@304)(main@294)
+add     80 #@(macro_inc@295)(main@294)
+out             # 'p' #@(macro_inc@304)(main@294)
+add     5 #@(macro_inc@295)(main@294)
+out             # 'u' #@(macro_inc@304)(main@294)
+sub     2 #@(macro_inc@298)(main@294)
+out             # 's' #@(macro_inc@304)(main@294)
+sub     11 #@(macro_inc@298)(main@294)
+out             # 'h' #@(macro_inc@304)(main@294)
+set     32 #@(macro_inc@302)(main@294)
+out             # ' ' #@(macro_inc@304)(main@294)
+add     21 #@(macro_inc@295)(main@294)
+out             # '5' #@(macro_inc@304)(main@294)
+sub     21 #@(macro_inc@298)(main@294)
+out             # ' ' #@(macro_inc@304)(main@294)
+add     27 #@(macro_inc@295)(main@294)
+out             # ';' #@(macro_inc@304)(main@294)
+sub     27 #@(macro_inc@298)(main@294)
+out             # ' ' #@(macro_inc@304)(main@294)
+add     79 #@(macro_inc@295)(main@294)
+out             # 'o' #@(macro_inc@304)(main@294)
+add     3 #@(macro_inc@295)(main@294)
+out             # 'r' #@(macro_inc@304)(main@294)
+set     32 #@(macro_inc@302)(main@294)
+out             # ' ' #@(macro_inc@304)(main@294)
+add     27 #@(macro_inc@295)(main@294)
+out             # ';' #@(macro_inc@304)(main@294)
+sub     27 #@(macro_inc@298)(main@294)
+out             # ' ' #@(macro_inc@304)(main@294)
+out             # ' ' #@(macro_inc@304)(main@294)
+add     16 #@(macro_inc@295)(main@294)
+out             # '0' #@(macro_inc@304)(main@294)
+add     1 #@(macro_inc@295)(main@294)
+out             # '1' #@(macro_inc@304)(main@294)
+sub     17 #@(macro_inc@298)(main@294)
+out             # ' ' #@(macro_inc@304)(main@294)
+add     29 #@(macro_inc@295)(main@294)
+out             # '=' #@(macro_inc@304)(main@294)
+out             # '=' #@(macro_inc@304)(main@294)
+sub     29 #@(macro_inc@298)(main@294)
+out             # ' ' #@(macro_inc@304)(main@294)
+drop #@(macro_inc@307)(main@294)
 #(end macro)print(" push 2; push 5 ; or ;  01 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input75
-#(begin macro)if_sup("_input" + __idx,9)
-push _input75
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@295)
+div #@(macro_inc@280)(main@295)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input75 #@(macro_inc@268)(macro_inc@281)(main@295)
+#(begin macro)if_sup  _input75,    9
+push    _input75 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@295)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@295)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@295)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@295)
+  #(end macro)if_sup  _input75,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input75
-    add '7'
-  ta
+  at      _input75 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@295)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@295)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@295)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@295)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input75
-    add '0'
-  ta
+  at      _input75 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@295)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@295)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@295)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input76
-#(begin macro)if_sup("_input" + __idx,9)
-push _input76
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@295)
+pop out #@(macro_inc@274)(macro_inc@281)(main@295)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input76 #@(macro_inc@268)(macro_inc@282)(main@295)
+#(begin macro)if_sup  _input76,    9
+push    _input76 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@295)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@295)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@295)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@295)
+  #(end macro)if_sup  _input76,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input76
-    add '7'
-  ta
+  at      _input76 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@295)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@295)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@295)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@295)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input76
-    add '0'
-  ta
+  at      _input76 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@295)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@295)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@295)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@295)
+pop out #@(macro_inc@274)(macro_inc@282)(main@295)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@296)
+set     10 #@(macro_inc@302)(main@296)
+out             #  #@(macro_inc@304)(main@296)
+drop #@(macro_inc@307)(main@296)
 #(end macro)print("\n")
-push    1
-push    1
-or
+push    1 #@(main@297)
+push    1 #@(main@298)
+or #@(main@299)
 #(begin macro)print(" push 1; push 1 ; or ;  01 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     17
-out             # '1'
-add     10
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     17
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     79
-out             # 'o'
-add     3
-out             # 'r'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@300)
+set     32 #@(macro_inc@302)(main@300)
+out             # ' ' #@(macro_inc@304)(main@300)
+add     80 #@(macro_inc@295)(main@300)
+out             # 'p' #@(macro_inc@304)(main@300)
+add     5 #@(macro_inc@295)(main@300)
+out             # 'u' #@(macro_inc@304)(main@300)
+sub     2 #@(macro_inc@298)(main@300)
+out             # 's' #@(macro_inc@304)(main@300)
+sub     11 #@(macro_inc@298)(main@300)
+out             # 'h' #@(macro_inc@304)(main@300)
+set     32 #@(macro_inc@302)(main@300)
+out             # ' ' #@(macro_inc@304)(main@300)
+add     17 #@(macro_inc@295)(main@300)
+out             # '1' #@(macro_inc@304)(main@300)
+add     10 #@(macro_inc@295)(main@300)
+out             # ';' #@(macro_inc@304)(main@300)
+sub     27 #@(macro_inc@298)(main@300)
+out             # ' ' #@(macro_inc@304)(main@300)
+add     80 #@(macro_inc@295)(main@300)
+out             # 'p' #@(macro_inc@304)(main@300)
+add     5 #@(macro_inc@295)(main@300)
+out             # 'u' #@(macro_inc@304)(main@300)
+sub     2 #@(macro_inc@298)(main@300)
+out             # 's' #@(macro_inc@304)(main@300)
+sub     11 #@(macro_inc@298)(main@300)
+out             # 'h' #@(macro_inc@304)(main@300)
+set     32 #@(macro_inc@302)(main@300)
+out             # ' ' #@(macro_inc@304)(main@300)
+add     17 #@(macro_inc@295)(main@300)
+out             # '1' #@(macro_inc@304)(main@300)
+sub     17 #@(macro_inc@298)(main@300)
+out             # ' ' #@(macro_inc@304)(main@300)
+add     27 #@(macro_inc@295)(main@300)
+out             # ';' #@(macro_inc@304)(main@300)
+sub     27 #@(macro_inc@298)(main@300)
+out             # ' ' #@(macro_inc@304)(main@300)
+add     79 #@(macro_inc@295)(main@300)
+out             # 'o' #@(macro_inc@304)(main@300)
+add     3 #@(macro_inc@295)(main@300)
+out             # 'r' #@(macro_inc@304)(main@300)
+set     32 #@(macro_inc@302)(main@300)
+out             # ' ' #@(macro_inc@304)(main@300)
+add     27 #@(macro_inc@295)(main@300)
+out             # ';' #@(macro_inc@304)(main@300)
+sub     27 #@(macro_inc@298)(main@300)
+out             # ' ' #@(macro_inc@304)(main@300)
+out             # ' ' #@(macro_inc@304)(main@300)
+add     16 #@(macro_inc@295)(main@300)
+out             # '0' #@(macro_inc@304)(main@300)
+add     1 #@(macro_inc@295)(main@300)
+out             # '1' #@(macro_inc@304)(main@300)
+sub     17 #@(macro_inc@298)(main@300)
+out             # ' ' #@(macro_inc@304)(main@300)
+add     29 #@(macro_inc@295)(main@300)
+out             # '=' #@(macro_inc@304)(main@300)
+out             # '=' #@(macro_inc@304)(main@300)
+sub     29 #@(macro_inc@298)(main@300)
+out             # ' ' #@(macro_inc@304)(main@300)
+drop #@(macro_inc@307)(main@300)
 #(end macro)print(" push 1; push 1 ; or ;  01 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input77
-#(begin macro)if_sup("_input" + __idx,9)
-push _input77
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@301)
+div #@(macro_inc@280)(main@301)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input77 #@(macro_inc@268)(macro_inc@281)(main@301)
+#(begin macro)if_sup  _input77,    9
+push    _input77 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@301)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@301)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@301)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@301)
+  #(end macro)if_sup  _input77,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input77
-    add '7'
-  ta
+  at      _input77 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@301)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@301)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@301)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@301)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input77
-    add '0'
-  ta
+  at      _input77 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@301)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@301)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@301)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input78
-#(begin macro)if_sup("_input" + __idx,9)
-push _input78
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@301)
+pop out #@(macro_inc@274)(macro_inc@281)(main@301)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input78 #@(macro_inc@268)(macro_inc@282)(main@301)
+#(begin macro)if_sup  _input78,    9
+push    _input78 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@301)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@301)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@301)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@301)
+  #(end macro)if_sup  _input78,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input78
-    add '7'
-  ta
+  at      _input78 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@301)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@301)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@301)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@301)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input78
-    add '0'
-  ta
+  at      _input78 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@301)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@301)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@301)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@301)
+pop out #@(macro_inc@274)(macro_inc@282)(main@301)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@302)
+set     10 #@(macro_inc@302)(main@302)
+out             #  #@(macro_inc@304)(main@302)
+drop #@(macro_inc@307)(main@302)
 #(end macro)print("\n")
-push    0
-push    1
-or
+push    0 #@(main@303)
+push    1 #@(main@304)
+or #@(main@305)
 #(begin macro)print(" push 0; push 1 ; or ;  01 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     16
-out             # '0'
-add     11
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     17
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     79
-out             # 'o'
-add     3
-out             # 'r'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@306)
+set     32 #@(macro_inc@302)(main@306)
+out             # ' ' #@(macro_inc@304)(main@306)
+add     80 #@(macro_inc@295)(main@306)
+out             # 'p' #@(macro_inc@304)(main@306)
+add     5 #@(macro_inc@295)(main@306)
+out             # 'u' #@(macro_inc@304)(main@306)
+sub     2 #@(macro_inc@298)(main@306)
+out             # 's' #@(macro_inc@304)(main@306)
+sub     11 #@(macro_inc@298)(main@306)
+out             # 'h' #@(macro_inc@304)(main@306)
+set     32 #@(macro_inc@302)(main@306)
+out             # ' ' #@(macro_inc@304)(main@306)
+add     16 #@(macro_inc@295)(main@306)
+out             # '0' #@(macro_inc@304)(main@306)
+add     11 #@(macro_inc@295)(main@306)
+out             # ';' #@(macro_inc@304)(main@306)
+sub     27 #@(macro_inc@298)(main@306)
+out             # ' ' #@(macro_inc@304)(main@306)
+add     80 #@(macro_inc@295)(main@306)
+out             # 'p' #@(macro_inc@304)(main@306)
+add     5 #@(macro_inc@295)(main@306)
+out             # 'u' #@(macro_inc@304)(main@306)
+sub     2 #@(macro_inc@298)(main@306)
+out             # 's' #@(macro_inc@304)(main@306)
+sub     11 #@(macro_inc@298)(main@306)
+out             # 'h' #@(macro_inc@304)(main@306)
+set     32 #@(macro_inc@302)(main@306)
+out             # ' ' #@(macro_inc@304)(main@306)
+add     17 #@(macro_inc@295)(main@306)
+out             # '1' #@(macro_inc@304)(main@306)
+sub     17 #@(macro_inc@298)(main@306)
+out             # ' ' #@(macro_inc@304)(main@306)
+add     27 #@(macro_inc@295)(main@306)
+out             # ';' #@(macro_inc@304)(main@306)
+sub     27 #@(macro_inc@298)(main@306)
+out             # ' ' #@(macro_inc@304)(main@306)
+add     79 #@(macro_inc@295)(main@306)
+out             # 'o' #@(macro_inc@304)(main@306)
+add     3 #@(macro_inc@295)(main@306)
+out             # 'r' #@(macro_inc@304)(main@306)
+set     32 #@(macro_inc@302)(main@306)
+out             # ' ' #@(macro_inc@304)(main@306)
+add     27 #@(macro_inc@295)(main@306)
+out             # ';' #@(macro_inc@304)(main@306)
+sub     27 #@(macro_inc@298)(main@306)
+out             # ' ' #@(macro_inc@304)(main@306)
+out             # ' ' #@(macro_inc@304)(main@306)
+add     16 #@(macro_inc@295)(main@306)
+out             # '0' #@(macro_inc@304)(main@306)
+add     1 #@(macro_inc@295)(main@306)
+out             # '1' #@(macro_inc@304)(main@306)
+sub     17 #@(macro_inc@298)(main@306)
+out             # ' ' #@(macro_inc@304)(main@306)
+add     29 #@(macro_inc@295)(main@306)
+out             # '=' #@(macro_inc@304)(main@306)
+out             # '=' #@(macro_inc@304)(main@306)
+sub     29 #@(macro_inc@298)(main@306)
+out             # ' ' #@(macro_inc@304)(main@306)
+drop #@(macro_inc@307)(main@306)
 #(end macro)print(" push 0; push 1 ; or ;  01 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input79
-#(begin macro)if_sup("_input" + __idx,9)
-push _input79
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@307)
+div #@(macro_inc@280)(main@307)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input79 #@(macro_inc@268)(macro_inc@281)(main@307)
+#(begin macro)if_sup  _input79,    9
+push    _input79 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@307)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@307)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@307)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@307)
+  #(end macro)if_sup  _input79,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input79
-    add '7'
-  ta
+  at      _input79 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@307)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@307)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@307)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@307)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input79
-    add '0'
-  ta
+  at      _input79 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@307)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@307)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@307)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input80
-#(begin macro)if_sup("_input" + __idx,9)
-push _input80
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@307)
+pop out #@(macro_inc@274)(macro_inc@281)(main@307)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input80 #@(macro_inc@268)(macro_inc@282)(main@307)
+#(begin macro)if_sup  _input80,    9
+push    _input80 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@307)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@307)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@307)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@307)
+  #(end macro)if_sup  _input80,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input80
-    add '7'
-  ta
+  at      _input80 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@307)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@307)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@307)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@307)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input80
-    add '0'
-  ta
+  at      _input80 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@307)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@307)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@307)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@307)
+pop out #@(macro_inc@274)(macro_inc@282)(main@307)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@308)
+set     10 #@(macro_inc@302)(main@308)
+out             #  #@(macro_inc@304)(main@308)
+drop #@(macro_inc@307)(main@308)
 #(end macro)print("\n")
-push    0
-push    0
-or
+push    0 #@(main@309)
+push    0 #@(main@310)
+or #@(main@311)
 #(begin macro)print(" push 0; push 0 ; or ;  00 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     16
-out             # '0'
-add     11
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     16
-out             # '0'
-sub     16
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     79
-out             # 'o'
-add     3
-out             # 'r'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-out             # '0'
-sub     16
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@312)
+set     32 #@(macro_inc@302)(main@312)
+out             # ' ' #@(macro_inc@304)(main@312)
+add     80 #@(macro_inc@295)(main@312)
+out             # 'p' #@(macro_inc@304)(main@312)
+add     5 #@(macro_inc@295)(main@312)
+out             # 'u' #@(macro_inc@304)(main@312)
+sub     2 #@(macro_inc@298)(main@312)
+out             # 's' #@(macro_inc@304)(main@312)
+sub     11 #@(macro_inc@298)(main@312)
+out             # 'h' #@(macro_inc@304)(main@312)
+set     32 #@(macro_inc@302)(main@312)
+out             # ' ' #@(macro_inc@304)(main@312)
+add     16 #@(macro_inc@295)(main@312)
+out             # '0' #@(macro_inc@304)(main@312)
+add     11 #@(macro_inc@295)(main@312)
+out             # ';' #@(macro_inc@304)(main@312)
+sub     27 #@(macro_inc@298)(main@312)
+out             # ' ' #@(macro_inc@304)(main@312)
+add     80 #@(macro_inc@295)(main@312)
+out             # 'p' #@(macro_inc@304)(main@312)
+add     5 #@(macro_inc@295)(main@312)
+out             # 'u' #@(macro_inc@304)(main@312)
+sub     2 #@(macro_inc@298)(main@312)
+out             # 's' #@(macro_inc@304)(main@312)
+sub     11 #@(macro_inc@298)(main@312)
+out             # 'h' #@(macro_inc@304)(main@312)
+set     32 #@(macro_inc@302)(main@312)
+out             # ' ' #@(macro_inc@304)(main@312)
+add     16 #@(macro_inc@295)(main@312)
+out             # '0' #@(macro_inc@304)(main@312)
+sub     16 #@(macro_inc@298)(main@312)
+out             # ' ' #@(macro_inc@304)(main@312)
+add     27 #@(macro_inc@295)(main@312)
+out             # ';' #@(macro_inc@304)(main@312)
+sub     27 #@(macro_inc@298)(main@312)
+out             # ' ' #@(macro_inc@304)(main@312)
+add     79 #@(macro_inc@295)(main@312)
+out             # 'o' #@(macro_inc@304)(main@312)
+add     3 #@(macro_inc@295)(main@312)
+out             # 'r' #@(macro_inc@304)(main@312)
+set     32 #@(macro_inc@302)(main@312)
+out             # ' ' #@(macro_inc@304)(main@312)
+add     27 #@(macro_inc@295)(main@312)
+out             # ';' #@(macro_inc@304)(main@312)
+sub     27 #@(macro_inc@298)(main@312)
+out             # ' ' #@(macro_inc@304)(main@312)
+out             # ' ' #@(macro_inc@304)(main@312)
+add     16 #@(macro_inc@295)(main@312)
+out             # '0' #@(macro_inc@304)(main@312)
+out             # '0' #@(macro_inc@304)(main@312)
+sub     16 #@(macro_inc@298)(main@312)
+out             # ' ' #@(macro_inc@304)(main@312)
+add     29 #@(macro_inc@295)(main@312)
+out             # '=' #@(macro_inc@304)(main@312)
+out             # '=' #@(macro_inc@304)(main@312)
+sub     29 #@(macro_inc@298)(main@312)
+out             # ' ' #@(macro_inc@304)(main@312)
+drop #@(macro_inc@307)(main@312)
 #(end macro)print(" push 0; push 0 ; or ;  00 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input81
-#(begin macro)if_sup("_input" + __idx,9)
-push _input81
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@313)
+div #@(macro_inc@280)(main@313)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input81 #@(macro_inc@268)(macro_inc@281)(main@313)
+#(begin macro)if_sup  _input81,    9
+push    _input81 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@313)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@313)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@313)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@313)
+  #(end macro)if_sup  _input81,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input81
-    add '7'
-  ta
+  at      _input81 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@313)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@313)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@313)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@313)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input81
-    add '0'
-  ta
+  at      _input81 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@313)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@313)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@313)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input82
-#(begin macro)if_sup("_input" + __idx,9)
-push _input82
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@313)
+pop out #@(macro_inc@274)(macro_inc@281)(main@313)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input82 #@(macro_inc@268)(macro_inc@282)(main@313)
+#(begin macro)if_sup  _input82,    9
+push    _input82 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@313)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@313)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@313)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@313)
+  #(end macro)if_sup  _input82,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input82
-    add '7'
-  ta
+  at      _input82 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@313)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@313)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@313)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@313)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input82
-    add '0'
-  ta
+  at      _input82 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@313)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@313)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@313)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@313)
+pop out #@(macro_inc@274)(macro_inc@282)(main@313)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@314)
+set     10 #@(macro_inc@302)(main@314)
+out             #  #@(macro_inc@304)(main@314)
+drop #@(macro_inc@307)(main@314)
 #(end macro)print("\n")
-
+ #@(main@315)
 #(begin macro)print("SUB an immediate\n")
-push    0
-set     83
-out             # 'S'
-add     2
-out             # 'U'
-sub     19
-out             # 'B'
-set     32
-out             # ' '
-add     65
-out             # 'a'
-add     13
-out             # 'n'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     4
-out             # 'm'
-out             # 'm'
-sub     8
-out             # 'e'
-sub     1
-out             # 'd'
-add     5
-out             # 'i'
-sub     8
-out             # 'a'
-add     19
-out             # 't'
-sub     15
-out             # 'e'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@316)
+set     83 #@(macro_inc@302)(main@316)
+out             # 'S' #@(macro_inc@304)(main@316)
+add     2 #@(macro_inc@295)(main@316)
+out             # 'U' #@(macro_inc@304)(main@316)
+sub     19 #@(macro_inc@298)(main@316)
+out             # 'B' #@(macro_inc@304)(main@316)
+set     32 #@(macro_inc@302)(main@316)
+out             # ' ' #@(macro_inc@304)(main@316)
+add     65 #@(macro_inc@295)(main@316)
+out             # 'a' #@(macro_inc@304)(main@316)
+add     13 #@(macro_inc@295)(main@316)
+out             # 'n' #@(macro_inc@304)(main@316)
+set     32 #@(macro_inc@302)(main@316)
+out             # ' ' #@(macro_inc@304)(main@316)
+add     73 #@(macro_inc@295)(main@316)
+out             # 'i' #@(macro_inc@304)(main@316)
+add     4 #@(macro_inc@295)(main@316)
+out             # 'm' #@(macro_inc@304)(main@316)
+out             # 'm' #@(macro_inc@304)(main@316)
+sub     8 #@(macro_inc@298)(main@316)
+out             # 'e' #@(macro_inc@304)(main@316)
+sub     1 #@(macro_inc@298)(main@316)
+out             # 'd' #@(macro_inc@304)(main@316)
+add     5 #@(macro_inc@295)(main@316)
+out             # 'i' #@(macro_inc@304)(main@316)
+sub     8 #@(macro_inc@298)(main@316)
+out             # 'a' #@(macro_inc@304)(main@316)
+add     19 #@(macro_inc@295)(main@316)
+out             # 't' #@(macro_inc@304)(main@316)
+sub     15 #@(macro_inc@298)(main@316)
+out             # 'e' #@(macro_inc@304)(main@316)
+set     10 #@(macro_inc@302)(main@316)
+out             #  #@(macro_inc@304)(main@316)
+drop #@(macro_inc@307)(main@316)
 #(end macro)print("SUB an immediate\n")
-push    3
-sub     1
+push    3 #@(main@317)
+sub     1 #@(main@318)
 #(begin macro)print(" push 3; sub 1 ; 02 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     19
-out             # '3'
-add     8
-out             # ';'
-sub     27
-out             # ' '
-add     83
-out             # 's'
-add     2
-out             # 'u'
-sub     19
-out             # 'b'
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     17
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     16
-out             # '0'
-add     2
-out             # '2'
-sub     18
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@319)
+set     32 #@(macro_inc@302)(main@319)
+out             # ' ' #@(macro_inc@304)(main@319)
+add     80 #@(macro_inc@295)(main@319)
+out             # 'p' #@(macro_inc@304)(main@319)
+add     5 #@(macro_inc@295)(main@319)
+out             # 'u' #@(macro_inc@304)(main@319)
+sub     2 #@(macro_inc@298)(main@319)
+out             # 's' #@(macro_inc@304)(main@319)
+sub     11 #@(macro_inc@298)(main@319)
+out             # 'h' #@(macro_inc@304)(main@319)
+set     32 #@(macro_inc@302)(main@319)
+out             # ' ' #@(macro_inc@304)(main@319)
+add     19 #@(macro_inc@295)(main@319)
+out             # '3' #@(macro_inc@304)(main@319)
+add     8 #@(macro_inc@295)(main@319)
+out             # ';' #@(macro_inc@304)(main@319)
+sub     27 #@(macro_inc@298)(main@319)
+out             # ' ' #@(macro_inc@304)(main@319)
+add     83 #@(macro_inc@295)(main@319)
+out             # 's' #@(macro_inc@304)(main@319)
+add     2 #@(macro_inc@295)(main@319)
+out             # 'u' #@(macro_inc@304)(main@319)
+sub     19 #@(macro_inc@298)(main@319)
+out             # 'b' #@(macro_inc@304)(main@319)
+set     32 #@(macro_inc@302)(main@319)
+out             # ' ' #@(macro_inc@304)(main@319)
+add     17 #@(macro_inc@295)(main@319)
+out             # '1' #@(macro_inc@304)(main@319)
+sub     17 #@(macro_inc@298)(main@319)
+out             # ' ' #@(macro_inc@304)(main@319)
+add     27 #@(macro_inc@295)(main@319)
+out             # ';' #@(macro_inc@304)(main@319)
+sub     27 #@(macro_inc@298)(main@319)
+out             # ' ' #@(macro_inc@304)(main@319)
+add     16 #@(macro_inc@295)(main@319)
+out             # '0' #@(macro_inc@304)(main@319)
+add     2 #@(macro_inc@295)(main@319)
+out             # '2' #@(macro_inc@304)(main@319)
+sub     18 #@(macro_inc@298)(main@319)
+out             # ' ' #@(macro_inc@304)(main@319)
+add     29 #@(macro_inc@295)(main@319)
+out             # '=' #@(macro_inc@304)(main@319)
+out             # '=' #@(macro_inc@304)(main@319)
+sub     29 #@(macro_inc@298)(main@319)
+out             # ' ' #@(macro_inc@304)(main@319)
+drop #@(macro_inc@307)(main@319)
 #(end macro)print(" push 3; sub 1 ; 02 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input83
-#(begin macro)if_sup("_input" + __idx,9)
-push _input83
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@320)
+div #@(macro_inc@280)(main@320)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input83 #@(macro_inc@268)(macro_inc@281)(main@320)
+#(begin macro)if_sup  _input83,    9
+push    _input83 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@320)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@320)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@320)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@320)
+  #(end macro)if_sup  _input83,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input83
-    add '7'
-  ta
+  at      _input83 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@320)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@320)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@320)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@320)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input83
-    add '0'
-  ta
+  at      _input83 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@320)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@320)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@320)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input84
-#(begin macro)if_sup("_input" + __idx,9)
-push _input84
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@320)
+pop out #@(macro_inc@274)(macro_inc@281)(main@320)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input84 #@(macro_inc@268)(macro_inc@282)(main@320)
+#(begin macro)if_sup  _input84,    9
+push    _input84 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@320)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@320)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@320)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@320)
+  #(end macro)if_sup  _input84,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input84
-    add '7'
-  ta
+  at      _input84 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@320)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@320)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@320)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@320)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input84
-    add '0'
-  ta
+  at      _input84 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@320)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@320)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@320)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@320)
+pop out #@(macro_inc@274)(macro_inc@282)(main@320)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@321)
+set     10 #@(macro_inc@302)(main@321)
+out             #  #@(macro_inc@304)(main@321)
+drop #@(macro_inc@307)(main@321)
 #(end macro)print("\n")
-
+ #@(main@322)
 #(begin macro)print("SUB two 8 bits in stack\n")
-push    0
-set     83
-out             # 'S'
-add     2
-out             # 'U'
-sub     19
-out             # 'B'
-set     32
-out             # ' '
-add     84
-out             # 't'
-add     3
-out             # 'w'
-sub     8
-out             # 'o'
-set     32
-out             # ' '
-add     24
-out             # '8'
-sub     24
-out             # ' '
-add     66
-out             # 'b'
-add     7
-out             # 'i'
-add     11
-out             # 't'
-sub     1
-out             # 's'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     5
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@323)
+set     83 #@(macro_inc@302)(main@323)
+out             # 'S' #@(macro_inc@304)(main@323)
+add     2 #@(macro_inc@295)(main@323)
+out             # 'U' #@(macro_inc@304)(main@323)
+sub     19 #@(macro_inc@298)(main@323)
+out             # 'B' #@(macro_inc@304)(main@323)
+set     32 #@(macro_inc@302)(main@323)
+out             # ' ' #@(macro_inc@304)(main@323)
+add     84 #@(macro_inc@295)(main@323)
+out             # 't' #@(macro_inc@304)(main@323)
+add     3 #@(macro_inc@295)(main@323)
+out             # 'w' #@(macro_inc@304)(main@323)
+sub     8 #@(macro_inc@298)(main@323)
+out             # 'o' #@(macro_inc@304)(main@323)
+set     32 #@(macro_inc@302)(main@323)
+out             # ' ' #@(macro_inc@304)(main@323)
+add     24 #@(macro_inc@295)(main@323)
+out             # '8' #@(macro_inc@304)(main@323)
+sub     24 #@(macro_inc@298)(main@323)
+out             # ' ' #@(macro_inc@304)(main@323)
+add     66 #@(macro_inc@295)(main@323)
+out             # 'b' #@(macro_inc@304)(main@323)
+add     7 #@(macro_inc@295)(main@323)
+out             # 'i' #@(macro_inc@304)(main@323)
+add     11 #@(macro_inc@295)(main@323)
+out             # 't' #@(macro_inc@304)(main@323)
+sub     1 #@(macro_inc@298)(main@323)
+out             # 's' #@(macro_inc@304)(main@323)
+set     32 #@(macro_inc@302)(main@323)
+out             # ' ' #@(macro_inc@304)(main@323)
+add     73 #@(macro_inc@295)(main@323)
+out             # 'i' #@(macro_inc@304)(main@323)
+add     5 #@(macro_inc@295)(main@323)
+out             # 'n' #@(macro_inc@304)(main@323)
+set     32 #@(macro_inc@302)(main@323)
+out             # ' ' #@(macro_inc@304)(main@323)
+add     83 #@(macro_inc@295)(main@323)
+out             # 's' #@(macro_inc@304)(main@323)
+add     1 #@(macro_inc@295)(main@323)
+out             # 't' #@(macro_inc@304)(main@323)
+sub     19 #@(macro_inc@298)(main@323)
+out             # 'a' #@(macro_inc@304)(main@323)
+add     2 #@(macro_inc@295)(main@323)
+out             # 'c' #@(macro_inc@304)(main@323)
+add     8 #@(macro_inc@295)(main@323)
+out             # 'k' #@(macro_inc@304)(main@323)
+set     10 #@(macro_inc@302)(main@323)
+out             #  #@(macro_inc@304)(main@323)
+drop #@(macro_inc@307)(main@323)
 #(end macro)print("SUB two 8 bits in stack\n")
-push    5
-push    3
-sub
+push    5 #@(main@324)
+push    3 #@(main@325)
+sub #@(main@326)
 #(begin macro)print(" push 5; push 3 ; sub ;  02 == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     21
-out             # '5'
-add     6
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     19
-out             # '3'
-sub     19
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     83
-out             # 's'
-add     2
-out             # 'u'
-sub     19
-out             # 'b'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     16
-out             # '0'
-add     2
-out             # '2'
-sub     18
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@327)
+set     32 #@(macro_inc@302)(main@327)
+out             # ' ' #@(macro_inc@304)(main@327)
+add     80 #@(macro_inc@295)(main@327)
+out             # 'p' #@(macro_inc@304)(main@327)
+add     5 #@(macro_inc@295)(main@327)
+out             # 'u' #@(macro_inc@304)(main@327)
+sub     2 #@(macro_inc@298)(main@327)
+out             # 's' #@(macro_inc@304)(main@327)
+sub     11 #@(macro_inc@298)(main@327)
+out             # 'h' #@(macro_inc@304)(main@327)
+set     32 #@(macro_inc@302)(main@327)
+out             # ' ' #@(macro_inc@304)(main@327)
+add     21 #@(macro_inc@295)(main@327)
+out             # '5' #@(macro_inc@304)(main@327)
+add     6 #@(macro_inc@295)(main@327)
+out             # ';' #@(macro_inc@304)(main@327)
+sub     27 #@(macro_inc@298)(main@327)
+out             # ' ' #@(macro_inc@304)(main@327)
+add     80 #@(macro_inc@295)(main@327)
+out             # 'p' #@(macro_inc@304)(main@327)
+add     5 #@(macro_inc@295)(main@327)
+out             # 'u' #@(macro_inc@304)(main@327)
+sub     2 #@(macro_inc@298)(main@327)
+out             # 's' #@(macro_inc@304)(main@327)
+sub     11 #@(macro_inc@298)(main@327)
+out             # 'h' #@(macro_inc@304)(main@327)
+set     32 #@(macro_inc@302)(main@327)
+out             # ' ' #@(macro_inc@304)(main@327)
+add     19 #@(macro_inc@295)(main@327)
+out             # '3' #@(macro_inc@304)(main@327)
+sub     19 #@(macro_inc@298)(main@327)
+out             # ' ' #@(macro_inc@304)(main@327)
+add     27 #@(macro_inc@295)(main@327)
+out             # ';' #@(macro_inc@304)(main@327)
+sub     27 #@(macro_inc@298)(main@327)
+out             # ' ' #@(macro_inc@304)(main@327)
+add     83 #@(macro_inc@295)(main@327)
+out             # 's' #@(macro_inc@304)(main@327)
+add     2 #@(macro_inc@295)(main@327)
+out             # 'u' #@(macro_inc@304)(main@327)
+sub     19 #@(macro_inc@298)(main@327)
+out             # 'b' #@(macro_inc@304)(main@327)
+set     32 #@(macro_inc@302)(main@327)
+out             # ' ' #@(macro_inc@304)(main@327)
+add     27 #@(macro_inc@295)(main@327)
+out             # ';' #@(macro_inc@304)(main@327)
+sub     27 #@(macro_inc@298)(main@327)
+out             # ' ' #@(macro_inc@304)(main@327)
+out             # ' ' #@(macro_inc@304)(main@327)
+add     16 #@(macro_inc@295)(main@327)
+out             # '0' #@(macro_inc@304)(main@327)
+add     2 #@(macro_inc@295)(main@327)
+out             # '2' #@(macro_inc@304)(main@327)
+sub     18 #@(macro_inc@298)(main@327)
+out             # ' ' #@(macro_inc@304)(main@327)
+add     29 #@(macro_inc@295)(main@327)
+out             # '=' #@(macro_inc@304)(main@327)
+out             # '=' #@(macro_inc@304)(main@327)
+sub     29 #@(macro_inc@298)(main@327)
+out             # ' ' #@(macro_inc@304)(main@327)
+drop #@(macro_inc@307)(main@327)
 #(end macro)print(" push 5; push 3 ; sub ;  02 == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input85
-#(begin macro)if_sup("_input" + __idx,9)
-push _input85
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@328)
+div #@(macro_inc@280)(main@328)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input85 #@(macro_inc@268)(macro_inc@281)(main@328)
+#(begin macro)if_sup  _input85,    9
+push    _input85 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@328)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@328)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@328)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@328)
+  #(end macro)if_sup  _input85,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input85
-    add '7'
-  ta
+  at      _input85 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@328)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@328)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@328)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@328)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input85
-    add '0'
-  ta
+  at      _input85 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@328)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@328)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@328)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input86
-#(begin macro)if_sup("_input" + __idx,9)
-push _input86
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@328)
+pop out #@(macro_inc@274)(macro_inc@281)(main@328)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input86 #@(macro_inc@268)(macro_inc@282)(main@328)
+#(begin macro)if_sup  _input86,    9
+push    _input86 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@328)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@328)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@328)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@328)
+  #(end macro)if_sup  _input86,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input86
-    add '7'
-  ta
+  at      _input86 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@328)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@328)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@328)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@328)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input86
-    add '0'
-  ta
+  at      _input86 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@328)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@328)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@328)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@328)
+pop out #@(macro_inc@274)(macro_inc@282)(main@328)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@329)
+set     10 #@(macro_inc@302)(main@329)
+out             #  #@(macro_inc@304)(main@329)
+drop #@(macro_inc@307)(main@329)
 #(end macro)print("\n")
-push    2
-push    5
-sub
+push    2 #@(main@330)
+push    5 #@(main@331)
+sub #@(main@332)
 #(begin macro)print(" push 2; push 5 ; add ;  FD == ")
-push    0
-set     32
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     18
-out             # '2'
-add     9
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     21
-out             # '5'
-sub     21
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     65
-out             # 'a'
-add     3
-out             # 'd'
-out             # 'd'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-out             # ' '
-add     38
-out             # 'F'
-sub     2
-out             # 'D'
-set     32
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@333)
+set     32 #@(macro_inc@302)(main@333)
+out             # ' ' #@(macro_inc@304)(main@333)
+add     80 #@(macro_inc@295)(main@333)
+out             # 'p' #@(macro_inc@304)(main@333)
+add     5 #@(macro_inc@295)(main@333)
+out             # 'u' #@(macro_inc@304)(main@333)
+sub     2 #@(macro_inc@298)(main@333)
+out             # 's' #@(macro_inc@304)(main@333)
+sub     11 #@(macro_inc@298)(main@333)
+out             # 'h' #@(macro_inc@304)(main@333)
+set     32 #@(macro_inc@302)(main@333)
+out             # ' ' #@(macro_inc@304)(main@333)
+add     18 #@(macro_inc@295)(main@333)
+out             # '2' #@(macro_inc@304)(main@333)
+add     9 #@(macro_inc@295)(main@333)
+out             # ';' #@(macro_inc@304)(main@333)
+sub     27 #@(macro_inc@298)(main@333)
+out             # ' ' #@(macro_inc@304)(main@333)
+add     80 #@(macro_inc@295)(main@333)
+out             # 'p' #@(macro_inc@304)(main@333)
+add     5 #@(macro_inc@295)(main@333)
+out             # 'u' #@(macro_inc@304)(main@333)
+sub     2 #@(macro_inc@298)(main@333)
+out             # 's' #@(macro_inc@304)(main@333)
+sub     11 #@(macro_inc@298)(main@333)
+out             # 'h' #@(macro_inc@304)(main@333)
+set     32 #@(macro_inc@302)(main@333)
+out             # ' ' #@(macro_inc@304)(main@333)
+add     21 #@(macro_inc@295)(main@333)
+out             # '5' #@(macro_inc@304)(main@333)
+sub     21 #@(macro_inc@298)(main@333)
+out             # ' ' #@(macro_inc@304)(main@333)
+add     27 #@(macro_inc@295)(main@333)
+out             # ';' #@(macro_inc@304)(main@333)
+sub     27 #@(macro_inc@298)(main@333)
+out             # ' ' #@(macro_inc@304)(main@333)
+add     65 #@(macro_inc@295)(main@333)
+out             # 'a' #@(macro_inc@304)(main@333)
+add     3 #@(macro_inc@295)(main@333)
+out             # 'd' #@(macro_inc@304)(main@333)
+out             # 'd' #@(macro_inc@304)(main@333)
+set     32 #@(macro_inc@302)(main@333)
+out             # ' ' #@(macro_inc@304)(main@333)
+add     27 #@(macro_inc@295)(main@333)
+out             # ';' #@(macro_inc@304)(main@333)
+sub     27 #@(macro_inc@298)(main@333)
+out             # ' ' #@(macro_inc@304)(main@333)
+out             # ' ' #@(macro_inc@304)(main@333)
+add     38 #@(macro_inc@295)(main@333)
+out             # 'F' #@(macro_inc@304)(main@333)
+sub     2 #@(macro_inc@298)(main@333)
+out             # 'D' #@(macro_inc@304)(main@333)
+set     32 #@(macro_inc@302)(main@333)
+out             # ' ' #@(macro_inc@304)(main@333)
+add     29 #@(macro_inc@295)(main@333)
+out             # '=' #@(macro_inc@304)(main@333)
+out             # '=' #@(macro_inc@304)(main@333)
+sub     29 #@(macro_inc@298)(main@333)
+out             # ' ' #@(macro_inc@304)(main@333)
+drop #@(macro_inc@307)(main@333)
 #(end macro)print(" push 2; push 5 ; add ;  FD == ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input87
-#(begin macro)if_sup("_input" + __idx,9)
-push _input87
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@334)
+div #@(macro_inc@280)(main@334)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input87 #@(macro_inc@268)(macro_inc@281)(main@334)
+#(begin macro)if_sup  _input87,    9
+push    _input87 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@334)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@334)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@334)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@334)
+  #(end macro)if_sup  _input87,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input87
-    add '7'
-  ta
+  at      _input87 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@334)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@334)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@334)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@334)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input87
-    add '0'
-  ta
+  at      _input87 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@334)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@334)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@334)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input88
-#(begin macro)if_sup("_input" + __idx,9)
-push _input88
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@334)
+pop out #@(macro_inc@274)(macro_inc@281)(main@334)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input88 #@(macro_inc@268)(macro_inc@282)(main@334)
+#(begin macro)if_sup  _input88,    9
+push    _input88 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@334)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@334)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@334)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@334)
+  #(end macro)if_sup  _input88,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input88
-    add '7'
-  ta
+  at      _input88 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@334)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@334)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@334)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@334)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input88
-    add '0'
-  ta
+  at      _input88 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@334)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@334)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@334)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@334)
+pop out #@(macro_inc@274)(macro_inc@282)(main@334)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@335)
+set     10 #@(macro_inc@302)(main@335)
+out             #  #@(macro_inc@304)(main@335)
+drop #@(macro_inc@307)(main@335)
 #(end macro)print("\n")
-
+ #@(main@336)
 #(begin macro)print("SUP , value in stack -1 greater than stack\n")
-push    0
-set     83
-out             # 'S'
-add     2
-out             # 'U'
-sub     5
-out             # 'P'
-set     32
-out             # ' '
-add     12
-out             # ','
-sub     12
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     5
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     32
-out             # ' '
-add     13
-out             # '-'
-add     4
-out             # '1'
-sub     17
-out             # ' '
-add     71
-out             # 'g'
-add     11
-out             # 'r'
-sub     13
-out             # 'e'
-sub     4
-out             # 'a'
-add     19
-out             # 't'
-sub     15
-out             # 'e'
-add     13
-out             # 'r'
-set     32
-out             # ' '
-add     84
-out             # 't'
-sub     12
-out             # 'h'
-sub     7
-out             # 'a'
-add     13
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@337)
+set     83 #@(macro_inc@302)(main@337)
+out             # 'S' #@(macro_inc@304)(main@337)
+add     2 #@(macro_inc@295)(main@337)
+out             # 'U' #@(macro_inc@304)(main@337)
+sub     5 #@(macro_inc@298)(main@337)
+out             # 'P' #@(macro_inc@304)(main@337)
+set     32 #@(macro_inc@302)(main@337)
+out             # ' ' #@(macro_inc@304)(main@337)
+add     12 #@(macro_inc@295)(main@337)
+out             # ',' #@(macro_inc@304)(main@337)
+sub     12 #@(macro_inc@298)(main@337)
+out             # ' ' #@(macro_inc@304)(main@337)
+add     86 #@(macro_inc@295)(main@337)
+out             # 'v' #@(macro_inc@304)(main@337)
+sub     21 #@(macro_inc@298)(main@337)
+out             # 'a' #@(macro_inc@304)(main@337)
+add     11 #@(macro_inc@295)(main@337)
+out             # 'l' #@(macro_inc@304)(main@337)
+add     9 #@(macro_inc@295)(main@337)
+out             # 'u' #@(macro_inc@304)(main@337)
+sub     16 #@(macro_inc@298)(main@337)
+out             # 'e' #@(macro_inc@304)(main@337)
+set     32 #@(macro_inc@302)(main@337)
+out             # ' ' #@(macro_inc@304)(main@337)
+add     73 #@(macro_inc@295)(main@337)
+out             # 'i' #@(macro_inc@304)(main@337)
+add     5 #@(macro_inc@295)(main@337)
+out             # 'n' #@(macro_inc@304)(main@337)
+set     32 #@(macro_inc@302)(main@337)
+out             # ' ' #@(macro_inc@304)(main@337)
+add     83 #@(macro_inc@295)(main@337)
+out             # 's' #@(macro_inc@304)(main@337)
+add     1 #@(macro_inc@295)(main@337)
+out             # 't' #@(macro_inc@304)(main@337)
+sub     19 #@(macro_inc@298)(main@337)
+out             # 'a' #@(macro_inc@304)(main@337)
+add     2 #@(macro_inc@295)(main@337)
+out             # 'c' #@(macro_inc@304)(main@337)
+add     8 #@(macro_inc@295)(main@337)
+out             # 'k' #@(macro_inc@304)(main@337)
+set     32 #@(macro_inc@302)(main@337)
+out             # ' ' #@(macro_inc@304)(main@337)
+add     13 #@(macro_inc@295)(main@337)
+out             # '-' #@(macro_inc@304)(main@337)
+add     4 #@(macro_inc@295)(main@337)
+out             # '1' #@(macro_inc@304)(main@337)
+sub     17 #@(macro_inc@298)(main@337)
+out             # ' ' #@(macro_inc@304)(main@337)
+add     71 #@(macro_inc@295)(main@337)
+out             # 'g' #@(macro_inc@304)(main@337)
+add     11 #@(macro_inc@295)(main@337)
+out             # 'r' #@(macro_inc@304)(main@337)
+sub     13 #@(macro_inc@298)(main@337)
+out             # 'e' #@(macro_inc@304)(main@337)
+sub     4 #@(macro_inc@298)(main@337)
+out             # 'a' #@(macro_inc@304)(main@337)
+add     19 #@(macro_inc@295)(main@337)
+out             # 't' #@(macro_inc@304)(main@337)
+sub     15 #@(macro_inc@298)(main@337)
+out             # 'e' #@(macro_inc@304)(main@337)
+add     13 #@(macro_inc@295)(main@337)
+out             # 'r' #@(macro_inc@304)(main@337)
+set     32 #@(macro_inc@302)(main@337)
+out             # ' ' #@(macro_inc@304)(main@337)
+add     84 #@(macro_inc@295)(main@337)
+out             # 't' #@(macro_inc@304)(main@337)
+sub     12 #@(macro_inc@298)(main@337)
+out             # 'h' #@(macro_inc@304)(main@337)
+sub     7 #@(macro_inc@298)(main@337)
+out             # 'a' #@(macro_inc@304)(main@337)
+add     13 #@(macro_inc@295)(main@337)
+out             # 'n' #@(macro_inc@304)(main@337)
+set     32 #@(macro_inc@302)(main@337)
+out             # ' ' #@(macro_inc@304)(main@337)
+add     83 #@(macro_inc@295)(main@337)
+out             # 's' #@(macro_inc@304)(main@337)
+add     1 #@(macro_inc@295)(main@337)
+out             # 't' #@(macro_inc@304)(main@337)
+sub     19 #@(macro_inc@298)(main@337)
+out             # 'a' #@(macro_inc@304)(main@337)
+add     2 #@(macro_inc@295)(main@337)
+out             # 'c' #@(macro_inc@304)(main@337)
+add     8 #@(macro_inc@295)(main@337)
+out             # 'k' #@(macro_inc@304)(main@337)
+set     10 #@(macro_inc@302)(main@337)
+out             #  #@(macro_inc@304)(main@337)
+drop #@(macro_inc@307)(main@337)
 #(end macro)print("SUP , value in stack -1 greater than stack\n")
 #(begin macro)print(" 10 > 10 : 00 == ")
-push    0
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     30
-out             # '>'
-sub     30
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-out             # '0'
-sub     16
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@338)
+set     32 #@(macro_inc@302)(main@338)
+out             # ' ' #@(macro_inc@304)(main@338)
+add     17 #@(macro_inc@295)(main@338)
+out             # '1' #@(macro_inc@304)(main@338)
+sub     1 #@(macro_inc@298)(main@338)
+out             # '0' #@(macro_inc@304)(main@338)
+sub     16 #@(macro_inc@298)(main@338)
+out             # ' ' #@(macro_inc@304)(main@338)
+add     30 #@(macro_inc@295)(main@338)
+out             # '>' #@(macro_inc@304)(main@338)
+sub     30 #@(macro_inc@298)(main@338)
+out             # ' ' #@(macro_inc@304)(main@338)
+add     17 #@(macro_inc@295)(main@338)
+out             # '1' #@(macro_inc@304)(main@338)
+sub     1 #@(macro_inc@298)(main@338)
+out             # '0' #@(macro_inc@304)(main@338)
+sub     16 #@(macro_inc@298)(main@338)
+out             # ' ' #@(macro_inc@304)(main@338)
+add     26 #@(macro_inc@295)(main@338)
+out             # ':' #@(macro_inc@304)(main@338)
+sub     26 #@(macro_inc@298)(main@338)
+out             # ' ' #@(macro_inc@304)(main@338)
+add     16 #@(macro_inc@295)(main@338)
+out             # '0' #@(macro_inc@304)(main@338)
+out             # '0' #@(macro_inc@304)(main@338)
+sub     16 #@(macro_inc@298)(main@338)
+out             # ' ' #@(macro_inc@304)(main@338)
+add     29 #@(macro_inc@295)(main@338)
+out             # '=' #@(macro_inc@304)(main@338)
+out             # '=' #@(macro_inc@304)(main@338)
+sub     29 #@(macro_inc@298)(main@338)
+out             # ' ' #@(macro_inc@304)(main@338)
+drop #@(macro_inc@307)(main@338)
 #(end macro)print(" 10 > 10 : 00 == ")
-push 10
-push 10
-sup
+push 10 #@(main@339)
+push 10 #@(main@340)
+sup #@(main@341)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input89
-#(begin macro)if_sup("_input" + __idx,9)
-push _input89
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@342)
+div #@(macro_inc@280)(main@342)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input89 #@(macro_inc@268)(macro_inc@281)(main@342)
+#(begin macro)if_sup  _input89,    9
+push    _input89 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@342)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@342)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@342)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@342)
+  #(end macro)if_sup  _input89,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input89
-    add '7'
-  ta
+  at      _input89 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@342)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@342)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@342)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@342)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input89
-    add '0'
-  ta
+  at      _input89 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@342)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@342)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@342)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input90
-#(begin macro)if_sup("_input" + __idx,9)
-push _input90
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@342)
+pop out #@(macro_inc@274)(macro_inc@281)(main@342)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input90 #@(macro_inc@268)(macro_inc@282)(main@342)
+#(begin macro)if_sup  _input90,    9
+push    _input90 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@342)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@342)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@342)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@342)
+  #(end macro)if_sup  _input90,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input90
-    add '7'
-  ta
+  at      _input90 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@342)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@342)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@342)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@342)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input90
-    add '0'
-  ta
+  at      _input90 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@342)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@342)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@342)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@342)
+pop out #@(macro_inc@274)(macro_inc@282)(main@342)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@343)
+set     10 #@(macro_inc@302)(main@343)
+out             #  #@(macro_inc@304)(main@343)
+drop #@(macro_inc@307)(main@343)
 #(end macro)print("\n")
 #(begin macro)print(" 10 > 8 : 01 == ")
-push    0
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-sub     16
-out             # ' '
-add     30
-out             # '>'
-sub     30
-out             # ' '
-add     24
-out             # '8'
-sub     24
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@344)
+set     32 #@(macro_inc@302)(main@344)
+out             # ' ' #@(macro_inc@304)(main@344)
+add     17 #@(macro_inc@295)(main@344)
+out             # '1' #@(macro_inc@304)(main@344)
+sub     1 #@(macro_inc@298)(main@344)
+out             # '0' #@(macro_inc@304)(main@344)
+sub     16 #@(macro_inc@298)(main@344)
+out             # ' ' #@(macro_inc@304)(main@344)
+add     30 #@(macro_inc@295)(main@344)
+out             # '>' #@(macro_inc@304)(main@344)
+sub     30 #@(macro_inc@298)(main@344)
+out             # ' ' #@(macro_inc@304)(main@344)
+add     24 #@(macro_inc@295)(main@344)
+out             # '8' #@(macro_inc@304)(main@344)
+sub     24 #@(macro_inc@298)(main@344)
+out             # ' ' #@(macro_inc@304)(main@344)
+add     26 #@(macro_inc@295)(main@344)
+out             # ':' #@(macro_inc@304)(main@344)
+sub     26 #@(macro_inc@298)(main@344)
+out             # ' ' #@(macro_inc@304)(main@344)
+add     16 #@(macro_inc@295)(main@344)
+out             # '0' #@(macro_inc@304)(main@344)
+add     1 #@(macro_inc@295)(main@344)
+out             # '1' #@(macro_inc@304)(main@344)
+sub     17 #@(macro_inc@298)(main@344)
+out             # ' ' #@(macro_inc@304)(main@344)
+add     29 #@(macro_inc@295)(main@344)
+out             # '=' #@(macro_inc@304)(main@344)
+out             # '=' #@(macro_inc@304)(main@344)
+sub     29 #@(macro_inc@298)(main@344)
+out             # ' ' #@(macro_inc@304)(main@344)
+drop #@(macro_inc@307)(main@344)
 #(end macro)print(" 10 > 8 : 01 == ")
-push 10
-push 8
-sup
+push 10 #@(main@345)
+push 8 #@(main@346)
+sup #@(main@347)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input91
-#(begin macro)if_sup("_input" + __idx,9)
-push _input91
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@348)
+div #@(macro_inc@280)(main@348)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input91 #@(macro_inc@268)(macro_inc@281)(main@348)
+#(begin macro)if_sup  _input91,    9
+push    _input91 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@348)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@348)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@348)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@348)
+  #(end macro)if_sup  _input91,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input91
-    add '7'
-  ta
+  at      _input91 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@348)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@348)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@348)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@348)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input91
-    add '0'
-  ta
+  at      _input91 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@348)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@348)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@348)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input92
-#(begin macro)if_sup("_input" + __idx,9)
-push _input92
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@348)
+pop out #@(macro_inc@274)(macro_inc@281)(main@348)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input92 #@(macro_inc@268)(macro_inc@282)(main@348)
+#(begin macro)if_sup  _input92,    9
+push    _input92 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@348)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@348)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@348)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@348)
+  #(end macro)if_sup  _input92,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input92
-    add '7'
-  ta
+  at      _input92 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@348)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@348)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@348)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@348)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input92
-    add '0'
-  ta
+  at      _input92 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@348)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@348)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@348)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@348)
+pop out #@(macro_inc@274)(macro_inc@282)(main@348)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@349)
+set     10 #@(macro_inc@302)(main@349)
+out             #  #@(macro_inc@304)(main@349)
+drop #@(macro_inc@307)(main@349)
 #(end macro)print("\n")
 #(begin macro)print(" 255 > 0 : 01 == ")
-push    0
-set     32
-out             # ' '
-add     18
-out             # '2'
-add     3
-out             # '5'
-out             # '5'
-sub     21
-out             # ' '
-add     30
-out             # '>'
-sub     30
-out             # ' '
-add     16
-out             # '0'
-sub     16
-out             # ' '
-add     26
-out             # ':'
-sub     26
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@350)
+set     32 #@(macro_inc@302)(main@350)
+out             # ' ' #@(macro_inc@304)(main@350)
+add     18 #@(macro_inc@295)(main@350)
+out             # '2' #@(macro_inc@304)(main@350)
+add     3 #@(macro_inc@295)(main@350)
+out             # '5' #@(macro_inc@304)(main@350)
+out             # '5' #@(macro_inc@304)(main@350)
+sub     21 #@(macro_inc@298)(main@350)
+out             # ' ' #@(macro_inc@304)(main@350)
+add     30 #@(macro_inc@295)(main@350)
+out             # '>' #@(macro_inc@304)(main@350)
+sub     30 #@(macro_inc@298)(main@350)
+out             # ' ' #@(macro_inc@304)(main@350)
+add     16 #@(macro_inc@295)(main@350)
+out             # '0' #@(macro_inc@304)(main@350)
+sub     16 #@(macro_inc@298)(main@350)
+out             # ' ' #@(macro_inc@304)(main@350)
+add     26 #@(macro_inc@295)(main@350)
+out             # ':' #@(macro_inc@304)(main@350)
+sub     26 #@(macro_inc@298)(main@350)
+out             # ' ' #@(macro_inc@304)(main@350)
+add     16 #@(macro_inc@295)(main@350)
+out             # '0' #@(macro_inc@304)(main@350)
+add     1 #@(macro_inc@295)(main@350)
+out             # '1' #@(macro_inc@304)(main@350)
+sub     17 #@(macro_inc@298)(main@350)
+out             # ' ' #@(macro_inc@304)(main@350)
+add     29 #@(macro_inc@295)(main@350)
+out             # '=' #@(macro_inc@304)(main@350)
+out             # '=' #@(macro_inc@304)(main@350)
+sub     29 #@(macro_inc@298)(main@350)
+out             # ' ' #@(macro_inc@304)(main@350)
+drop #@(macro_inc@307)(main@350)
 #(end macro)print(" 255 > 0 : 01 == ")
-push 255
-push 0
-sup
+push 255 #@(main@351)
+push 0 #@(main@352)
+sup #@(main@353)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input93
-#(begin macro)if_sup("_input" + __idx,9)
-push _input93
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@354)
+div #@(macro_inc@280)(main@354)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input93 #@(macro_inc@268)(macro_inc@281)(main@354)
+#(begin macro)if_sup  _input93,    9
+push    _input93 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@354)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@354)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@354)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@354)
+  #(end macro)if_sup  _input93,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input93
-    add '7'
-  ta
+  at      _input93 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@354)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@354)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@354)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@354)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input93
-    add '0'
-  ta
+  at      _input93 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@354)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@354)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@354)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input94
-#(begin macro)if_sup("_input" + __idx,9)
-push _input94
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@354)
+pop out #@(macro_inc@274)(macro_inc@281)(main@354)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input94 #@(macro_inc@268)(macro_inc@282)(main@354)
+#(begin macro)if_sup  _input94,    9
+push    _input94 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@354)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@354)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@354)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@354)
+  #(end macro)if_sup  _input94,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input94
-    add '7'
-  ta
+  at      _input94 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@354)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@354)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@354)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@354)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input94
-    add '0'
-  ta
+  at      _input94 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@354)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@354)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@354)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@354)
+pop out #@(macro_inc@274)(macro_inc@282)(main@354)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@355)
+set     10 #@(macro_inc@302)(main@355)
+out             #  #@(macro_inc@304)(main@355)
+drop #@(macro_inc@307)(main@355)
 #(end macro)print("\n")
-
+ #@(main@356)
 #(begin macro)print("SWAP, exchange two values in stack\n")
-push    0
-set     83
-out             # 'S'
-add     4
-out             # 'W'
-sub     22
-out             # 'A'
-add     15
-out             # 'P'
-sub     36
-out             # ','
-sub     12
-out             # ' '
-add     69
-out             # 'e'
-add     19
-out             # 'x'
-sub     21
-out             # 'c'
-add     5
-out             # 'h'
-sub     7
-out             # 'a'
-add     13
-out             # 'n'
-sub     7
-out             # 'g'
-sub     2
-out             # 'e'
-set     32
-out             # ' '
-add     84
-out             # 't'
-add     3
-out             # 'w'
-sub     8
-out             # 'o'
-set     32
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-add     14
-out             # 's'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     5
-out             # 'n'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@357)
+set     83 #@(macro_inc@302)(main@357)
+out             # 'S' #@(macro_inc@304)(main@357)
+add     4 #@(macro_inc@295)(main@357)
+out             # 'W' #@(macro_inc@304)(main@357)
+sub     22 #@(macro_inc@298)(main@357)
+out             # 'A' #@(macro_inc@304)(main@357)
+add     15 #@(macro_inc@295)(main@357)
+out             # 'P' #@(macro_inc@304)(main@357)
+sub     36 #@(macro_inc@298)(main@357)
+out             # ',' #@(macro_inc@304)(main@357)
+sub     12 #@(macro_inc@298)(main@357)
+out             # ' ' #@(macro_inc@304)(main@357)
+add     69 #@(macro_inc@295)(main@357)
+out             # 'e' #@(macro_inc@304)(main@357)
+add     19 #@(macro_inc@295)(main@357)
+out             # 'x' #@(macro_inc@304)(main@357)
+sub     21 #@(macro_inc@298)(main@357)
+out             # 'c' #@(macro_inc@304)(main@357)
+add     5 #@(macro_inc@295)(main@357)
+out             # 'h' #@(macro_inc@304)(main@357)
+sub     7 #@(macro_inc@298)(main@357)
+out             # 'a' #@(macro_inc@304)(main@357)
+add     13 #@(macro_inc@295)(main@357)
+out             # 'n' #@(macro_inc@304)(main@357)
+sub     7 #@(macro_inc@298)(main@357)
+out             # 'g' #@(macro_inc@304)(main@357)
+sub     2 #@(macro_inc@298)(main@357)
+out             # 'e' #@(macro_inc@304)(main@357)
+set     32 #@(macro_inc@302)(main@357)
+out             # ' ' #@(macro_inc@304)(main@357)
+add     84 #@(macro_inc@295)(main@357)
+out             # 't' #@(macro_inc@304)(main@357)
+add     3 #@(macro_inc@295)(main@357)
+out             # 'w' #@(macro_inc@304)(main@357)
+sub     8 #@(macro_inc@298)(main@357)
+out             # 'o' #@(macro_inc@304)(main@357)
+set     32 #@(macro_inc@302)(main@357)
+out             # ' ' #@(macro_inc@304)(main@357)
+add     86 #@(macro_inc@295)(main@357)
+out             # 'v' #@(macro_inc@304)(main@357)
+sub     21 #@(macro_inc@298)(main@357)
+out             # 'a' #@(macro_inc@304)(main@357)
+add     11 #@(macro_inc@295)(main@357)
+out             # 'l' #@(macro_inc@304)(main@357)
+add     9 #@(macro_inc@295)(main@357)
+out             # 'u' #@(macro_inc@304)(main@357)
+sub     16 #@(macro_inc@298)(main@357)
+out             # 'e' #@(macro_inc@304)(main@357)
+add     14 #@(macro_inc@295)(main@357)
+out             # 's' #@(macro_inc@304)(main@357)
+set     32 #@(macro_inc@302)(main@357)
+out             # ' ' #@(macro_inc@304)(main@357)
+add     73 #@(macro_inc@295)(main@357)
+out             # 'i' #@(macro_inc@304)(main@357)
+add     5 #@(macro_inc@295)(main@357)
+out             # 'n' #@(macro_inc@304)(main@357)
+set     32 #@(macro_inc@302)(main@357)
+out             # ' ' #@(macro_inc@304)(main@357)
+add     83 #@(macro_inc@295)(main@357)
+out             # 's' #@(macro_inc@304)(main@357)
+add     1 #@(macro_inc@295)(main@357)
+out             # 't' #@(macro_inc@304)(main@357)
+sub     19 #@(macro_inc@298)(main@357)
+out             # 'a' #@(macro_inc@304)(main@357)
+add     2 #@(macro_inc@295)(main@357)
+out             # 'c' #@(macro_inc@304)(main@357)
+add     8 #@(macro_inc@295)(main@357)
+out             # 'k' #@(macro_inc@304)(main@357)
+set     10 #@(macro_inc@302)(main@357)
+out             #  #@(macro_inc@304)(main@357)
+drop #@(macro_inc@307)(main@357)
 #(end macro)print("SWAP, exchange two values in stack\n")
 #(begin macro)print("  push 10; push 9 ; swap ; 0A 09 == ")
-push    0
-set     32
-out             # ' '
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     17
-out             # '1'
-sub     1
-out             # '0'
-add     11
-out             # ';'
-sub     27
-out             # ' '
-add     80
-out             # 'p'
-add     5
-out             # 'u'
-sub     2
-out             # 's'
-sub     11
-out             # 'h'
-set     32
-out             # ' '
-add     25
-out             # '9'
-sub     25
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     83
-out             # 's'
-add     4
-out             # 'w'
-sub     22
-out             # 'a'
-add     15
-out             # 'p'
-set     32
-out             # ' '
-add     27
-out             # ';'
-sub     27
-out             # ' '
-add     16
-out             # '0'
-add     17
-out             # 'A'
-set     32
-out             # ' '
-add     16
-out             # '0'
-add     9
-out             # '9'
-sub     25
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@358)
+set     32 #@(macro_inc@302)(main@358)
+out             # ' ' #@(macro_inc@304)(main@358)
+out             # ' ' #@(macro_inc@304)(main@358)
+add     80 #@(macro_inc@295)(main@358)
+out             # 'p' #@(macro_inc@304)(main@358)
+add     5 #@(macro_inc@295)(main@358)
+out             # 'u' #@(macro_inc@304)(main@358)
+sub     2 #@(macro_inc@298)(main@358)
+out             # 's' #@(macro_inc@304)(main@358)
+sub     11 #@(macro_inc@298)(main@358)
+out             # 'h' #@(macro_inc@304)(main@358)
+set     32 #@(macro_inc@302)(main@358)
+out             # ' ' #@(macro_inc@304)(main@358)
+add     17 #@(macro_inc@295)(main@358)
+out             # '1' #@(macro_inc@304)(main@358)
+sub     1 #@(macro_inc@298)(main@358)
+out             # '0' #@(macro_inc@304)(main@358)
+add     11 #@(macro_inc@295)(main@358)
+out             # ';' #@(macro_inc@304)(main@358)
+sub     27 #@(macro_inc@298)(main@358)
+out             # ' ' #@(macro_inc@304)(main@358)
+add     80 #@(macro_inc@295)(main@358)
+out             # 'p' #@(macro_inc@304)(main@358)
+add     5 #@(macro_inc@295)(main@358)
+out             # 'u' #@(macro_inc@304)(main@358)
+sub     2 #@(macro_inc@298)(main@358)
+out             # 's' #@(macro_inc@304)(main@358)
+sub     11 #@(macro_inc@298)(main@358)
+out             # 'h' #@(macro_inc@304)(main@358)
+set     32 #@(macro_inc@302)(main@358)
+out             # ' ' #@(macro_inc@304)(main@358)
+add     25 #@(macro_inc@295)(main@358)
+out             # '9' #@(macro_inc@304)(main@358)
+sub     25 #@(macro_inc@298)(main@358)
+out             # ' ' #@(macro_inc@304)(main@358)
+add     27 #@(macro_inc@295)(main@358)
+out             # ';' #@(macro_inc@304)(main@358)
+sub     27 #@(macro_inc@298)(main@358)
+out             # ' ' #@(macro_inc@304)(main@358)
+add     83 #@(macro_inc@295)(main@358)
+out             # 's' #@(macro_inc@304)(main@358)
+add     4 #@(macro_inc@295)(main@358)
+out             # 'w' #@(macro_inc@304)(main@358)
+sub     22 #@(macro_inc@298)(main@358)
+out             # 'a' #@(macro_inc@304)(main@358)
+add     15 #@(macro_inc@295)(main@358)
+out             # 'p' #@(macro_inc@304)(main@358)
+set     32 #@(macro_inc@302)(main@358)
+out             # ' ' #@(macro_inc@304)(main@358)
+add     27 #@(macro_inc@295)(main@358)
+out             # ';' #@(macro_inc@304)(main@358)
+sub     27 #@(macro_inc@298)(main@358)
+out             # ' ' #@(macro_inc@304)(main@358)
+add     16 #@(macro_inc@295)(main@358)
+out             # '0' #@(macro_inc@304)(main@358)
+add     17 #@(macro_inc@295)(main@358)
+out             # 'A' #@(macro_inc@304)(main@358)
+set     32 #@(macro_inc@302)(main@358)
+out             # ' ' #@(macro_inc@304)(main@358)
+add     16 #@(macro_inc@295)(main@358)
+out             # '0' #@(macro_inc@304)(main@358)
+add     9 #@(macro_inc@295)(main@358)
+out             # '9' #@(macro_inc@304)(main@358)
+sub     25 #@(macro_inc@298)(main@358)
+out             # ' ' #@(macro_inc@304)(main@358)
+add     29 #@(macro_inc@295)(main@358)
+out             # '=' #@(macro_inc@304)(main@358)
+out             # '=' #@(macro_inc@304)(main@358)
+sub     29 #@(macro_inc@298)(main@358)
+out             # ' ' #@(macro_inc@304)(main@358)
+drop #@(macro_inc@307)(main@358)
 #(end macro)print("  push 10; push 9 ; swap ; 0A 09 == ")
-push 10
-push 9
-swap
+push 10 #@(main@359)
+push 9 #@(main@360)
+swap #@(main@361)
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input95
-#(begin macro)if_sup("_input" + __idx,9)
-push _input95
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@362)
+div #@(macro_inc@280)(main@362)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input95 #@(macro_inc@268)(macro_inc@281)(main@362)
+#(begin macro)if_sup  _input95,    9
+push    _input95 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@362)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@362)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@362)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@362)
+  #(end macro)if_sup  _input95,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input95
-    add '7'
-  ta
+  at      _input95 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@362)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@362)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@362)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@362)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input95
-    add '0'
-  ta
+  at      _input95 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@362)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@362)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@362)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input96
-#(begin macro)if_sup("_input" + __idx,9)
-push _input96
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@362)
+pop out #@(macro_inc@274)(macro_inc@281)(main@362)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input96 #@(macro_inc@268)(macro_inc@282)(main@362)
+#(begin macro)if_sup  _input96,    9
+push    _input96 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@362)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@362)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@362)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@362)
+  #(end macro)if_sup  _input96,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input96
-    add '7'
-  ta
+  at      _input96 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@362)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@362)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@362)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@362)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input96
-    add '0'
-  ta
+  at      _input96 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@362)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@362)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@362)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@362)
+pop out #@(macro_inc@274)(macro_inc@282)(main@362)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print(" ")
-push    0
-set     32
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@363)
+set     32 #@(macro_inc@302)(main@363)
+out             # ' ' #@(macro_inc@304)(main@363)
+drop #@(macro_inc@307)(main@363)
 #(end macro)print(" ")
 #(begin macro)popout8hexa()
-push    16
-div
-#(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-sbm _input97
-#(begin macro)if_sup("_input" + __idx,9)
-push _input97
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+push    16 #@(macro_inc@279)(main@364)
+div #@(macro_inc@280)(main@364)
+#(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+sbm     _input97 #@(macro_inc@268)(macro_inc@281)(main@364)
+#(begin macro)if_sup  _input97,    9
+push    _input97 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@364)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@364)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@364)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@364)
+  #(end macro)if_sup  _input97,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input97
-    add '7'
-  ta
+  at      _input97 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@364)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@364)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@364)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@281)(main@364)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input97
-    add '0'
-  ta
+  at      _input97 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@364)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@364)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@364)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-#(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-sbm _input98
-#(begin macro)if_sup("_input" + __idx,9)
-push _input98
-push 9
-sup
-if
-  #(end macro)if_sup("_input" + __idx,9)
-  #(begin macro)at_add("_input" + __idx, "'7'")
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@281)(main@364)
+pop out #@(macro_inc@274)(macro_inc@281)(main@364)
+#(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+#(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+sbm     _input98 #@(macro_inc@268)(macro_inc@282)(main@364)
+#(begin macro)if_sup  _input98,    9
+push    _input98 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@364)
+push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@364)
+sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@364)
+if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@364)
+  #(end macro)if_sup  _input98,    9
+  #(begin macro)at_add("_input" + _popouthexa, "'7'")
   #(begin macro)at_2("add",a,b)
-  at _input98
-    add '7'
-  ta
+  at      _input98 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@364)
+    add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@364)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@364)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'7'")
-else
-  #(begin macro)at_add("_input" + __idx, "'0'")
+  #(end macro)at_add("_input" + _popouthexa, "'7'")
+else #@(macro_inc@271)(macro_inc@282)(main@364)
+  #(begin macro)at_add("_input" + _popouthexa, "'0'")
   #(begin macro)at_2("add",a,b)
-  at _input98
-    add '0'
-  ta
+  at      _input98 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@364)
+    add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@364)
+  ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@364)
   #(end macro)at_2("add",a,b)
-  #(end macro)at_add("_input" + __idx, "'0'")
-fi
-pop out
-#(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+  #(end macro)at_add("_input" + _popouthexa, "'0'")
+fi #@(macro_inc@273)(macro_inc@282)(main@364)
+pop out #@(macro_inc@274)(macro_inc@282)(main@364)
+#(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
 #(end macro)popout8hexa()
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@365)
+set     10 #@(macro_inc@302)(main@365)
+out             #  #@(macro_inc@304)(main@365)
+drop #@(macro_inc@307)(main@365)
 #(end macro)print("\n")
-
+ #@(main@366)
 #(begin macro)print("WHILE/WEND , while stack value is >0 , do ..\n")
-push    0
-set     87
-out             # 'W'
-sub     15
-out             # 'H'
-add     1
-out             # 'I'
-add     3
-out             # 'L'
-sub     7
-out             # 'E'
-sub     22
-out             # '/'
-add     40
-out             # 'W'
-sub     18
-out             # 'E'
-add     9
-out             # 'N'
-sub     10
-out             # 'D'
-set     32
-out             # ' '
-add     12
-out             # ','
-sub     12
-out             # ' '
-add     87
-out             # 'w'
-sub     15
-out             # 'h'
-add     1
-out             # 'i'
-add     3
-out             # 'l'
-sub     7
-out             # 'e'
-set     32
-out             # ' '
-add     83
-out             # 's'
-add     1
-out             # 't'
-sub     19
-out             # 'a'
-add     2
-out             # 'c'
-add     8
-out             # 'k'
-set     32
-out             # ' '
-add     86
-out             # 'v'
-sub     21
-out             # 'a'
-add     11
-out             # 'l'
-add     9
-out             # 'u'
-sub     16
-out             # 'e'
-set     32
-out             # ' '
-add     73
-out             # 'i'
-add     10
-out             # 's'
-set     32
-out             # ' '
-add     30
-out             # '>'
-sub     14
-out             # '0'
-sub     16
-out             # ' '
-add     12
-out             # ','
-sub     12
-out             # ' '
-add     68
-out             # 'd'
-add     11
-out             # 'o'
-set     32
-out             # ' '
-add     14
-out             # '.'
-out             # '.'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@367)
+set     87 #@(macro_inc@302)(main@367)
+out             # 'W' #@(macro_inc@304)(main@367)
+sub     15 #@(macro_inc@298)(main@367)
+out             # 'H' #@(macro_inc@304)(main@367)
+add     1 #@(macro_inc@295)(main@367)
+out             # 'I' #@(macro_inc@304)(main@367)
+add     3 #@(macro_inc@295)(main@367)
+out             # 'L' #@(macro_inc@304)(main@367)
+sub     7 #@(macro_inc@298)(main@367)
+out             # 'E' #@(macro_inc@304)(main@367)
+sub     22 #@(macro_inc@298)(main@367)
+out             # '/' #@(macro_inc@304)(main@367)
+add     40 #@(macro_inc@295)(main@367)
+out             # 'W' #@(macro_inc@304)(main@367)
+sub     18 #@(macro_inc@298)(main@367)
+out             # 'E' #@(macro_inc@304)(main@367)
+add     9 #@(macro_inc@295)(main@367)
+out             # 'N' #@(macro_inc@304)(main@367)
+sub     10 #@(macro_inc@298)(main@367)
+out             # 'D' #@(macro_inc@304)(main@367)
+set     32 #@(macro_inc@302)(main@367)
+out             # ' ' #@(macro_inc@304)(main@367)
+add     12 #@(macro_inc@295)(main@367)
+out             # ',' #@(macro_inc@304)(main@367)
+sub     12 #@(macro_inc@298)(main@367)
+out             # ' ' #@(macro_inc@304)(main@367)
+add     87 #@(macro_inc@295)(main@367)
+out             # 'w' #@(macro_inc@304)(main@367)
+sub     15 #@(macro_inc@298)(main@367)
+out             # 'h' #@(macro_inc@304)(main@367)
+add     1 #@(macro_inc@295)(main@367)
+out             # 'i' #@(macro_inc@304)(main@367)
+add     3 #@(macro_inc@295)(main@367)
+out             # 'l' #@(macro_inc@304)(main@367)
+sub     7 #@(macro_inc@298)(main@367)
+out             # 'e' #@(macro_inc@304)(main@367)
+set     32 #@(macro_inc@302)(main@367)
+out             # ' ' #@(macro_inc@304)(main@367)
+add     83 #@(macro_inc@295)(main@367)
+out             # 's' #@(macro_inc@304)(main@367)
+add     1 #@(macro_inc@295)(main@367)
+out             # 't' #@(macro_inc@304)(main@367)
+sub     19 #@(macro_inc@298)(main@367)
+out             # 'a' #@(macro_inc@304)(main@367)
+add     2 #@(macro_inc@295)(main@367)
+out             # 'c' #@(macro_inc@304)(main@367)
+add     8 #@(macro_inc@295)(main@367)
+out             # 'k' #@(macro_inc@304)(main@367)
+set     32 #@(macro_inc@302)(main@367)
+out             # ' ' #@(macro_inc@304)(main@367)
+add     86 #@(macro_inc@295)(main@367)
+out             # 'v' #@(macro_inc@304)(main@367)
+sub     21 #@(macro_inc@298)(main@367)
+out             # 'a' #@(macro_inc@304)(main@367)
+add     11 #@(macro_inc@295)(main@367)
+out             # 'l' #@(macro_inc@304)(main@367)
+add     9 #@(macro_inc@295)(main@367)
+out             # 'u' #@(macro_inc@304)(main@367)
+sub     16 #@(macro_inc@298)(main@367)
+out             # 'e' #@(macro_inc@304)(main@367)
+set     32 #@(macro_inc@302)(main@367)
+out             # ' ' #@(macro_inc@304)(main@367)
+add     73 #@(macro_inc@295)(main@367)
+out             # 'i' #@(macro_inc@304)(main@367)
+add     10 #@(macro_inc@295)(main@367)
+out             # 's' #@(macro_inc@304)(main@367)
+set     32 #@(macro_inc@302)(main@367)
+out             # ' ' #@(macro_inc@304)(main@367)
+add     30 #@(macro_inc@295)(main@367)
+out             # '>' #@(macro_inc@304)(main@367)
+sub     14 #@(macro_inc@298)(main@367)
+out             # '0' #@(macro_inc@304)(main@367)
+sub     16 #@(macro_inc@298)(main@367)
+out             # ' ' #@(macro_inc@304)(main@367)
+add     12 #@(macro_inc@295)(main@367)
+out             # ',' #@(macro_inc@304)(main@367)
+sub     12 #@(macro_inc@298)(main@367)
+out             # ' ' #@(macro_inc@304)(main@367)
+add     68 #@(macro_inc@295)(main@367)
+out             # 'd' #@(macro_inc@304)(main@367)
+add     11 #@(macro_inc@295)(main@367)
+out             # 'o' #@(macro_inc@304)(main@367)
+set     32 #@(macro_inc@302)(main@367)
+out             # ' ' #@(macro_inc@304)(main@367)
+add     14 #@(macro_inc@295)(main@367)
+out             # '.' #@(macro_inc@304)(main@367)
+out             # '.' #@(macro_inc@304)(main@367)
+set     10 #@(macro_inc@302)(main@367)
+out             #  #@(macro_inc@304)(main@367)
+drop #@(macro_inc@307)(main@367)
 #(end macro)print("WHILE/WEND , while stack value is >0 , do ..\n")
 #(begin macro)print(" 01 02 03 == ")
-push    0
-set     32
-out             # ' '
-add     16
-out             # '0'
-add     1
-out             # '1'
-sub     17
-out             # ' '
-add     16
-out             # '0'
-add     2
-out             # '2'
-sub     18
-out             # ' '
-add     16
-out             # '0'
-add     3
-out             # '3'
-sub     19
-out             # ' '
-add     29
-out             # '='
-out             # '='
-sub     29
-out             # ' '
-drop
+push    0 #@(macro_inc@287)(main@368)
+set     32 #@(macro_inc@302)(main@368)
+out             # ' ' #@(macro_inc@304)(main@368)
+add     16 #@(macro_inc@295)(main@368)
+out             # '0' #@(macro_inc@304)(main@368)
+add     1 #@(macro_inc@295)(main@368)
+out             # '1' #@(macro_inc@304)(main@368)
+sub     17 #@(macro_inc@298)(main@368)
+out             # ' ' #@(macro_inc@304)(main@368)
+add     16 #@(macro_inc@295)(main@368)
+out             # '0' #@(macro_inc@304)(main@368)
+add     2 #@(macro_inc@295)(main@368)
+out             # '2' #@(macro_inc@304)(main@368)
+sub     18 #@(macro_inc@298)(main@368)
+out             # ' ' #@(macro_inc@304)(main@368)
+add     16 #@(macro_inc@295)(main@368)
+out             # '0' #@(macro_inc@304)(main@368)
+add     3 #@(macro_inc@295)(main@368)
+out             # '3' #@(macro_inc@304)(main@368)
+sub     19 #@(macro_inc@298)(main@368)
+out             # ' ' #@(macro_inc@304)(main@368)
+add     29 #@(macro_inc@295)(main@368)
+out             # '=' #@(macro_inc@304)(main@368)
+out             # '=' #@(macro_inc@304)(main@368)
+sub     29 #@(macro_inc@298)(main@368)
+out             # ' ' #@(macro_inc@304)(main@368)
+drop #@(macro_inc@307)(main@368)
 #(end macro)print(" 01 02 03 == ")
-push 1
-sbm whilewend
-while
-  push 4
-  push whilewend
-  equal
-  if
-    at whilewend
-      reset
-    ta
-  else
-    push whilewend
+push 1 #@(main@369)
+sbm whilewend #@(main@370)
+while #@(main@371)
+  push 4 #@(main@372)
+  push whilewend #@(main@373)
+  equal #@(main@374)
+  if #@(main@375)
+    at whilewend #@(main@376)
+      reset #@(main@377)
+    ta #@(main@378)
+  else #@(main@379)
+    push whilewend #@(main@380)
     #(begin macro)popout8hexa()
-    push    16
-    div
-    #(begin macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-    sbm _input99
-    #(begin macro)if_sup("_input" + __idx,9)
-    push _input99
-    push 9
-    sup
-    if
-      #(end macro)if_sup("_input" + __idx,9)
-      #(begin macro)at_add("_input" + __idx, "'7'")
+    push    16 #@(macro_inc@279)(main@381)
+    div #@(macro_inc@280)(main@381)
+    #(begin macro)popouthexa # output most significant hexa character from head of stack value, then drop
+    sbm     _input99 #@(macro_inc@268)(macro_inc@281)(main@381)
+    #(begin macro)if_sup  _input99,    9
+    push    _input99 #@(macro_inc@45)(macro_inc@269)(macro_inc@281)(main@381)
+    push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@281)(main@381)
+    sup #@(macro_inc@47)(macro_inc@269)(macro_inc@281)(main@381)
+    if #@(macro_inc@48)(macro_inc@269)(macro_inc@281)(main@381)
+      #(end macro)if_sup  _input99,    9
+      #(begin macro)at_add("_input" + _popouthexa, "'7'")
       #(begin macro)at_2("add",a,b)
-      at _input99
-        add '7'
-      ta
+      at      _input99 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@381)
+        add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@381)
+      ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@281)(main@381)
       #(end macro)at_2("add",a,b)
-      #(end macro)at_add("_input" + __idx, "'7'")
-    else
-      #(begin macro)at_add("_input" + __idx, "'0'")
+      #(end macro)at_add("_input" + _popouthexa, "'7'")
+    else #@(macro_inc@271)(macro_inc@281)(main@381)
+      #(begin macro)at_add("_input" + _popouthexa, "'0'")
       #(begin macro)at_2("add",a,b)
-      at _input99
-        add '0'
-      ta
+      at      _input99 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@381)
+        add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@381)
+      ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@281)(main@381)
       #(end macro)at_2("add",a,b)
-      #(end macro)at_add("_input" + __idx, "'0'")
-    fi
-    pop out
-    #(end macro)popouthexa() # output most significant hexa character from head of stack value, then drop
-    #(begin macro)popouthexa() # output less significant hexa character from head of stack value, then drop
-    sbm _input100
-    #(begin macro)if_sup("_input" + __idx,9)
-    push _input100
-    push 9
-    sup
-    if
-      #(end macro)if_sup("_input" + __idx,9)
-      #(begin macro)at_add("_input" + __idx, "'7'")
+      #(end macro)at_add("_input" + _popouthexa, "'0'")
+    fi #@(macro_inc@273)(macro_inc@281)(main@381)
+    pop out #@(macro_inc@274)(macro_inc@281)(main@381)
+    #(end macro)popouthexa # output most significant hexa character from head of stack value, then drop
+    #(begin macro)popouthexa # output less significant hexa character from head of stack value, then drop
+    sbm     _input100 #@(macro_inc@268)(macro_inc@282)(main@381)
+    #(begin macro)if_sup  _input100,    9
+    push    _input100 #@(macro_inc@45)(macro_inc@269)(macro_inc@282)(main@381)
+    push    9 #@(macro_inc@46)(macro_inc@269)(macro_inc@282)(main@381)
+    sup #@(macro_inc@47)(macro_inc@269)(macro_inc@282)(main@381)
+    if #@(macro_inc@48)(macro_inc@269)(macro_inc@282)(main@381)
+      #(end macro)if_sup  _input100,    9
+      #(begin macro)at_add("_input" + _popouthexa, "'7'")
       #(begin macro)at_2("add",a,b)
-      at _input100
-        add '7'
-      ta
+      at      _input100 #@(macro_inc@79)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@381)
+        add   '7' #@(macro_inc@80)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@381)
+      ta #@(macro_inc@81)(macro_inc@116)(macro_inc@270)(macro_inc@282)(main@381)
       #(end macro)at_2("add",a,b)
-      #(end macro)at_add("_input" + __idx, "'7'")
-    else
-      #(begin macro)at_add("_input" + __idx, "'0'")
+      #(end macro)at_add("_input" + _popouthexa, "'7'")
+    else #@(macro_inc@271)(macro_inc@282)(main@381)
+      #(begin macro)at_add("_input" + _popouthexa, "'0'")
       #(begin macro)at_2("add",a,b)
-      at _input100
-        add '0'
-      ta
+      at      _input100 #@(macro_inc@79)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@381)
+        add   '0' #@(macro_inc@80)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@381)
+      ta #@(macro_inc@81)(macro_inc@116)(macro_inc@272)(macro_inc@282)(main@381)
       #(end macro)at_2("add",a,b)
-      #(end macro)at_add("_input" + __idx, "'0'")
-    fi
-    pop out
-    #(end macro)popouthexa() # output less significant hexa character from head of stack value, then drop
+      #(end macro)at_add("_input" + _popouthexa, "'0'")
+    fi #@(macro_inc@273)(macro_inc@282)(main@381)
+    pop out #@(macro_inc@274)(macro_inc@282)(main@381)
+    #(end macro)popouthexa # output less significant hexa character from head of stack value, then drop
     #(end macro)popout8hexa()
     #(begin macro)print(" ")
-    push    0
-    set     32
-    out             # ' '
-    drop
+    push    0 #@(macro_inc@287)(main@382)
+    set     32 #@(macro_inc@302)(main@382)
+    out             # ' ' #@(macro_inc@304)(main@382)
+    drop #@(macro_inc@307)(main@382)
     #(end macro)print(" ")
-    at whilewend
-      inc
-    ta
-  fi
-wend
+    at whilewend #@(main@383)
+      inc #@(main@384)
+    ta #@(main@385)
+  fi #@(main@386)
+wend #@(main@387)
 #(begin macro)print("\n")
-push    0
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@388)
+set     10 #@(macro_inc@302)(main@388)
+out             #  #@(macro_inc@304)(main@388)
+drop #@(macro_inc@307)(main@388)
 #(end macro)print("\n")
-
-
+ #@(main@389)
+ #@(main@390)
 #(begin macro)print("\nEnd of test\n")
-push    0
-set     10
-out             # 
-add     59
-out             # 'E'
-add     41
-out             # 'n'
-sub     10
-out             # 'd'
-set     32
-out             # ' '
-add     79
-out             # 'o'
-sub     9
-out             # 'f'
-set     32
-out             # ' '
-add     84
-out             # 't'
-sub     15
-out             # 'e'
-add     14
-out             # 's'
-add     1
-out             # 't'
-set     10
-out             # 
-drop
+push    0 #@(macro_inc@287)(main@391)
+set     10 #@(macro_inc@302)(main@391)
+out             #  #@(macro_inc@304)(main@391)
+add     59 #@(macro_inc@295)(main@391)
+out             # 'E' #@(macro_inc@304)(main@391)
+add     41 #@(macro_inc@295)(main@391)
+out             # 'n' #@(macro_inc@304)(main@391)
+sub     10 #@(macro_inc@298)(main@391)
+out             # 'd' #@(macro_inc@304)(main@391)
+set     32 #@(macro_inc@302)(main@391)
+out             # ' ' #@(macro_inc@304)(main@391)
+add     79 #@(macro_inc@295)(main@391)
+out             # 'o' #@(macro_inc@304)(main@391)
+sub     9 #@(macro_inc@298)(main@391)
+out             # 'f' #@(macro_inc@304)(main@391)
+set     32 #@(macro_inc@302)(main@391)
+out             # ' ' #@(macro_inc@304)(main@391)
+add     84 #@(macro_inc@295)(main@391)
+out             # 't' #@(macro_inc@304)(main@391)
+sub     15 #@(macro_inc@298)(main@391)
+out             # 'e' #@(macro_inc@304)(main@391)
+add     14 #@(macro_inc@295)(main@391)
+out             # 's' #@(macro_inc@304)(main@391)
+add     1 #@(macro_inc@295)(main@391)
+out             # 't' #@(macro_inc@304)(main@391)
+set     10 #@(macro_inc@302)(main@391)
+out             #  #@(macro_inc@304)(main@391)
+drop #@(macro_inc@307)(main@391)
 #(end macro)print("\nEnd of test\n")
-
-
-
-
-
-
-
+ #@(main@392)
+ #@(main@393)
+ #@(main@394)
+ #@(main@395)
+ #@(main@396)
+ #@(main@397)
+ #@(main@398)
 
