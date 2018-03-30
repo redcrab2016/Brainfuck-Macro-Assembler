@@ -282,6 +282,50 @@ macro popout8hexa()
     popouthexa # output less significant hexa character from head of stack value, then drop
 endmacro
 
+macro writeDigit(a)
+    push    {a}
+    add     '0'
+    pop     out 
+endmacro
+
+
+define DECIMALSIZE  3
+var __wbdoutput*{DECIMALSIZE}
+
+# a Byte in stack : output its decimal value
+macro   writeByteDecimal()
+    sbm _wbdinput{_writeByteDecimal}
+    push {DECIMALSIZE}
+    loop
+        # output = input mod 10 ; input = input div 10
+        divide  _wbdinput{_writeByteDecimal},  10, _wbdinput{_writeByteDecimal},  __wbdoutput
+        arotl __wbdoutput
+    endloop
+    scope_begin
+        lvar    prefixzero{_writeByteDecimal}, 1
+        push    {DECIMALSIZE}
+        sbm     __wbdcnt{_writeByteDecimal}
+        loop
+            arotr   __wbdoutput
+            if_sup   __wbdcnt{_writeByteDecimal},    1   # cnt == 3 or cnt == 2
+                if_diff __wbdoutput, 0
+                    writeDigit  __wbdoutput
+                    at_set  prefixzero{_writeByteDecimal}, 0
+                else    
+                    if_equal    prefixzero{_writeByteDecimal}, 0
+                        writeDigit  __wbdoutput
+                    fi
+                fi
+            else
+                writeDigit  __wbdoutput
+            fi
+        endloop
+    scope_end
+    drop    # remove push
+endmacro
+
+
+
 # macro print(aString) : print out a string
 macro print(aString)
     push    0

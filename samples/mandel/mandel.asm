@@ -18,15 +18,14 @@ include ../include/fpnumber.inc
 define FP_I             1
     ## 24 = 3*8 bits  : for fractional part
 define FP_P             3
-define FP               {(FP_I+FP_P)}
 
 define W                80
 define H                40
-define zoom             1
+define zoom             0.8
 define moveX            -0.5
 define moveY            0 
 define maxIte           26
-define oneOnHalfZoomW   {(1/(0.5*zoom*W))}
+define oneOnHalfZoomW   {(1.2/(0.5*zoom*W))}
 define oneOnHalfZoomH   {(1/(0.5*zoom*H))}
 define halfW            {(0.5*W)}
 define halfH            {(0.5*H)}
@@ -42,21 +41,16 @@ varFP   {FP_I}, {FP_P}, oldIm
 
 var     i
 
-#declareTmpX {FP}
-#declareTmpX {FP*2}
-
 print("ASCII Mandelbrot : fixed point number sample in "+ FP_I*8 +"." + FP_P*8+" bits format\n")
 print("  Maximum iteration "+ maxIte +" : size "+ W + " x "+H+" characters\n")
 push    {H}
 loop
     push    {W}
     loop
-        # pr = 1.5 *(x - halfW) * oneOnHalfZoomW + moveX
-        pushFP  {FP_I}, {FP_P}, 1.5
+        # pr = (x - halfW) * oneOnHalfZoomW + moveX
         pushvFP {FP_I}, {FP_P}, x
         pushFP  {FP_I}, {FP_P}, {halfW}
         subFP   {FP_I}, {FP_P}
-        mulFP   {FP_I}, {FP_P}
         pushFP  {FP_I}, {FP_P}, {oneOnHalfZoomW}
         mulFP   {FP_I}, {FP_P}
         pushFP  {FP_I}, {FP_P}, {moveX}
