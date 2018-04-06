@@ -263,6 +263,80 @@ macro right_rewind(array)
     endloop
 endmacro
 
+# take value in stack
+macro arraySet(name, idx)
+    sbm     asValue{_arraySet}
+    push    {name}.pos
+    push    {idx}
+    equal
+    if
+        push    asValue{_arraySet}
+        pop     {name}
+    else
+        push    {name}.pos
+        push    {idx}
+        sup
+        if
+            push    {name}.pos
+            push    {idx}
+            sub
+            loop
+                arotr   {name}
+            endloop
+            push    asValue{_arraySet}
+            pop     {name}
+        else
+            push    {idx}
+            push    {name}.pos
+            sub
+            loop
+                arotl   {name}
+            endloop
+            push    asValue{_arraySet}
+            pop     {name}
+        fi
+    fi
+    drop
+endmacro
+
+# push value onto stack
+macro arrayGet(name, idx)
+    push    0
+    sbm     agValue{_arrayGet}
+    push    {name}.pos
+    push    {idx}
+    equal
+    if
+        push    {name}
+        pop     agValue{_arrayGet}
+    else
+        push    {name}.pos
+        push    {idx}
+        sup
+        if
+            push    {name}.pos
+            push    {idx}
+            sub
+            loop
+                arotr   {name}
+            endloop
+            push     {name}
+            pop      agValue{_arrayGet}
+        else
+            push    {idx}
+            push    {name}.pos
+            sub
+            loop
+                arotl   {name}
+            endloop
+            push     {name}
+            pop      agValue{_arrayGet}
+        fi
+    fi
+endmacro
+
+
+
 # macro popouthexa() : from head of stack value (from 0 to 15) write out hexa (from 0 to 9 and A to F)
 macro popouthexa()
     sbm     _input{_popouthexa}
