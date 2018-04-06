@@ -38,6 +38,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
+import dvx.lang.brainfuck.Util;
 import dvx.lang.brainfuck.runtime.Engine;
 
 /**
@@ -685,7 +686,7 @@ public class Assembler {
 	private String include;
 	private Map<String,Object> includedFile;
 	private int lineNum; // line number in file
-	
+
 	public Assembler(InputStream isAsmSource, String include, boolean checkUnusedVar)  {
 		sbm = new StackBookmark();
 		this.include = include;
@@ -697,7 +698,9 @@ public class Assembler {
 		errorList = new ArrayList<String>();
 		try {
 			includedFile = new HashMap<String,Object>();
+			verbose(" Pre-Compilation started");
 			strAsmSource = preCompile(isAsmSource);
+			verbose(" Pre-Compilation finished");
 		} catch (IOException | ScriptException e) {
 			errorList.add(e.getMessage());
 		}
@@ -710,6 +713,7 @@ public class Assembler {
 		mVariables = new HashMap<String, Variable>(); // new variable map
 		
 		// get Operations // syntax check +  var declaration + var useage
+		verbose(" Lexical read started");
 		try {
 			while((line = in.readLine()) != null) {
 				lineCount++;
@@ -719,8 +723,11 @@ public class Assembler {
 		} catch (IOException e) {
 			e.printStackTrace(System.err);
 		}
+		verbose(" Lexical read finished");
+
 		// check not used variable
 		if (checkUnusedVar) {
+			verbose(" Unused variable check");
 			for (Variable var: mVariables.values()) {
 				if (!var.isUsed()) {
 					var.getOperation().errorMsg += "Unused variable; ";
@@ -728,6 +735,7 @@ public class Assembler {
 			}
 		}
 		// structure the program
+		verbose(" Create operation tree");
 		lOpeTree = toTree(reduce(lOpe),0,1);
 		
 		// construct error list
@@ -740,7 +748,9 @@ public class Assembler {
 		if (hasError()) return; // stop here if there is/are error(s)
 		sbm = new StackBookmark(); // raz previous sbm instance (used during source parsing)
 		// here there is no error then produce the BF code
+		verbose(" Generate BF code started");
 		compile(lOpeTree,0,1,false);
+		verbose(" Generate BF code finished");
 		// re-construct error list
 		errorList = new ArrayList<String>(); 
 		for (Operation op: lOpe) {
@@ -752,10 +762,15 @@ public class Assembler {
 		
 	}
 	
+	private void	verbose(String msg)  {
+		Util.verbose(msg);
+	}
+	
 	private String preCompile(InputStream isAsmSource) throws IOException, ScriptException {
 		String result="";
 		BufferedReader in = new BufferedReader(new InputStreamReader(isAsmSource));
 		lineNum = 0;
+		verbose("  Generate javascript started");
 		String script = "var __blockLevel__; __blockLevel__ = 0;\n"+
 						"var __context__; __context__=[];\n" +
 						"function __context() { var __result; __result='';\n" +
@@ -765,13 +780,16 @@ public class Assembler {
 						"for (var _i=0 ; _i < __blockLevel__ ; _i++) __result+= '  ';\n"+
 						" return __result;}\n" +
 						genMacro(in,"_main","",false,"main","")+"_main();";
+		verbose("  Generate javascript finished");
 		// DEBUG
 		//System.out.println("JScode:\n"+script);
 
 		ScriptEngineManager factory = new ScriptEngineManager();
 		ScriptEngine engine = factory.getEngineByName("JavaScript");
 		preCompiledjs = script;
+		verbose("  Javascript evaluation started");
 		result = String.valueOf(engine.eval(script));
+		verbose("  Javascript evaluation finished");
 		return result;
 	}
 
@@ -1018,15 +1036,21 @@ public class Assembler {
 	}
 	
 	public String getBFOnly(boolean optimize,int lineSize) {
+		verbose(" Retrieved BF code started");
 		OutputStream output = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(output);
 		getBFCode(ps);
 		ps.flush();
 		String strBFCode = output.toString();
+		verbose("  remove non BF code");
 		strBFCode = keepBFOnly(strBFCode);
 		if (optimize) {
+			verbose("  BF code optimization started");
 			strBFCode = optimizeBF(strBFCode);
+			verbose("  BF code optimization finished");
 		}
+		verbose(" Retrieved BF code finished");
+		verbose(" BF Line breaking to "+ lineSize + " characters");
 		return lineBreaker(strBFCode,lineSize);
 	}
 	
@@ -1056,6 +1080,10 @@ public class Assembler {
 	private String optimizeBF(String bfcode) {
 		if (bfcode == null) return null;
 		if (bfcode.length()<2) return bfcode;
+		Engine eng = new Engine(bfcode,null,null);
+		eng.optimizeCodeList();
+		bfcode = eng.codeList2String();
+/*
 		int lengthbefore;
 		do {
 			lengthbefore = bfcode.length();
@@ -1065,6 +1093,7 @@ public class Assembler {
 				  .replace("><", "")
 				  .replace("[-][-]", "[-]");
 		} while (lengthbefore> bfcode.length());
+*/		
 		return bfcode;
 	}
 	
@@ -1129,23 +1158,27 @@ public class Assembler {
 		if (maxLineSize <1) return aLine;
 		
 		StringBuffer result=new StringBuffer();
-		String current=aLine;
-		while (current.length()>maxLineSize) {
-			result.append(current.substring(0, maxLineSize)).
-			append("\n");
-			current = current.substring(maxLineSize);
+		
+		int pos=0;
+		int endPos;
+		int len = aLine.length();
+		while (pos < len) {
+			endPos = pos + maxLineSize;
+			if (endPos > len ) endPos=len;
+			result.append(aLine.substring(pos, endPos));
+			result.append("\n");
+			pos+=maxLineSize;
 		}
-		if (current.length()>0) result.append(current);
 		return result.toString();
 	}
 	
 	private String repeat(String str, int nb) {
-		String result="";
+		StringBuffer result=new StringBuffer();
 		while (nb>0) {
 			nb--;
-			result+=str;
+			result.append(str);
 		}
-		return result;
+		return result.toString();
 	}
 
 	/*

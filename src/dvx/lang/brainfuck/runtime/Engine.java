@@ -61,7 +61,7 @@ public class Engine {
 	private Map<Integer,Integer> idx2line;
 	private boolean debug;
 	private PrintStream psDebug;
-	class CodeInstr {
+	public class CodeInstr {
 		private int codeIndex; // char index in code
 		private int codeLine; // line index in code
 		private char code; // code 
@@ -120,6 +120,45 @@ public class Engine {
 		lcode = buildCodeList(code);
 		debug = false;
 		psDebug = System.err;
+	}
+	
+	
+	public Engine optimizeCodeList() {
+		if (lcode.size()<2) return this;
+		for (int i=0; i < lcode.size()-1; i++){
+			CodeInstr ci1 = lcode.get(i);
+			CodeInstr ci2 = lcode.get(i+1);
+			if ((ci1.code == BF_LEFT && ci2.code == BF_RIGHT) ||
+				(ci1.code == BF_RIGHT && ci2.code == BF_LEFT) ||
+				(ci1.code == BF_PLUS && ci2.code == BF_MINUS) ||
+				(ci1.code == BF_MINUS && ci2.code == BF_PLUS)) {
+				if (ci1.n > ci2.n) {
+					ci1.n -= ci2.n;
+					lcode.remove(i+1);
+				} else if (ci1.n < ci2.n) {
+					ci2.n -= ci1.n;
+					lcode.remove(i);
+					i--;
+				} else {
+					lcode.remove(i+1);
+					lcode.remove(i);
+					i--;
+				}
+			}
+		}
+		return this;
+	}
+	
+	public String codeList2String() {
+		StringBuffer sb = new StringBuffer();
+		for (CodeInstr ci: lcode) {
+			int repeat;
+			repeat = (ci.code==BF_OPENBRACKET||ci.code==BF_CLOSEBRACKET)?1:ci.n;
+			for (int i=0 ; i < repeat; i++) {
+				sb.append(ci.code);
+			}
+		}
+		return sb.toString();
 	}
 	
 	/*
@@ -199,7 +238,7 @@ public class Engine {
 				}
 			} 
 		}
-		System.err.println(code.length() + " characters code into " + codeList.size() + " instructions");
+		//System.err.println(code.length() + " characters code into " + codeList.size() + " instructions");
 		return codeList;
 	}
 	

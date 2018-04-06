@@ -93,10 +93,10 @@ public class Mandel {
 	public static void main(String[] args) {
 		double W            =80;
 		double H            =40;
-		double zoom         =1;
+		double zoom         =0.8;
 		double moveX        =-0.5;
 		double moveY        =0 ;
-		double oneOnHalfZoomW    =1/(0.5*zoom*W);
+		double oneOnHalfZoomW    =1.2/(0.5*zoom*W);
 		double oneOnHalfZoomH    =1/(0.5*zoom*H);
 		double halfW        =(0.5*W);
 		double halfH        =(0.5*H);
@@ -107,7 +107,7 @@ public class Mandel {
 			for (x=0; x <W; x++) {
 //			    pr = 1.5 * (x - W / 2) / (0.5 * zoom * W) + moveX;
 //		        pi = (y - H / 2) / (0.5 * zoom * H) + moveY;
-			    pr = 1.5 * (x - halfW) * oneOnHalfZoomW + moveX;
+			    pr = (x - halfW) * oneOnHalfZoomW + moveX;
 		        pi = (y - halfH) * oneOnHalfZoomH + moveY;
 		        newRe = newIm = oldRe = oldIm = 0; //these should start at 0,0
 		    

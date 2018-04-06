@@ -158,6 +158,15 @@ print("\n")
 print("  5 mod 2 = 1 ; 01 == ")
 popout8hexa()
 print("\n")
+print("  3 div 2 = 1 ; 01 == ")
+push 3
+push 2
+div
+popout8hexa()
+print("\n")
+print("  3 mod 2 = 1 ; 01 == ")
+popout8hexa()
+print("\n")
 
 print("DROP, drop a value in stack\n")
 push 8

@@ -53,6 +53,7 @@ It will show the usage
       -k, --keep-build-file          Do not remove build files.
                                        by default there are located in folder containing
                                        FILE or under FOLDER specified by option -b
+      -v, --verbose                  verbose compilation (on stderr).
       -K, --delete-build-file        (default) do not keep build files.
           --check-unused-variable    No compile error if variable not used.
       -o, --outputbf=FILE            instead of STDOUT, use FILE as output for
@@ -582,7 +583,7 @@ Increment head of stack value
 ***
 ### INF
 
-Does head of stack value is less than previous stack value
+Does previous stack value is less than head of stack value 
 
 #### With stack
 
@@ -1019,7 +1020,7 @@ Do a subtraction
 ***
 ### SUP
 
-Does head of stack value is greater than previous stack value
+Does previous stack value is greater than head of stack value  
 
 #### With stack
 

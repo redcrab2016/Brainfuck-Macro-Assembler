@@ -70,6 +70,7 @@ public class Main {
 "  -k, --keep-build-file          Do not remove build files.\n" +
 "                                   by default there are located in folder containing\n" +
 "                                   FILE or under FOLDER specified by option -b\n" +
+"  -v, --verbose                  verbose compilation (on stderr).\n" +
 "  -K, --delete-build-file        (default) do not keep build files.\n" +
 "      --check-unused-variable    No compile error if variable not used.\n" +
 "  -o, --outputbf=FILE            instead of STDOUT, use FILE as output for\n" +
@@ -105,6 +106,7 @@ public class Main {
 		boolean compileForProd = true;
 		boolean bfRunDebug = false;
 		boolean bUsage = false;
+		int	verbose = 0;
 		
 		InputStream bfinput = System.in;
 		OutputStream bfoutput = System.out;
@@ -147,6 +149,10 @@ public class Main {
 				case "-k":
 				case "--keep-build-file":
 					delIntermediateFileWhenSuccess = false;
+					break;
+				case "-v":
+				case "--verbose":
+					verbose++;
 					break;
 				case "-K":
 				case "--delete-build-file":
@@ -274,7 +280,7 @@ public class Main {
 		String preComJS;
 		String preCom;
 		String status;
-		
+		Util.setVerbose(verbose);
 		
 		if (doCompile) {
 			if (buildFolder == null) {
@@ -300,30 +306,37 @@ public class Main {
 				if (include.charAt(include.length()-1) != '/') {
 					include += "/";
 				}
-	
+				Util.verbose("Compilation started :"+tstFile);
 				in = new FileInputStream(tstFile);
 				Assembler asm = new Assembler(in,include,checkUnusedVar);
+				Util.verbose("Compilation finished :"+tstFile);
 				
 				
 				PrintStream ps_preComJS = new PrintStream(preComJS);
 				ps_preComJS.println(asm.getPreCompiledJS());
 				ps_preComJS.flush();
 				ps_preComJS.close();
+				Util.verbose(preComJS + " saved");
 				
 				PrintStream ps_preCom = new PrintStream(preCom);
 				ps_preCom.println(asm.getPreCompiled());
 				ps_preCom.flush();
 				ps_preCom.close();
+				Util.verbose(preCom + " saved");
 				
 				PrintStream ps_bfDebug = new PrintStream(bfDebug);
 				asm.getBFCode(ps_bfDebug);
 				ps_bfDebug.flush();
 				ps_bfDebug.close();
+				Util.verbose(bfDebug + " saved");
+
 				
 				PrintStream ps_bfPure = new PrintStream(bfPure);
 				ps_bfPure.println(asm.getBFOnly(bfOptimized,  bfLineSize));
 				ps_bfPure.flush();
 				ps_bfPure.close();
+				Util.verbose(bfPure + " saved");
+
 				
 				PrintStream ps_status = new PrintStream(status);
 				if (asm.hasError()) {

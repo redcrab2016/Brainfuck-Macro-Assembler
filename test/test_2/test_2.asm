@@ -3,6 +3,52 @@ include ../../samples/include/macro.inc
 
 # basic macros test
 print ("Basic macro test.\n\n")
+var m*10
+
+push    'A'
+arraySet    m,  0
+push    'B'
+arraySet    m,  9
+push    'C'
+arraySet    m,  1
+push    'D'
+arraySet    m,  8
+push    'E'
+arraySet    m,  2
+push    'F'
+arraySet    m,  7
+push    'G'
+arraySet    m,  3
+push    'H'
+arraySet    m,  6
+push    'I'
+arraySet    m,  4
+push    'J'
+arraySet    m,  5
+
+print "ACEGIJHFDB="
+arrayGet    m, 0
+pop     out
+arrayGet    m, 1
+pop     out
+arrayGet    m, 2
+pop     out
+arrayGet    m, 3
+pop     out
+arrayGet    m, 4
+pop     out
+arrayGet    m, 5
+pop     out
+arrayGet    m, 6
+pop     out
+arrayGet    m, 7
+pop     out
+arrayGet    m, 8
+pop     out
+arrayGet    m, 9
+pop     out
+
+print("\n")
 scope_begin
     lvar a,10
     lvar b,20
