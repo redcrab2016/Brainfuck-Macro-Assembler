@@ -10,7 +10,7 @@ You may run the program by
 
 or
 
-    java -jar bf.jar -i GosperGliderGun.txt
+    java -jar bf.jar -i GosperGliderGun.txt life.bf
 
 Here below the famous Gosper Glider Gun at generation #110
 
